@@ -1,0 +1,8 @@
+/* CSS cho phần BANNER*/
+.home-div-image{
+    background-position: center;
+    background-size: cover; 
+    height: 650px;
+    width: 100%;
+}    
+/* Kết thúc CSS phần BANNER */
