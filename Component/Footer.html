@@ -29,21 +29,53 @@
         }
         .input-group{
             border: 1px solid #F29F05;
+            display: flex;
+            align-items: center;
+            justify-content: stretch;
             width: fit-content;
         }
         .input-group-text{
+            box-sizing: border-box;
             background-color: transparent; 
             cursor: pointer;
-            border: #F29F05 1px solid;
+            border-left: #F29F05 1px solid;
+            padding: 0.5rem 3rem;
         }
         .input-group-text:hover{
             background-color: #F29F05;
+        }
+        .col-3{
+            width: 30%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #footer-model{
+            width: 60%;
+            height: 95%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            column-gap: 2%;
+            row-gap: 2%;
+        }
+        #footer-model div{
+            background-size: cover;
+            border-radius: 5px;
+        }
+        #footer-member div{
+            font-size: 20px;
+        }
+        #member-group{
+            padding-left: 0;
         }
     </style>
 </head>
 <body>
     <!-- Bắt đầu code phần footer -->
     <div class="container-fluid">
+        <div class="row" style="width: 100%; border: 1px solid #3E6001;">
+        </div>
         <div class="row">
             <div class="col">
                 <div class="container-fluid">
@@ -55,24 +87,31 @@
                 </div>
                 <div class="input-group mb-3 rounded-pill">
                     <input type="text" placeholder="Enter your email">
-                    <span class="input-group-text rounded-pill" id="basic-addon2">@example.com</span>
+                    <span class="input-group-text rounded-pill" id="basic-addon2">Gửi</span>
                 </div>
             </div>
             <div class="col mt-3">
-                <div class="container d-flex justify-content-center">Thành viên</div>
-                <div class="container d-flex justify-content-between">
-                    <div>
+                <div class="container d-flex justify-content-center" style="font-weight: bold; font-size: 24px; color: #F29F05;">Thành viên</div>
+                <div class="container d-flex justify-content-around" id="member-group">
+                    <div id="footer-member">
                         <div>Lê Kỳ Bá</div>
                         <div>Vi Thị Hằng</div>
                         <div>Nguyễn Thị Hà Sang</div>
                     </div>
-                    <div>
+                    <div id="footer-member">
                         <div>Ka Phu Đông</div>
                         <div>Lê Gia Toàn</div>
                     </div>
                 </div>
             </div>
-            <div class="col"></div>
+            <div class="col-3">
+                <div id="footer-model">
+                    <div style="background-image: url(/image/footer-model1.jpg);"></div>
+                    <div style="background-image: url(/image/footer-model2.webp);"></div>
+                    <div style="background-image: url(/image/footer-model3.png);"></div>
+                    <div style="background-image: url(/image/footer-model4.png);"></div>
+                </div>
+            </div>
         </div>
         <div class="d-flex justify-content-center container-fluid" id="footer-icon">
             <i class="fa-brands fa-facebook fa-2x"></i>
@@ -81,5 +120,6 @@
             <i class="fa-brands fa-square-snapchat fa-2x"></i>
         </div>
     </div>
+    <!-- Kết thúc phần code footer -->
 </body>
 </html>
