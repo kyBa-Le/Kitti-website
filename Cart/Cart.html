@@ -87,6 +87,116 @@
         </div>
     </section>
     <!-- Kết thúc phần giỏ hàng -->
+
+    <!-- Form thông tin khách hàng -->
+    <div class="container" id="container">
+        <div class="overlay" id="overlay" style="display: none;"></div>
+        <div id="customer-info-form" class="container" style="display: none;">
+        <h1 id="form">Kiti Form</h1>
+        <div class="checkout">
+            <!-- Left Section -->
+            <div class="left-section">
+                <h3 id="input">Vui lòng nhập thông tin nhận hàng</h3>
+                <form>
+                    <div class="form-group">
+                        <input type="email" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Họ và tên">
+                    </div>
+                    <div class="form-group phone-group">
+                        <input type="number" placeholder="Số điện thoại">
+                        <span class="flag-icon">🇻🇳</span>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Địa chỉ (số nhà)">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Địa chỉ (nhập tỉnh)">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Địa chỉ (nhập quận, huyện)">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Địa chỉ (nhập xã, phường)">
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Ghi chú (tùy chọn)"></textarea>
+                    </div>
+                </form>
+                </div>
+
+                <h3>Phương thức thanh toán</h3>
+                <div class="payment-method">
+                    <input type="radio" name="payment" id="cod">
+                    <label for="cod">Thanh toán khi giao hàng (COD)</label>
+                    <span class="payment-icon">💵</span>
+                </div>
+            </div>
+            <!-- Right Section -->
+            <div class="right-section">
+                <h2 id="oder">Đơn hàng</h2>
+                <div class="cart-item">
+                    <img src="https://images.pexels.com/photos/11043968/pexels-photo-11043968.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Product">
+                    <p>Phở bò</p>
+                    <p>50.000đ</p>
+                </div>
+                <div class="summary">
+                    <p>Tạm tính: 50.000đ</p>
+                    <p>Tổng cộng: <span class="total">50.000đ</span></p>
+                </div>
+
+                <div class="actions">
+                    <a href="#" class="back-to-cart">Quay về giỏ hàng</a>
+                    <button class="order-btn">Đặt hàng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Kết thúc phần trang thanh toán -->
+    <!-- Vị trí bên dưới là hiển thị đặt hàng thành công -->
+        <section class="container my-5 text-center">
+            <div class="overlay" style="display: none;"></div> <!-- Lớp mờ -->
+            <div id="order-success" class="success-box" style="display: none;">
+                <h1 id="thanhtoan">Thanh toán thành công</h1>
+                <img src="https://cdn-icons-png.flaticon.com/512/845/845646.png" alt="Success" class="success-icon">
+    
+                <h3>Chi tiết đơn hàng</h3>
+                <div class="order-details">
+                    <!-- Chi tiết món ăn 1 -->
+                    <div class="item">
+                        <img src="https://images.pexels.com/photos/11043968/pexels-photo-11043968.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Phở Bò" class="item-img">
+                        <div class="item-info">
+                            <p>Phở Bò <span class="quantity">(Số lượng: 1)</span></p>
+                            <span>50.000₫</span>
+                        </div>
+                    </div>
+    
+                    <!-- Chi tiết món ăn 2 -->
+                    <div class="item">
+                        <img src="https://images.pexels.com/photos/1893572/pexels-photo-1893572.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Bánh Mì Thịt Nướng" class="item-img">
+                        <div class="item-info">
+                            <p>Bánh Mì Thịt Nướng <span class="quantity">(Số lượng: 1)</span></p>
+                            <span>25.000₫</span>
+                        </div>
+                    </div>
+    
+                    <!-- Chi tiết món ăn 3 -->
+                    <div class="item">
+                        <img src="https://images.pexels.com/photos/6260921/pexels-photo-6260921.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Cơm Tấm Sườn" class="item-img">
+                        <div class="item-info">
+                            <p>Cơm Tấm Sườn <span class="quantity">(Số lượng: 1)</span></p>
+                            <span>60.000₫</span>
+                        </div>
+                    </div>
+                </div>
+    
+                <h4>Tổng tiền: <span class="total-amount">135.000₫</span></h4>
+            </div>
+        </div>
+        </section>
+     <!-- Kết thúc phần hiển thị đặt hàng thành công -->
+
     <!-- Vị trí bên dưới là của javascript -->
     <script src="Cart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
