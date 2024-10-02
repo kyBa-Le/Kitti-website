@@ -9,11 +9,6 @@
   border-color: #d88c04 !important;
 }
 
-.container {
-  position: relative;
-  top: 80px;
-}
-
 tbody tr td img {
   width: 100%;
   height: auto; 
@@ -21,13 +16,3 @@ tbody tr td img {
   object-fit: cover; 
 }
 
-@media screen and (max-width: 739px) {
-  .container{
-    top: 220px;
-  }
-}
-@media screen and (max-width: 1023px) and (min-width: 740px) {
-  .container{
-    top: 120px;
-  }
-}
