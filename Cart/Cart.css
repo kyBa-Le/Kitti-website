@@ -1,11 +1,33 @@
-.btn-warning {
-    background-color: #f29f05 !important;
-    border-color: #f29f05 !important;
-    color: white !important; /* Màu chữ thành trắng */
+.card-btn-color {
+  background-color: #f29f05 !important;
+  border-color: #f29f05 !important;
+  color: rgb(0, 0, 0) !important;
+}
+
+.card-btn-color:hover {
+  background-color: #d88c04 !important;
+  border-color: #d88c04 !important;
+}
+
+.container {
+  position: relative;
+  top: 80px;
+}
+
+tbody tr td img {
+  width: 100%;
+  height: auto; 
+  max-width: 150px; 
+  object-fit: cover; 
+}
+
+@media screen and (max-width: 739px) {
+  .container{
+    top: 220px;
   }
-  
-  .btn-warning:hover {
-    background-color: #d88c04 !important; /* Màu khi hover chuột */
-    border-color: #d88c04 !important;
+}
+@media screen and (max-width: 1023px) and (min-width: 740px) {
+  .container{
+    top: 120px;
   }
-  
+}
