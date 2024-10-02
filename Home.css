@@ -6,3 +6,17 @@
     width: 100%;
 }    
 /* Kết thúc CSS phần BANNER */
+
+/* CSS cho phần QUẢNG CÁO DƯỚI BANNER */
+.animate-section {
+  opacity: 0;
+  transform: translateY(50px); /* Di chuyển xuống 50px */
+  transition: all 0.8s ease-in-out; /* Thời gian chuyển tiếp và hiệu ứng chuyển động */
+}
+
+.animate-section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Kết thúc phần QUẢNG CÁO DƯỚI BANNER */
