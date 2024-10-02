@@ -10,11 +10,12 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
+    <!--     Vị trí bên dưới là của phần header   -->
     <div class="sticky-top" id="home-header" style="position: sticky; top: 0;"></div>
+    <!--   Kết thúc header -->
 
     <!-- Vị trí bên dưới là của phần giỏ hàng -->
     <section class="container my-5">
-        <h1 class="text-center mb-4">Giỏ hàng</h1>
         <div class="table-responsive">
             <table class="table table-bordered text-center align-middle">
                 <thead class="table-light">
@@ -32,7 +33,7 @@
                 <!-- Sản phẩm 1: Phở Bò -->
                     <tr>
                         <td><input type="checkbox"></td>
-                        <td><img src="https://images.pexels.com/photos/11043968/pexels-photo-11043968.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Phở Bò" style="width: 100px;"></td>
+                        <td><img src="https://images.pexels.com/photos/27420469/pexels-photo-27420469/free-photo-of-dia-kh-e-m-nh-b-a-t-i-b-a-tr-a.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Phở Bò" ></td>
                         <td>Phở Bò</td>
                         <td>50.000₫</td>
                         <td>
@@ -43,13 +44,13 @@
                         </div>
                         </td>
                         <td>50.000₫</td>
-                        <td><button type="button" class="btn btn-sm btn-warning">Xóa</button></td>
+                        <td><button type="button" class="btn btn-sm btn-warning card-btn-color">Xóa</button></td>
                     </tr>
                     
                     <!-- Sản phẩm 2: Bánh Mì Thịt Nướng -->
                     <tr>
                         <td><input type="checkbox"></td>
-                        <td><img src="https://images.pexels.com/photos/1893572/pexels-photo-1893572.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Bánh Mì Thịt Nướng" style="width: 100px;"></td>
+                        <td><img src="https://images.pexels.com/photos/5122952/pexels-photo-5122952.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Bánh Mì Thịt Nướng"></td>
                         <td>Bánh Mì Thịt Nướng</td>
                         <td>25.000₫</td>
                         <td>
@@ -60,13 +61,13 @@
                         </div>
                         </td>
                         <td>25.000₫</td>
-                        <td><button type="button" class="btn btn-sm btn-warning">Xóa</button></td>
+                        <td><button type="button" class="btn btn-sm btn-warning card-btn-color">Xóa</button></td>
                     </tr>
                     
                     <!-- Sản phẩm 3: Cơm Tấm Sườn -->
                     <tr>
                         <td><input type="checkbox"></td>
-                        <td><img src="https://images.pexels.com/photos/6260921/pexels-photo-6260921.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Cơm Tấm Sườn" style="width: 100px;"></td>
+                        <td><img src="https://images.pexels.com/photos/6260921/pexels-photo-6260921.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Cơm Tấm Sườn"></td>
                         <td>Cơm Tấm Sườn</td>
                         <td>60.000₫</td>
                         <td>
@@ -77,7 +78,7 @@
                         </div>
                         </td>
                         <td>60.000₫</td>
-                        <td><button type="button" class="btn btn-sm btn-warning">Xóa</button></td>
+                        <td><button type="button" class="btn btn-sm btn-warning card-btn-color">Xóa</button></td>
                     </tr>  
                 </tbody>
             </table>
@@ -87,6 +88,7 @@
             <button class="btn btn-success">Thanh toán</button>
         </div>
     </section>
+    <div></div>
     <!-- Kết thúc phần giỏ hàng -->
     
     <!-- Phần bên dưới là của footer -->
@@ -102,5 +104,6 @@
         $("#home-header").load("/Component/Header.html");
         $("#home-footer").load("/Component/Footer.html");
     </script>
+    <!-- Kết thúc phần JavaScript -->
 </body>
 </html>

@@ -1,11 +1,18 @@
-.btn-warning {
-    background-color: #f29f05 !important;
-    border-color: #f29f05 !important;
-    color: white !important; /* Màu chữ thành trắng */
-  }
-  
-  .btn-warning:hover {
-    background-color: #d88c04 !important; /* Màu khi hover chuột */
-    border-color: #d88c04 !important;
-  }
-  
+.card-btn-color {
+  background-color: #f29f05 !important;
+  border-color: #f29f05 !important;
+  color: rgb(0, 0, 0) !important;
+}
+
+.card-btn-color:hover {
+  background-color: #d88c04 !important;
+  border-color: #d88c04 !important;
+}
+
+tbody tr td img {
+  width: 100%;
+  height: auto; 
+  max-width: 150px; 
+  object-fit: cover; 
+}
+
