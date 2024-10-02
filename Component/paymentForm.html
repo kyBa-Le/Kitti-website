@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        #payment-form *{
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        #creditcard-info input{
+            width: 90%;
+        }
+        #user-comment{
+            padding-right: 0;
+        }
+        #payment-form-title{
+            background-color: #FCF3C8;
+            align-self: center;
+            padding: 0 0;
+            width: 90%;
+        }
+        #div-order-button{
+            button{
+                margin-left: 70%;
+                border: #FC8A06 1px solid;
+                background-color: transparent;
+            }
+            button:hover{
+                background-color: #FC8A06;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Bắt đầu code phần form nhập thông tin đơn hàng -->
+    <div class="container border border-warning rounded-1 shadow-lg" id="paymentForm">
+        <!-- Phần logo -->
+        <div class="text-center mt-5">
+            <a class="navbar-brand " href="#" style="color: #3E6001; font-size: 32px; font-weight: bold;">
+                <img src="/image/Kitti-Logo.jpg" alt="" width="80" height="80" class="d-inline-block align-text-center"
+                    style="border-radius: 50%; border: 1px solid #FC8A06;">
+                Kitti
+            </a>
+        </div>
+        <!-- Tiêu đề form -->
+        <div class="container d-flex justify-content-center mt-3" id="payment-form-title">
+            <h2>Thông tin đơn hàng</h2>
+        </div>
+        <!-- Form nhập thông tin -->
+        <form class="row g-3 m-5 mt-1" id="payment-form">
+            <!-- Tên -->
+            <div class="col-md-6">
+                <label for="inputName4" class="form-label" >Tên người nhận</label>
+                <input type="text" class="form-control" id="inputName4">
+            </div>
+            <!-- Số điện thoại -->
+            <div class="col-md-6">
+                <label for="inputPhoneNumber4" class="form-label">Số điện thoại</label>
+                <input type="text" class="form-control" id="inputPhoneNumber4">
+            </div>
+            <!-- Địa chỉ -->
+            <div class="col-12">
+                <label for="inputAddress" class="form-label">Địa chỉ nhận hàng</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+            </div>
+            <!-- Ô phương thức thanh toán -->
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col border" id="payment-method">
+                        <div class="row m-1">
+                            <div class="col">Phương thức thanh toán</div>
+                            <div class="col">
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected>Tiền mặt</option>
+                                    <option value="1">Chuyển khoản</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center m-2" id="creditcard-info">
+                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Thông tin tài khoản">
+                        </div>
+                    </div>
+                    <div class="col" id="user-comment">
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Ghi chú cho người giao hàng"></textarea>
+                    </div>
+                </div>
+            </div>
+            <!-- Thông tin khác -->
+            <div class="row g-3">
+                <!-- Thông tin sản phẩm -->
+                <div class="col-sm-7 border">
+                    <div class="row mt-1 mb-1">
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <img src="/image/footer-model2.webp" class="card-img-top" alt="...">
+                                <div class="card-body fw-bold">
+                                    Khoai tây chiên
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="row h-50 fw-bold">Mô tả:</div>
+                            <div class="row h-50 fw-bold">Đơn giá:</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tổng tiền và nơi gửi -->
+                <div class="col-auto">
+                    <div class="row h-50 fw-bold">Địa chỉ người gửi:</div>
+                    <div class="row h-25">
+                        <div class="fw-bold">Tổng tiền:</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Nút thanh toán -->
+            <div class="container-fluid" id="div-order-button">
+                <button type="button" class="btn btn-warning w-25">Warning</button>
+            </div>
+        </form>
+    </div>
+    <!-- Kết thúc phần form đơn hàng -->
+
+    <!-- Phần bên dưới là của JavaScript -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous">
+    </script> -->
+    <!-- Kết thúc phần JavaScript -->
+</body>
+</html>
