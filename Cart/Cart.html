@@ -14,7 +14,7 @@
     <div class="sticky-top" id="home-header" style="position: sticky; top: 0;"></div>
     <!--   Kết thúc header -->
 
-    <!-- Vị trí bên dưới là của phần giỏ hàng -->
+<!-- Vị trí bên dưới là của phần giỏ hàng -->
     <section class="container my-5">
         <div class="table-responsive">
             <table class="table table-bordered text-center align-middle">
@@ -88,22 +88,32 @@
             <button class="btn btn-success">Thanh toán</button>
         </div>
     </section>
-    <div></div>
-    <!-- Kết thúc phần giỏ hàng -->
-    
-    <!-- Phần bên dưới là của footer -->
-    <div id="home-footer"></div>
-    <!-- Kết thúc phần footer -->
+<!-- kết thúc phần giỏ hàng -->
 
-    <!-- Vị trí bên dưới là của javascript -->
+ <!--     Vị trí bên dưới là của phần form   -->
+ <div  id="paymentForm-load"></div>
+ <!--   Kết thúc header -->
+
+ <!-- Vị trí bên dưới là của javascript -->
     <script src="Cart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
     <script>
+        // Load header và footer
         $("#home-header").load("/Component/Header.html");
         $("#home-footer").load("/Component/Footer.html");
+    
+        // Khi nhấn nút "Thanh toán"
+        $(".btn-success").on("click", function() {
+            // Ẩn phần giỏ hàng
+            $("section.container.my-5").hide();
+
+            // Hiển thị form thanh toán
+            $("#paymentForm-load").load("/Component/paymentForm.html");
+        });
     </script>
+    
     <!-- Kết thúc phần JavaScript -->
 </body>
 </html>
