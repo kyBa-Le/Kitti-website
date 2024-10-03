@@ -10,6 +10,7 @@
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
+        /* Dưới đây là css của payment form */
         #payment-form *{
             margin-left: 0;
             margin-right: 0;
@@ -37,6 +38,61 @@
                 background-color: #FC8A06;
             }
         }
+        /* Kết thúc phần css của payment form */
+
+        /* Phần css của hiển thị thành công */
+        .success-icon {
+        width: 80px;
+        margin-bottom: 20px;
+        }
+
+        .item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .item-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 5px;
+            margin-right: 15px;
+        }
+
+        .item-info {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .item-info span {
+            font-size: 16px;
+            color: coral;
+        }
+
+        .total-amount {
+            color: coral;
+            font-weight: bold;
+        }
+
+        /* Nút "X" sát viền trên và phải của khung */
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #de700f;
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+        }
+
+        .close-btn:hover {
+            opacity: 0.7; /* Hiệu ứng mờ khi hover */
+        }
+
+     /* Kết thúc phần css của hiển thị thành công */
     </style>
 </head>
 <body>
@@ -122,17 +178,71 @@
             </div>
             <!-- Nút thanh toán -->
             <div class="container-fluid" id="div-order-button">
-                <button type="button" class="btn btn-warning w-25">Warning</button>
+                <!-- Nút sẽ kích hoạt modal -->
+                <button type="button" class="btn btn-warning w-25" data-bs-toggle="modal" data-bs-target="#successModal">
+                    Warning
+                </button>
             </div>
         </form>
     </div>
     <!-- Kết thúc phần form đơn hàng -->
 
-    <!-- Phần bên dưới là của JavaScript -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous">
-    </script> -->
-    <!-- Kết thúc phần JavaScript -->
+    <!-- Dưới đây là phần thông báo thanh toán thành công -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="successModalLabel">Thanh toán thành công</h5>
+                    <button type="button" class="btn-close close-btn" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://cdn-icons-png.flaticon.com/512/845/845646.png" alt="Success" class="success-icon mb-3" width="100px">
+                    <h3>Chi tiết đơn hàng</h3>
+                    <div class="order-details">
+                        <div class="item">
+                            <img src="https://images.pexels.com/photos/11043968/pexels-photo-11043968.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Phở Bò" class="item-img">
+                            <div class="item-info">
+                                <p>Phở Bò <span class="quantity">(Số lượng: 1)</span></p>
+                                <span>50.000₫</span>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="https://images.pexels.com/photos/1893572/pexels-photo-1893572.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Bánh Mì Thịt Nướng" class="item-img">
+                            <div class="item-info">
+                                <p>Bánh Mì Thịt Nướng <span class="quantity">(Số lượng: 1)</span></p>
+                                <span>25.000₫</span>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="https://images.pexels.com/photos/6260921/pexels-photo-6260921.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Cơm Tấm Sườn" class="item-img">
+                            <div class="item-info">
+                                <p>Cơm Tấm Sườn <span class="quantity">(Số lượng: 1)</span></p>
+                                <span>60.000₫</span>
+                            </div>
+                        </div>
+                    </div>
+                    <h4>Tổng tiền: <span class="total-amount">135.000₫</span></h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Kết thúc phần thông báo thanh toán thành công -->
+
+    <!-- Script kích hoạt modal -->
+    <script>
+        const payButton = document.getElementById('payButton');
+
+        payButton.addEventListener('click', function () {
+            const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+            successModal.show();
+        });
+    </script>
+        <!-- Vị trí bên dưới là của javascript -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
 </body>
 </html>
