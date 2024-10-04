@@ -9,7 +9,7 @@ window.addEventListener('scroll', () => {
     if (scrollPosition >= triggerPoint && !isShown) {
         animateSection.classList.add('show');
         isShown = true;
-    }else if(scrollPosition<window.innerHeight*0.4){
+    }else if(scrollPosition<window.innerHeight*0.2){
         animateSection.classList.remove("show");
         isShown = false;
     }
