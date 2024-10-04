@@ -90,11 +90,16 @@
                 </div>                
             </nav>
             <div id="btn-group" class="btn-group" role="group" aria-label="Basic outlined example">
-                <button type="button" class="btn btn-outline-secondary">Đăng nhập</button>
-                <button type="button" class="btn btn-outline-secondary">Đăng kí</button>
+                <button type="button" class="btn btn-outline-secondary" onclick="sendRequest('login')">Đăng nhập</button>
+                <button type="button" class="btn btn-outline-secondary" onclick="sendRequest('signup')">Đăng kí</button>
             </div>
         </div>
     </nav>
     <!-- Kết thúc phần header -->
+    <script>
+        function sendRequest(request){
+            window.location.href = "/Login/Background.html?request=" + request;
+        }
+    </script>
 </body>
 </html>
