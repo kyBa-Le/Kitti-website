@@ -15,10 +15,10 @@
             color:#3E6001;
             font-size: 15px;
         }
-        .btn-group button{
+        #btn-group button{
             font-size: 15px;
         }
-        .fa-solid{
+        #header-nav-icon{
             align-self: center;
         }
 
@@ -59,25 +59,25 @@
                 Kitti
             </a>
             <div class="input-group" style="width: 415px;">
-                <span class="input-group-text " id="basic-addon1" style="background-color: rgba(255, 255, 255, 0.5);"><i class="fa-solid fa-magnifying-glass"></i></span>
+                <span class="input-group-text " id="basic-addon1" style="background-color: rgba(255, 255, 255, 0.5);"><i id="header-nav-icon" class="fa-solid fa-magnifying-glass"></i></span>
                 <input type="text" class="form-control" placeholder="Tìm công thức hoặc sản phẩm" aria-label="Username"
                     aria-describedby="basic-addon1" style="background-color: rgba(255, 255, 255, 0.5);" id="searchbar">
             </div>
             <nav class="nav nav-pills nav-fill">
                 <a class="nav-link" href="/Recipe/RecipeDetail.html" id="nav-link">
-                    <i class="fa-solid fa-book"></i> Công thức
+                    <i id="header-nav-icon" class="fa-solid fa-book"></i> Công thức
                 </a>
                 <a class="nav-link" href="/Product/ProductDetail.html" id="nav-link">
-                    <i class="fa-solid fa-bowl-food"></i> Sản phẩm
+                    <i id="header-nav-icon" class="fa-solid fa-bowl-food"></i> Sản phẩm
                 </a>
                 <a class="nav-link" href="/Cart/Cart.html" id="nav-link">
-                    <i class="fa-solid fa-cart-shopping"></i> Giỏ hàng
+                    <i id="header-nav-icon" class="fa-solid fa-cart-shopping"></i> Giỏ hàng
                 </a>
                 <div class="filter-group">
-                    <div class="btn-group">
+                    <div id="btn-group" class="btn-group">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="defaultDropdown" data-bs-toggle="dropdown"
                             data-bs-auto-close="true" aria-expanded="false">
-                            <i class="fa-solid fa-filter"></i>  
+                            <i id="header-nav-icon" class="fa-solid fa-filter"></i>  
                             Lọc
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="defaultDropdown">
@@ -89,7 +89,7 @@
                     </div>
                 </div>                
             </nav>
-            <div class="btn-group" role="group" aria-label="Basic outlined example">
+            <div id="btn-group" class="btn-group" role="group" aria-label="Basic outlined example">
                 <button type="button" class="btn btn-outline-secondary">Đăng nhập</button>
                 <button type="button" class="btn btn-outline-secondary">Đăng kí</button>
             </div>
