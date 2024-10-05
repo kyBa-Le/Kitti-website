@@ -1,4 +1,4 @@
-/* css của phầN giỏ hàng */
+/* Dưới đây là phần css của giỏ hàng */
 .card-btn-color {
   background-color: #f29f05 !important;
   border-color: #f29f05 !important;
@@ -16,5 +16,4 @@ tbody tr td img {
   max-width: 150px; 
   object-fit: cover; 
 }
-/* kết thúc css phần giỏ hàng */
-
+/* Kết thúc phần css của giỏ hàng */

@@ -10,9 +10,9 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
-    <!--     Vị trí bên dưới là của phần header   -->
+    <!-- Vị trí bên dưới là của phần header -->
     <div class="sticky-top" id="home-header" style="position: sticky; top: 0;"></div>
-    <!--   Kết thúc header -->
+    <!-- Kết thúc header -->
 
 <!-- Vị trí bên dưới là của phần giỏ hàng -->
     <section class="container my-5">
@@ -20,9 +20,8 @@
             <table class="table table-bordered text-center align-middle">
                 <thead class="table-light">
                     <tr>
-                        <th>Chọn</th>
-                        <th>Hình ảnh</th>
-                        <th>Tên sản phẩm</th>
+                        <th>Sản phẩm</th>
+                        <th>Thông tin sản phẩm</th>
                         <th>Đơn giá</th>
                         <th>Số lượng</th>
                         <th>Thành tiền</th>
@@ -32,8 +31,7 @@
                 <tbody>
                 <!-- Sản phẩm 1: Phở Bò -->
                     <tr>
-                        <td><input type="checkbox"></td>
-                        <td><img src="https://images.pexels.com/photos/27420469/pexels-photo-27420469/free-photo-of-dia-kh-e-m-nh-b-a-t-i-b-a-tr-a.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Phở Bò" ></td>
+                        <td><img src="https://images.pexels.com/photos/27420469/pexels-photo-27420469/free-photo-of-dia-kh-e-m-nh-b-a-t-i-b-a-tr-a.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Phở Bò"></td>
                         <td>Phở Bò</td>
                         <td>50.000₫</td>
                         <td>
@@ -49,7 +47,6 @@
                     
                     <!-- Sản phẩm 2: Bánh Mì Thịt Nướng -->
                     <tr>
-                        <td><input type="checkbox"></td>
                         <td><img src="https://images.pexels.com/photos/5122952/pexels-photo-5122952.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Bánh Mì Thịt Nướng"></td>
                         <td>Bánh Mì Thịt Nướng</td>
                         <td>25.000₫</td>
@@ -66,7 +63,6 @@
                     
                     <!-- Sản phẩm 3: Cơm Tấm Sườn -->
                     <tr>
-                        <td><input type="checkbox"></td>
                         <td><img src="https://images.pexels.com/photos/6260921/pexels-photo-6260921.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Cơm Tấm Sườn"></td>
                         <td>Cơm Tấm Sườn</td>
                         <td>60.000₫</td>
@@ -85,14 +81,14 @@
         </div>
         <div class="text-end mt-4">
             <h5>Tổng tiền: <span class="fw-bold">525.000₫</span></h5>
-            <button class="btn btn-success">Thanh toán</button>
+            <button class="btn btn-success">Đặt hàng</button>
         </div>
     </section>
 <!-- kết thúc phần giỏ hàng -->
 
- <!--     Vị trí bên dưới là của phần form   -->
- <div  id="paymentForm-load"></div>
- <!--   Kết thúc header -->
+ <!-- Vị trí bên dưới là của phần form -->
+    <div id="paymentForm-load"></div>
+ <!-- Kết thúc phần form -->
 
  <!-- Vị trí bên dưới là của javascript -->
     <script src="Cart.js"></script>
@@ -113,7 +109,6 @@
             $("#paymentForm-load").load("/Component/paymentForm.html");
         });
     </script>
-    
     <!-- Kết thúc phần JavaScript -->
 </body>
 </html>
