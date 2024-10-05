@@ -17,34 +17,34 @@
         #footer-icon{
             background-color: #F29F05;
         }
-        .input-group input{
+        #footer-email input{
             border: none;
             background-color: transparent;
             margin-left: 5px;
         } 
-        .input-group > input:focus, input:active{
+        #footer-email > input:focus, input:active{
             border: none;
             outline: none;
             box-shadow: none;
         }
-        .input-group{
+        #footer-email{
             border: 1px solid #F29F05;
             display: flex;
             align-items: center;
             justify-content: stretch;
             width: fit-content;
         }
-        .input-group-text{
+        #footer-email span{
             box-sizing: border-box;
             background-color: transparent; 
             cursor: pointer;
             border-left: #F29F05 1px solid;
             padding: 0.5rem 3rem;
         }
-        .input-group-text:hover{
+        #footer-email span:hover{
             background-color: #F29F05;
         }
-        .col-3{
+        #footer-img-group{
             width: 30%;
             display: flex;
             justify-content: center;
@@ -74,7 +74,7 @@
 <body>
     <!-- Bắt đầu code phần footer -->
     <div class="container-fluid">
-        <div class="row" style="width: 100%; border: 1px solid #3E6001;">
+        <div class="row" style="width: 100%; border: 1px solid #3E6001; margin-top: 5rem;">
         </div>
         <div class="row">
             <div class="col">
@@ -85,7 +85,7 @@
                         Kitti
                     </a>
                 </div>
-                <div class="input-group mb-3 rounded-pill">
+                <div class="input-group mb-3 rounded-pill" id="footer-email">
                     <input type="text" placeholder="Enter your email">
                     <span class="input-group-text rounded-pill" id="basic-addon2">Gửi</span>
                 </div>
@@ -104,7 +104,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-3">
+            <div class="#footer-img-group" id="footer-img-group">
                 <div id="footer-model">
                     <div style="background-image: url(/image/footer-model1.jpg);"></div>
                     <div style="background-image: url(/image/footer-model2.webp);"></div>
@@ -113,7 +113,7 @@
                 </div>
             </div>
         </div>
-        <div class="d-flex justify-content-center container-fluid" id="footer-icon">
+        <div class="d-flex justify-content-center container-fluid" id="footer-icon" style="padding: 0 !important;">
             <i class="fa-brands fa-facebook fa-2x"></i>
             <i class="fa-brands fa-square-instagram fa-2x"></i>
             <i class="fa-brands fa-tiktok fa-2x"></i>
