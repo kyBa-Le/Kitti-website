@@ -1,31 +1,256 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kitti-Recipe</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <link rel="stylesheet" href="RecipeDetail.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-</head>
-<body>
-    <!-- Phần bên dưới là của header -->
-    <div class="sticky-top" id="home-header"  style="position: sticky; top: 0;"></div>
-    <!-- Kết thúc phần header -->
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Công Thức Cụ Thể</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        /* font-family: Arial, Helvetica, sans-serif; */
+        font-family: "Dosis";
+      }
+      .container {
+        margin-top: 30px;
+        border-radius: 10px;
+        padding: 20px;
+      }
+      /* Recipe Header Section */
+      .recipe-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+      }
+      .recipe-header .recipe-image img {
+        width: 100%;
+        max-width: 600px;
+        height: auto;
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+      }
+      .recipe-header .recipe-image img:hover {
+        transform: scale(1.05);
+      }
+      .recipe-header .recipe-text h2 {
+        color: #ea550f;
+        font-size: 1.9rem;
+      }
+      .recipe-header .recipe-text p {
+        margin-top: 15px;
+        font-size: 1.1rem;
+        color: #333;
+      }
+      /* Ingredient Section */
+      .ingredients-table h2 {
+        margin-top: 40px;
+        color: #d97b4f;
+        font-size: 1.8rem;
+      }
+      .table th {
+        background-color: #ea550f;
+        color: white;
+      }
+      .table td {
+        padding: 10px;
+        font-size: 1rem;
+      }
+      /* Steps Section */
+      .steps-section h2 {
+        margin-top: 40px;
+        color: #f8773b;
+        font-size: 1.8rem;
+      }
+      .step-title {
+        font-weight: bold;
+        margin-top: 15px;
+        font-size: 1.4rem;
+        color: #ea550f;
+      }
+      .step {
+        margin-bottom: 30px;
+      }
+      .steps-section img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        margin-top: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .btn-primary {
+        background-color: #f49506;
+        border: none;
+        font-size: 1.2rem;
+        padding: 10px 20px;
+        border-radius: 50px;
+        margin-top: 30px;
+        transition: background-color 0.3s ease;
+      }
+      .btn-primary:hover {
+        background-color: #ea550f;
+        color: #fff;
+      }
+      /* Responsive Adjustments */
+      @media (max-width: 768px) {
+        .recipe-header {
+          flex-direction: column;
+          text-align: center;
+        }
+        .recipe-header .recipe-text {
+          max-width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Bắt Đầu Tiêu đề và Hình ảnh món ăn -->
+      <div class="recipe-header">
+        <div class="recipe-image">
+          <img
+            src="https://i.ytimg.com/vi/xySE3CCA1Kk/maxresdefault.jpg"
+            alt="Cà Ri Gà"
+          />
+        </div>
+        <div class="recipe-text">
+          <h2>
+            <i class="fa-regular fa-chess-queen" style="color: #f57504"></i>
+            <b>Công Thức Cà Ri Gà</b>
+          </h2>
 
-    <!-- Phần bên dưới là của footer -->
-    <div id="home-footer"></div>
-    <!-- Kết thúc phần footer -->
+          <p>
+            Cà ri gà là một món ăn quen thuộc trong ẩm thực Việt Nam, mang hương
+            vị đậm đà và hòa quyện giữa nhiều loại gia vị khác nhau. Món ăn này
+            có nguồn gốc từ ẩm thực Ấn Độ, nhưng khi du nhập vào Việt Nam, nó đã
+            được biến tấu để phù hợp với khẩu vị địa phương.
+          </p>
+        </div>
+      </div>
+      <!-- Kết thúc tiêu đề và hình ảnh món ăn -->
+      <!-- Bắt đầu Phần Nguyên liệu  -->
+      <div class="ingredients-table">
+        <h2><i class="fas fa-carrot"></i> Nguyên liệu</h2>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Nguyên liệu</th>
+              <th>Số lượng</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Thịt gà</td>
+              <td>500g</td>
+            </tr>
+            <tr>
+              <td>Hành tây</td>
+              <td>2 củ lớn, thái lát</td>
+            </tr>
+            <tr>
+              <td>Tỏi</td>
+              <td>4 tép, băm nhỏ</td>
+            </tr>
+            <tr>
+              <td>Gừng</td>
+              <td>1 thìa canh, băm nhỏ</td>
+            </tr>
+            <tr>
+              <td>Cà chua</td>
+              <td>2 quả lớn, thái nhỏ</td>
+            </tr>
+            <tr>
+              <td>Bột cà ri</td>
+              <td>2 thìa canh</td>
+            </tr>
+            <tr>
+              <td>Sữa chua</td>
+              <td>1/2 cốc</td>
+            </tr>
+            <tr>
+              <td>Muối</td>
+              <td>Theo khẩu vị</td>
+            </tr>
+            <tr>
+              <td>Dầu ăn</td>
+              <td>2 thìa canh</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!--Kết thúc Phần Nguyên liệu  -->
+      <!-- Phần Hướng dẫn nấu ăn -->
+      <div class="steps-section">
+        <h2><i class="fas fa-utensils"></i> Hướng dẫn</h2>
+        <!-- Bước 1 -->
+        <div class="step">
+          <div class="step-title">Bước 1: Chuẩn bị nguyên liệu</div>
+          <p>
+            Cắt thịt gà thành miếng vừa ăn. Thái hành tây, băm tỏi và gừng, thái
+            cà chua.
+          </p>
+          <img
+            src="https://www.example.com/step1.jpg"
+            alt="Chuẩn bị nguyên liệu"
+          />
+        </div>
 
-    <!-- Vị trí bên dưới là của javascript -->
-     <script src="RecipeDetail.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-    <script>
-        $("#home-header").load("/Component/Header.html");
-        $("#home-footer").load("/Component/Footer.html");
-    </script>
-</body>
+        <!-- Bước 2 -->
+        <div class="step">
+          <div class="step-title">Bước 2: Nấu hành tây và gia vị</div>
+          <p>
+            Đun nóng dầu trong nồi lớn. Thêm hành tây đã thái lát và xào đến khi
+            hành chuyển sang màu vàng. Sau đó, thêm tỏi, gừng và bột cà ri.
+          </p>
+          <img
+            src="https://www.example.com/step2.jpg"
+            alt="Nấu hành và gia vị"
+          />
+        </div>
+
+        <!-- Bước 3 -->
+        <div class="step">
+          <div class="step-title">Bước 3: Thêm thịt gà và cà chua</div>
+          <p>
+            Thêm thịt gà vào nồi và xào trong khoảng 5 phút. Sau đó, cho cà chua
+            đã thái vào và nấu đến khi mềm.
+          </p>
+          <img src="https://www.example.com/step3.jpg" alt="Thêm thịt gà" />
+        </div>
+
+        <!-- Bước 4 -->
+        <div class="step">
+          <div class="step-title">Bước 4: Hầm và hoàn thành</div>
+          <p>
+            Thêm sữa chua và muối. Hạ nhỏ lửa và hầm cà ri trong 20 phút cho đến
+            khi thịt gà chín hoàn toàn.
+          </p>
+          <img src="https://www.example.com/step4.jpg" alt="Hoàn thành" />
+        </div>
+      </div>
+
+      <!-- Nút xem thêm công thức khác -->
+      <div class="text-center">
+        <a href="#" class="btn btn-primary">Tạo công thức riêng</a>
+      </div>
+    </div>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgEP2BzjFN5FVxw4l1p6UJjz65plhBpXItl9y56F7S3KP1N0aet"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
