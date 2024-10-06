@@ -19,6 +19,9 @@
                 <a class="nav-link active" href="#san-pham">Quản Lý Sản Phẩm</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link active" href="#cong-thuc">Quản Lý Công thức</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="#don-hang">Quản Lý Đơn Hàng</a>
             </li>
             <li class="nav-item">
@@ -61,16 +64,16 @@
         <section id="san-pham">
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h2>Quản Lý Sản Phẩm</h2>
-                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProductModal">Thêm Sản Phẩm</button>
+                <button class="btn admin-color-add" data-bs-toggle="modal" data-bs-target="#addProductModal">Thêm Sản Phẩm</button>
             </div>
             <div class="card">
                 <div class="card-body">
                     <table class="table table-hover">
                         <thead class="table-light">
                             <tr>
+                                <th>ID</th>
                                 <th>Tên Sản Phẩm</th>
                                 <th>Giá</th>
-                                <th>Danh Mục</th>
                                 <th>Hình Ảnh</th>
                                 <th>Mô Tả</th>
                                 <th>Hành Động</th>
@@ -79,24 +82,69 @@
                         <tbody id="productTableBody">
                             <!-- Dữ liệu mẫu -->
                             <tr>
+                                <td>SP01</td>
                                 <td>Sản phẩm A</td>
                                 <td>100.000 VNĐ</td>
-                                <td>Điện Tử</td>
                                 <td><img src="https://via.placeholder.com/50" alt="Sản phẩm A" class="table-img"></td>
                                 <td>Mô tả sản phẩm A</td>
                                 <td>
-                                    <button class="btn btn-sm btn-warning">Sửa</button>
+                                    <button class="btn btn-sm admin-color-sua">Sửa</button>
                                     <button class="btn btn-sm btn-danger">Xóa</button>
                                 </td>
                             </tr>
                             <tr>
+                                <td>SP01</td>
                                 <td>Sản phẩm B</td>
                                 <td>200.000 VNĐ</td>
-                                <td>Điện Tử</td>
                                 <td><img src="https://via.placeholder.com/50" alt="Sản phẩm B" class="table-img"></td>
                                 <td>Mô tả sản phẩm B</td>
                                 <td>
-                                    <button class="btn btn-sm btn-warning">Sửa</button>
+                                    <button class="btn btn-sm admin-color-sua">Sửa</button>
+                                    <button class="btn btn-sm btn-danger">Xóa</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="cong-thuc">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2>Quản Lý Công Thức</h2>
+                <button class="btn admin-color-add" data-bs-toggle="modal" data-bs-target="#addRecipeModal">Thêm Công Thức</button>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <table class="table table-hover">
+                        <thead class="table-light">
+                            <tr>
+                                <th>ID</th>
+                                <th>Tên Sản Phẩm</th>
+                                <th>Hình Ảnh</th>
+                                <th>Hướng dẫn</th>
+                                <th>Hành Động</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recipeTableBody">
+                            <!-- Dữ liệu mẫu -->
+                            <tr>
+                                <td>CT01</td>
+                                <td>Sản phẩm A</td>
+                                <td><img src="https://via.placeholder.com/50" alt="Sản phẩm A" class="table-img"></td>
+                                <td>Hướng dẫn nấu món A nè. Hihi</td>
+                                <td>
+                                    <button class="btn btn-sm admin-color-sua">Sửa</button>
+                                    <button class="btn btn-sm btn-danger">Xóa</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>CT02</td>
+                                <td>Sản phẩm B</td>
+                                <td><img src="https://via.placeholder.com/50" alt="Sản phẩm B" class="table-img"></td>
+                                <td>Hướng dẫn nấu món B nè. Hihi</td>
+                                <td>
+                                    <button class="btn btn-sm admin-color-sua">Sửa</button>
                                     <button class="btn btn-sm btn-danger">Xóa</button>
                                 </td>
                             </tr>
@@ -109,16 +157,17 @@
         <section id="don-hang">
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h2>Quản Lý Đơn Hàng</h2>
-                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addOrderModal">Thêm Đơn Hàng</button>
             </div>
             <div class="card">
                 <div class="card-body">
                     <table class="table table-hover">
                         <thead class="table-light">
                             <tr>
+                                <th>ID</th>
                                 <th>Tên Khách Hàng</th>
                                 <th>Địa Chỉ</th>
                                 <th>Ngày Đặt Hàng</th>
+                                <th>Tổng giá</th>
                                 <th>Trạng Thái</th>
                                 <th>Hành Động</th>
                             </tr>
@@ -126,22 +175,26 @@
                         <tbody id="orderTableBody">
                             <!-- Dữ liệu mẫu -->
                             <tr>
+                                <td>DH01</td>
                                 <td>Nguyễn Văn A</td>
                                 <td>Hà Nội</td>
                                 <td>2024-10-01</td>
+                                <td>150.000 VNĐ</td>
                                 <td>Đang Xử Lý</td>
                                 <td>
-                                    <button class="btn btn-sm btn-warning">Sửa</button>
+                                    <button class="btn btn-sm admin-color-sua">Sửa</button>
                                     <button class="btn btn-sm btn-danger">Xóa</button>
                                 </td>
                             </tr>
                             <tr>
+                                <td>DH02</td>
                                 <td>Trần Thị B</td>
                                 <td>TP.HCM</td>
                                 <td>2024-10-02</td>
+                                <td>250.000 VNĐ</td>
                                 <td>Đã Giao</td>
                                 <td>
-                                    <button class="btn btn-sm btn-warning">Sửa</button>
+                                    <button class="btn btn-sm admin-color-sua">Sửa</button>
                                     <button class="btn btn-sm btn-danger">Xóa</button>
                                 </td>
                             </tr>
@@ -154,16 +207,17 @@
         <section id="nguoi-dung">
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h2>Quản Lý Người Dùng</h2>
-                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addUserModal">Thêm Người Dùng</button>
             </div>
             <div class="card">
                 <div class="card-body">
                     <table class="table table-hover">
                         <thead class="table-light">
                             <tr>
-                                <th>Tên Người Dùng</th>
-                                <th>Email</th>
-                                <th>Phone</th>
+                                <td>ID</td>
+                                <th>Tên tài khoản</th>
+                                <th>Số điện thoại</th>
+                                <th>Mật khẩu</th>
+                                <th>Mã giỏ hàng</th>
                                 <th>Địa Chỉ</th>
                                 <th>Hành Động</th>
                             </tr>
@@ -171,22 +225,26 @@
                         <tbody id="userTableBody">
                             <!-- Dữ liệu mẫu -->
                             <tr>
+                                <td>ND01</td>
                                 <td>Nguyễn Văn A</td>
-                                <td>nguyenvana@example.com</td>
                                 <td>0123456789</td>
+                                <td>NguyenvanA123</td>
+                                <td>MGH01</td>
                                 <td>Hà Nội</td>
                                 <td>
-                                    <button class="btn btn-sm btn-warning">Sửa</button>
+                                    <button class="btn btn-sm admin-color-sua">Sửa</button>
                                     <button class="btn btn-sm btn-danger">Xóa</button>
                                 </td>
                             </tr>
                             <tr>
-                                <td>Trần Thị B</td>
-                                <td>tranthib@example.com</td>
-                                <td>0987654321</td>
-                                <td>TP.HCM</td>
+                                <td>ND01</td>
+                                <td>Nguyễn Văn B</td>
+                                <td>0163856083</td>
+                                <td>NguyenvanB103</td>
+                                <td>MGH02</td>
+                                <td>Đà Nẵng</td>
                                 <td>
-                                    <button class="btn btn-sm btn-warning">Sửa</button>
+                                    <button class="btn btn-sm admin-color-sua">Sửa</button>
                                     <button class="btn btn-sm btn-danger">Xóa</button>
                                 </td>
                             </tr>
@@ -208,6 +266,10 @@
                 <div class="modal-body">
                     <form id="productForm">
                         <div class="mb-3">
+                            <label for="productID" class="form-label">ID</label>
+                            <input type="text" class="form-control" id="producID" required>
+                        </div>
+                        <div class="mb-3">
                             <label for="productName" class="form-label">Tên Sản Phẩm</label>
                             <input type="text" class="form-control" id="productName" required>
                         </div>
@@ -216,13 +278,9 @@
                             <input type="number" class="form-control" id="productPrice" required>
                         </div>
                         <div class="mb-3">
-                            <label for="productCategory" class="form-label">Danh Mục</label>
-                            <input type="text" class="form-control" id="productCategory" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="productImage" class="form-label">Hình Ảnh</label>
-                            <input type="file" class="form-control" id="productImage" required>
-                        </div>
+                            <label for="productImageURL" class="form-label">Link Hình Ảnh</label>
+                            <input type="text" class="form-control" id="productImageURL" placeholder="Nhập link hình ảnh" required>
+                        </div>                        
                         <div class="mb-3">
                             <label for="productDescription" class="form-label">Mô Tả</label>
                             <textarea class="form-control" id="productDescription" required></textarea>
@@ -231,88 +289,48 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                    <button type="button" class="btn btn-primary" onclick="addProduct()">Thêm Sản Phẩm</button>
+                    <button type="button" class="btn admin-color-add" onclick="addProduct()">Thêm Sản Phẩm</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Modal Thêm Đơn Hàng -->
-    <div class="modal fade" id="addOrderModal" tabindex="-1" aria-labelledby="addOrderModalLabel" aria-hidden="true">
+    <!-- Modal Thêm Sản Phẩm -->
+    <div class="modal fade" id="addRecipeModal" tabindex="-1" aria-labelledby="addRecipeModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="addOrderModalLabel">Thêm Đơn Hàng</h5>
+                    <h5 class="modal-title" id="addRecipeModalLabel">Thêm Công Thức</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="orderForm">
+                    <form id="recipeForm">
                         <div class="mb-3">
-                            <label for="customerName" class="form-label">Tên Khách Hàng</label>
-                            <input type="text" class="form-control" id="customerName" required>
+                            <label for="recipeID" class="form-label">ID</label>
+                            <input type="text" class="form-control" id="recipeID" required>
                         </div>
                         <div class="mb-3">
-                            <label for="customerAddress" class="form-label">Địa Chỉ</label>
-                            <input type="text" class="form-control" id="customerAddress" required>
+                            <label for="recipeName" class="form-label">Tên Sản Phẩm</label>
+                            <input type="text" class="form-control" id="recipeName" required>
                         </div>
                         <div class="mb-3">
-                            <label for="orderDate" class="form-label">Ngày Đặt Hàng</label>
-                            <input type="date" class="form-control" id="orderDate" required>
-                        </div>
+                            <label for="productImageURL" class="form-label">Link Hình Ảnh</label>
+                            <input type="text" class="form-control" id="productImageURL" placeholder="Nhập link hình ảnh" required>
+                        </div>                        
                         <div class="mb-3">
-                            <label for="orderStatus" class="form-label">Trạng Thái</label>
-                            <select class="form-select" id="orderStatus" required>
-                                <option value="Đang Xử Lý">Đang Xử Lý</option>
-                                <option value="Đang Giao">Đang Giao</option>
-                                <option value="Đã Giao">Đã Giao</option>
-                                <option value="Đã Hủy">Đã Hủy</option>
-                            </select>
+                            <label for="recipeDescription" class="form-label">Hướng dẫn</label>
+                            <textarea class="form-control" id="recipeDescription" required></textarea>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                    <button type="button" class="btn btn-primary" onclick="addOrder()">Thêm Đơn Hàng</button>
+                    <button type="button" class="btn admin-color-add" onclick="addRecipe()">Thêm Công Thức</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Modal Thêm Người Dùng -->
-    <div class="modal fade" id="addUserModal" tabindex="-1" aria-labelledby="addUserModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="addUserModalLabel">Thêm Người Dùng</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="userForm">
-                        <div class="mb-3">
-                            <label for="userName" class="form-label">Tên Người Dùng</label>
-                            <input type="text" class="form-control" id="userName" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="userEmail" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="userEmail" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="userPhone" class="form-label">Số Điện Thoại</label>
-                            <input type="text" class="form-control" id="userPhone" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="userAddress" class="form-label">Địa Chỉ</label>
-                            <input type="text" class="form-control" id="userAddress" required>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                    <button type="button" class="btn btn-primary" onclick="addUser()">Thêm Người Dùng</button>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- Vị trí bên dưới là của javascript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"

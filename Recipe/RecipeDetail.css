@@ -1,0 +1,108 @@
+/* Dưới là phần CSS form_Recipe */
+#form_recipe_container {
+  margin: 12px;
+  padding: 12px;
+}
+.button_form_recipe:hover {
+  background-color: #00ff55;
+  border-color: #00ff4c;
+  color: white;
+}
+/* Kết thúc phần CSS form_Recipe */
+
+/* Dưới đây là css của phần recipe */
+* {
+  /* font-family: Arial, Helvetica, sans-serif; */
+  font-family: "Dosis";
+}
+.container {
+  margin-top: 30px;
+  border-radius: 10px;
+  padding: 20px;
+}
+/* Recipe Header Section */
+.recipe-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.recipe-header .recipe-image img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+.recipe-header .recipe-image img:hover {
+  transform: scale(1.05);
+}
+.recipe-header .recipe-text h2 {
+  color: #ea550f;
+  font-size: 1.9rem;
+}
+.recipe-header .recipe-text p {
+  margin-top: 15px;
+  font-size: 1.1rem;
+  color: #333;
+}
+/* Ingredient Section */
+.ingredients-table h2 {
+  margin-top: 40px;
+  color: #d97b4f;
+  font-size: 1.8rem;
+}
+.table th {
+  background-color: #ea550f;
+  color: white;
+}
+.table td {
+  padding: 10px;
+  font-size: 1rem;
+}
+/* Steps Section */
+.steps-section h2 {
+  margin-top: 40px;
+  color: #f8773b;
+  font-size: 1.8rem;
+}
+.step-title {
+  font-weight: bold;
+  margin-top: 15px;
+  font-size: 1.4rem;
+  color: #ea550f;
+}
+.step {
+  margin-bottom: 30px;
+}
+.steps-section img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-top: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.btn-primary {
+  background-color: #f49506;
+  border: none;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  border-radius: 50px;
+  margin-top: 30px;
+  transition: background-color 0.3s ease;
+}
+.btn-primary:hover {
+  background-color: #ea550f;
+  color: #fff;
+}
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .recipe-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  .recipe-header .recipe-text {
+    max-width: 100%;
+  }
+}
+/* Kết thúc phần css phần recipe */

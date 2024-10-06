@@ -16,4 +16,8 @@ tbody tr td img {
   max-width: 150px; 
   object-fit: cover; 
 }
+
+#card-margin{
+  margin-top: 30px;
+}
 /* Kết thúc phần css của giỏ hàng */

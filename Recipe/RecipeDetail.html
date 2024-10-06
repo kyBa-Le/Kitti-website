@@ -9,6 +9,7 @@
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="RecipeDetail.css">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -19,112 +20,21 @@
       href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap"
       rel="stylesheet"
     />
-    <style>
-      * {
-        /* font-family: Arial, Helvetica, sans-serif; */
-        font-family: "Dosis";
-      }
-      .container {
-        margin-top: 30px;
-        border-radius: 10px;
-        padding: 20px;
-      }
-      /* Recipe Header Section */
-      .recipe-header {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 20px;
-      }
-      .recipe-header .recipe-image img {
-        width: 100%;
-        max-width: 600px;
-        height: auto;
-        border-radius: 10px;
-        transition: transform 0.3s ease;
-      }
-      .recipe-header .recipe-image img:hover {
-        transform: scale(1.05);
-      }
-      .recipe-header .recipe-text h2 {
-        color: #ea550f;
-        font-size: 1.9rem;
-      }
-      .recipe-header .recipe-text p {
-        margin-top: 15px;
-        font-size: 1.1rem;
-        color: #333;
-      }
-      /* Ingredient Section */
-      .ingredients-table h2 {
-        margin-top: 40px;
-        color: #d97b4f;
-        font-size: 1.8rem;
-      }
-      .table th {
-        background-color: #ea550f;
-        color: white;
-      }
-      .table td {
-        padding: 10px;
-        font-size: 1rem;
-      }
-      /* Steps Section */
-      .steps-section h2 {
-        margin-top: 40px;
-        color: #f8773b;
-        font-size: 1.8rem;
-      }
-      .step-title {
-        font-weight: bold;
-        margin-top: 15px;
-        font-size: 1.4rem;
-        color: #ea550f;
-      }
-      .step {
-        margin-bottom: 30px;
-      }
-      .steps-section img {
-        width: 100%;
-        height: auto;
-        border-radius: 10px;
-        margin-top: 15px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      }
-      .btn-primary {
-        background-color: #f49506;
-        border: none;
-        font-size: 1.2rem;
-        padding: 10px 20px;
-        border-radius: 50px;
-        margin-top: 30px;
-        transition: background-color 0.3s ease;
-      }
-      .btn-primary:hover {
-        background-color: #ea550f;
-        color: #fff;
-      }
-      /* Responsive Adjustments */
-      @media (max-width: 768px) {
-        .recipe-header {
-          flex-direction: column;
-          text-align: center;
-        }
-        .recipe-header .recipe-text {
-          max-width: 100%;
-        }
-      }
-    </style>
   </head>
   <body>
+    <!-- Phần bên dưới là của header -->
+    <div
+      class="sticky-top"
+      id="home-header"
+      style="position: sticky; top: 0"
+    ></div>
+    <!-- Kết thúc phần header -->
+    <!-- Dưới đây là phần công thức -->
     <div class="container">
       <!-- Bắt Đầu Tiêu đề và Hình ảnh món ăn -->
       <div class="recipe-header">
         <div class="recipe-image">
-          <img
-            src="https://i.ytimg.com/vi/xySE3CCA1Kk/maxresdefault.jpg"
-            alt="Cà Ri Gà"
-          />
+          <img src="https://i.ytimg.com/vi/xySE3CCA1Kk/maxresdefault.jpg" alt="Cà Ri Gà">
         </div>
         <div class="recipe-text">
           <h2>
@@ -247,10 +157,96 @@
         <a href="#" class="btn btn-success">Tạo công thức riêng</a>
       </div>
     </div>
+    <!-- Kết thúc phần công thức -->
+     
+    <!-- Phần bên dưới là của Bảng tạo công thức -->
+    <div id="form_recipe_container">
+      <form>
+        <h2 class="form_recipe mb-4">Khẩu Vị và Dinh Dưỡng</h2>
+
+        <div class="form_recipe mb-3">
+          <label for="taste" class="sub_form_recipe form-label">Khẩu Vị:</label>
+          <select id="taste" name="taste" class="sub_form_recipe form-select">
+            <option value="">Chọn khẩu vị</option>
+            <option value="man">Mặn</option>
+            <option value="ngot">Ngọt</option>
+            <option value="chua">Chua</option>
+            <option value="dang">Đắng</option>
+            <option value="cay">Cay</option>
+          </select>
+        </div>
+
+        <div class="form_recipe mb-3">
+          <label for="food-type" class="sub_form_recipe form-label"
+            >Loại đồ ưa thích:</label
+          >
+          <select
+            id="food-type"
+            name="food-type"
+            class="sub_form_recipe form-select"
+          >
+            <option value="">Chọn loại đồ ăn</option>
+            <option value="chay">Chay</option>
+            <option value="man">Mặn</option>
+            <option value="hai-san">Hải sản</option>
+            <option value="trang-mien">Tráng miệng</option>
+          </select>
+        </div>
+
+        <div class="form_recipe mb-3">
+          <label for="nutrition-needs" class="sub_form_recipe form-label"
+            >Nhu cầu dinh dưỡng:</label
+          >
+          <select
+            id="nutrition-needs"
+            name="nutrition-needs"
+            class="sub_form_recipe form-select"
+          >
+            <option value="">Chọn nhu cầu dinh dưỡng</option>
+            <option value="khong-gluten">Không gluten</option>
+            <option value="it-duong">Ít đường</option>
+            <option value="it-beo">Ít béo</option>
+            <option value="cao-protein">Cao protein</option>
+            <option value="thuc-vat">Thực vật</option>
+          </select>
+        </div>
+
+        <div class="form_recipe mb-3">
+          <label for="nutrition-goal" class="sub_form_recipe form-label"
+            >Mục tiêu dinh dưỡng:</label
+          >
+          <select
+            id="nutrition-goal"
+            name="nutrition-goal"
+            class="sub_form_recipe form-select"
+          >
+            <option value="">Chọn mục tiêu</option>
+            <option value="an-kieng">Ăn kiêng</option>
+            <option value="tang-can">Tăng cân</option>
+            <option value="giam-can">Giảm cân</option>
+            <option value="duy-tri">Duy trì cân nặng</option>
+            <option value="tang-co">Tăng cơ</option>
+          </select>
+        </div>
+        <button type="submit" class="button_form_recipe btn">Gửi</button>
+      </form>
+    </div>
+    <!-- Kết thúc phần Bảng tạo công thức -->
+     
+    <!-- Phần bên dưới là của footer -->
+    <div id="home-footer"></div>
+    <!-- Kết thúc phần footer -->
+
+    <!-- Vị trí bên dưới là của javascript -->
+    <script src="RecipeDetail.js"></script>
     <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-      integrity="sha384-B4gt1jrGC7Jh4AgEP2BzjFN5FVxw4l1p6UJjz65plhBpXItl9y56F7S3KP1N0aet"
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
+    <script>
+      $("#home-header").load("/Component/Header.html");
+      $("#home-footer").load("/Component/Footer.html");
+    </script>
   </body>
 </html>

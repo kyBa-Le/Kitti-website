@@ -33,3 +33,11 @@ body {
 #admin-navbar-icon{
     margin-right: 20px;
 }
+.admin-color-sua{
+    color:white;
+    background-color:#f09f10;
+}
+.admin-color-add{
+    color:white;
+    background-color: #92b710;
+}
