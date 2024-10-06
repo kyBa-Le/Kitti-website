@@ -11,8 +11,64 @@
 </head>
 <body>
     <!-- Phần bên dưới là của header -->
-    <div id="home-header"  style="position: sticky; top: 0;"></div>
+    <div class="sticky-top" id="home-header" style="position: sticky; top: 0;"></div>
     <!-- Kết thúc phần header -->
+
+    <!-- Phần bên dưới là của Bảng tạo công thức -->
+    <div id="form_recipe_container">
+        <form>
+            <h2 class="form_recipe mb-4">Khẩu Vị và Dinh Dưỡng</h2>
+
+            <div class="form_recipe mb-3">
+                <label for="taste" class="sub_form_recipe form-label">Khẩu Vị:</label>
+                <select id="taste" name="taste" class="sub_form_recipe form-select">
+                    <option value="">Chọn khẩu vị</option>
+                    <option value="man">Mặn</option>
+                    <option value="ngot">Ngọt</option>
+                    <option value="chua">Chua</option>
+                    <option value="dang">Đắng</option>
+                    <option value="cay">Cay</option>
+                </select>
+            </div>
+
+            <div class="form_recipe mb-3">
+                <label for="food-type" class="sub_form_recipe form-label">Loại đồ ưa thích:</label>
+                <select id="food-type" name="food-type" class="sub_form_recipe form-select">
+                    <option value="">Chọn loại đồ ăn</option>
+                    <option value="chay">Chay</option>
+                    <option value="man">Mặn</option>
+                    <option value="hai-san">Hải sản</option>
+                    <option value="trang-mien">Tráng miệng</option>
+                </select>
+            </div>
+
+            <div class="form_recipe mb-3">
+                <label for="nutrition-needs" class="sub_form_recipe form-label">Nhu cầu dinh dưỡng:</label>
+                <select id="nutrition-needs" name="nutrition-needs" class="sub_form_recipe form-select">
+                    <option value="">Chọn nhu cầu dinh dưỡng</option>
+                    <option value="khong-gluten">Không gluten</option>
+                    <option value="it-duong">Ít đường</option>
+                    <option value="it-beo">Ít béo</option>
+                    <option value="cao-protein">Cao protein</option>
+                    <option value="thuc-vat">Thực vật</option>
+                </select>
+            </div>
+
+            <div class="form_recipe mb-3">
+                <label for="nutrition-goal" class="sub_form_recipe form-label">Mục tiêu dinh dưỡng:</label>
+                <select id="nutrition-goal" name="nutrition-goal" class="sub_form_recipe form-select">
+                    <option value="">Chọn mục tiêu</option>
+                    <option value="an-kieng">Ăn kiêng</option>
+                    <option value="tang-can">Tăng cân</option>
+                    <option value="giam-can">Giảm cân</option>
+                    <option value="duy-tri">Duy trì cân nặng</option>
+                    <option value="tang-co">Tăng cơ</option>
+                </select>
+            </div>
+            <button type="submit" class="button_form_recipe btn">Gửi</button>
+        </form>    
+    </div>
+    <!-- Kết thúc phần Bảng tạo công thức -->
 
     <!-- Phần bên dưới là của footer -->
     <div id="home-footer"></div>

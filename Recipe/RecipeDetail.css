@@ -1,0 +1,11 @@
+/* Dưới là phần CSS form_Recipe */
+#form_recipe_container {
+    margin: 12px;
+    padding: 12px;
+}
+.button_form_recipe:hover {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+}
+/* Kết thúc phần CSS form_Recipe */
