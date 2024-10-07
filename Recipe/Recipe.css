@@ -1,4 +1,4 @@
-* {
+.container{
   font-family: "Dosis", sans-serif;
   font-optical-sizing: auto;
   margin: 0;
@@ -8,12 +8,7 @@
   border: none;
   transition: all 0.4s cubic-bezier(0.43, 1.1, 0.62, 1.08);
   text-transform: capitalize;
-}
-h3,
-p,
-button,
-a {
-  font-family: "Dosis", sans-serif !important;
+  max-width: 100% !important;
 }
 
 .swiper-slide h3,
@@ -23,12 +18,9 @@ a {
   font-weight: bold;
 }
 
-.container {
-  max-width: 100% !important;
-}
 /* Bắt đầu css phần sản phẩm thịnh hành  */
 .blogs {
-  background: rgb(236, 218, 167);
+  background: #f2c48d;
   padding: 50px;
   max-width: 1300px;
   margin: 0 auto;
@@ -44,6 +36,7 @@ a {
 .heading h3 {
   font-size: 4vw;
   font-weight: bold;
+  color: #400219;
 }
 
 .swiper {
@@ -83,7 +76,7 @@ a {
   transition: bottom 0.5s ease, opacity 0.5s ease;
 }
 .swiper-slide:hover {
-  transform: translateY(-10px);
+  transform: translateY(-10px) !important;
   overflow: hidden;
 }
 .swiper-slide:hover .image img {
@@ -127,7 +120,7 @@ a {
 .swiper-slide .content .btn {
   display: inline-block;
   padding: 10px 20px;
-  background: #d4a373;
+  background: #d96e11;
   color: #fff;
   border-radius: 5px;
   text-decoration: none;
@@ -135,12 +128,12 @@ a {
 }
 
 .swiper-slide .content .btn:hover {
-  background: #b68a59;
+  background: #f29f05;
 }
 
 .swiper-button-next,
 .swiper-button-prev {
-  color: #d4a373 !important;
+  color: #f2c48d !important;
 }
 /* Kết thúc css phần sản phẩm thịnh hành  */
 
@@ -228,7 +221,7 @@ a {
 /* Kết thúc css phần giới thiệu */
 
 /* Bắt đầu css phần menu */
-a {
+.container a {
   text-decoration: none !important;
 }
 
@@ -276,7 +269,7 @@ a {
 
 .recipe-details h3 {
   font-size: 0.9rem;
-  color: #7d8b6a;
+  color: #3e6001;
   margin-bottom: 10px;
   letter-spacing: 1px;
   display: flex;
@@ -297,7 +290,7 @@ a {
 
 .recipe-meta i {
   margin-right: 5px;
-  color: #ff7a00;
+  color: #ff9142;
 }
 
 /* Kết thúc css phần menu */
