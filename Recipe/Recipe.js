@@ -18,7 +18,7 @@ var swiper = new Swiper(".mySwiper", {
 // Khởi tạo dữ liệu mẫu cho slides và recipes
 const sampleSlides = [
   {
-    id: CT01,
+    id: "CT01",
     img: "https://inoxhungcuong.com/wp-content/uploads/2021/10/cach-lam-banh-mi-sandwich-kep-trung-05.jpg",
     title: "Sandwich",
     description: "Sandwich phô mai tươi",
@@ -26,7 +26,7 @@ const sampleSlides = [
     difficulty: "Dễ"
   },
   {
-    id: CT01,
+    id: "CT01",
     img: "https://cdn.tgdd.vn/2021/03/CookProduct/1-1200x676-63.jpg",
     title: "Chicken",
     description: "Gà sốt cà chua",
@@ -34,7 +34,7 @@ const sampleSlides = [
     difficulty: "Khó"
   },
   {
-    id: CT01,
+    id: "CT01",
     img: "https://aplantifulpath.com/wp-content/uploads/2019/08/Strawberry-Ice-Cream-1.jpg",
     title: "Ice Cream",
     description: "Kem dâu",
@@ -42,7 +42,7 @@ const sampleSlides = [
     difficulty: "Khó"
   },
   {
-    id: CT01,
+    id: "CT01",
     img: "https://cdn.tgdd.vn/Files/2019/12/28/1228865/cach-lam-banh-flan-khong-can-lo-nuong-202203121414578251.jpg",
     title: "Flan",
     description: "Bánh flan",
@@ -53,28 +53,28 @@ const sampleSlides = [
 
 const sampleRecipes = [
   {
-    id: CT01,
+    id: "CT01",
     img: "https://i.pinimg.com/564x/81/28/57/812857ee76d2e2397266a5e25b7ffb88.jpg",
     title: "MÌ CAY HẢI SẢN",
     time: "40 phút",
     difficulty: "Trung bình"
   },
   {
-    id: CT01,
+    id: "CT01",
     img: "https://i.pinimg.com/564x/b5/9a/c2/b59ac265cc9d8af62bc37b611748de63.jpg",
     title: "BÁNH MÌ CHẢ THỊT",
     time: "20 phút",
     difficulty: "Dễ"
   },
   {
-    id: CT01,
+    id: "CT01",
     img: "https://i.pinimg.com/564x/82/f6/43/82f643605a416d6cc7e26a84abac54c4.jpg",
     title: "BÁNH CUỐN",
     time: "45 phút",
     difficulty: "Khó"
   },
   {
-    id: CT01,
+    id: "CT01",
     img: "https://i.pinimg.com/564x/05/08/22/0508226df92f4142601a8b640171ea3d.jpg",
     title: "BÁNH XÈO",
     time: "6 giờ",
