@@ -2,10 +2,18 @@
 #form_recipe_container {
   margin: 12px;
   padding: 12px;
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #f49506
+}
+.button_form_recipe{
+  border: 1px solid #00ff4c !important;
 }
 .button_form_recipe:hover {
   background-color: #00ff55;
-  border-color: #00ff4c;
   color: white;
 }
 /* Kết thúc phần CSS form_Recipe */

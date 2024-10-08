@@ -1,3 +1,7 @@
+* {
+  font-family: "Dosis", sans-serif;
+  font-optical-sizing: auto;
+}
 /* Dưới đây là phần css của giỏ hàng */
 .card-btn-color {
   background-color: #f29f05 !important;

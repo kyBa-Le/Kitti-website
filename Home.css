@@ -1,3 +1,7 @@
+* {
+  font-family: "Dosis", sans-serif;
+  font-optical-sizing: auto;
+}
 /* CSS cho phần BANNER*/
 .home-div-image{
     background-position: center;
@@ -157,5 +161,16 @@
 }
 #recepi-description{
     color: white;
+}
+.overlay .btn-primary{
+    border: 1px solid #F29F05;
+    color:whitesmoke;
+    background-color: transparent;
+    margin-top: 1rem;
+}
+.overlay .btn-primary:hover{
+    background-color: transparent;
+    border: 1px solid #F29F05;
+    color: #F29F05;
 }
 /* Kết thúc phần RECIPE */

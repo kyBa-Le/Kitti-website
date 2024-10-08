@@ -38,6 +38,12 @@
                 background-color: #FC8A06;
             }
         }
+        .payment-in:focus, .payment-in:active{
+            border-color: #FC8A06 !important;
+            outline: none !important;
+            box-shadow: none !important;
+            background-color: transparent !important;
+        }
         /* Kết thúc phần css của payment form */
 
         /* Phần css của hiển thị thành công */
@@ -115,17 +121,17 @@
             <!-- Tên -->
             <div class="col-md-6">
                 <label for="inputName4" class="form-label" >Tên người nhận</label>
-                <input type="text" class="form-control" id="inputName4">
+                <input type="text" class="form-control payment-in" id="inputName4">
             </div>
             <!-- Số điện thoại -->
             <div class="col-md-6">
                 <label for="inputPhoneNumber4" class="form-label">Số điện thoại</label>
-                <input type="text" class="form-control" id="inputPhoneNumber4">
+                <input type="text" class="form-control payment-in" id="inputPhoneNumber4">
             </div>
             <!-- Địa chỉ -->
             <div class="col-12">
                 <label for="inputAddress" class="form-label">Địa chỉ nhận hàng</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                <input type="text" class="form-control payment-in" id="inputAddress" placeholder="1234 Main St">
             </div>
             <!-- Ô phương thức thanh toán -->
             <div class="container-fluid">
@@ -134,18 +140,18 @@
                         <div class="row m-1">
                             <div class="col">Phương thức thanh toán</div>
                             <div class="col">
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected>Tiền mặt</option>
-                                    <option value="1">Chuyển khoản</option>
+                                <select class="form-select payment-in">
+                                    <option class="payment-in bg-secondary" id="payment-option">Tiền mặt</option>
+                                    <option class="payment-in bg-secondary" id="payment-option">Chuyển khoản</option>
                                 </select>
                             </div>
                         </div>
                         <div class="row d-flex justify-content-center m-2" id="creditcard-info">
-                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Thông tin tài khoản">
+                            <input type="text" class="form-control payment-in" id="exampleFormControlInput1" placeholder="Thông tin tài khoản">
                         </div>
                     </div>
                     <div class="col" id="user-comment">
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Ghi chú cho người giao hàng"></textarea>
+                        <textarea class="form-control payment-in" id="exampleFormControlTextarea1" rows="4" placeholder="Ghi chú cho người giao hàng"></textarea>
                     </div>
                 </div>
             </div>
