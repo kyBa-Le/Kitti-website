@@ -15,3 +15,8 @@ window.addEventListener('scroll', () => {
     }
 });
 // Kết thúc phần hiệu ứng chuyển động.
+
+// Khi ấn vào ảnh của sản phẩm sẽ hiển thị chi tiết sản phẩm ở trang sản phẩm
+function openDetail(id){
+    window.location.href = ("Product/ProductDetail.html");
+}
