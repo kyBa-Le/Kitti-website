@@ -19,4 +19,7 @@ This is a repository to manage project of Basic Web Design lesson of Mr. Dinh.
         - Header ( Trong folder component )
             + Thanh tìm kiếm: hoạt động bằng cách ấn enter
             + navigation (menu): => chuyển sang link được gắn trong thẻ a
-            + đăng nhập/ đăng kí: => chạy hàm sendRequest(request) => chuyển link : "sang /Login/Background.html?request=" + request => dựa trên request để chuyển sang đăng nhập hoặc đăng kí.
+            + đăng nhập/ đăng kí: => chạy hàm sendRequest(request) => chuyển link : "/Login/Background.html?request=" + request => dựa trên request để chuyển sang đăng nhập hoặc đăng kí.
+        - Đăng nhập và đăng kí:
+            + để vào trang đăng nhập cần truy cập theo link: "/Login/Background.html?request=login"
+            + để vào trang đăng kí cần truy cập theo link: "/Login/Background.html?request=signup"
