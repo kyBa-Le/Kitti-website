@@ -55,11 +55,23 @@
                 <label>
                     <input type="checkbox" id="remember" name="remember"> Remember
                 </label>
-                <a href="#" class="text-white" id="forgot-password">Forgot Password?</a>
+                <a class="text-white" id="forgot-password">Forgot Password?</a>
             </div>
-            <button type="submit" class="btn btn-light w-25" id="login-loginButton">Login</button>
-            <p class="text-center mt-3">Don't have an account? <a href="#" class="text-white fw-bold">Register</a></p>
+            <button type="button" class="btn btn-light w-25" id="login-loginButton" onclick="loginChangePage()">Login</button>
+            <p class="text-center mt-3">Don't have an account? <a href="Background.html?request=signup" class="text-white fw-bold">Register</a></p>
         </form>
     </div>
+    <script>
+        // Hàm để đăng nhập ( dòng 58 )
+        function loginChangePage(){
+            var username = $("#username").val();
+            var password = $("#password").val();
+            // Đăng nhập với tài khoản của admin
+            if(username === "admin" && password === "admin@123"){
+                window.location.href = "/Admin/Admin.html";
+                console.log("change to admin");
+            }
+        }
+    </script>
 </body>
 </html>
