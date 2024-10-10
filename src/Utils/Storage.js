@@ -12,6 +12,17 @@ export function getFromLocalStorage(key) {
 }
 
 export function readFileJson(path){
-    fetch(path).then(respone => respone.json().then(data => data));
+    return fetch(path).then(respone => respone.json().then(data => data));
     console.log("File read successfully!");
 }
+// export function saveToJsonFile(path, data){
+//     const jsonData = JSON.stringify(data);
+//     const fs = require("fs");
+//     fs.writeFile(path,jsonData, (err) =>{
+//         if (err) {
+//             console.error(err);
+//         } else {
+//             console.log('Data written successfully to file.');
+//         }
+//     })
+// }

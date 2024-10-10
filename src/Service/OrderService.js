@@ -15,10 +15,16 @@ export const OrderService = {
             return [];
         }
     },
-    // Hàm lấy các Order theo id
-    getOrderByUserId: function (id) {
-        this.arrayOrder.filter(function (item) {
-            return item.user_id === id;
+    // Hàm lấy order theo id của order
+    getOrderById(id){
+        return this.arrayOrder.array.find(element => {
+            element.id === id;
+        });
+    },
+    // Hàm lấy các Order theo id của user
+    getOrderByUserId: function (user_id) {
+        return this.arrayOrder.filter(function (item) {
+            return item.user_id === user_id;
         })
     },
     // Hàm chỉnh sửa thông tin người dùng - tryền vào 1 Order mới
