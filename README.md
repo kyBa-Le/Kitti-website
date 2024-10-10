@@ -6,10 +6,10 @@ This is a repository to manage project of Basic Web Design lesson of Mr. Dinh.
 
     -- QUY ƯỚC ĐẶT TÊN --
         - Lưu trong local storage: 
-            + user : "user"
-            + cart : "cart"
-            + recipe : "recipe"
-            + product : "product"
+            + user : "users"
+            + cart : "carts"
+            + recipe : "recipes"
+            + product : "products"
 
     -- CÁCH HOẠT ĐỘNG CỦA CÁC TRANG --
 

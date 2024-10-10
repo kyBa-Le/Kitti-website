@@ -12,7 +12,7 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="RecipeDetail.css">
+    <link rel="stylesheet" href="../CSS/RecipeDetail.css">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -33,14 +33,13 @@
       <!-- Bắt Đầu Tiêu đề và Hình ảnh món ăn -->
       <div class="recipe-header">
         <div class="recipe-image">
-          <img src="https://i.ytimg.com/vi/xySE3CCA1Kk/maxresdefault.jpg" alt="Cà Ri Gà">
+          <img src="https://i1-giadinh.vnecdn.net/2022/12/15/Thanh-pham-1-1-5493-1671086922.jpg?w=1020&h=0&q=100&dpr=1&fit=crop&s=QNveF2Oc_kzh89kl-Bw1ow" alt="Cà Ri Gà">
         </div>
         <div class="recipe-text">
           <h2>
             <i class="fa-regular fa-chess-queen" style="color: #f57504"></i>
-            <b>Công Thức Cà Ri Gà</b>
+            <b>Cách làm món Cà Ri Gà</b>
           </h2>
-
           <p>
             Cà ri gà là một món ăn quen thuộc trong ẩm thực Việt Nam, mang hương
             vị đậm đà và hòa quyện giữa nhiều loại gia vị khác nhau. Món ăn này
@@ -52,7 +51,13 @@
       <!-- Kết thúc tiêu đề và hình ảnh món ăn -->
       <!-- Bắt đầu Phần Nguyên liệu  -->
       <div class="ingredients-table">
-        <h2><i class="fas fa-carrot"></i> Nguyên liệu</h2>
+        <h2>
+          <span class="left">
+            <i class="fas fa-carrot"></i> 
+            Nguyên liệu
+          </span>
+          <span class="right">Khẩu phần ăn: 4-6 người</span>
+        </h2>
         <table class="table table-bordered">
           <thead>
             <tr>
@@ -63,35 +68,35 @@
           <tbody>
             <tr>
               <td>Thịt gà</td>
-              <td>500g</td>
+              <td>800gr</td>
             </tr>
             <tr>
-              <td>Hành tây</td>
+              <td>Khoai tây</td>
               <td>2 củ lớn, thái lát</td>
             </tr>
             <tr>
-              <td>Tỏi</td>
-              <td>4 tép, băm nhỏ</td>
+              <td>Cà rốt</td>
+              <td>1 củ</td>
             </tr>
             <tr>
-              <td>Gừng</td>
-              <td>1 thìa canh, băm nhỏ</td>
+              <td>Hành tây</td>
+              <td>1 củ</td>
             </tr>
             <tr>
-              <td>Cà chua</td>
-              <td>2 quả lớn, thái nhỏ</td>
+              <td>Nước cốt dừa</td>
+              <td>150ml</td>
             </tr>
             <tr>
               <td>Bột cà ri</td>
               <td>2 thìa canh</td>
             </tr>
             <tr>
-              <td>Sữa chua</td>
-              <td>1/2 cốc</td>
+              <td>Đường</td>
+              <td>2 thìa cà phê</td>
             </tr>
             <tr>
-              <td>Muối</td>
-              <td>Theo khẩu vị</td>
+              <td>Sả, hành khô</td>
+              <td>1 nhánh</td>
             </tr>
             <tr>
               <td>Dầu ăn</td>
@@ -104,53 +109,105 @@
       <!-- Phần Hướng dẫn nấu ăn -->
       <div class="steps-section">
         <h2><i class="fas fa-utensils"></i> Hướng dẫn</h2>
+      
         <!-- Bước 1 -->
         <div class="step">
           <div class="step-title">Bước 1: Chuẩn bị nguyên liệu</div>
-          <p>
-            Cắt thịt gà thành miếng vừa ăn. Thái hành tây, băm tỏi và gừng, thái
-            cà chua.
-          </p>
-          <img
-            src="https://www.example.com/step1.jpg"
-            alt="Chuẩn bị nguyên liệu"
-          />
+          <div class="step-title-detail">
+            <div class="img">
+              <img
+                src="https://i1-giadinh.vnecdn.net/2022/12/15/Buoc-1-1-7316-1671086921.jpg?w=1020&h=0&q=100&dpr=1&fit=crop&s=m8XYKtbNYaGYfbtRVqO9hQ"
+                alt="Chuẩn bị nguyên liệu"
+                class="recipedetail-image"/>
+            </div>
+            <div class="divider"></div>
+            <div class="content">
+              <p>
+                Gà chà xát chanh và muối hạt, rửa sạch, để ráo nước và chặt miếng vừa ăn. 
+                Không nên chặt nhỏ quá vì khi nấu thịt co lại. 
+                <br>
+                Khoai tây gọt vỏ, thái miếng vừa ăn. Cà rốt tỉa hoa tùy chọn.
+                Hành tây cắt múi cau. Sả đập dập, cắt khúc. Hành khô, tỏi băm nhuyễn. 
+                <br>
+                Cà rốt có thể tỉa hoa tùy theo ý thích. 
+                Hành tây cắt múi cau, sả đập dập và cắt khúc, hành khô và tỏi băm nhuyễn.
+              </p>
+            </div>
+          </div>
         </div>
-
+      
         <!-- Bước 2 -->
         <div class="step">
-          <div class="step-title">Bước 2: Nấu hành tây và gia vị</div>
-          <p>
-            Đun nóng dầu trong nồi lớn. Thêm hành tây đã thái lát và xào đến khi
-            hành chuyển sang màu vàng. Sau đó, thêm tỏi, gừng và bột cà ri.
-          </p>
-          <img
-            src="https://www.example.com/step2.jpg"
-            alt="Nấu hành và gia vị"
-          />
+          <div class="step-title">Bước 2: Ướp gà</div>
+          <div class="step-title-detail">
+            <div class="img">
+              <img
+                src="https://i1-giadinh.vnecdn.net/2022/12/15/Buoc-3-3-3157-1671086921.jpg?w=1020&h=0&q=100&dpr=1&fit=crop&s=l3pypBFWfK8DF94qWT4MqA"
+                alt="Nấu hành và gia vị"
+                class="recipedetail-image"/>
+            </div>
+            <div class="divider"></div>
+            <div class="content">
+              <p>
+                Ướp thịt gà với các gia vị: <br>
+                  1 gói bột cà ri, 
+                  3 thìa cà phê muối,<br>
+                  2 thìa cà phê đường,
+                  1 thìa cà phê hạt nêm,<br>
+                  1 thìa cà phê hạt tiêu,
+                  1 thìa canh dầu màu điều (tùy chọn).
+                <br>
+                Trộn đều để gà thấm gia vị. Nếu muốn gà mềm và béo hơn, có thể ướp thêm sữa đặc hoặc sữa tươi.
+              </p>
+            </div>
+          </div>
         </div>
-
+      
         <!-- Bước 3 -->
         <div class="step">
           <div class="step-title">Bước 3: Thêm thịt gà và cà chua</div>
-          <p>
-            Thêm thịt gà vào nồi và xào trong khoảng 5 phút. Sau đó, cho cà chua
-            đã thái vào và nấu đến khi mềm.
-          </p>
-          <img src="https://www.example.com/step3.jpg" alt="Thêm thịt gà" />
+          <div class="step-title-detail">
+            <div class="img">
+              <img
+                src="https://i1-giadinh.vnecdn.net/2022/12/15/Buoc-6-6-6203-1671086922.jpg?w=1020&h=0&q=100&dpr=1&fit=crop&s=BgjwQ7Wu9qzgSaHKoF3Q8w"
+                alt="Thêm thịt gà"
+                class="recipedetail-image"/>
+            </div>
+            <div class="divider"></div>
+            <div class="content">
+              <p>
+                Trước khi nấu gà, chiên sơ khoai tây để giữ được hình dạng và tạo lớp vỏ giòn bên ngoài. 
+                Điều này sẽ giúp khoai không bị nát khi hầm. <br>
+                Xào gà: Phi thơm hành, tỏi, sả rồi cho gà đã ướp vào xào đến khi thịt săn lại (khoảng 5-7 phút). <br>
+                Nấu nước dùng: Đổ nước hoặc nước dùng ngập gà, thêm ớt khô (tùy chọn) rồi đậy vung, nấu lửa vừa khoảng 20-25 phút cho gà chín mềm.
+              </p>
+            </div>
+          </div>
         </div>
-
+      
         <!-- Bước 4 -->
         <div class="step">
-          <div class="step-title">Bước 4: Hầm và hoàn thành</div>
-          <p>
-            Thêm sữa chua và muối. Hạ nhỏ lửa và hầm cà ri trong 20 phút cho đến
-            khi thịt gà chín hoàn toàn.
-          </p>
-          <img src="https://www.example.com/step4.jpg" alt="Hoàn thành" />
+          <div class="step-title">Bước 4: Hầm cùng rau củ và hoàn thành</div>
+          <div class="step-title-detail">
+            <div class="img">
+              <img
+                src="https://i1-giadinh.vnecdn.net/2022/12/15/Thanh-pham-1-1-5493-1671086922.jpg?w=1020&h=0&q=100&dpr=1&fit=crop&s=QNveF2Oc_kzh89kl-Bw1ow"
+                alt="Hoàn thành"
+                class="recipedetail-image"/>
+            </div>
+            <div class="divider"></div>
+            <div class="content">
+              <p>
+                Thêm khoai tây và cà rốt: Khi gà chín, cho khoai tây và cà rốt vào hầm đến khi mềm (10-15 phút). <br>
+                Thêm nước cốt dừa và hành tây: Khi rau củ đã mềm, rưới nước cốt dừa vào nồi, thêm hành tây cắt múi cau vào, 
+                đảo nhẹ để hành chín tới nhưng vẫn giữ được độ giòn và ngọt. Nếu muốn nước dùng sánh hơn, có thể cho một chút bột cốt dừa pha loãng vào lúc này. <br>
+                Hoàn thành: Múc món ăn ra bát lớn và thưởng thức nóng. Món cà ri gà này ngon nhất khi ăn kèm với bánh mì, bún hoặc cơm trắng.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-
+      
       <!-- Nút xem thêm công thức khác -->
       <div class="text-center">
         <a class="btn btn-success" onclick="openFormRecipe()" id="createRecipeButton">Tạo công thức riêng</a>

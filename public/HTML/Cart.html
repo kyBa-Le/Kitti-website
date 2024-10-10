@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kitti-Cart</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <link rel="stylesheet" href="Cart.css" />
+    <link rel="stylesheet" href="../CSS/Cart.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -156,7 +156,7 @@
     <!-- Kết thúc phần footer -->
 
     <!-- Vị trí bên dưới là của javascript -->
-    <script src="Cart.js"></script>
+    <script src="../JS/Cart.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
@@ -164,8 +164,8 @@
     ></script>
     <script>
       // Load header và footer
-      $("#home-header").load("/Component/Header.html");
-      $("#home-footer").load("/Component/Footer.html");
+      $("#home-header").load("/src/Component/Header.html");
+      $("#home-footer").load("/src/Component/Footer.html");
 
       // Khi nhấn nút "Thanh toán"
       $(".btn-success").on("click", function () {
@@ -173,7 +173,7 @@
         $("section.container.my-5").hide();
 
         // Hiển thị form thanh toán
-        $("#paymentForm-load").load("/Component/paymentForm.html");
+        $("#paymentForm-load").load("/src/Component/paymentForm.html");
       });
     </script>
     <!-- Kết thúc phần JavaScript -->
