@@ -18,7 +18,11 @@ export const ProductService = {
             return [];
         }
     },
-
+    // Hàm lấy product theo id
+    getProductById(id){
+        const index = this.arrayProduct.findIndex(p => p.id === id);
+        return this.arrayProduct[index];
+    },
     // Hàm xóa 1 product theo id
     removeProduct: function(id) {
         this.arrayProduct = this.arrayProduct.filter(function(item) {
