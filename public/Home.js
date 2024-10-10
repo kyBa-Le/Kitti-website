@@ -6,7 +6,10 @@ const arrUsers = await readFileJson("/src/Data/User.json");
 const arrOrders = await readFileJson("/src/Data/Order.json");
 const arrProduct = await readFileJson("/src/Data/Product.json");
 const arrayRecipe = await readFileJson("/src/Data/Recipe.json");
-console.log(arrUsers);
+saveToLocalStorage("users", JSON.stringify(arrUsers));
+saveToLocalStorage("orders", JSON.stringify(arrOrders));
+saveToLocalStorage("products", JSON.stringify(arrProduct));
+saveToLocalStorage("recipes", JSON.stringify(arrayRecipe));
 
 
 // Tạo hiệu ứng chuyển động: phần chữ của quảng cáo
