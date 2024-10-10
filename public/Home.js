@@ -1,9 +1,12 @@
-import { getFromLocalStorage, readData } from "../src/Utils/Storage.js";
+import { getFromLocalStorage, readFileJson } from "../src/Utils/Storage.js";
 import { saveToLocalStorage } from "../src/Utils/Storage.js";
 import { UserService } from "../src/Service/UserService.js";
-
-const b = UserService.getAllUsers();
-console.log(b[0]);
+// Lưu tất cả dữ liệu của các đối tượng vào local storage
+const arrUsers = await readFileJson("/src/Data/User.json");
+const arrOrders = await readFileJson("/src/Data/Order.json");
+const arrProduct = await readFileJson("/src/Data/Product.json");
+const arrayRecipe = await readFileJson("/src/Data/Recipe.json");
+console.log(arrUsers);
 
 
 // Tạo hiệu ứng chuyển động: phần chữ của quảng cáo

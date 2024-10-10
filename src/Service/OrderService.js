@@ -15,12 +15,11 @@ export const OrderService = {
             return [];
         }
     },
-    // Hàm xóa 1 Order theo id
-    getOrder: function (id) {
+    // Hàm lấy các Order theo id
+    getOrderByUserId: function (id) {
         this.arrayOrder.filter(function (item) {
-            return item.id !== id;
+            return item.user_id === id;
         })
-        console.log(`Order with ${id} is removed!`);
     },
     // Hàm chỉnh sửa thông tin người dùng - tryền vào 1 Order mới
     updateOrder: function (Order) {
@@ -36,5 +35,11 @@ export const OrderService = {
         } else {
             console.error("Order not found");
         }
+    },
+    // Hàm xóa order theo id
+    deleteOrderById(id){
+        this.arrayOrder.filter(function(order){
+            return order.id != id;
+        })
     }
 }
