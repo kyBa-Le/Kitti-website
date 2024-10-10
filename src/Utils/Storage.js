@@ -1,10 +1,8 @@
-export function readData(path){
-    fetch(path)
-        .then((res) => res.json())
-        .then((data) => {
-            return data // object
-            // sử dụng data để thêm dữ liệu vào DOM
-        })
+export async function readData(path) {
+    // Code trong hàm này có thể sử dụng await
+    const response = await fetch(path);
+    const data = await response.json();
+    return data;
 }
 // storage.js
 export function saveToLocalStorage(key, value) {
@@ -13,7 +11,7 @@ export function saveToLocalStorage(key, value) {
 
 export function getFromLocalStorage(key) {
     const value = localStorage.getItem(key);
-    if(value ==- null){
+    if(value === null){
         return [];
     }else{
         return JSON.parse(value);

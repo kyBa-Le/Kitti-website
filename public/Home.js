@@ -1,9 +1,11 @@
-// import { UserService } from "../src/Service/UserService";
-// import { saveToLocalStorage } from "../src/Utils/Storage";
-// import { readData } from "../src/Utils/Storage";
-// import { getFromLocalStorage } from "../src/Utils/Storage";
-// saveToLocalStorage(readData("../src/Data/User.json"));
-// console.log(UserService.getAllUsers());
+import { getFromLocalStorage, readData } from "../src/Utils/Storage.js";
+import { saveToLocalStorage } from "../src/Utils/Storage.js";
+import { UserService } from "../src/Service/UserService.js";
+
+const b = UserService.getAllUsers();
+console.log(b[0]);
+
+
 // Tạo hiệu ứng chuyển động: phần chữ của quảng cáo
 console.log(window.location.href);
 const animateSection = document.querySelector('.animate-section');
