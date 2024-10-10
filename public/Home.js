@@ -1,3 +1,8 @@
+
+import { readFileJson } from "../src/Utils/Storage";
+import { getFromLocalStorage } from "../src/Utils/Storage";
+import { saveToLocalStorage } from "../src/Utils/Storage";
+saveToLocalStorage("users", readFileJson("/src/Data/User.json"));
 // Tạo hiệu ứng chuyển động: phần chữ của quảng cáo
 const animateSection = document.querySelector('.animate-section');
 const triggerPoint = window.innerHeight * 0.5;

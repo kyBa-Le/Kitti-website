@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login-SignUp</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="../CSS/LoginAndSignUp.css">
+</head>
+<body>
+    <!-- Bên dưới là phần nền cho Login và Sign up -->
+    <div class="container-fluid" id="login-background">        
+    </div>
+    <!-- Kết thúc phần nền -->
+
+    <!-- Phần bên dưới là của form đăng nhập -->
+    <div class="load-form" id="login">
+        <div class="container-fluid login-box">
+            <form class="text-white p-5 rounded container-fluid" id="login-form">
+                <h2 class="text-center">Login</h2>
+                <div class="mb-3">
+                    <label for="login-username">User name</label>
+                    <input type="text" class="form-control" id="login-username" name="username" required placeholder="Username">
+                </div>
+                <div class="mb-3">
+                    <label for="login-password">Password</label>
+                    <input type="password" class="form-control" id="login-password" name="password" required placeholder="Password">
+                </div>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <label>
+                        <input type="checkbox" id="remember" name="remember"> Remember
+                    </label>
+                    <a class="text-white" id="forgot-password">Forgot Password?</a>
+                </div>
+                <button type="button" class="btn btn-light w-25" id="login-loginButton" onclick="loginChangePage()">Login</button>
+                <p class="text-center mt-3">Don't have an account? <a href="LoginAndSignUp.html?request=signup" class="text-white fw-bold">Register</a></p>
+            </form>
+        </div>
+    </div>
+    <!-- Kết thúc form đăng nhập -->
+
+    <!-- Phần bên dưới là của form đăng kí   -->
+    <div class="load-form" id="signup">
+        <div class="signup-container container-fluid ">
+            <h2 class="text-center" id="signUp-title">Create Account</h2>
+            <form action="#" method="POST">
+                <div class="mb-2">
+                    <label for="signup-username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="signup-username" name="username" required placeholder="Enter your username">
+                </div>
+                <div class="mb-2">
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="email" name="email" required placeholder="Enter your email">
+                </div>
+                <div class="mb-2">
+                    <label for="signup-password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="signup-password" name="password" required placeholder="Create a password">
+                </div>
+                <div class="mb-2">
+                    <label for="confirmPassword" class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required placeholder="Confirm your password">
+                </div>
+                <button type="submit" class="btn btn-primary w-25" id="signup-button">Sign Up</button>
+            </form>
+            <p class="mt-2 text-start ms-3">Already have an account?<a href="LoginAndSignUp.html?request=login" id="have-account-login">Log in</a></p>
+        </div>
+    </div>
+    <!-- Kết thúc form đăng kí   -->
+     
+    <!-- Phần bên dưới là của JavaScript -->
+    <script src="../JS/LoginAndSignUp.js"></script>
+    <!-- Kết thúc phần JavaScript -->
+</body>
+</html>
