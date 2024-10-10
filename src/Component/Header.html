@@ -23,9 +23,8 @@
         color: #3e6001;
         font-size: 18px;
       }
-      #btn-group button, a {
+      #btn-group button {
         font-size: 18px;
-        font-weight: bold !important;
       }
       #header-nav-icon {
         align-self: center;
@@ -72,11 +71,11 @@
       <div class="container-fluid">
         <a
           class="navbar-brand"
-          href="/public/Home.html"
+          href="/Home.html"
           style="color: #3e6001; font-size: 32px; font-weight: bold"
         >
           <img
-            src="/public/image/Kitti-Logo.jpg"
+            src="/image/Kitti-Logo.jpg"
             alt=""
             width="80"
             height="80"
@@ -103,13 +102,13 @@
           />
         </div>
         <nav class="nav nav-pills nav-fill">
-          <a class="nav-link" href="/public/HTML/Recipe.html" id="nav-link">
+          <a class="nav-link" href="/Recipe/Recipe.html" id="nav-link">
             <i id="header-nav-icon" class="fa-solid fa-book"></i> Công thức
           </a>
-          <a class="nav-link" href="/public/HTML/Product.html" id="nav-link">
+          <a class="nav-link" href="/Product/Product.html" id="nav-link">
             <i id="header-nav-icon" class="fa-solid fa-bowl-food"></i> Sản phẩm
           </a>
-          <a class="nav-link" href="/public/HTML/Cart.html" id="nav-link">
+          <a class="nav-link" href="/Cart/Cart.html" id="nav-link">
             <i id="header-nav-icon" class="fa-solid fa-cart-shopping"></i> Giỏ
             hàng
           </a>
@@ -135,15 +134,34 @@
             </div>
           </div>
         </nav>
-        <div id="btn-group" class="btn-group" role="group" aria-label="Basic outlined example">
-          <a class="btn btn-outline-success" href="/public/HTML/LoginAndSignUp.html?request=login" role="button">Đăng nhập</a>
-          <a class="btn btn-outline-success" href="/public/HTML/LoginAndSignUp.html?request=signup" role="button">Đăng ký</a>
+        <div
+          id="btn-group"
+          class="btn-group"
+          role="group"
+          aria-label="Basic outlined example"
+        >
+          <button
+            type="button"
+            class="btn btn-outline-secondary"
+            onclick="sendRequest('login')"
+          >
+            Đăng nhập
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-secondary"
+            onclick="sendRequest('signup')"
+          >
+            Đăng kí
+          </button>
         </div>
       </div>
     </nav>
     <!-- Kết thúc phần header -->
     <script>
+      function sendRequest(request) {
+        window.location.href = "/Login/Background.html?request=" + request;
+      }
     </script>
   </body>
 </html>
- 
