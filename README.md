@@ -10,6 +10,7 @@ This is a repository to manage project of Basic Web Design lesson of Mr. Dinh.
             + cart : "carts"
             + recipe : "recipes"
             + product : "products"
+        - Khi đăng nhập thì sẽ tới mọi trang kèm với một param là: user_id
 
     -- CÁCH HOẠT ĐỘNG CỦA CÁC TRANG --
 

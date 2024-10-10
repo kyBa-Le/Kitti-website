@@ -1,23 +1,17 @@
-export function readData(path){
-    fetch(path)
-        .then((res) => res.json())
-        .then((data) => {
-            return data // object
-            // sử dụng data để thêm dữ liệu vào DOM
-        })
+class User{
+    
 }
 // storage.js
 export function saveToLocalStorage(key, value) {
-    localStorage.setItem(key, value);
+    localStorage.setItem(key, JSON.stringify(value));
 }
 
 export function getFromLocalStorage(key) {
     const value = localStorage.getItem(key);
-    if(value ==- null){
-        return [];
-    }else{
-        return JSON.parse(value);
-    }
+    return JSON.parse(value);
 }
 
- 
+export function readFileJson(path){
+    fetch(path).then(respone => respone.json().then(data => data));
+    console.log("File read successfully!");
+}
