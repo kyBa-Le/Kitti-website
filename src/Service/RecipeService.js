@@ -1,18 +1,18 @@
-import { getFromLocalStorage } from "../Utils/Storage";
-import { saveToLocalStorage } from "../Utils/Storage";
+import { getFromLocalStorage } from "../Utils/Storage.js";
+import { saveToLocalStorage } from "../Utils/Storage.js";
 
-const RecipeService = {
-    arrayRecipe : getFromLocalStorage("recipes"),
-    
+export const RecipeService = {
+    arrayRecipe: getFromLocalStorage("recipes"),
+
     // Hàm lưu recipe
-    saveRecipe: function(recipe){
+    saveRecipe: function(recipe) {
         this.arrayRecipe.push(recipe);
-        saveToLocalStorage("recipes", recipe);
+        saveToLocalStorage("recipes", this.arrayRecipe);
     },
 
-    // Hàm lấy tất cả recipes
-    getAllRecipes: function(){
-        if(this.arrayRecipe){
+    // Hàm lấy tất cả recipe
+    getAllRecipes: function() {
+        if (this.arrayRecipe) {
             return this.arrayRecipe;
         } else {
             return [];
@@ -20,15 +20,15 @@ const RecipeService = {
     },
 
     // Hàm xóa 1 recipe theo id
-    removeRecipe: function(id){
-        this.arrayRecipe = this.arrayRecipe.filter(function(item){
+    removeRecipe: function(id) {
+        this.arrayRecipe = this.arrayRecipe.filter(function(item) {
             return item.id !== id;
         });
         console.log(`Recipe with ${id} is removed!`);
     },
 
     // Hàm chỉnh sửa thông tin recipe - truyền vào 1 recipe mới
-    updateRecipe: function(recipe){
+    updateRecipe: function(recipe) {
         const index = this.arrayRecipe.findIndex(r => r.id === recipe.id);
 
         if (index !== -1) {
@@ -40,6 +40,6 @@ const RecipeService = {
             console.log("Recipe has been updated!");
         } else {
             console.error("Recipe not found");
-        } 
+        }
     }
 }

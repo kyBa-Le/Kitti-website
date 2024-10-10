@@ -23,7 +23,11 @@ function loginChangePage(){
     var password = $("#login-password").val();
     // Đăng nhập với tài khoản của admin
     if(username === "admin" && password === "admin@123"){
+<<<<<<< HEAD
         window.location.href = "/public/Admin/Admin.html";
+=======
+        window.location.href = "/public/HTML/Admin.html";
+>>>>>>> d5c9e465e044f9b722f9b0c35fff771632ed5dd0
         console.log("change to admin");
     }
 }

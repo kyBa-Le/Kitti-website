@@ -1,9 +1,9 @@
-import { getFromLocalStorage } from "../Utils/Storage";
-import { saveToLocalStorage } from "../Utils/Storage";
+import { getFromLocalStorage } from "../Utils/Storage.js";
+import { saveToLocalStorage } from "../Utils/Storage.js";
 
-const ProductService = {
+export const ProductService = {
     arrayProduct: getFromLocalStorage("products"),
-    
+
     // Hàm lưu product
     saveProduct: function(product) {
         this.arrayProduct.push(product);
@@ -11,7 +11,7 @@ const ProductService = {
     },
 
     // Hàm lấy tất cả product
-    getAllProduct: function() {
+    getAllProducts: function() {
         if (this.arrayProduct) {
             return this.arrayProduct;
         } else {
@@ -40,6 +40,6 @@ const ProductService = {
             console.log("Product has been updated!");
         } else {
             console.error("Product not found");
-        } 
+        }
     }
 }
