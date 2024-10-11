@@ -1,11 +1,11 @@
 import { getFromLocalStorage } from "../Utils/Storage.js";
 import { saveToLocalStorage } from "../Utils/Storage.js";
 export const OrderService = {
-    arrayOrder: getFromLocalStorage("Orders"),
+    arrayOrder: await getFromLocalStorage("orders"),
     // Hàm lưu Order
     saveOrder: function (Order) {
         this.arrayOrder.push(Order);
-        saveToLocalStorage("Orders", Order);
+        saveToLocalStorage("orders", Order);
     },
     // Hàm lấy tất cả Order
     getAllOrders: function () {
@@ -17,19 +17,20 @@ export const OrderService = {
     },
     // Hàm lấy order theo id của order
     getOrderById(id){
-        return this.arrayOrder.array.find(element => {
-            element.id === id;
+        return this.arrayOrder.find(element => {
+            return element.id == id;
         });
     },
     // Hàm lấy các Order theo id của user
-    getOrderByUserId: function (user_id) {
-        return this.arrayOrder.filter(function (item) {
-            return item.user_id === user_id;
-        })
+    getOrderByUserId: function(user_id){
+        console.log(Array.isArray(this.arrayOrder));
+        return this.arrayOrder.filter(value =>{
+            return value.user_id == user_id;
+        });
     },
     // Hàm chỉnh sửa thông tin người dùng - tryền vào 1 Order mới
-    updateOrder: function (Order) {
-        const index = this.arrayOrder.findIndex(u => u.id === Order.id);
+    updateOrder: async function (Order) {
+        const index = await this.arrayOrder.findIndex(u => u.id === Order.id);
 
         if (index !== -1) {
             // Sử dụng spread operator để cập nhật các thuộc tính của đối tượng
@@ -37,6 +38,9 @@ export const OrderService = {
                 ...this.arrayOrder[index],
                 ...Order
             };
+            saveToLocalStorage("users",this.arrayOrder);
+            console.log(await getFromLocalStorage("users"));
+            alert("reading in update");
             console.log("Order has been updated!");
         } else {
             console.error("Order not found");

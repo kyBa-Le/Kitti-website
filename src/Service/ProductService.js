@@ -2,7 +2,7 @@ import { getFromLocalStorage } from "../Utils/Storage.js";
 import { saveToLocalStorage } from "../Utils/Storage.js";
 
 export const ProductService = {
-    arrayProduct: getFromLocalStorage("products"),
+    arrayProduct: await getFromLocalStorage("products"),
 
     // Hàm lưu product
     saveProduct: function(product) {

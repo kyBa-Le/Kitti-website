@@ -1,14 +1,11 @@
-class User{
-    
-}
-// storage.js
+// storage.js lưu local: chỉ truyền vào giá trị đã stringify
 export function saveToLocalStorage(key, value) {
-    localStorage.setItem(key, JSON.stringify(value));
+    localStorage.setItem(key, value);
 }
 
-export function getFromLocalStorage(key) {
-    const value = localStorage.getItem(key);
-    return JSON.parse(value);
+// lấy giá trị từ local: truyền vào key, trả về một array
+export async function getFromLocalStorage(key) {
+    return await JSON.parse(await (localStorage.getItem(key)));
 }
 
 export function readFileJson(path){
