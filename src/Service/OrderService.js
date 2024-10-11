@@ -45,9 +45,12 @@ export const OrderService = {
         }
     },
     // Hàm xóa order theo id
-    deleteOrderById(id){
-        this.arrayOrder.filter(function(order){
+    async deleteOrderById(id){
+        this.arrayOrder = await this.arrayOrder.filter(function(order){
             return order.id != id;
         })
+        saveToLocalStorage("orders",JSON.stringify(this.arrayOrder));
+        console.log(JSON.parse(getFromLocalStorage("orders")));
+        window.alert("wait");
     }
 }

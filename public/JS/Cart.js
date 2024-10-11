@@ -37,7 +37,7 @@ function createOrderRow(order){
                 />
               </td>
               <td>${product.name}</td>
-              <td>${product.price}₫</td>
+              <td>${priceFormat(product.price)}₫</td>
               <td>
                 <div class="d-flex justify-content-center">
                   <button class="btn btn-sm btn-outline-secondary changeQuantity" data-id="${order.id}" data-number="${-1}">-</button>
@@ -50,11 +50,11 @@ function createOrderRow(order){
                   <button class="btn btn-sm btn-outline-secondary changeQuantity" data-id=${order.id} data-number="${1}">+</button>
                 </div>
               </td>
-              <td>${product.price * order.quantity}₫</td>
+              <td>${priceFormat(product.price * order.quantity)}₫</td>
               <td>
                 <button
                   type="button"
-                  class="btn btn-sm btn-warning card-btn-color deleteOrder"
+                  class="btn btn-sm btn-warning card-btn-color deleteOrder" data-id=${order.id}
                 >
                   Xóa
                 </button>
@@ -80,3 +80,27 @@ change.forEach(button => {
     changeQuantity(productId, number); // Call the function with retrieved values
   });
 });
+
+// Hàm xóa đơn hàng
+const deleteButton = document.querySelectorAll(".deleteOrder");
+deleteButton.forEach(button =>{
+  button.addEventListener('click',()=>{
+    let orderId = button.dataset.id;
+    OrderService.deleteOrderById(orderId);
+    location.reload();
+  })
+})
+// Hàm format kiểu dữ liệu tiền
+function priceFormat(num) {
+  // Chuyển số thành chuỗi và đảo ngược chuỗi
+  let str = num.toString().split('').reverse().join('');
+  // Thêm dấu chấm sau mỗi 3 ký tự, bắt đầu từ ký tự thứ 3
+  let result = '';
+  for (let i = 0; i < str.length; i++) {
+    if (i > 0 && i % 3 === 0) {
+      result = '.' + result;
+    }
+    result = str[i] + result;
+  }
+  return result;
+}
