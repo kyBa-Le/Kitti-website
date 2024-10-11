@@ -5,7 +5,7 @@ export const OrderService = {
     // Hàm lưu Order
     saveOrder: function (Order) {
         this.arrayOrder.push(Order);
-        saveToLocalStorage("orders", Order);
+        saveToLocalStorage("orders", JSON.stringify(this.arrayOrder));
     },
     // Hàm lấy tất cả Order
     getAllOrders: function () {
@@ -28,7 +28,7 @@ export const OrderService = {
             return value.user_id == user_id;
         });
     },
-    // Hàm chỉnh sửa thông tin người dùng - tryền vào 1 Order mới
+    // Hàm chỉnh sửa thông tin order - tryền vào 1 Order mới
     updateOrder: async function (Order) {
         const index = await this.arrayOrder.findIndex(u => u.id === Order.id);
 
@@ -38,9 +38,7 @@ export const OrderService = {
                 ...this.arrayOrder[index],
                 ...Order
             };
-            saveToLocalStorage("users",this.arrayOrder);
-            console.log(await getFromLocalStorage("users"));
-            alert("reading in update");
+            saveToLocalStorage("orders",JSON.stringify(this.arrayOrder));
             console.log("Order has been updated!");
         } else {
             console.error("Order not found");

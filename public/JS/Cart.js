@@ -12,14 +12,15 @@ import { getFromLocalStorage, saveToLocalStorage } from "../../src/Utils/Storage
 // Hàm thay đổi số lượng
 function changeQuantity(id, num) {
   let order = OrderService.getOrderById(id);
-  console.log(order);
-  order.quantity += parseInt(num);
-  OrderService.updateOrder(order);
-  OrderService.saveOrder(order);
-  console.log(orders);
-  console.log(order);
-  alert("reading");
-  location.reload();
+  if(order.quantity >= 1){
+    console.log(order);
+    order.quantity += parseInt(num);
+    OrderService.updateOrder(order);
+    location.reload();
+  }else{
+    window.alert("Click delete to delete the item!");
+  }
+  
 }
 
 
