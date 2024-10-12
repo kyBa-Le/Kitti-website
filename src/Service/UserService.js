@@ -1,28 +1,28 @@
-import { getFromLocalStorage } from "../Utils/Storage";
-import { saveToLocalStorage } from "../Utils/Storage";
-const UserService = {
+import { getFromLocalStorage } from "../Utils/Storage.js";
+import { saveToLocalStorage } from "../Utils/Storage.js";
+export const UserService = {
     arrayUser : getFromLocalStorage("users"),
     // Hàm lưu user
     saveUser: function(user){
         this.arrayUser.push(user);
-        saveToLocalStorage("user",user);
+        saveToLocalStorage("users",user);
     },
     // Hàm lấy tất cả user
-    getAllUser: function(){
-        if(arrayUser){
-            return arrayUser;
+    getAllUsers: function(){
+        if(this.arrayUser){
+            return this.arrayUser;
         }else{
             return [];
         }
     },
     // Hàm xóa 1 user theo id
-    getAllUser: function(id){
+    getUser: function(id){
         this.arrayUser.filter(function(item){
             return item.id !== id;
         })
         console.log(`User with ${id} is removed!`);
     },
-    // Hàm chỉnh sửa thông tin người dùng - tryền vào 1 user mới
+    // Hàm chỉnh sửa thông tin người dùng - truyền vào 1 user mới
     updateUser: function(user){
         const index = this.arrayUser.findIndex(u => u.id === user.id);
 

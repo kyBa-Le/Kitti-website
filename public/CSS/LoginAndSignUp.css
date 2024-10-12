@@ -85,8 +85,8 @@
     border: 1px solid #F29F05;
     border-radius: 5px;
 }
-#login-form{
-    background-color: transparent;
+#login-form, #signup{
+    background-color: rgba(0, 0, 0, 0.4);
 }
 #login-loginButton{
     margin-left: 75%;

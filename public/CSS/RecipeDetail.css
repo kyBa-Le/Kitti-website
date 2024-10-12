@@ -20,8 +20,10 @@
 
 /* Dưới đây là css của phần recipe */
 * {
-  
-   font-family: "Dosis"; 
+  font-family:"Dosis";
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
 }
 .container {
   margin-top: 30px;
