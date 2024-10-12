@@ -2,7 +2,7 @@ import { getFromLocalStorage } from "../Utils/Storage.js";
 import { saveToLocalStorage } from "../Utils/Storage.js";
 
 export const ProductService = {
-    arrayProduct: getFromLocalStorage("products"),
+    arrayProduct: await getFromLocalStorage("products"),
 
     // Hàm lưu product
     saveProduct: function(product) {
@@ -18,7 +18,11 @@ export const ProductService = {
             return [];
         }
     },
-
+    // Hàm lấy product theo id
+    getProductById(id){
+        const index = this.arrayProduct.findIndex(p => p.id === id);
+        return this.arrayProduct[index];
+    },
     // Hàm xóa 1 product theo id
     removeProduct: function(id) {
         this.arrayProduct = this.arrayProduct.filter(function(item) {
