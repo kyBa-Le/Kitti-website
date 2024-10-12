@@ -23,8 +23,9 @@
         color: #3e6001;
         font-size: 18px;
       }
-      #btn-group button {
+      #btn-group button, a {
         font-size: 18px;
+        font-weight: bold !important;
       }
       #header-nav-icon {
         align-self: center;
@@ -134,34 +135,15 @@
             </div>
           </div>
         </nav>
-        <div
-          id="btn-group"
-          class="btn-group"
-          role="group"
-          aria-label="Basic outlined example"
-        >
-          <button
-            type="button"
-            class="btn btn-outline-secondary"
-            onclick="sendRequest('login')"
-          >
-            Đăng nhập
-          </button>
-          <button
-            type="button"
-            class="btn btn-outline-secondary"
-            onclick="sendRequest('signup')"
-          >
-            Đăng kí
-          </button>
+        <div id="btn-group" class="btn-group" role="group" aria-label="Basic outlined example">
+          <a class="btn btn-outline-success" href="/public/HTML/LoginAndSignUp.html?request=login" role="button">Đăng nhập</a>
+          <a class="btn btn-outline-success" href="/public/HTML/LoginAndSignUp.html?request=signup" role="button">Đăng ký</a>
         </div>
       </div>
     </nav>
     <!-- Kết thúc phần header -->
     <script>
-      function sendRequest(request) {
-        window.location.href = "HTML/LoginAndSignUp.html?request=" + request;
-      }
     </script>
   </body>
 </html>
+ 

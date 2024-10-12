@@ -1,16 +1,22 @@
+import { getFromLocalStorage, readFileJson } from "../src/Utils/Storage.js";
+import { saveToLocalStorage } from "../src/Utils/Storage.js";
+import { UserService } from "../src/Service/UserService.js";
+// Lưu tất cả dữ liệu của các đối tượng vào local storage
+const arrUsers = await readFileJson("/src/Data/User.json");
+const arrOrders = await readFileJson("/src/Data/Order.json");
+const arrProduct = await readFileJson("/src/Data/Product.json");
+const arrayRecipe = await readFileJson("/src/Data/Recipe.json");
+console.log(arrUsers);
 
-import { readFileJson } from "../src/Utils/Storage";
-import { getFromLocalStorage } from "../src/Utils/Storage";
-import { saveToLocalStorage } from "../src/Utils/Storage";
-saveToLocalStorage("users", readFileJson("/src/Data/User.json"));
+
 // Tạo hiệu ứng chuyển động: phần chữ của quảng cáo
+console.log(window.location.href);
 const animateSection = document.querySelector('.animate-section');
 const triggerPoint = window.innerHeight * 0.5;
 let isShown = false; // Biến cờ để theo dõi trạng thái
 
 window.addEventListener('scroll', () => {
     const scrollPosition = window.scrollY;
-
     if (scrollPosition >= triggerPoint && !isShown) {
         animateSection.classList.add('show');
         isShown = true;
