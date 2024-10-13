@@ -1,5 +1,8 @@
 import { getFromLocalStorage, readFileJson } from "../src/Utils/Storage.js";
 import { saveToLocalStorage } from "../src/Utils/Storage.js";
+import {ProductService} from "/src/Service/ProductService.js";
+
+// Xóa local storage nếu quá trình lưu file gặp lỗi
 let confirmDelete = confirm("Bạn có muốn xóa dữ liệu trong local?");
 if (confirmDelete) {
     // Thực hiện hành động xóa
@@ -22,7 +25,7 @@ if(["users","orders","products","recipes"].every(item => !Object.keys(localStora
     saveToLocalStorage("products",await JSON.stringify(arrProduct));
     saveToLocalStorage("recipes",await JSON.stringify(arrayRecipe));
 } 
-console.log( (await localStorage.getItem("users")));  
+
 // Tạo hiệu ứng chuyển động: phần chữ của quảng cáo
 const animateSection = document.querySelector('.animate-section');
 const triggerPoint = window.innerHeight * 0.5;
@@ -44,3 +47,4 @@ window.addEventListener('scroll', () => {
 function openDetail(id){
     window.location.href = ("Product/ProductDetail.html");
 }
+

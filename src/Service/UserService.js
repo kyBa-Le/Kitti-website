@@ -32,6 +32,7 @@ export const UserService = {
                 ...this.arrayUser[index],
                 ...user
             };
+            saveToLocalStorage("users", JSON.stringify(this.arrayUser));
             console.log("User has been updated!");
         } else {
             console.error("User not found");
