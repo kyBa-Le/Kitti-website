@@ -1,418 +1,463 @@
 {
-    "slides": [
-      {
-        "id": 1,
-        "name": "Bánh Flan",
-        "image_link": "https://cdn.tgdd.vn/Files/2019/12/28/1228865/cach-lam-banh-flan-khong-can-lo-nuong-202203121414578251.jpg",
-        "description": "Bánh Flan là một món tráng miệng ngon và mềm mịn, thường được làm từ trứng, sữa và đường.",
-        "time": "30 phút",
-        "difficulty": "Dễ",
-        "ingredients": [
-          {
-            "name": "Trứng",
-            "quantity": "3 quả"
-          },
-          {
-            "name": "Sữa đặc",
-            "quantity": "1 hộp (400g)"
-          },
-          {
-            "name": "Sữa tươi",
-            "quantity": "200ml"
-          },
-          {
-            "name": "Đường",
-            "quantity": "100g"
-          },
-          {
-            "name": "Vanilla",
-            "quantity": "1 ống"
-          }
-        ],
-        "steps": [
-          {
-            "step_number": 1,
-            "title": "Bước 1: Chuẩn bị caramel",
-            "description": "Đun đường với một ít nước cho đến khi caramel chuyển sang màu vàng nâu. Đổ caramel vào khuôn bánh.",
-            "image_link": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRICnvb3WrOzRXDK0uh-bJdFUf28PneWzeCuTekkTcS9m5rW_NhmXrP6qikctdM8vT9ziU&usqp=CAU"
-          },
-          {
-            "step_number": 2,
-            "title": "Bước 2: Pha hỗn hợp trứng",
-            "description": "Đánh tan trứng, sau đó cho sữa đặc, sữa tươi và vanilla vào trộn đều.",
-            "image_link": "https://blog.btaskee.com/wp-content/uploads/2020/08/ty-le-trung-va-sua-khi-lam-banh-flan-1280x720.jpg"
-          },
-          {
-            "step_number": 3,
-            "title": "Bước 3: Đổ hỗn hợp vào khuôn",
-            "description": "Đổ hỗn hợp trứng vào khuôn đã có caramel.",
-            "image_link": "https://cdn.apartmenttherapy.info/image/upload/v1605309818/k/Photo/Recipes/2020-11-How-to-Make-Flan-The-Easiest-Method%20/HT-FLAN025.jpg"
-          },
-          {
-            "step_number": 4,
-            "title": "Bước 4: Hấp bánh",
-            "description": "Hấp bánh trong khoảng 30-40 phút cho đến khi chín. Để nguội và cho vào tủ lạnh.",
-            "image_link": "https://cdn2.fptshop.com.vn/unsafe/Uploads/images/tin-tuc/185055/Originals/hap-banh-flan-bao-nhieu-phut-2.jpg"
-          },
-          {
-            "step_number": 5,
-            "title": "Bước 5: Thưởng thức",
-            "description": "Lấy bánh ra khỏi khuôn, cắt miếng và thưởng thức cùng caramel.",
-            "image_link": "https://image.winci.com.vn/wp-content/uploads/2023/12/cach-lam-ca-phe-banh-flan.webp"
-          }
-        ]
-      },
-      {
-        "id": 2,
-        "name": "Sandwich Phô Mai Tươi",
-        "image_link": "https://inoxhungcuong.com/wp-content/uploads/2021/10/cach-lam-banh-mi-sandwich-kep-trung-05.jpg",
-        "description": "Sandwich Phô Mai Tươi là món ăn nhanh ngon miệng với phô mai tươi và rau củ.",
-        "time": "10 phút",
-        "difficulty": "Dễ",
-        "ingredients": [
-          {
-            "name": "Bánh mì",
-            "quantity": "2 lát"
-          },
-          {
-            "name": "Phô mai tươi",
-            "quantity": "50g"
-          },
-          {
-            "name": "Dưa leo",
-            "quantity": "1 quả, thái lát"
-          },
-          {
-            "name": "Cà chua",
-            "quantity": "1 quả, thái lát"
-          }
-        ],
-        "steps": [
-          {
-            "step_number": 1,
-            "title": "Bước 1: Chuẩn bị nguyên liệu",
-            "description": "Thái lát dưa leo và cà chua.",
-            "image_link": "https://content.instructables.com/F24/9X3T/HBFFJHYF/F249X3THBFFJHYF.jpg?auto=webp&fit=bounds&frame=1&height=1024&width=1024auto=webp&frame=1&height=150"
-          },
-          {
-            "step_number": 2,
-            "title": "Bước 2: Lắp ráp sandwich",
-            "description": "Xếp phô mai tươi, dưa leo và cà chua lên một lát bánh mì. Đậy lát bánh mì còn lại lên trên.",
-            "image_link": "https://www.thatlangon.com/wp-content/uploads/2021/07/cachlamsandwich2.jpg"
-          },
-          {
-            "step_number": 3,
-            "title": "Bước 3: Thưởng thức",
-            "description": "Cắt sandwich thành 2 hoặc 4 phần và thưởng thức.",
-            "image_link": "https://bite.vn/wp-content/uploads/2022/10/Chicken-curry.jpg"
-          }
-        ]
-      },
-      {
-        "id": 3,
-        "name": "Kem Dâu",
-        "image_link": "https://aplantifulpath.com/wp-content/uploads/2019/08/Strawberry-Ice-Cream-1.jpg",
-        "description": "Kem Dâu là món tráng miệng ngọt mát, làm từ dâu tươi và kem.",
-        "time": "15 phút",
-        "difficulty": "Dễ",
-        "ingredients": [
-          {
-            "name": "Dâu tươi",
-            "quantity": "200g"
-          },
-          {
-            "name": "Kem tươi",
-            "quantity": "200ml"
-          },
-          {
-            "name": "Đường",
-            "quantity": "50g"
-          }
-        ],
-        "steps": [
-          {
-            "step_number": 1,
-            "title": "Bước 1: Xay dâu",
-            "description": "Xay nhuyễn dâu tươi với đường.",
-            "image_link": "https://www.bartender.edu.vn/wp-content/uploads/2021/01/cac-buoc-xay-sinh-to-dau.jpg"
-          },
-          {
-            "step_number": 2,
-            "title": "Bước 2: Trộn kem",
-            "description": "Trộn kem tươi vào hỗn hợp dâu đã xay.",
-            "image_link": "https://eggyolk.vn/wp-content/uploads/2024/09/Cac-buoc-cach-lam-kem-dau-tay-voi-whipping-cream.jpg"
-          },
-          {
-            "step_number": 3,
-            "title": "Bước 3: Đổ vào khuôn",
-            "description": "Đổ hỗn hợp vào khuôn và cho vào ngăn đá.",
-            "image_link": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRULT58L7EtXbZE-JK7L5G8NmPZ5ieDNMIG9j9L3cnF_AMGql1wstqr9yjqOglriq5zwJ8&usqp=CAU"
-          },
-          {
-            "step_number": 4,
-            "title": "Bước 4: Thưởng thức",
-            "description": "Lấy kem ra khỏi khuôn, cắt thành miếng và thưởng thức.",
-            "image_link": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWufE5kUqzAh45OFp5WcMHEOt8X_TXKqG_Gg&s"
-          }
-        ]
-      },
-      {
-        "id": 4,
-        "name": "Gà Sốt Cà Chua",
-        "image_link": "https://cdn.tgdd.vn/2021/03/CookProduct/1-1200x676-63.jpg",
-        "description": "Gà Sốt Cà Chua là món ăn thơm ngon với thịt gà và sốt cà chua đậm đà.",
-        "time": "40 phút",
-        "difficulty": "Trung bình",
-        "ingredients": [
-          {
-            "name": "Thịt gà",
-            "quantity": "300g"
-          },
-          {
-            "name": "Cà chua",
-            "quantity": "2 quả, băm nhỏ"
-          },
-          {
-            "name": "Hành tây",
-            "quantity": "1 củ, thái lát"
-          },
-          {
-            "name": "Gia vị",
-            "quantity": "Theo khẩu vị"
-          }
-        ],
-        "steps": [
-          {
-            "step_number": 1,
-            "title": "Bước 1: Chiên gà",
-            "description": "Chiên thịt gà cho đến khi vàng đều.",
-            "image_link": "https://www.garanfkt.vn/public/upload/baiviet/CFRT_%E1%BA%A3nh%20%C4%91%E1%BA%A1i%20di%E1%BB%87n%20c%C3%A1nh%20g%C3%A0%20r%C3%A1n.jpg"
-          },
-          {
-            "step_number": 2,
-            "title": "Bước 2: Nấu sốt",
-            "description": "Xào hành tây và cà chua cho đến khi chín, thêm gia vị.",
-            "image_link": "https://anchay.cdn.vccloud.vn/wp-content/uploads/2021/03/1-153-768x725.jpg"
-          },
-          {
-            "step_number": 3,
-            "title": "Bước 3: Kết hợp",
-            "description": "Cho thịt gà vào sốt và nấu thêm 10 phút.",
-            "image_link": "https://thehifarm.com/wp-content/uploads/2021/04/ga-vien-sot-ca-chua-6.jpg"
-          },
-          {
-            "step_number": 4,
-            "title": "Bước 4: Thưởng thức",
-            "description": "Dọn món ăn ra đĩa và thưởng thức.",
-            "image_link": "https://i.ytimg.com/vi/oU8Dvdl6rgY/maxresdefault.jpg"
-          }
-        ]
-      }
-    ],
-    "recipes":[
+  "slides": [
+    {
+      "id": 1,
+      "name": "Bánh Flan",
+      "image_link": "https://cdn.tgdd.vn/Files/2019/12/28/1228865/cach-lam-banh-flan-khong-can-lo-nuong-202203121414578251.jpg",
+      "description": "Bánh Flan, hay còn gọi là caramel custard, là món tráng miệng phổ biến được yêu thích nhờ hương vị mềm mịn và ngọt ngào. Bánh được làm từ các nguyên liệu chính như trứng, sữa đặc, sữa tươi và caramel. Quá trình hấp chín giúp bánh giữ được độ mềm nhưng không hề ngấy, kết hợp với vị ngọt thanh của caramel, tạo nên sự cân bằng hoàn hảo. Đây là món ăn lý tưởng sau bữa tối, mang đến cảm giác nhẹ nhàng và tinh tế.",
+      "time": "30 phút",
+      "difficulty": "Dễ",
+      "ingredients": [
+        {
+          "name": "Trứng",
+          "quantity": "3",
+          "unit": "quả"
+        },
+        {
+          "name": "Sữa đặc",
+          "quantity": "1",
+          "unit": "hộp (400g)"
+        },
+        {
+          "name": "Sữa tươi",
+          "quantity": "200",
+          "unit": "ml"
+        },
+        {
+          "name": "Đường",
+          "quantity": "100",
+          "unit": "g"
+        },
+        {
+          "name": "Vanilla",
+          "quantity": "1",
+          "unit": "ống"
+        }
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "title": "Bước 1: Chuẩn bị caramel",
+          "description": "Bắt đầu bằng cách cho một lượng đường cần thiết vào chảo cùng một ít nước. Đun trên lửa vừa cho đến khi đường tan chảy và chuyển sang màu vàng nâu, tạo nên caramel thơm ngon. Lưu ý không khuấy caramel trong quá trình đun để tránh bị kết tinh. Khi caramel đã đạt màu sắc mong muốn, nhanh chóng đổ vào khuôn bánh và xoay đều để caramel phủ đều đáy khuôn.",
+          "image_link": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRICnvb3WrOzRXDK0uh-bJdFUf28PneWzeCuTekkTcS9m5rW_NhmXrP6qikctdM8vT9ziU&usqp=CAU"
+        },
+        {
+          "step_number": 2,
+          "title": "Bước 2: Pha hỗn hợp trứng",
+          "description": "Tiếp theo, trong một bát lớn, đánh tan trứng bằng phới lồng cho đến khi bông nhẹ. Sau đó, cho sữa đặc, sữa tươi và vanilla vào bát trứng, tiếp tục khuấy đều để tạo thành một hỗn hợp mịn màng. Hỗn hợp này sẽ là phần nhân của bánh Flan, mang đến hương vị béo ngậy và thơm ngon.",
+          "image_link": "https://blog.btaskee.com/wp-content/uploads/2020/08/ty-le-trung-va-sua-khi-lam-banh-flan-1280x720.jpg"
+        },
+        {
+          "step_number": 3,
+          "title": "Bước 3: Đổ hỗn hợp vào khuôn",
+          "description": "Sau khi chuẩn bị xong hỗn hợp trứng, từ từ đổ hỗn hợp này vào khuôn đã có caramel. Hãy làm chậm và nhẹ nhàng để tránh làm vỡ caramel bên dưới. Nếu muốn bánh mịn hơn, bạn có thể dùng rây để lọc hỗn hợp trước khi đổ vào khuôn, giúp loại bỏ bọt khí và các mảnh vụn.",
+          "image_link": "https://cdn.apartmenttherapy.info/image/upload/v1605309818/k/Photo/Recipes/2020-11-How-to-Make-Flan-The-Easiest-Method%20/HT-FLAN025.jpg"
+        },
+        {
+          "step_number": 4,
+          "title": "Bước 4: Hấp bánh",
+          "description": "Đặt khuôn bánh vào nồi hấp và hấp bánh trong khoảng 30-40 phút, hoặc cho đến khi bánh chín và có độ mềm mịn hoàn hảo. Để kiểm tra bánh đã chín hay chưa, bạn có thể dùng một que tăm chọc vào giữa bánh; nếu que tăm sạch là bánh đã sẵn sàng. Sau khi hấp xong, để bánh nguội một chút, rồi cho vào tủ lạnh khoảng 1-2 giờ để bánh đông lại.",
+          "image_link": "https://cdn2.fptshop.com.vn/unsafe/Uploads/images/tin-tuc/185055/Originals/hap-banh-flan-bao-nhieu-phut-2.jpg"
+        },
+        {
+          "step_number": 5,
+          "title": "Bước 5: Thưởng thức",
+          "description": "Cuối cùng, khi bánh đã nguội và đông lại, hãy lấy bánh ra khỏi khuôn bằng cách úp ngược khuôn lên đĩa. Caramel sẽ chảy xuống bánh, tạo thành lớp sốt thơm ngon. Cắt bánh thành miếng vừa ăn và thưởng thức cùng với caramel. Bánh Flan sẽ trở thành món tráng miệng tuyệt vời cho gia đình và bạn bè, mang đến sự hài lòng cho mọi người.",
+          "image_link": "https://image.winci.com.vn/wp-content/uploads/2023/12/cach-lam-ca-phe-banh-flan.webp"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Sandwich Phô Mai Tươi",
+      "image_link": "https://inoxhungcuong.com/wp-content/uploads/2021/10/cach-lam-banh-mi-sandwich-kep-trung-05.jpg",
+      "description": "Sandwich Phô Mai Tươi là món ăn nhanh gọn, dễ làm và rất tiện lợi cho bữa sáng hoặc ăn nhẹ. Phô mai tươi béo ngậy kết hợp với sự tươi mát của dưa leo và cà chua, được kẹp giữa hai lát bánh mì mềm. Đây là sự lựa chọn lý tưởng cho những ai muốn có một bữa ăn nhẹ nhàng nhưng đầy đủ dinh dưỡng, đặc biệt phù hợp cho người bận rộn.",
+      "time": "10 phút",
+      "difficulty": "Dễ",
+      "ingredients": [
+        {
+          "name": "Bánh mì",
+          "quantity": "2",
+          "unit": "lát"
+        },
+        {
+          "name": "Phô mai tươi",
+          "quantity": "50",
+          "unit": "g"
+        },
+        {
+          "name": "Dưa leo",
+          "quantity": "1",
+          "unit": "quả, thái lát"
+        },
+        {
+          "name": "Cà chua",
+          "quantity": "1",
+          "unit": "quả, thái lát"
+        }
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "title": "Bước 1: Chuẩn bị nguyên liệu",
+          "description": "Bắt đầu bằng việc rửa sạch dưa leo và cà chua. Sau đó, thái dưa leo và cà chua thành các lát mỏng để dễ dàng kẹp vào sandwich. Việc thái lát sẽ giúp các nguyên liệu hòa quyện tốt hơn khi thưởng thức, đồng thời tạo nên vẻ hấp dẫn cho món ăn.",
+          "image_link": "https://content.instructables.com/F24/9X3T/HBFFJHYF/F249X3THBFFJHYF.jpg?auto=webp&fit=bounds&frame=1&height=1024&width=1024auto=webp&frame=1&height=150"
+        },
+        {
+          "step_number": 2,
+          "title": "Bước 2: Lắp ráp sandwich",
+          "description": "Trên một lát bánh mì, trải đều phô mai tươi, sau đó xếp các lát dưa leo và cà chua lên trên. Đảm bảo phô mai phủ đều để mỗi miếng sandwich đều có vị ngon. Cuối cùng, đặt lát bánh mì còn lại lên trên và nhẹ nhàng ấn xuống để các nguyên liệu kết dính với nhau.",
+          "image_link": "https://www.thatlangon.com/wp-content/uploads/2021/07/cachlamsandwich2.jpg"
+        },
+        {
+          "step_number": 3,
+          "title": "Bước 3: Thưởng thức",
+          "description": "Sử dụng dao sắc để cắt sandwich thành 2 hoặc 4 phần tùy theo sở thích. Việc cắt nhỏ sẽ giúp món ăn trở nên dễ dàng thưởng thức hơn, đặc biệt khi ăn kèm với một cốc nước trái cây hay trà. Đây là món ăn nhanh chóng, bổ dưỡng và cực kỳ thơm ngon!",
+          "image_link": "https://bite.vn/wp-content/uploads/2022/10/Chicken-curry.jpg"
+        }
+      ]
+    },    
+    {
+      "id": 3,
+      "name": "Kem Dâu",
+      "image_link": "https://aplantifulpath.com/wp-content/uploads/2019/08/Strawberry-Ice-Cream-1.jpg",
+      "description": "Kem Dâu là món tráng miệng mùa hè hoàn hảo với hương vị thanh mát, tươi mới từ dâu tây. Kem được làm từ dâu tươi xay nhuyễn kết hợp với kem tươi, tạo ra hỗn hợp ngọt ngào và đậm đà vị trái cây. Khi đông lạnh, kem trở nên mềm mịn và tan chảy trong miệng, đem lại cảm giác sảng khoái và ngọt mát cho những ngày nắng nóng.",
+      "time": "15 phút",
+      "difficulty": "Dễ",
+      "ingredients": [
+        {
+          "name": "Dâu tươi",
+          "quantity": "200",
+          "unit": "g"
+        },
+        {
+          "name": "Kem tươi",
+          "quantity": "200",
+          "unit": "ml"
+        },
+        {
+          "name": "Đường",
+          "quantity": "50",
+          "unit": "g"
+        }
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "title": "Bước 1: Xay dâu",
+          "description": "Đầu tiên, rửa sạch dâu tươi và loại bỏ cuống. Sau đó, cho dâu tươi vào máy xay cùng với đường. Xay cho đến khi hỗn hợp trở nên nhuyễn mịn, đảm bảo không còn cục dâu lớn nào. Điều này sẽ giúp kem có được hương vị dâu tự nhiên và màu sắc hấp dẫn.",
+          "image_link": "https://www.bartender.edu.vn/wp-content/uploads/2021/01/cac-buoc-xay-sinh-to-dau.jpg"
+        },
+        {
+          "step_number": 2,
+          "title": "Bước 2: Trộn kem",
+          "description": "Sau khi có hỗn hợp dâu đã xay, cho kem tươi vào và dùng spatula hoặc muỗng lớn trộn đều. Trộn nhẹ nhàng để không làm mất đi độ bông xốp của kem tươi, giúp kem Dâu trở nên mịn màng và có kết cấu lý tưởng khi đông lạnh.",
+          "image_link": "https://eggyolk.vn/wp-content/uploads/2024/09/Cac-buoc-cach-lam-kem-dau-tay-voi-whipping-cream.jpg"
+        },
+        {
+          "step_number": 3,
+          "title": "Bước 3: Đổ vào khuôn",
+          "description": "Sau khi hỗn hợp đã được trộn đều, đổ nó vào khuôn làm kem. Lưu ý rằng nên lấp đầy khuôn không quá đầy để tránh kem tràn ra ngoài khi đông lạnh. Đậy nắp khuôn nếu có, và cho vào ngăn đá ít nhất 3-4 giờ cho đến khi kem đông lại hoàn toàn.",
+          "image_link": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRULT58L7EtXbZE-JK7L5G8NmPZ5ieDNMIG9j9L3cnF_AMGql1wstqr9yjqOglriq5zwJ8&usqp=CAU"
+        },
+        {
+          "step_number": 4,
+          "title": "Bước 4: Thưởng thức",
+          "description": "Khi kem đã đông lại, lấy nó ra khỏi khuôn. Nếu khó lấy, có thể ngâm khuôn vào nước ấm vài giây để dễ dàng tách kem ra. Cắt kem thành từng miếng vừa ăn và thưởng thức ngay, hoặc trang trí với một ít dâu tươi để tăng thêm hương vị và màu sắc.",
+          "image_link": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWufE5kUqzAh45OFp5WcMHEOt8X_TXKqG_Gg&s"
+        }
+      ]
+    },    
+    {
+      "id": 4,
+      "name": "Gà Sốt Cà Chua",
+      "image_link": "https://cdn.tgdd.vn/2021/03/CookProduct/1-1200x676-63.jpg",
+      "description": "Gà Sốt Cà Chua là món ăn chính đậm đà, giàu chất dinh dưỡng, thường xuất hiện trong các bữa cơm gia đình. Thịt gà mềm ngọt được xào chín và nấu cùng cà chua tươi tạo ra một loại sốt chua ngọt hấp dẫn. Món ăn này không chỉ có hương vị ngon miệng mà còn dễ ăn, kết hợp hoàn hảo với cơm nóng. Thích hợp cho những bữa ăn gia đình ấm cúng.",
+      "time": "45 phút",
+      "difficulty": "Vừa",
+      "ingredients": [
+        {
+          "name": "Gà",
+          "quantity": "500",
+          "unit": "g"
+        },
+        {
+          "name": "Cà chua",
+          "quantity": "3",
+          "unit": "quả"
+        },
+        {
+          "name": "Hành tây",
+          "quantity": "1",
+          "unit": "củ"
+        },
+        {
+          "name": "Tỏi",
+          "quantity": "3",
+          "unit": "nhánh"
+        },
+        {
+          "name": "Gia vị",
+          "quantity": "vừa đủ",
+          "unit": ""
+        }
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "title": "Bước 1: Chuẩn bị nguyên liệu",
+          "description": "Bắt đầu bằng việc rửa sạch thịt gà, sau đó cắt thành miếng vừa ăn để dễ chế biến. Tiếp theo, băm nhỏ hành tây và tỏi để tạo hương vị cho món ăn. Cà chua thì thái múi, giúp khi nấu sẽ dễ dàng hòa quyện vào sốt, tạo nên màu sắc và hương vị hấp dẫn.",
+          "image_link": "https://cdn.tgdd.vn/Files/2020/02/20/1237557/cach-lam-ga-xao-hanh-tay-la-mieng-dua-com-ngon-kho-cuong-202112311048463806.jpg"
+        },
+        {
+          "step_number": 2,
+          "title": "Bước 2: Xào nguyên liệu",
+          "description": "Đặt chảo lên bếp và cho một chút dầu ăn. Khi dầu nóng, cho tỏi và hành tây vào xào cho thơm. Tiếp theo, cho thịt gà đã cắt vào xào cho đến khi thịt chuyển sang màu vàng đều và chín tới. Công đoạn này giúp thịt gà thấm gia vị và giữ được độ mềm.",
+          "image_link": "https://file.hstatic.net/1000115147/file/canh-ga-chien-sa-te-toi-3_07d01a941b54422d81dc57fe0026820b_grande.jpg"
+        },
+        {
+          "step_number": 3,
+          "title": "Bước 3: Nấu sốt",
+          "description": "Khi gà đã chín, thêm cà chua và các gia vị như muối, tiêu, đường vào chảo. Đậy nắp và nấu ở lửa nhỏ trong khoảng 10-15 phút cho đến khi cà chua mềm ra và tạo thành sốt chua ngọt hấp dẫn. Khuấy đều để tất cả nguyên liệu hòa quyện với nhau.",
+          "image_link": "https://cdn-www.vinid.net/bf22fdd3-thit-ga-sot-ca-chua-4.jpg"
+        },
+        {
+          "step_number": 4,
+          "title": "Bước 4: Thưởng thức",
+          "description": "Sau khi sốt đã hoàn thành, bày món Gà Sốt Cà Chua ra đĩa. Món ăn sẽ ngon hơn khi thưởng thức cùng cơm nóng, giúp cân bằng vị chua ngọt của sốt và độ ngọt của thịt gà. Bạn có thể trang trí thêm rau thơm để tăng phần hấp dẫn cho món ăn.",
+          "image_link": "https://amthucgiadinh.wordpress.com/wp-content/uploads/2014/03/mon-ngon-com-ga-chua-ngot1.jpg"
+        }
+      ]
+    }
+  ],    
+  "recipes": [
       {
         "id": 5,
         "name": "Mì Cay Hải Sản",
         "image_link": "https://i.pinimg.com/564x/81/28/57/812857ee76d2e2397266a5e25b7ffb88.jpg",
-        "description": "Mì Cay Hải Sản là món ăn ngon và hấp dẫn với hương vị cay nồng.",
+        "description": "Mì Cay Hải Sản là món ăn mang đậm hương vị Á Đông với sự kết hợp giữa mì dai và hải sản tươi ngon như tôm và mực. Điểm đặc biệt là nước dùng đậm đà, cay nồng từ ớt tạo ra hương vị bùng nổ, kích thích vị giác. Đây là lựa chọn tuyệt vời cho những ngày mát trời hoặc những người yêu thích ẩm thực cay.",
         "time": "20 phút",
         "difficulty": "Trung bình",
         "ingredients": [
           {
             "name": "Mì",
-            "quantity": "200g"
+            "quantity": "200",
+            "unit": "g"
           },
           {
             "name": "Tôm",
-            "quantity": "100g"
+            "quantity": "100",
+            "unit": "g"
           },
           {
             "name": "Mực",
-            "quantity": "100g"
+            "quantity": "100",
+            "unit": "g"
           },
           {
             "name": "Ớt",
-            "quantity": "1 quả, băm nhỏ"
+            "quantity": "1",
+            "unit": "quả, băm nhỏ"
           },
           {
             "name": "Nước dùng",
-            "quantity": "500ml"
+            "quantity": "500",
+            "unit": "ml"
           }
         ],
         "steps": [
           {
             "step_number": 1,
             "title": "Bước 1: Nấu mì",
-            "description": "Luộc mì trong nước sôi cho đến khi chín.",
+            "description": "Đun sôi nước trong nồi, sau đó cho mì vào luộc cho đến khi mì chín. Hãy chú ý không luộc mì quá lâu để mì không bị nhão. Khi mì đã chín, vớt ra và để ráo nước.",
             "image_link": "https://www.lorca.vn/wp-content/uploads/2022/11/asg_ebP0paycHIgtmJ1k_art_dacyewo2xAezfXaI_1633975032974-shutterstock_2024185745-1050x525-1.webp"
           },
           {
             "step_number": 2,
             "title": "Bước 2: Nấu hải sản",
-            "description": "Nấu tôm và mực trong nước dùng với ớt.",
+            "description": "Trong một nồi khác, cho nước dùng vào đun sôi. Sau đó, thêm tôm, mực và ớt đã băm nhỏ vào nấu chung. Nấu cho đến khi hải sản chín và thấm đều gia vị, khoảng 5-7 phút.",
             "image_link": "https://lh3.googleusercontent.com/proxy/nGfntoXdF9Za9cYeNdfFajQHyJp6q6fOBcju1Uf-AWiWYzhhbIoZclx1ButSnVd9UBMEJygtvqDFxLMdtMjEtMk4FEojVuA-H7s"
           },
           {
             "step_number": 3,
             "title": "Bước 3: Kết hợp",
-            "description": "Cho mì vào nồi hải sản và khuấy đều.",
+            "description": "Khi hải sản đã chín, cho mì đã luộc vào nồi hải sản. Khuấy đều để mì thấm đều nước dùng và gia vị, tạo nên sự hòa quyện giữa mì và hải sản.",
             "image_link": "https://file.hstatic.net/1000394081/article/mon-mi-cay_50a131510a314328a31b536dc23c3fb9.jpg"
           },
           {
             "step_number": 4,
             "title": "Bước 4: Thưởng thức",
-            "description": "Dọn món mì ra tô và thưởng thức nóng.",
+            "description": "Dọn mì cay hải sản ra tô và thưởng thức khi còn nóng. Bạn có thể trang trí thêm với rau thơm hoặc ớt tươi để tăng phần hấp dẫn.",
             "image_link": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQujxxU1EA1tIKEEaVxXlUD8qr0jxSazt199Q&s"
           }
         ]
-      },
+      },  
       {
         "id": 6,
         "name": "Bánh Mì Chả Thịt",
         "image_link": "https://i.pinimg.com/564x/b5/9a/c2/b59ac265cc9d8af62bc37b611748de63.jpg",
-        "description": "Bánh Mì Chả Thịt là món ăn đường phố phổ biến với nhân chả thịt thơm ngon.",
+        "description": "Bánh Mì Chả Thịt là món ăn đường phố truyền thống và rất phổ biến ở Việt Nam. Nhân bánh mì gồm chả thịt, dưa leo tươi giòn cùng các loại rau thơm và nước sốt đậm đà. Với lớp vỏ bánh mì giòn rụm, món ăn không chỉ ngon mà còn mang tính biểu tượng của ẩm thực Việt Nam. Rất tiện lợi và dễ mang theo, phù hợp cho bữa sáng hoặc bữa ăn nhẹ. Bánh mì chả thịt thường được bán ở nhiều quán ăn vỉa hè và là lựa chọn yêu thích của nhiều người Việt Nam và du khách quốc tế.",
         "time": "15 phút",
         "difficulty": "Dễ",
         "ingredients": [
           {
             "name": "Bánh mì",
-            "quantity": "1 cái"
+            "quantity": "1",
+            "unit": "cái"
           },
           {
             "name": "Chả thịt",
-            "quantity": "100g"
+            "quantity": "100",
+            "unit": "g"
           },
           {
             "name": "Dưa leo",
-            "quantity": "50g"
+            "quantity": "50",
+            "unit": "g"
           },
           {
             "name": "Nước sốt",
-            "quantity": "Theo khẩu vị"
+            "quantity": "Theo khẩu vị",
+            "unit": ""
           }
         ],
         "steps": [
           {
             "step_number": 1,
             "title": "Bước 1: Chuẩn bị bánh mì",
-            "description": "Cắt bánh mì làm đôi.",
+            "description": "Cắt bánh mì làm đôi, có thể nướng nhẹ nếu bạn thích. Lớp vỏ bánh mì giòn rụm sẽ làm tăng thêm độ hấp dẫn cho món ăn. Đảm bảo bánh mì không bị quá khô để giữ được độ mềm bên trong.",
             "image_link": "https://i.ytimg.com/vi/rgFCioMNTNA/sddefault.jpg"
           },
           {
             "step_number": 2,
             "title": "Bước 2: Thêm nhân",
-            "description": "Cho chả thịt và dưa leo vào giữa bánh mì.",
+            "description": "Cho chả thịt và dưa leo vào giữa bánh mì. Bạn có thể thêm các loại rau thơm như ngò rí, húng quế để tăng thêm hương vị. Hãy chú ý xếp các nguyên liệu sao cho thật đều để mỗi miếng bánh đều có đủ vị.",
             "image_link": "https://nemchasaungoc.com/tenants/tiemchachica/upload/ckeditors/2021-10/banh-mi-cha-lua.jpg"
           },
           {
             "step_number": 3,
             "title": "Bước 3: Thưởng thức",
-            "description": "Dùng với nước sốt và thưởng thức ngay.",
+            "description": "Dùng với nước sốt và thưởng thức ngay. Bạn có thể thêm một ít ớt tươi nếu thích ăn cay. Hãy nhâm nhi từng miếng bánh, cảm nhận vị giòn của vỏ bánh, độ mềm của nhân và hương thơm từ các loại rau, để thưởng thức trọn vẹn hương vị của món ăn.",
             "image_link": "https://mia.vn/media/uploads/blog-du-lich/banh-mi-sot-vang-6-1712019217.jpg"
           }
         ]
-      },
+      },      
       {
         "id": 7,
         "name": "Bánh Cuốn",
         "image_link": "https://i.pinimg.com/564x/82/f6/43/82f643605a416d6cc7e26a84abac54c4.jpg",
-        "description": "Bánh Cuốn là món ăn truyền thống với lớp bột mềm và nhân thơm ngon.",
+        "description": "Bánh Cuốn là món ăn truyền thống của Việt Nam, thường được thưởng thức vào bữa sáng. Lớp vỏ bánh được làm từ bột gạo mỏng mềm, bên trong là nhân thịt heo và nấm xào. Khi ăn kèm với nước chấm chua ngọt, hành phi và rau sống, bánh cuốn mang lại cảm giác thanh mát, thơm ngon và bổ dưỡng. Món ăn này không chỉ nổi tiếng ở các quán ăn mà còn là món ăn yêu thích của nhiều gia đình Việt trong những bữa sáng nhanh gọn.",
         "time": "30 phút",
         "difficulty": "Trung bình",
         "ingredients": [
           {
             "name": "Bột gạo",
-            "quantity": "200g"
+            "quantity": "200",
+            "unit": "g"
           },
           {
             "name": "Thịt heo",
-            "quantity": "100g"
+            "quantity": "100",
+            "unit": "g"
           },
           {
             "name": "Nấm",
-            "quantity": "50g"
+            "quantity": "50",
+            "unit": "g"
           },
           {
             "name": "Nước chấm",
-            "quantity": "Theo khẩu vị"
+            "quantity": "Theo khẩu vị",
+            "unit": ""
           }
         ],
         "steps": [
           {
             "step_number": 1,
             "title": "Bước 1: Làm bột",
-            "description": "Trộn bột gạo với nước để có hỗn hợp bột đồng nhất.",
+            "description": "Trộn bột gạo với nước để có hỗn hợp bột đồng nhất. Để đạt được độ mịn và đàn hồi tốt cho bánh, bạn nên sử dụng nước ấm trong quá trình trộn. Sau khi trộn đều, để bột nghỉ khoảng 15-20 phút.",
             "image_link": "https://media.vietq.vn/files/lam-trang-da-bang-bot-gao-2.jpg"
           },
           {
             "step_number": 2,
             "title": "Bước 2: Hấp bánh",
-            "description": "Hấp bánh trong khuôn cho đến khi chín.",
+            "description": "Hấp bánh trong khuôn cho đến khi chín. Bạn có thể sử dụng nồi hấp hoặc xửng hấp. Lưu ý không nên hấp quá lâu để bánh không bị khô. Khi bánh chín, vỏ sẽ trong và mềm mịn.",
             "image_link": "https://cdn2.fptshop.com.vn/unsafe/Uploads/images/tin-tuc/176234/Originals/cach-lam-banh-cuon-bang-noi-hap-cu-the-nhu-the-nao-huong-dan-3-cach-lam-banh-cuon-cuc-de%202.jpg"
           },
           {
             "step_number": 3,
             "title": "Bước 3: Thêm nhân",
-            "description": "Cho nhân thịt và nấm vào giữa bánh và cuốn lại.",
+            "description": "Cho nhân thịt và nấm vào giữa bánh và cuốn lại. Hãy chắc chắn rằng nhân được trải đều để mỗi miếng bánh đều có đủ vị. Bạn có thể thêm hành phi để tăng thêm hương vị và độ giòn cho món ăn.",
             "image_link": "https://nuocmamcunham.com/wp-content/uploads/2024/04/cach-lam-banh-cuon-thit-nam.jpg"
           },
           {
             "step_number": 4,
             "title": "Bước 4: Thưởng thức",
-            "description": "Dùng với nước chấm và thưởng thức.",
+            "description": "Dùng với nước chấm và thưởng thức. Nước chấm chua ngọt có thể được pha từ nước mắm, đường, nước cốt chanh và ớt. Hãy ăn kèm với rau sống để tạo cảm giác thanh mát và bổ dưỡng cho món ăn.",
             "image_link": "https://i.ytimg.com/vi/XAJr1vQv3wI/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBXlyAInI4zYLWIjGKoPT9kZzE0PQ"
           }
         ]
-      },
+      },      
       {
         "id": 8,
         "name": "Bánh Xèo",
         "image_link": "https://i.pinimg.com/564x/05/08/22/0508226df92f4142601a8b640171ea3d.jpg",
-        "description": "Bánh Xèo là món ăn truyền thống Việt Nam, giòn rụm và có nhân thịt và hải sản.",
+        "description": "Bánh Xèo là một món ăn truyền thống nổi tiếng của Việt Nam, đặc biệt phổ biến ở miền Trung và miền Nam. Đây là món ăn đường phố được nhiều người ưa chuộng, với vỏ bánh mỏng, giòn rụm, được làm từ bột gạo và nước cốt dừa tạo nên hương vị béo ngậy đặc trưng. Nhân bánh thường gồm tôm, thịt heo, giá đỗ và các loại rau thơm, tạo ra sự kết hợp hoàn hảo giữa các thành phần tươi ngon và đa dạng. Bánh Xèo thường được ăn kèm với rau sống và nước chấm chua ngọt, tạo nên hương vị đậm đà, hài hòa, mang lại cảm giác thú vị cho người thưởng thức. Món ăn này không chỉ thơm ngon mà còn mang tính biểu tượng của ẩm thực Việt Nam.",
         "time": "30 phút",
         "difficulty": "Dễ",
         "ingredients": [
           {
             "name": "Bột gạo",
-            "quantity": "200g"
+            "quantity": "200",
+            "unit": "g"
           },
           {
             "name": "Thịt heo",
-            "quantity": "100g"
+            "quantity": "100",
+            "unit": "g"
           },
           {
             "name": "Tôm",
-            "quantity": "100g"
+            "quantity": "100",
+            "unit": "g"
           },
           {
             "name": "Giá đỗ",
-            "quantity": "50g"
+            "quantity": "50",
+            "unit": "g"
           },
           {
             "name": "Nước cốt dừa",
-            "quantity": "200ml"
+            "quantity": "200",
+            "unit": "ml"
           }
         ],
         "steps": [
           {
             "step_number": 1,
-            "title": "Bước 1: Làm bột bánh",
-            "description": "Trộn bột gạo với nước cốt dừa để có hỗn hợp bột đồng nhất.",
-            "image_link": "https://img-global.cpcdn.com/recipes/d0e572e80e3bc9dc/1200x630cq70/photo.jpg"
+            "title": "Bước 1: Làm bột",
+            "description": "Trộn bột gạo với nước và gia vị. Bạn có thể thêm một chút muối và bột nghệ để tăng thêm màu sắc và hương vị cho bột. Hãy khuấy đều cho đến khi hỗn hợp trở nên mịn màng.",
+            "image_link": "https://api.nongthonviet.com.vn/media/2023/02/03/63dbfa235a5ff9099dd6f5e1_lam-banh-bong-lan-gao-cuc-de-voi-3-khong-lo-nuong-nhao-bot-men-no-4-1672193851-214-width800height600.jpeg"
           },
           {
             "step_number": 2,
-            "title": "Bước 2: Nướng bánh",
-            "description": "Đổ bột vào chảo nóng, thêm thịt và tôm lên trên và rán cho đến khi vàng giòn.",
-            "image_link": "https://daylambanh.edu.vn/wp-content/uploads/2020/02/banh-xeo-khong-bi-dinh-600x400.jpg"
+            "title": "Bước 2: Chiên bánh",
+            "description": "Chiên bánh cho đến khi vàng và giòn. Bạn nên sử dụng chảo chống dính và cho một ít dầu ăn vào chảo trước khi đổ bột. Để bánh chín đều, bạn hãy nghiêng chảo để bột trải đều ra và tạo thành lớp vỏ mỏng.",
+            "image_link": "https://media.cooky.vn/images/blog-2016/banhxeo4.png"
           },
           {
             "step_number": 3,
-            "title": "Bước 3: Thưởng thức",
-            "description": "Bánh ăn kèm với rau sống và nước chấm.",
-            "image_link": "https://i.ytimg.com/vi/8w0psAnY6nE/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAals5enplQYU_gQHE3l4-KqcRBaQ"
+            "title": "Bước 3: Thêm nhân",
+            "description": "Cho nhân vào bánh và gập lại. Nhân bánh có thể tùy chỉnh theo sở thích của bạn, có thể thêm các loại rau như hành lá hoặc rau thơm để tăng thêm hương vị.",
+            "image_link": "https://channel.mediacdn.vn/thumb_w/600/event/hwg-grabfood/2019/userimages/1220/201906211226511188.jpg"
+          },
+          {
+            "step_number": 4,
+            "title": "Bước 4: Thưởng thức",
+            "description": "Dùng với rau sống và nước mắm chua ngọt. Nước mắm có thể pha từ nước mắm, đường, chanh và ớt để tạo ra vị chua ngọt đặc trưng. Bánh Xèo nên được ăn ngay khi còn nóng để thưởng thức được độ giòn ngon nhất.",
+            "image_link": "https://h2tfood.vn/wp-content/uploads/2023/08/lam-banh-xeo-dung-bo-qua-tuyet-chieu-pha-bot-banh-xeo-vang-gion-rum-khap-3-mien-h2tfood-3.jpeg"
           }
         ]
-      }
+      }      
     ]
   }

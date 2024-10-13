@@ -10,10 +10,11 @@
   border: 1px solid #f49506
 }
 .button_form_recipe{
-  border: 1px solid #00ff4c !important;
+  background-color:#1a8655;
+  margin-top: 50px;
 }
 .button_form_recipe:hover {
-  background-color: #00ff55;
+  background-color: #137448;
   color: white;
 }
 /* Kết thúc phần CSS form_Recipe */
@@ -32,12 +33,11 @@
 .recipe-header {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 20px;
 }
 .recipe-header .recipe-image img {
   width: 100%;
-  max-width: 600px;
+  max-width: 300px;
   height: auto;
   border-radius: 10px;
   transition: transform 0.3s ease;
@@ -56,20 +56,17 @@
   color: #333;
 }
 /* Ingredient Section */
-.ingredients-table h2  {
-  display: flex;
-  justify-content: space-between; 
-  align-items: center; 
+.ingredients-table h2 {
   margin-top: 40px;
-  color: #d97b4f;
-  font-size: 1.8rem;
+  display: flex;
+  justify-content: space-between;
 }
-.ingredients-table h2 .left {
-  display: flex; 
+.ingredients-table h2 .left, .ingredients-table h2 .right  {
   align-items: center; 
   font-size: 1.8rem; 
   color: #ea550f;
 }
+
 .ingredients-table h2 span {
   font-size: 1.1rem;  
 }
@@ -102,9 +99,9 @@
   margin-bottom: 10px;
 }
 .steps-section img {
-  width: 100%;
+  max-width: 300px;
   height: auto;
-   border-radius: 10px; 
+  border-radius: 10px; 
   margin-top: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
