@@ -20,10 +20,10 @@ if(["users","orders","products","recipes"].every(item => !Object.keys(localStora
     const arrProduct = await readFileJson("/src/Data/Product.json");
     const arrayRecipe = await readFileJson("/src/Data/Recipe.json");
 
-    saveToLocalStorage("users",await JSON.stringify(arrUsers));
-    saveToLocalStorage("orders",await JSON.stringify(arrOrders));
-    saveToLocalStorage("products",await JSON.stringify(arrProduct));
-    saveToLocalStorage("recipes",await JSON.stringify(arrayRecipe));
+    saveToLocalStorage("users", JSON.stringify(arrUsers));
+    saveToLocalStorage("orders", JSON.stringify(arrOrders));
+    saveToLocalStorage("products", JSON.stringify(arrProduct));
+    saveToLocalStorage("recipes", JSON.stringify(arrayRecipe));
 } 
 
 // Tạo hiệu ứng chuyển động: phần chữ của quảng cáo
@@ -43,8 +43,55 @@ window.addEventListener('scroll', () => {
 });
 // Kết thúc phần hiệu ứng chuyển động.
 
-// Khi ấn vào ảnh của sản phẩm sẽ hiển thị chi tiết sản phẩm ở trang sản phẩm
-function openDetail(id){
-    window.location.href = ("Product/ProductDetail.html");
-}
+// Bắt đầu code cho phẩn hiển thị sản phẩm
 
+const products = ProductService.getAllProducts();
+let page = 1;
+console.log(Array.isArray(products));
+// Hàm tạo các card
+function createProductItem(product){
+    return `<div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="${product.image_link}" class="card-img-top" alt="${product.name}">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">${product.name}</h5>
+                        <p class="card-text">
+                            <a href="/public/HTML/ProductDetail?id=${product.id}" class="link">Xuất xứ từ Singapore, click xem công thức</a>
+                        </p>
+                    </div>
+                </div>
+            </div>`
+}
+// Hàm tạo ra slide mới để thêm 3 card vào - cần truyền vào một con số để đánh dấu thứ tự của item
+function createCarouselItem(number){
+    let carouselItem = document.createElement("div");
+    carouselItem.classList.add("carousel-item");
+    let rowItem = document.createElement("div");
+    rowItem.classList.add("row");
+    rowItem.id = `carousel-item-row${number}`;
+    carouselItem.appendChild(rowItem);
+    document.getElementById("carousel-inner").appendChild(carouselItem);
+}
+// Hàm hiển thị ra các card của sản phẩm
+function renderProducts(products){
+    let i = 0;
+    let row = 0;
+    while(i<3 && i<products.length){ //Tạo ra 3 sản phẩm và thêm vào slide đầu tiên ( active )
+        let item = createProductItem(products[i]);
+        document.getElementById("carousel-item-active-row").innerHTML += item;
+        i++;
+    }
+    while(i<products.length){ // Tạo ra các carousel item theo số hàng tăng dần và thêm vào
+        if(i%3===0){
+            row++;
+            createCarouselItem(row);
+        }
+        let item = createProductItem(products[i]);
+        document.getElementById(`carousel-item-row${row}`).innerHTML += item;
+        i++;
+    }
+}
+// Render all products when page is loading
+document.addEventListener("DOMContentLoaded", renderProducts(products));
+
+// Kết thúc phần code hiển thị sản phẩm
