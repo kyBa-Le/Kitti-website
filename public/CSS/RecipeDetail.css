@@ -10,10 +10,10 @@
   border: 1px solid #f49506
 }
 .button_form_recipe{
-  border: 1px solid #00ff4c !important;
+  background-color:#1a8655;
 }
 .button_form_recipe:hover {
-  background-color: #00ff55;
+  background-color: #137448;
   color: white;
 }
 /* Kết thúc phần CSS form_Recipe */
@@ -32,12 +32,11 @@
 .recipe-header {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 20px;
 }
 .recipe-header .recipe-image img {
   width: 100%;
-  max-width: 600px;
+  max-width: 300px;
   height: auto;
   border-radius: 10px;
   transition: transform 0.3s ease;
