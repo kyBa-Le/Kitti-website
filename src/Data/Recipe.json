@@ -3,8 +3,11 @@
         "id":"1234",
         "name":"Ga chien",
         "congthuc":"nau trong 30 phut"
+<<<<<<< HEAD
     },
     {
     
+=======
+>>>>>>> f2a8d948e473d3516279ac687dcf1a9a6a49aa32
     }
 ]
