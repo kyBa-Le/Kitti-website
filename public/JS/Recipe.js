@@ -27,6 +27,19 @@ function listProduct(data) {
 
   // Sử dụng vòng lặp for để thêm các slide
   for (let i = 0; i < slides.length; i++) {
+    // Giới hạn độ dài của mô tả (ví dụ: 100 ký tự)
+    // Giới hạn độ dài của mô tả (ví dụ: 100 ký tự)
+    let shortDescription = slides[i].description;
+    if (shortDescription.length > 40) {
+      // Tìm vị trí dấu cách cuối cùng trước khi đạt đến 40 ký tự
+      let lastSpace = shortDescription.substring(0, 40).lastIndexOf(' ');
+      if (lastSpace > 0) {
+        shortDescription = shortDescription.substring(0, lastSpace) + "...";
+      } else {
+        // Nếu không tìm thấy dấu cách, vẫn cắt ở 40 ký tự
+        shortDescription = shortDescription.substring(0, 40) + "...";
+      }
+    }
     const slideItem = `
       <div class="swiper-slide">
         <div class="image">
@@ -39,7 +52,7 @@ function listProduct(data) {
             <a href="#"><i class="fas fa-bolt"></i> ${slides[i].difficulty}</a>
           </div>
           <h3>${slides[i].name}</h3>
-          <p>${slides[i].description}</p>
+          <p>${shortDescription}</p>
           <a href="RecipeDetail.html?id=${slides[i].id}" class="btn">Chi Tiết</a> <!-- Thay đổi ở đây -->
         </div>
       </div>
