@@ -28,7 +28,3 @@ function loginChangePage(){
     }
 }
 //Kết thúc xử lý form đăng nhập
-
-//Xử lý form đăng ký
-
-//Kết thúc xử lý form đăng kí

@@ -1,56 +1,50 @@
 <!DOCTYPE html>
 <html lang="vi">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Công Thức Cụ Thể</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <!-- Bootstrap CSS -->
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+        crossorigin="anonymous"
     />
     <link rel="stylesheet" href="../CSS/RecipeDetail.css">
     <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap"
-      rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap"
+        rel="stylesheet"
     />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
 
   </head>
   <body>
     <!-- Phần bên dưới là của header -->
+</head>
+<body onload="listContent()">
     <div class="sticky-top" id="home-header" style="position: sticky; top: 0"></div>
-    <!-- Kết thúc phần header -->
-    <!-- Dưới đây là phần công thức -->
+
     <div class="container" id="recipe-detail">
-      <!-- Bắt Đầu Tiêu đề và Hình ảnh món ăn -->
-      <div class="recipe-header">
-        <div class="recipe-image">
-          <img src="https://i1-giadinh.vnecdn.net/2022/12/15/Thanh-pham-1-1-5493-1671086922.jpg?w=1020&h=0&q=100&dpr=1&fit=crop&s=QNveF2Oc_kzh89kl-Bw1ow" alt="Cà Ri Gà">
-        </div>
-        <div class="recipe-text">
-          <h2>
-            <i class="fa-regular fa-chess-queen" style="color: #f57504"></i>
-            <b>Cách làm món Cà Ri Gà</b>
-          </h2>
-          <p>
-            Cà ri gà là một món ăn quen thuộc trong ẩm thực Việt Nam, mang hương
-            vị đậm đà và hòa quyện giữa nhiều loại gia vị khác nhau. Món ăn này
-            có nguồn gốc từ ẩm thực Ấn Độ, nhưng khi du nhập vào Việt Nam, nó đã
-            được biến tấu để phù hợp với khẩu vị địa phương.
-          </p>
-        </div>
+      <div class="recipe-header" id="recipe-header" style="display: none;">
+          <div class="recipe-image">
+              <img id="recipe-image" src="" alt="Cà Ri Gà">
+          </div>
+          <div class="recipe-text">
+              <h2>
+                  <i class="fa-regular fa-chess-queen" style="color: #f57504"></i>
+                  <b id="recipe-title"></b>
+              </h2>
+              <p id="recipe-description"></p>
+          </div>
       </div>
-      <!-- Kết thúc tiêu đề và hình ảnh món ăn -->
       <!-- Bắt đầu Phần Nguyên liệu  -->
       <div class="ingredients-table">
         <h2>
@@ -68,171 +62,38 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Thịt gà</td>
-              <td>800gr</td>
-            </tr>
-            <tr>
-              <td>Khoai tây</td>
-              <td>2 củ lớn, thái lát</td>
-            </tr>
-            <tr>
-              <td>Cà rốt</td>
-              <td>1 củ</td>
-            </tr>
-            <tr>
-              <td>Hành tây</td>
-              <td>1 củ</td>
-            </tr>
-            <tr>
-              <td>Nước cốt dừa</td>
-              <td>150ml</td>
-            </tr>
-            <tr>
-              <td>Bột cà ri</td>
-              <td>2 thìa canh</td>
-            </tr>
-            <tr>
-              <td>Đường</td>
-              <td>2 thìa cà phê</td>
-            </tr>
-            <tr>
-              <td>Sả, hành khô</td>
-              <td>1 nhánh</td>
-            </tr>
-            <tr>
-              <td>Dầu ăn</td>
-              <td>2 thìa canh</td>
-            </tr>
+            <!-- Phần này sẽ được cập nhật bằng JavaScript -->
           </tbody>
         </table>
       </div>
-      <!--Kết thúc Phần Nguyên liệu  -->
-      <!-- Phần Hướng dẫn nấu ăn -->
-      <div class="steps-section">
-        <h2><i class="fas fa-utensils"></i> Hướng dẫn</h2>
-      
-        <!-- Bước 1 -->
-        <div class="step">
-          <div class="step-title">Bước 1: Chuẩn bị nguyên liệu</div>
-          <div class="step-title-detail">
-            <div class="img">
-              <img
-                src="https://i1-giadinh.vnecdn.net/2022/12/15/Buoc-1-1-7316-1671086921.jpg?w=1020&h=0&q=100&dpr=1&fit=crop&s=m8XYKtbNYaGYfbtRVqO9hQ"
-                alt="Chuẩn bị nguyên liệu"
-                class="recipedetail-image"/>
-            </div>
-            <div class="divider"></div>
-            <div class="content">
-              <p>
-                Gà chà xát chanh và muối hạt, rửa sạch, để ráo nước và chặt miếng vừa ăn. 
-                Không nên chặt nhỏ quá vì khi nấu thịt co lại. 
-                <br>
-                Khoai tây gọt vỏ, thái miếng vừa ăn. Cà rốt tỉa hoa tùy chọn.
-                Hành tây cắt múi cau. Sả đập dập, cắt khúc. Hành khô, tỏi băm nhuyễn. 
-                <br>
-                Cà rốt có thể tỉa hoa tùy theo ý thích. 
-                Hành tây cắt múi cau, sả đập dập và cắt khúc, hành khô và tỏi băm nhuyễn.
-              </p>
-            </div>
-          </div>
-        </div>
-      
-        <!-- Bước 2 -->
-        <div class="step">
-          <div class="step-title">Bước 2: Ướp gà</div>
-          <div class="step-title-detail">
-            <div class="img">
-              <img
-                src="https://i1-giadinh.vnecdn.net/2022/12/15/Buoc-3-3-3157-1671086921.jpg?w=1020&h=0&q=100&dpr=1&fit=crop&s=l3pypBFWfK8DF94qWT4MqA"
-                alt="Nấu hành và gia vị"
-                class="recipedetail-image"/>
-            </div>
-            <div class="divider"></div>
-            <div class="content">
-              <p>
-                Ướp thịt gà với các gia vị: <br>
-                  1 gói bột cà ri, 
-                  3 thìa cà phê muối,<br>
-                  2 thìa cà phê đường,
-                  1 thìa cà phê hạt nêm,<br>
-                  1 thìa cà phê hạt tiêu,
-                  1 thìa canh dầu màu điều (tùy chọn).
-                <br>
-                Trộn đều để gà thấm gia vị. Nếu muốn gà mềm và béo hơn, có thể ướp thêm sữa đặc hoặc sữa tươi.
-              </p>
-            </div>
-          </div>
-        </div>
-      
-        <!-- Bước 3 -->
-        <div class="step">
-          <div class="step-title">Bước 3: Thêm thịt gà và cà chua</div>
-          <div class="step-title-detail">
-            <div class="img">
-              <img
-                src="https://i1-giadinh.vnecdn.net/2022/12/15/Buoc-6-6-6203-1671086922.jpg?w=1020&h=0&q=100&dpr=1&fit=crop&s=BgjwQ7Wu9qzgSaHKoF3Q8w"
-                alt="Thêm thịt gà"
-                class="recipedetail-image"/>
-            </div>
-            <div class="divider"></div>
-            <div class="content">
-              <p>
-                Trước khi nấu gà, chiên sơ khoai tây để giữ được hình dạng và tạo lớp vỏ giòn bên ngoài. 
-                Điều này sẽ giúp khoai không bị nát khi hầm. <br>
-                Xào gà: Phi thơm hành, tỏi, sả rồi cho gà đã ướp vào xào đến khi thịt săn lại (khoảng 5-7 phút). <br>
-                Nấu nước dùng: Đổ nước hoặc nước dùng ngập gà, thêm ớt khô (tùy chọn) rồi đậy vung, nấu lửa vừa khoảng 20-25 phút cho gà chín mềm.
-              </p>
-            </div>
-          </div>
-        </div>
-      
-        <!-- Bước 4 -->
-        <div class="step">
-          <div class="step-title">Bước 4: Hầm cùng rau củ và hoàn thành</div>
-          <div class="step-title-detail">
-            <div class="img">
-              <img
-                src="https://i1-giadinh.vnecdn.net/2022/12/15/Thanh-pham-1-1-5493-1671086922.jpg?w=1020&h=0&q=100&dpr=1&fit=crop&s=QNveF2Oc_kzh89kl-Bw1ow"
-                alt="Hoàn thành"
-                class="recipedetail-image"/>
-            </div>
-            <div class="divider"></div>
-            <div class="content">
-              <p>
-                Thêm khoai tây và cà rốt: Khi gà chín, cho khoai tây và cà rốt vào hầm đến khi mềm (10-15 phút). <br>
-                Thêm nước cốt dừa và hành tây: Khi rau củ đã mềm, rưới nước cốt dừa vào nồi, thêm hành tây cắt múi cau vào, 
-                đảo nhẹ để hành chín tới nhưng vẫn giữ được độ giòn và ngọt. Nếu muốn nước dùng sánh hơn, có thể cho một chút bột cốt dừa pha loãng vào lúc này. <br>
-                Hoàn thành: Múc món ăn ra bát lớn và thưởng thức nóng. Món cà ri gà này ngon nhất khi ăn kèm với bánh mì, bún hoặc cơm trắng.
-              </p>
-            </div>
-          </div>
-        </div>
+      <!-- Kết thúc Phần Nguyên liệu  -->
+       
+      <div class="steps-section" id="steps-section" style="display: none;">
+          <h2><i class="fas fa-utensils"></i> Hướng dẫn</h2>
+          <div id="steps"></div>
       </div>
       
       <!-- Nút xem thêm công thức khác -->
       <div class="text-center">
-        <a class="btn btn-success" onclick="openFormRecipe()" id="createRecipeButton">Tạo công thức riêng</a>
+          <a class="btn button_form_recipe" onclick="openFormRecipe()" id="createRecipeButton">Tạo công thức riêng</a>
       </div>
     </div>
-    <!-- Kết thúc phần công thức -->
-     
-    <!-- Phần bên dưới là của Bảng tạo công thức -->
-    <div id="form_recipe_container">
-      <form>
-        <h2 class="form_recipe mb-4">Khẩu Vị và Dinh Dưỡng</h2>
 
-        <div class="form_recipe mb-3">
-          <label for="taste" class="sub_form_recipe form-label">Khẩu Vị:</label>
-          <select id="taste" name="taste" class="sub_form_recipe form-select">
-            <option value="">Chọn khẩu vị</option>
-            <option value="man">Mặn</option>
-            <option value="ngot">Ngọt</option>
-            <option value="chua">Chua</option>
-            <option value="dang">Đắng</option>
-            <option value="cay">Cay</option>
-          </select>
-        </div>
+    <div id="form_recipe_container">
+        <form>
+            <h2 class="form_recipe mb-4">Khẩu Vị và Dinh Dưỡng</h2>
+
+            <div class="form_recipe mb-3">
+                <label for="taste" class="sub_form_recipe form-label">Khẩu Vị:</label>
+                <select id="taste" name="taste" class="sub_form_recipe form-select">
+                    <option value="">Chọn khẩu vị</option>
+                    <option value="man">Mặn</option>
+                    <option value="ngot">Ngọt</option>
+                    <option value="chua">Chua</option>
+                    <option value="dang">Đắng</option>
+                    <option value="cay">Cay</option>
+                </select>
+            </div>
 
         <div class="form_recipe mb-3">
           <label for="food-type" class="sub_form_recipe form-label"
@@ -284,45 +145,14 @@
         <button type="submit" class="button_form_recipe btn">Gửi</button>
       </form>
     </div>
-    <!-- Kết thúc phần Bảng tạo công thức -->
-     
-    <!-- Phần bên dưới là của footer -->
-    <div id="home-footer"></div>
-    <!-- Kết thúc phần footer -->
 
-    <!-- Vị trí bên dưới là của javascript -->
+    <div id="home-footer"></div>
+
     <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"
     ></script>
-    <script>
-      // biến form typing để xác định trạng thái có phải là đang điền form hay không
-      var isFormOpened = false; 
-      document.addEventListener("click", (event) =>{
-        if(isFormOpened && !event.target.closest("#form_recipe_container") &&!event.target.closest("#createRecipeButton")){
-          let form = $("#form_recipe_container");
-          let recipe = $("#recipe-detail");
-          form.css("display", "none");
-          recipe.css("filter", "none");
-          isFormOpened = false;
-        }
-      })
-      $("#home-header").load("/Component/Header.html");
-      $("#home-footer").load("/Component/Footer.html");
-      // Đây là fucntion để mở form khi ấn vào nút tạo công thức ( dòng 156 )
-      function openFormRecipe(){
-        console.log("form is opened");
-        let form = $("#form_recipe_container");
-        let recipe = $("#recipe-detail");
-        form.css("display", "block");
-        recipe.css("filter", "blur(5px)");
-        isFormOpened = true;
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth' // Hiệu ứng cuộn mượt mà
-        });
-      }
-    </script>
-  </body>
+    <script src="/public/JS/RecipeDetail.js"></script>
+</body>
 </html>
