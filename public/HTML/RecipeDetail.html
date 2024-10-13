@@ -30,7 +30,7 @@
     <div class="container" id="recipe-detail">
       <div class="recipe-header" id="recipe-header" style="display: none;">
           <div class="recipe-image">
-              <img id="recipe-image" src="" alt="Cà Ri Gà">
+              <img id="recipe-image" src="">
           </div>
           <div class="recipe-text">
               <h2>
@@ -42,12 +42,21 @@
       </div>
       <!-- Bắt đầu Phần Nguyên liệu  -->
       <div class="ingredients-table" id="ingredients-container">
-        <h2><i class="fas fa-carrot"></i> Nguyên liệu</h2>
+        <h2>
+            <span class="left">
+                <i class="fas fa-carrot"></i> 
+                Nguyên liệu
+            </span>
+            <span class="right">
+                Khẩu phần ăn: 1-2 người
+            </span>
+        </h2>
         <table class="table table-bordered">
           <thead>
             <tr>
               <th>Nguyên liệu</th>
               <th>Số lượng</th>
+              <th>Đơn vị tính</th>
             </tr>
           </thead>
           <tbody>
@@ -61,7 +70,8 @@
           <h2><i class="fas fa-utensils"></i> Hướng dẫn</h2>
           <div id="steps"></div>
       </div>
-
+      
+      <!-- Nút thêm công thức khác -->
       <div class="text-center">
         <a class="btn button_form_recipe" onclick="openFormRecipe()" id="createRecipeButton">Tạo công thức riêng</a>
       </div>
@@ -117,7 +127,7 @@
                     <option value="tang-co">Tăng cơ</option>
                 </select>
             </div>
-            <button type="submit" class="button_form_recipe btn">Gửi</button>
+            <a class="button_form_recipe btn" onclick="newRecipe()">Gửi</a>
         </form>
     </div>
 

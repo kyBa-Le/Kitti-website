@@ -11,6 +11,7 @@
 }
 .button_form_recipe{
   background-color:#1a8655;
+  margin-top: 50px;
 }
 .button_form_recipe:hover {
   background-color: #137448;
@@ -55,20 +56,17 @@
   color: #333;
 }
 /* Ingredient Section */
-.ingredients-table h2  {
-  display: flex;
-  gap: 5px;
-  align-items: center; 
+.ingredients-table h2 {
   margin-top: 40px;
-  color: #d97b4f;
-  font-size: 1.8rem;
+  display: flex;
+  justify-content: space-between;
 }
-.ingredients-table h2 .left {
-  display: flex; 
+.ingredients-table h2 .left, .ingredients-table h2 .right  {
   align-items: center; 
   font-size: 1.8rem; 
   color: #ea550f;
 }
+
 .ingredients-table h2 span {
   font-size: 1.1rem;  
 }
