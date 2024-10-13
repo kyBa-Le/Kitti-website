@@ -2,7 +2,7 @@ import { getFromLocalStorage } from "../Utils/Storage.js";
 import { saveToLocalStorage } from "../Utils/Storage.js";
 
 export const RecipeService = {
-    arrayRecipe: getFromLocalStorage("recipes"),
+    arrayRecipe: await getFromLocalStorage("recipes"),
 
     // Hàm lưu recipe
     saveRecipe: function(recipe) {

@@ -1,7 +1,7 @@
 import { getFromLocalStorage } from "../Utils/Storage.js";
 import { saveToLocalStorage } from "../Utils/Storage.js";
 export const UserService = {
-    arrayUser : getFromLocalStorage("users"),
+    arrayUser : await getFromLocalStorage("users"),
     // Hàm lưu user
     saveUser: function(user){
         this.arrayUser.push(user);
