@@ -28,6 +28,7 @@ export const ProductService = {
         this.arrayProduct = this.arrayProduct.filter(function(item) {
             return item.id !== id;
         });
+        saveToLocalStorage("products", JSON.stringify(this.arrayProduct));
         console.log(`Product with ${id} is removed!`);
     },
 
@@ -41,6 +42,7 @@ export const ProductService = {
                 ...this.arrayProduct[index],
                 ...product
             };
+            saveToLocalStorage("products", JSON.stringify(this.arrayProduct));
             console.log("Product has been updated!");
         } else {
             console.error("Product not found");
