@@ -10,7 +10,7 @@ This is a repository to manage project of Basic Web Design lesson of Mr. Dinh.
             + cart : "carts"
             + recipe : "recipes"
             + product : "products"
-        - Khi đăng nhập thì sẽ tới mọi trang kèm với một param là: user_id
+        - Khi đăng nhập thành công thì sẽ lưu vào local: user_id (mục đích là để lấy ra giỏ hàng hoặc đặt hàng)
         - Các tham số truyền đi: 
             + product_id
             + recipe_id
