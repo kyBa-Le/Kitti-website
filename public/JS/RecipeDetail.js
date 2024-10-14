@@ -90,9 +90,20 @@ function listProduct(data) {
         slideData.steps.forEach(step => {
             stepsHTML += `
                 <div class="step">
-                    <div class="step-title">${step.title}</div>
-                    <p>${step.description}</p>
-                    <img src="${step.image_link}" alt="${step.title}" />
+                    <div class="step-title">
+                    ${step.title}
+                    </div>
+                    <div class="step-title-detail">
+                        <div class="img">
+                            <img 
+                            src="${step.image_link}" 
+                            alt="${step.title}" 
+                            class="recipedetail-image"/>
+                        </div>
+                        <div class="divider"></div>
+                        <div class="content">
+                        <p>${step.description}</p>
+                    </div>
                 </div>`;
         });
 

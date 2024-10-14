@@ -11,18 +11,16 @@
 }
 .button_form_recipe{
   background-color:#1a8655;
-  margin-top: 50px;
 }
 .button_form_recipe:hover {
-  background-color: #137448;
+  background-color:#137448;
   color: white;
 }
 /* Kết thúc phần CSS form_Recipe */
 
 /* Dưới đây là css của phần recipe */
 * {
-  
-   font-family: "Dosis"; 
+  font-family: "Dosis"; 
 }
 .container {
   margin-top: 30px;
@@ -33,11 +31,12 @@
 .recipe-header {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 20px;
 }
 .recipe-header .recipe-image img {
   width: 100%;
-  max-width: 300px;
+  max-width: 600px;
   height: auto;
   border-radius: 10px;
   transition: transform 0.3s ease;
@@ -56,17 +55,20 @@
   color: #333;
 }
 /* Ingredient Section */
-.ingredients-table h2 {
-  margin-top: 40px;
+.ingredients-table h2  {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; 
+  align-items: center; 
+  margin-top: 40px;
+  color: #d97b4f;
+  font-size: 1.8rem;
 }
-.ingredients-table h2 .left, .ingredients-table h2 .right  {
+.ingredients-table h2 .left {
+  display: flex; 
   align-items: center; 
   font-size: 1.8rem; 
   color: #ea550f;
 }
-
 .ingredients-table h2 span {
   font-size: 1.1rem;  
 }
@@ -99,7 +101,7 @@
   margin-bottom: 10px;
 }
 .steps-section img {
-  max-width: 300px;
+  width: 100%;
   height: auto;
   border-radius: 10px; 
   margin-top: 15px;
@@ -129,7 +131,6 @@
 .recipedetail-image{
   max-width: 300px;
   height: auto;
-   ;
 }
 .divider {
   width: 4px; 
