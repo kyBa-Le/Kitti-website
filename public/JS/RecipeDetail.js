@@ -51,11 +51,22 @@ function listProduct(data) {
         let stepsHTML = '';
         recipeData.steps.forEach(step => {
             stepsHTML += `
-                <div class="step">
-                    <div class="step-title">${step.title}</div>
+            <div class="step">
+                <div class="step-title">
+                ${step.title}
+                </div>
+                <div class="step-title-detail">
+                    <div class="img">
+                        <img 
+                        src="${step.image_link}" 
+                        alt="${step.title}" 
+                        class="recipedetail-image"/>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="content">
                     <p>${step.description}</p>
-                    <img src="${step.image_link}" alt="${step.title}" />
-                </div>`;
+                </div>
+            </div>`;
         });
 
         $("#steps").html(stepsHTML); // Gán HTML cho phần hướng dẫn
@@ -153,7 +164,7 @@ function newRecipe() {
                     let randomQuantity;
 
                     // Nếu nguyên liệu là "Nước chấm", giữ nguyên số lượng mặc định
-                    if (ingredient.name === "Nước chấm" || ingredient.name === "Nước sốt") {
+                    if (ingredient.name === "Nước chấm" || ingredient.name === "Nước sốt" || ingredient.name === "Gia vị") {
                         randomQuantity = ingredient.quantity;
                     } else {
                         // Tạo số lượng ngẫu nhiên dựa trên đơn vị

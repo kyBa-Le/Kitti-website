@@ -3,14 +3,14 @@
         "id": 5686,
         "name": "Cơm xào trứng",
         "price": 677949,
-        "description": "Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.\n\nInteger ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.",
+        "description": "món ăn quốc hồn quốc túy của Việt Nam, là một trải nghiệm ẩm thực khó quên. Bánh phở mềm dai được chan ngập trong nước dùng trong veo, ngọt thanh từ xương ninh nhừ, hòa quyện cùng thịt bò tái mềm hoặc gà xé phay thơm lừng. Mùi thơm đặc trưng của các loại gia vị như quế, hồi, thảo quả sẽ đánh thức mọi giác quan. Bạn có thể tùy chỉnh hương vị của tô phở bằng cách thêm các loại rau thơm tươi như hành lá, rau mùi, giá đỗ và một chút chanh, ớt.",
         "image_link": "https://images.pexels.com/photos/1410235/pexels-photo-1410235.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
     },
     {
         "id": 3021,
         "name": "Hamburger",
         "price": 521384,
-        "description": "Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.",
+        "description": "món ăn quốc hồn quốc túy của Việt Nam, là một trải nghiệm ẩm thực khó quên. Bánh phở mềm dai được chan ngập trong nước dùng trong veo, ngọt thanh từ xương ninh nhừ, hòa quyện cùng thịt bò tái mềm hoặc gà xé phay thơm lừng. Mùi thơm đặc trưng của các loại gia vị như quế, hồi, thảo quả sẽ đánh thức mọi giác quan. Bạn có thể tùy chỉnh hương vị của tô phở bằng cách thêm các loại rau thơm tươi như hành lá, rau mùi, giá đỗ và một chút chanh, ớt.",
         "image_link": "https://images.pexels.com/photos/9469654/pexels-photo-9469654.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load"
     },
     {
@@ -24,14 +24,14 @@
         "id": 7682,
         "name": "Spaghetti",
         "price": 879458,
-        "description": "Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.\n\nNullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.",
+        "description": "Mỗi miếng sushi là một tác phẩm nghệ thuật, kết hợp hài hòa giữa hương vị tươi ngon của hải sản và vị béo ngậy của cơm sushi. Cơm sushi được nắm vừa tay, kết hợp với các loại hải sản tươi sống như cá hồi, cá ngừ, tôm, cùng với rong biển nori giòn tan. Món ăn được trang trí tinh tế, mang đến một trải nghiệm ẩm thực đầy tinh tế.",
         "image_link": "https://images.pexels.com/photos/769969/pexels-photo-769969.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
     {
         "id": 3931,
         "name": "Phở",
         "price": 756480,
-        "description": "Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.\n\nIn hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.",
+        "description": "Phở, món ăn quốc hồn quốc túy của Việt Nam, là một trải nghiệm ẩm thực khó quên. Bánh phở mềm dai được chan ngập trong nước dùng trong veo, ngọt thanh từ xương ninh nhừ, hòa quyện cùng thịt bò tái mềm hoặc gà xé phay thơm lừng. Mùi thơm đặc trưng của các loại gia vị như quế, hồi, thảo quả sẽ đánh thức mọi giác quan. Bạn có thể tùy chỉnh hương vị của tô phở bằng cách thêm các loại rau thơm tươi như hành lá, rau mùi, giá đỗ và một chút chanh, ớt.",
         "image_link": "https://images.pexels.com/photos/16547243/pexels-photo-16547243/free-photo-of-mon-an-ga-ch-p-nh-th-c-ph-m-mon-an-vi-t-nam.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
     {
@@ -45,14 +45,14 @@
         "id": 6545,
         "name": "Mì lạnh",
         "price": 845875,
-        "description": "Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.",
+        "description": "Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam. ",
         "image_link": "https://images.pexels.com/photos/2098135/pexels-photo-2098135.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
     {
         "id": 9833,
         "name": "Cá nướng",
         "price": 487087,
-        "description": "Phasellus in felis. Donec semper sapien a libero. Nam dui.\n\nProin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.",
+        "description": "Mỗi miếng sushi là một tác phẩm nghệ thuật, kết hợp hài hòa giữa hương vị tươi ngon của hải sản và vị béo ngậy của cơm sushi. Cơm sushi được nắm vừa tay, kết hợp với các loại hải sản tươi sống như cá hồi, cá ngừ, tôm, cùng với rong biển nori giòn tan. Món ăn được trang trí tinh tế, mang đến một trải nghiệm ẩm thực đầy tinh tế.",
         "image_link": "https://images.pexels.com/photos/262959/pexels-photo-262959.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
     {
@@ -73,7 +73,7 @@
         "id": 3723,
         "name": "Lẩu cá",
         "price": 333661,
-        "description": "Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.\n\nCurabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.",
+        "description": "Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus. Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.",
         "image_link": "https://i1-giadinh.vnecdn.net/2023/02/03/Bc5thnhphm1-1675416493-5672-1675416498.jpg?w=500&h=500&q=100&dpr=2&fit=crop&s=UXbfTRQkjh-lcXyHvToo2A"
     },
     {

@@ -52,7 +52,7 @@ console.log(Array.isArray(products));
 function createProductItem(product){
     return `<div class="col-md-4 mb-4">
                 <div class="card">
-                    <img src="${product.image_link}" class="card-img-top" alt="${product.name}">
+                    <img src="${product.image_link}" class="card-img-top" alt="${product.name}" data-id="${product.id}">
                     <div class="card-body text-center">
                         <h5 class="card-title">${product.name}</h5>
                         <p class="card-text">
@@ -93,5 +93,11 @@ function renderProducts(products){
 }
 // Render all products when page is loading
 document.addEventListener("DOMContentLoaded", renderProducts(products));
+// Khi ấn vào ảnh thì chuyển đến đúng trang
+document.querySelectorAll(".card-img-top").forEach((item) =>{
+    item.addEventListener("click",()=>{
+        window.location.href = `/public/HTML/ProductDetail.html?product_id=${item.dataset.id}`;
+    })
+})
 
 // Kết thúc phần code hiển thị sản phẩm

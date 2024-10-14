@@ -100,11 +100,11 @@
   justify-content: space-between;
   margin-bottom: 10px;
   font-size: 0.9rem;
-  color: #777;
+  color: #f29f05;
 }
 
 .swiper-slide .content .icon a {
-  color: #777;
+  color:#f29f05;
   text-decoration: none;
 }
 
@@ -123,7 +123,7 @@
 .swiper-slide .content .btn {
   display: inline-block;
   padding: 10px 20px;
-  background: #d96e11;
+  background: #f29f05; 
   color: #fff;
   border-radius: 5px;
   text-decoration: none;
@@ -131,7 +131,7 @@
 }
 
 .swiper-slide .content .btn:hover {
-  background: #f29f05;
+  background: #d96e11;
 }
 
 .swiper-button-next,
