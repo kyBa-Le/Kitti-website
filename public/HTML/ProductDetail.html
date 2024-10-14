@@ -140,43 +140,10 @@ body {
 </style>
 </head>
 <body>
-    <div class="product-container">
-        <div class="product-image">
-            <img src="https://ttol.vietnamnetjsc.vn/2016/11/06/20/03/12.jpg" alt="Product Image">
-        </div>
-        <div class="product-details">
-            <h2 id="detail">Chi tiết sản phẩm</h2>
-            <h1 id="product">Cơm Bento</h1>
-            <p id="inforproduct">
-                Cơm Bento là hộp cơm Nhật Bản đa dạng và cân đối về dinh dưỡng,
-                thường gồm các thành phần chính như cơm trắng Nhật (gohan),
-                có thể được làm thành onigiri hoặc ăn kèm rong biển.
-                Bên cạnh cơm là các món thịt như gà chiên karaage,
-                thịt heo chiên xù tonkatsu, hoặc cá nướng như cá hồi, cá thu.
-                Rau củ tươi sống hoặc nấu chín như bông cải xanh, cà rốt, dưa leo,
-                và ớt chuông giúp bữa ăn thêm phong phú. Trứng cuộn tamagoyaki hoặc
-                trứng luộc thường xuất hiện trong hộp cơm.
-                Ngoài ra, các món chiên như tempura tôm hoặc rau củ chiên cũng được thêm vào.
-                Đồ chua như umeboshi (mơ muối) hay củ cải ngâm giúp tăng hương vị.
-                Một số hộp bento còn có đậu nành như edamame, đậu hũ chiên, mì soba, hoặc hải sản như tôm, mực.
-                Để trang trí và tạo điểm nhấn, các món như chả cá kamaboko và trái cây tráng miệng cũng thường có mặt.
-                Cơm Bento không chỉ là một bữa ăn mà còn là nghệ thuật kết hợp hài hòa giữa màu sắc, hình dáng và hương vị.</p>
-            <div class="price">
-                <span class="original-price">70.000đ</span>
-                <span class="discounted-price">50.000đ</span>
-            </div>
-            <div class="options">
-                <div class="quantity">
-                    <button onclick="changeQuantity(-1)">-</button>
-                    <input type="number" id="quantity" value="1" min="1" max="10">
-                    <button onclick="changeQuantity(1)">+</button>
-                </div>
-                <button class="add-to-cart">Thêm vào giỏ hàng</button>
-                <button class="buy-now">Mua ngay</button>
-            </div>
-        </div>
+    <div class="product-container" id="product-detail-container">
     </div>
-
+    <!-- Phần bên dưới là của JS -->
+    <script type="module" src="/public/JS/ProductDetail.js"></script>
     <script>
         function changeQuantity(amount) {
             var quantityInput = document.getElementById('quantity');
@@ -187,5 +154,6 @@ body {
             }
         }
     </script>
+    <!-- Kết thúc JS -->
 </body>
 </html>
