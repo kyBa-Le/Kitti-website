@@ -7,7 +7,7 @@ export const ProductService = {
     // Hàm lưu product
     saveProduct: function(product) {
         this.arrayProduct.push(product);
-        saveToLocalStorage("products", this.arrayProduct);
+        saveToLocalStorage("products", JSON.stringify(this.arrayProduct));
     },
 
     // Hàm lấy tất cả product
@@ -20,8 +20,12 @@ export const ProductService = {
     },
     // Hàm lấy product theo id
     getProductById(id){
-        const index = this.arrayProduct.findIndex(p => p.id === id);
-        return this.arrayProduct[index];
+        for(let i = 0; i<this.arrayProduct.length;i++){
+            if(this.arrayProduct[i].id == id){
+                return this.arrayProduct[i];
+            }
+        }
+        return null;
     },
     // Hàm xóa 1 product theo id
     removeProduct: function(id) {
