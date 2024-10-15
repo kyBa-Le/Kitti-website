@@ -3,15 +3,15 @@ import { saveToLocalStorage } from "../src/Utils/Storage.js";
 import {ProductService} from "/src/Service/ProductService.js";
 
 // Xóa local storage nếu quá trình lưu file gặp lỗi
-let confirmDelete = confirm("Bạn có muốn xóa dữ liệu trong local?");
-if (confirmDelete) {
-    // Thực hiện hành động xóa
-    console.log("Xóa mục");
-    localStorage.clear();
-} else {
-    // Hủy bỏ hành động xóa
-    console.log("Hủy bỏ xóa");
-}
+// let confirmDelete = confirm("Bạn có muốn xóa dữ liệu trong local?");
+// if (confirmDelete) {
+//     // Thực hiện hành động xóa
+//     console.log("Xóa mục");
+//     localStorage.clear();
+// } else {
+//     // Hủy bỏ hành động xóa
+//     console.log("Hủy bỏ xóa");
+// }
 
 // Lưu tất cả dữ liệu của các đối tượng vào local storage
 if(["users","orders","products","recipes"].every(item => !Object.keys(localStorage).includes(item))){
