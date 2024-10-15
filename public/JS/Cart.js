@@ -8,6 +8,7 @@ import { getQueryParam } from "../../src/Utils/Param.js";
 import { OrderService } from "../../src/Service/OrderService.js";
 import { ProductService } from "../../src/Service/ProductService.js";
 import { getFromLocalStorage, saveToLocalStorage } from "../../src/Utils/Storage.js";
+import { priceFormat } from "/src/Utils/Param.js";
 
 // Hàm thay đổi số lượng
 function changeQuantity(id, num) {
@@ -90,17 +91,3 @@ deleteButton.forEach(button =>{
     location.reload();
   })
 })
-// Hàm format kiểu dữ liệu tiền
-function priceFormat(num) {
-  // Chuyển số thành chuỗi và đảo ngược chuỗi
-  let str = num.toString().split('').reverse().join('');
-  // Thêm dấu chấm sau mỗi 3 ký tự, bắt đầu từ ký tự thứ 3
-  let result = '';
-  for (let i = 0; i < str.length; i++) {
-    if (i > 0 && i % 3 === 0) {
-      result = '.' + result;
-    }
-    result = str[i] + result;
-  }
-  return result;
-}

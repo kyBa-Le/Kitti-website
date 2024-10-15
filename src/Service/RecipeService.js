@@ -7,7 +7,7 @@ export const RecipeService = {
     // Hàm lưu recipe
     saveRecipe: function(recipe) {
         this.arrayRecipe.push(recipe);
-        saveToLocalStorage("recipes", this.arrayRecipe);
+        saveToLocalStorage("recipes", JSON.stringify(this.arrayRecipe));
     },
 
     // Hàm lấy tất cả recipe
@@ -24,6 +24,7 @@ export const RecipeService = {
         this.arrayRecipe = this.arrayRecipe.filter(function(item) {
             return item.id !== id;
         });
+        saveToLocalStorage("recipes", JSON.stringify(this.arrayRecipe));
         console.log(`Recipe with ${id} is removed!`);
     },
 
@@ -37,6 +38,7 @@ export const RecipeService = {
                 ...this.arrayRecipe[index],
                 ...recipe
             };
+            saveToLocalStorage("recipes", JSON.stringify(this.arrayRecipe));
             console.log("Recipe has been updated!");
         } else {
             console.error("Recipe not found");
