@@ -1,3 +1,4 @@
+import { RecipeService } from "/src/Service/RecipeService.js";
 import { getFromLocalStorage, readFileJson } from "../src/Utils/Storage.js";
 import { saveToLocalStorage } from "../src/Utils/Storage.js";
 import {ProductService} from "/src/Service/ProductService.js";
@@ -101,3 +102,28 @@ document.querySelectorAll(".card-img-top").forEach((item) =>{
 })
 
 // Kết thúc phần code hiển thị sản phẩm
+
+// Bắt đầu code cho phẩn hiển thị công thức
+const recipes = RecipeService.getAllRecipes();
+console.log(Array.isArray(recipes));
+
+// Hàm hiển thị ra các card của sản phẩm
+function renderRecipes(recipes) {
+    recipes.slice(0, 6).forEach(recipe => {
+        const recipeCard = 
+            `<div class="col-md-4 mb-4">
+                <div class="recipe-item">
+                    <img src="${recipe.image_link}">
+                    <div class="overlay">
+                        <h5 class="card-title" id="recipe-description">${recipe.name}</h5>
+                        <a href="RecipeDetail.html?recipe_id=${recipe.id}" class="btn btn-primary">Xem công thức</a>
+                    </div>
+                </div>
+            </div>`;
+    document.querySelector("#row-recipe").innerHTML += recipeCard;
+  });
+}
+
+// Render all products when page is loading
+document.addEventListener("DOMContentLoaded", renderRecipes(recipes));
+// Kết thúc phần code hiển thị công thức
