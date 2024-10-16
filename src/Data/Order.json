@@ -1,0 +1,18 @@
+[
+    {
+        "id":1234,
+        "product_id":7113,
+        "user_id":5961,
+        "address":"HCM- VN",
+        "quantity":2,
+        "status":"order"
+    },
+    {
+        "id": 1235,
+        "product_id": 3723,
+        "user_id": 5961,
+        "address": "HCM- VN",
+        "quantity": 2,
+        "status": "order"
+    }
+]

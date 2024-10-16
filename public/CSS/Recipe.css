@@ -1,0 +1,300 @@
+*{
+  font-family: "Dosis", sans-serif;
+}
+.container{
+  font-family: "Dosis", sans-serif;
+  font-optical-sizing: auto;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  transition: all 0.4s cubic-bezier(0.43, 1.1, 0.62, 1.08);
+  text-transform: capitalize;
+  max-width: 100% !important;
+}
+
+.swiper-slide h3,
+.recipe-box-container h1,
+.new-recipes-section h1,
+.recipe-details h3 {
+  font-weight: bold;
+}
+
+/* Bắt đầu css phần sản phẩm thịnh hành  */
+.blogs {
+  background: #f2c48d;
+  padding: 30px;
+  max-width: 100%;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  max-height: 1000px;
+}
+
+.heading {
+  text-align: center;
+}
+
+.heading h3 {
+  margin-top: 20px;
+  font-size: 4vw;
+  font-weight: bold;
+  color: #400219;
+}
+
+.swiper {
+  margin-top: 30px;
+}
+
+.swiper-slide {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.swiper-slide .image {
+  position: relative;
+}
+
+.swiper-slide .image img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.swiper-slide .image span {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #000;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 1rem;
+  opacity: 0;
+  transition: bottom 0.5s ease, opacity 0.5s ease;
+}
+.swiper-slide:hover {
+  transform: translateY(-10px) !important;
+  overflow: hidden;
+}
+.swiper-slide:hover .image img {
+  transform: scale(1.1);
+}
+
+.swiper-slide:hover .image span {
+  bottom: 10px;
+  opacity: 1;
+}
+
+.swiper-slide .content {
+  padding: 20px;
+}
+
+.swiper-slide .content .icon {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  color: #f29f05;
+}
+
+.swiper-slide .content .icon a {
+  color:#f29f05;
+  text-decoration: none;
+}
+
+.swiper-slide .content h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.swiper-slide .content p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+.swiper-slide .content .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #f29f05; 
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.swiper-slide .content .btn:hover {
+  background: #d96e11;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #f2c48d !important;
+}
+/* Kết thúc css phần sản phẩm thịnh hành  */
+
+/* Bắt đầu css phần giới thiệu */
+.recipe-box-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #e3ddc4;
+  padding: 40px;
+  max-width: 100%;
+  margin: 50px auto;
+  /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); */
+}
+
+.recipe-box-text {
+  max-width: 600px;
+}
+
+.recipe-box-text h1 {
+  font-size: 48px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.recipe-box-text ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  color: #555;
+}
+
+.recipe-box-text ul li {
+  margin-bottom: 10px;
+}
+
+.recipe-box-text ul li::before {
+  content: "✔";
+  color: #999e6f;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.recipe-box-text button {
+  background-color: #000;
+  color: #fff;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.recipe-box-text button:hover {
+  background-color: #333;
+}
+
+.recipe-box-image {
+  flex: 1;
+}
+
+.recipe-box-image img {
+  width: 500px;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .recipe-box-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .recipe-box-text {
+    margin-bottom: 30px;
+  }
+
+  .recipe-box-image img {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+/* Kết thúc css phần giới thiệu */
+
+/* Bắt đầu css phần menu */
+.container a {
+  text-decoration: none !important;
+}
+
+.new-recipes-section {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.new-recipes-section h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 40px;
+}
+.new-recipes-section span {
+  color: #3e6001;
+}
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.recipe-card {
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+  box-shadow: 0 1px 50px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-card:hover {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.recipe-image img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+}
+
+.recipe-details {
+  padding: 5px 10px; /* Giảm kích thước phần padding */
+  text-align: left;
+}
+
+.recipe-details h3 {
+  font-size: 0.9rem;
+  color: #3e6001;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  display: flex;
+  justify-content: center;
+}
+
+.recipe-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.recipe-meta div {
+  display: flex;
+  align-items: center;
+}
+
+.recipe-meta i {
+  margin-right: 5px;
+  color: #ff9142;
+}
+
+/* Kết thúc css phần menu */

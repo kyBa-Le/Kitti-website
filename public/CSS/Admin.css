@@ -1,0 +1,43 @@
+body {
+    overflow-x: hidden;
+}
+.sidebar {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color:#ffbf0b;
+    padding-top: 20px;
+}
+
+.sidebar .nav-link {
+    color: black;
+}
+
+.sidebar .nav-link:hover {
+    background-color: #f09f10;
+}
+
+.content {
+    margin-left: 200px; /* Đảm bảo nội dung không bị che bởi sidebar */
+    padding: 20px;
+}
+
+.table-img {
+    width: 50px; /* Kích thước hình ảnh trong bảng */
+    height: auto;
+}
+#admin-navbar-db{
+    padding-left: 20px;
+}
+#admin-navbar-icon{
+    margin-right: 20px;
+}
+.admin-color-sua{
+    color:white;
+    background-color:#f09f10;
+}
+.admin-color-add{
+    color:white;
+    background-color: #1a8655;
+}

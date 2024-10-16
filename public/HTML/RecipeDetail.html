@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Công Thức Cụ Thể</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+        crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../CSS/RecipeDetail.css">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap"
+        rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+
+  </head>
+  <body>
+    <!-- Phần bên dưới là của header -->
+</head>
+<body onload="listContent()">
+    <!-- Phần bên dưới là của header -->
+    <div class="sticky-top" id="home-header" style="position: sticky; top: 0"></div>
+    <!-- Kết thúc phần header -->
+    <!-- Dưới đây là phần công thức -->
+    <div class="container" id="recipe-detail">
+        <!-- Bắt Đầu Tiêu đề và Hình ảnh món ăn -->
+        <div class="recipe-header" id="recipe-header" style="display: none;">
+            <div class="recipe-image">
+                <img id="recipe-image" src="">
+            </div>
+            <div class="recipe-text">
+                <h2>
+                    <i class="fa-regular fa-chess-queen" style="color: #f57504"></i>
+                    <b id="recipe-title"></b>
+                </h2>
+                <p id="recipe-description"></p>
+            </div>
+        </div>
+        <!-- Kết thúc tiêu đề và hình ảnh món ăn -->
+        <!-- Bắt đầu Phần Nguyên liệu  -->
+        <div class="ingredients-table" id="ingredients-container">
+            <h2>
+                <span class="left">
+                    <i class="fas fa-carrot"></i> 
+                    Nguyên liệu
+                </span>
+                <span class="right">
+                    Khẩu phần ăn: 1-2 người
+                </span>
+            </h2>
+            <table class="table table-bordered">
+            <thead>
+                <tr>
+                <th>Nguyên liệu</th>
+                <th>Số lượng</th>
+                <th>Đơn vị tính</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Phần này sẽ được cập nhật bằng JavaScript -->
+            </tbody>
+            </table>
+        </div>
+        <!-- Kết thúc Phần Nguyên liệu  -->
+        <!-- Phần Hướng dẫn nấu ăn -->
+        <div class="steps-section" id="steps-section" style="display: none;">
+            <h2><i class="fas fa-utensils"></i> Hướng dẫn</h2>
+            <div id="steps">
+                <!-- Các bước sẽ được thêm vào đây -->
+            </div>
+        </div>
+        <!-- Nút thêm công thức khác -->
+        <div class="text-center">
+            <a class="btn button_form_recipe" onclick="openFormRecipe()" id="createRecipeButton">Tạo công thức riêng</a>
+        </div>
+    </div>
+    <!-- Kết thúc phần công thức -->
+
+    <!-- Phần bên dưới là của Bảng tạo công thức -->
+    <div id="form_recipe_container">
+        <form>
+            <h2 class="form_recipe mb-4">Khẩu Vị và Dinh Dưỡng</h2>
+
+                <div class="form_recipe mb-3">
+                    <label for="taste" class="sub_form_recipe form-label">Khẩu Vị:</label>
+                    <select id="taste" name="taste" class="sub_form_recipe form-select">
+                        <option value="">Chọn khẩu vị</option>
+                        <option value="man">Mặn</option>
+                        <option value="ngot">Ngọt</option>
+                        <option value="chua">Chua</option>
+                        <option value="dang">Đắng</option>
+                        <option value="cay">Cay</option>
+                    </select>
+                </div>
+
+                <div class="form_recipe mb-3">
+                    <label for="food-type" class="sub_form_recipe form-label">Loại đồ ưa thích:</label>
+                    <select id="food-type" name="food-type" class="sub_form_recipe form-select">
+                        <option value="">Chọn loại đồ ăn</option>
+                        <option value="chay">Chay</option>
+                        <option value="man">Mặn</option>
+                        <option value="hai-san">Hải sản</option>
+                        <option value="trang-mien">Tráng miệng</option>
+                    </select>
+                </div>
+
+                <div class="form_recipe mb-3">
+                    <label for="nutrition-needs" class="sub_form_recipe form-label">Nhu cầu dinh dưỡng:</label>
+                    <select id="nutrition-needs" name="nutrition-needs" class="sub_form_recipe form-select">
+                        <option value="">Chọn nhu cầu dinh dưỡng</option>
+                        <option value="khong-gluten">Không gluten</option>
+                        <option value="it-duong">Ít đường</option>
+                        <option value="it-beo">Ít béo</option>
+                        <option value="cao-protein">Cao protein</option>
+                        <option value="thuc-vat">Thực vật</option>
+                    </select>
+                </div>
+
+                <div class="form_recipe mb-3">
+                    <label for="nutrition-goal" class="sub_form_recipe form-label">Mục tiêu dinh dưỡng:</label>
+                    <select id="nutrition-goal" name="nutrition-goal" class="sub_form_recipe form-select">
+                        <option value="">Chọn mục tiêu</option>
+                        <option value="an-kieng">Ăn kiêng</option>
+                        <option value="tang-can">Tăng cân</option>
+                        <option value="giam-can">Giảm cân</option>
+                        <option value="duy-tri">Duy trì cân nặng</option>
+                        <option value="tang-co">Tăng cơ</option>
+                    </select>
+                </div>
+                <a class="button_form_recipe btn" id="btn-form-recipe">Gửi</a>
+            </form>
+        </div>
+        <!-- Kết thúc phần Bảng tạo công thức -->
+         
+        <!-- Phần bên dưới là của footer -->
+        <div id="home-footer"></div>
+        <!-- Kết thúc phần footer -->
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"
+        ></script>
+        <script type="module" src="/public/JS/RecipeDetail.js"></script>
+    </body>
+</html>

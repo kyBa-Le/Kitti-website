@@ -1,0 +1,109 @@
+/*Phần bên dưới là của nền đăng nhập và đăgn kí*/
+#login-background {
+    background-image: url(/public/image/home-slide-1.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    background-position-y: 70%;
+    margin: 0;
+    /* Add the blur effect */
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+    z-index: 0;
+
+}
+.load-form {
+    width: 40%;
+    height: 70vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1; /* Đặt phía trước #form-overlay */
+}
+@media only screen and (max-width: 768px) {
+    .load-form{
+        width: 100%;
+        height: 100%;
+    }
+    #login-background{
+        background-position: center;
+    }
+}
+.invisible{
+    display: none;
+}
+/*Kết thúc css của nền đăng nhập và đăng kí*/
+
+/*Phần bên dưới là css của form đăng kí*/
+.signup-container {
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    padding: 16px;
+    background-color: transparent;
+    border-radius: 5px;
+    border: 1px solid #F29F05;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+    color: white
+}
+#signUp-title {
+    margin-bottom: 32px;
+}
+#signup-button{
+    border: 1px solid white;
+    background-color: rgba(0, 0, 0, 0.1);
+    margin-left: 75%;
+    margin-top: 2rem;
+}
+#signup-button:hover {
+    background-color: #F29F05;
+    border: 1px solid #dbdbdb;
+    color: white;
+}
+#have-account-login{
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 5px;
+    color:#4bc6ff;
+    background-color: rgba(0, 0, 0, 0.1)
+}
+#have-account-login:hover{
+    font-size: larger;
+    background-color: wheat;
+}
+/*Kết thúc css của form đăng kí*/
+
+/*Phần bên dưới là css của form đăng nhập*/
+.login-box {
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #F29F05;
+    border-radius: 5px;
+}
+#login-form, #signup{
+    background-color: rgba(0, 0, 0, 0.4);
+}
+#login-loginButton{
+    margin-left: 75%;
+}
+#login-loginButton:hover{
+    background-color: #F29F05;
+}
+#login-form *{
+    margin-bottom: 2rem;
+}
+/* css cho chữ dễ nhìn (class text-white) */
+.text-white{
+    text-shadow: 2px 2px 4px #666565;
+
+}
+#forgot-password:hover{
+    color:#4b8500;
+    text-shadow: 2px 2px 4px #4b8500;
+}
+/*Kết thúc css của form đăng nhập*/

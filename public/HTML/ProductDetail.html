@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <!-- link font chữ -->
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
+    <style>
+* {
+    font-family: "Dosis", sans-serif;
+    font-optical-sizing: auto;
+  }
+body {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.product-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    padding: 50px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.product-image {
+    flex: 1;
+    padding-right: 1px;
+}
+
+.product-image img {
+    max-width: 500px; 
+    height: auto;
+    max-height: 500px;
+    object-fit: contain;
+}
+
+.product-details {
+    padding-left: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+}
+#detail {
+    color: orange;
+    font-size: 25px;
+    margin-bottom: 5px;
+}
+
+#product {
+    font-size: 20px;
+    color: #ff7043;
+}
+#inforproduct {
+    font-size: 17px;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+
+.price {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: #999;
+    margin-right: 10px;
+}
+
+.discounted-price {
+    font-size: 24px;
+    color: #ff7043;
+}
+
+.options {
+    display: flex;
+    align-items: center;
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.quantity button {
+    background-color: #ff7043;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.quantity input {
+    width: 50px;
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 5px;
+}
+
+.add-to-cart,
+.buy-now {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.buy-now {
+    background-color: #ff7043;
+    color: #fff;
+}
+
+.buy-now:hover {
+    background-color: #e64a19;
+}
+
+.add-to-cart:hover {
+    background-color: #dbdbdb;
+}
+
+</style>
+</head>
+<body>
+    <div class="product-container" id="product-detail-container">
+    </div>
+    <!-- Phần bên dưới là của JS -->
+    <script type="module" src="/public/JS/ProductDetail.js"></script>
+    <script>
+        function changeQuantity(amount) {
+            var quantityInput = document.getElementById('quantity');
+            var currentQuantity = parseInt(quantityInput.value);
+            var newQuantity = currentQuantity + amount;
+            if (newQuantity >= 1 && newQuantity <= 10) {
+                quantityInput.value = newQuantity;
+            }
+        }
+    </script>
+    <!-- Kết thúc JS -->
+</body>
+</html>
