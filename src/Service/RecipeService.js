@@ -19,13 +19,23 @@ export const RecipeService = {
         }
     },
 
+    // Hàm lấy recipe theo id
+    getRecipeById(id) {
+        for (let i = 0; i < this.arrayRecipe.length; i++) {
+            if (this.arrayRecipe[i].id == id) {
+                return this.arrayRecipe[i];
+            }
+        }
+        return null;
+    },
+
     // Hàm xóa 1 recipe theo id
     removeRecipe: function(id) {
         this.arrayRecipe = this.arrayRecipe.filter(function(item) {
             return item.id !== id;
         });
         saveToLocalStorage("recipes", JSON.stringify(this.arrayRecipe));
-        console.log(`Recipe with ${id} is removed!`);
+        console.log(`Recipe with id ${id} is removed!`);
     },
 
     // Hàm chỉnh sửa thông tin recipe - truyền vào 1 recipe mới
