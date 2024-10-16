@@ -1,3 +1,4 @@
+import {UserService} from "/src/Service/UserService.js";
 // Bên dưới là các xử lý của trang chính đăng nhập và đăng kí
 function getQueryParam(param) {
     const urlParams = new URLSearchParams(window.location.search);
@@ -29,6 +30,36 @@ function loginChangePage(){
 }
 //Kết thúc xử lý form đăng nhập
 
-//Xử lý form đăng ký
+// Hàm đăng kí
+function signUp(){
+    let username = document.getElementById("signup-username").value;
+    let password = document.getElementById("signup-password").value;
+    let phoneNumber = document.getElementById("phone").value;
+    let confirmPassword = document.getElementById("confirmPassword").value;
+    if(password == confirmPassword){
+        const user = {id:Math.floor(Math.random() * 9999), name:username, phone:phoneNumber, password:password};
+        UserService.saveUser(user);
+        alert("Đăng kí thành công");
+        localStorage.setItem("user_id", JSON.stringify(user.id));
+        window.location.href = "/public/Home.html";
+    }else{
+        window.alert("Vui lòng nhập đúng mật khẩu!")
+    }
+}
+// Thêm sự kiện khi ấn vào nút đăng kí
+document.getElementById("signup-button").addEventListener('click', signUp);
 
-//Kết thúc xử lý form đăng kí
+function login(){
+    let username = document.getElementById("login-username").value;
+    let password = document.getElementById("login-password").value;
+    let user_id = UserService.findUserByNameAndPassword(username,password);
+    if(user_id){
+        alert("Đăng nhập thành công");
+        localStorage.setItem("user_id", JSON.stringify(user_id));
+        window.location.href = "/public/Home.html";
+    }else{
+        window.alert("Vui lòng nhập đúng mật khẩu!")
+    }
+}
+//Thêm sự kiện khi ấn vào nút đăng nhập
+document.getElementById("login-loginButton").addEventListener('click', login);

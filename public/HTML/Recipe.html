@@ -24,9 +24,10 @@
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
   </head>
-  <body onload="listProduct()">
-    <!-- Header -->
-    <div class="sticky-top" id="home-header" style="position: sticky; top: 0;"></div>
+  <body>
+    <!-- Phần bên dưới là của header -->
+    <div class="sticky-top" id="home-header" style="position: sticky; top: 0"></div>
+    <!-- Kết thúc phần header -->
 
     <div class="container">
       <!-- Phần món ăn thịnh hành -->
@@ -35,7 +36,7 @@
       </div>
       <section class="blogs">
         <div class="swiper mySwiper">
-          <div class="swiper-wrapper">
+          <div class="swiper-wrapper" id="swiper-wrapper">
             <!-- Các slide sẽ được thêm vào đây qua JS -->
           </div>
           <div class="swiper-button-next"></div>
@@ -63,7 +64,7 @@
       <div 
       class="new-recipes-section">
         <h1>Công thức bởi <span>Kitti</span></h1>
-        <div class="recipe-grid">
+        <div class="recipe-grid" id="recipe-grid">
           <!-- Các recipe sẽ được thêm vào đây qua JS -->
         </div>
       </div>
@@ -83,7 +84,7 @@
     ></script>
 
     <!-- Custom JS -->
-    <script src="../JS/Recipe.js"></script>
+    <script src="../JS/Recipe.js" type="module"></script>
 
     <!-- Load Header and Footer -->
     <script>
