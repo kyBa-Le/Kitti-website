@@ -3,16 +3,6 @@ import { getFromLocalStorage, readFileJson } from "../src/Utils/Storage.js";
 import { saveToLocalStorage } from "../src/Utils/Storage.js";
 import {ProductService} from "/src/Service/ProductService.js";
 
-// Xóa local storage nếu quá trình lưu file gặp lỗi
-let confirmDelete = confirm("Bạn có muốn xóa dữ liệu trong local?");
-if (confirmDelete) {
-    // Thực hiện hành động xóa
-    console.log("Xóa mục");
-    localStorage.clear();
-} else {
-    // Hủy bỏ hành động xóa
-    console.log("Hủy bỏ xóa");
-}
 
 // Lưu tất cả dữ liệu của các đối tượng vào local storage
 if(["users","orders","products","recipes"].every(item => !Object.keys(localStorage).includes(item))){
@@ -116,7 +106,7 @@ function renderRecipes(recipes) {
                     <img src="${recipe.image_link}">
                     <div class="overlay">
                         <h5 class="card-title" id="recipe-description">${recipe.name}</h5>
-                        <a href="RecipeDetail.html?recipe_id=${recipe.id}" class="btn btn-primary">Xem công thức</a>
+                        <a class="btn btn-primary recipeDetail" data-id="${recipe.id}">Xem công thức</a>
                     </div>
                 </div>
             </div>`;
@@ -126,4 +116,10 @@ function renderRecipes(recipes) {
 
 // Render all products when page is loading
 document.addEventListener("DOMContentLoaded", renderRecipes(recipes));
+// Khi ấn vào ảnh thì chuyển đến đúng trang
+document.querySelectorAll(".recipeDetail").forEach((item) =>{
+    item.addEventListener("click",()=>{
+        window.location.href = `/public/HTML/RecipeDetail.html?recipe_id=${item.dataset.id}`;
+    })
+})
 // Kết thúc phần code hiển thị công thức
