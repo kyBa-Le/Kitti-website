@@ -5,7 +5,7 @@ export const UserService = {
     // Hàm lưu user
     saveUser: function(user){
         this.arrayUser.push(user);
-        saveToLocalStorage("users",user);
+        saveToLocalStorage("users",JSON.stringify(this.arrayUser));
     },
     // Hàm lấy tất cả user
     getAllUsers: function(){
@@ -22,7 +22,7 @@ export const UserService = {
         })
         console.log(`User with ${id} is removed!`);
     },
-    // Hàm chỉnh sửa thông tin người dùng - tryền vào 1 user mới
+    // Hàm chỉnh sửa thông tin người dùng - truyền vào 1 user mới
     updateUser: function(user){
         const index = this.arrayUser.findIndex(u => u.id === user.id);
 
@@ -37,5 +37,14 @@ export const UserService = {
         } else {
             console.error("User not found");
         } 
+    },
+    findUserByNameAndPassword: function(username, password){ // trả về user_id hoặc null
+        for(let i = 0; i<this.arrayUser.length; i++){
+            let user = this.arrayUser[i];
+            if(user.name === username && user.password == password){
+                return user.id;
+            }
+        }
+        return null;
     }
 }

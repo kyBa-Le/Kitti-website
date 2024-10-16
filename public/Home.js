@@ -16,6 +16,11 @@ if(["users","orders","products","recipes"].every(item => !Object.keys(localStora
     saveToLocalStorage("products", JSON.stringify(arrProduct));
     saveToLocalStorage("recipes", JSON.stringify(arrayRecipe));
 } 
+// Kiểm tra nếu đăng nhập lần đầu thì đặt user_id = ''
+if(!Object.keys(localStorage).includes("user_id")){
+    let user_id = ""; 
+    localStorage.setItem("user_id", user_id);
+}
 
 // Tạo hiệu ứng chuyển động: phần chữ của quảng cáo
 const animateSection = document.querySelector('.animate-section');
@@ -47,7 +52,7 @@ function createProductItem(product){
                     <div class="card-body text-center">
                         <h5 class="card-title">${product.name}</h5>
                         <p class="card-text">
-                            <a href="/public/HTML/ProductDetail?id=${product.id}" class="link">Xuất xứ từ Singapore, click xem công thức</a>
+                            <a href="/public/HTML/ProductDetail?product_id=${product.id}" class="link">Xuất xứ từ Singapore, click xem công thức</a>
                         </p>
                     </div>
                 </div>
