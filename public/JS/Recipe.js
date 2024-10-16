@@ -2,25 +2,6 @@ import { RecipeService } from "/src/Service/RecipeService.js";
 
 const recipes = RecipeService.getAllRecipes();
 console.log(recipes);
-// Hàm hiển thị các sản phẩm recipe
-function renderRecipes(recipes) {
-  recipes.forEach(recipe => {
-    const recipeCard = 
-      `<a href="RecipeDetail.html?recipe_id=${recipe.id}" class="recipe-card">
-          <div class="recipe-image">
-            <img src="${recipe.image_link}" alt="${recipe.name}" />
-          </div>
-          <div class="recipe-details">
-            <h3>${recipe.name}</h3>
-            <div class="recipe-meta">
-              <div><i class="fas fa-clock"></i> ${recipe.time}</div>
-              <div><i class="fas fa-bolt"></i> ${recipe.difficulty}</div>
-            </div>
-          </div>
-       </a>`;
-    document.querySelector("#recipe-grid").innerHTML += recipeCard;
-});
-}
 
 // Hàm hiển thị slide thịnh hành
 function renderSlides(recipes) {
@@ -62,6 +43,26 @@ function renderSlides(recipes) {
       prevEl: ".swiper-button-prev", // Nút prev
     },
   });
+}
+
+// Hàm hiển thị các sản phẩm recipe
+function renderRecipes(recipes) {
+  recipes.slice(4, 8).forEach(recipe => {
+    const recipeCard = 
+      `<a href="RecipeDetail.html?recipe_id=${recipe.id}" class="recipe-card">
+          <div class="recipe-image">
+            <img src="${recipe.image_link}" alt="${recipe.name}" />
+          </div>
+          <div class="recipe-details">
+            <h3>${recipe.name}</h3>
+            <div class="recipe-meta">
+              <div><i class="fas fa-clock"></i> ${recipe.time}</div>
+              <div><i class="fas fa-bolt"></i> ${recipe.difficulty}</div>
+            </div>
+          </div>
+       </a>`;
+    document.querySelector("#recipe-grid").innerHTML += recipeCard;
+});
 }
 
 // Đợi DOM load hoàn tất rồi chạy listProduct
