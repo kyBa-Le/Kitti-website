@@ -1,17 +1,8 @@
+import { RecipeService } from "/src/Service/RecipeService.js";
 import { getFromLocalStorage, readFileJson } from "../src/Utils/Storage.js";
 import { saveToLocalStorage } from "../src/Utils/Storage.js";
 import {ProductService} from "/src/Service/ProductService.js";
 
-// Xóa local storage nếu quá trình lưu file gặp lỗi
-// let confirmDelete = confirm("Bạn có muốn xóa dữ liệu trong local?");
-// if (confirmDelete) {
-//     // Thực hiện hành động xóa
-//     console.log("Xóa mục");
-//     localStorage.clear();
-// } else {
-//     // Hủy bỏ hành động xóa
-//     console.log("Hủy bỏ xóa");
-// }
 
 // Lưu tất cả dữ liệu của các đối tượng vào local storage
 if(["users","orders","products","recipes"].every(item => !Object.keys(localStorage).includes(item))){
@@ -25,6 +16,11 @@ if(["users","orders","products","recipes"].every(item => !Object.keys(localStora
     saveToLocalStorage("products", JSON.stringify(arrProduct));
     saveToLocalStorage("recipes", JSON.stringify(arrayRecipe));
 } 
+// Kiểm tra nếu đăng nhập lần đầu thì đặt user_id = ''
+if(!Object.keys(localStorage).includes("user_id")){
+    let user_id = ""; 
+    localStorage.setItem("user_id", user_id);
+}
 
 // Tạo hiệu ứng chuyển động: phần chữ của quảng cáo
 const animateSection = document.querySelector('.animate-section');
@@ -56,7 +52,7 @@ function createProductItem(product){
                     <div class="card-body text-center">
                         <h5 class="card-title">${product.name}</h5>
                         <p class="card-text">
-                            <a href="/public/HTML/ProductDetail?id=${product.id}" class="link">Xuất xứ từ Singapore, click xem công thức</a>
+                            <a href="/public/HTML/ProductDetail?product_id=${product.id}" class="link">Xuất xứ từ Singapore, click xem công thức</a>
                         </p>
                     </div>
                 </div>
@@ -101,3 +97,34 @@ document.querySelectorAll(".card-img-top").forEach((item) =>{
 })
 
 // Kết thúc phần code hiển thị sản phẩm
+
+// Bắt đầu code cho phẩn hiển thị công thức
+const recipes = RecipeService.getAllRecipes();
+console.log(Array.isArray(recipes));
+
+// Hàm hiển thị ra các card của sản phẩm
+function renderRecipes(recipes) {
+    recipes.slice(0, 6).forEach(recipe => {
+        const recipeCard = 
+            `<div class="col-md-4 mb-4">
+                <div class="recipe-item">
+                    <img src="${recipe.image_link}">
+                    <div class="overlay">
+                        <h5 class="card-title" id="recipe-description">${recipe.name}</h5>
+                        <a class="btn btn-primary recipeDetail" data-id="${recipe.id}">Xem công thức</a>
+                    </div>
+                </div>
+            </div>`;
+    document.querySelector("#row-recipe").innerHTML += recipeCard;
+  });
+}
+
+// Render all products when page is loading
+document.addEventListener("DOMContentLoaded", renderRecipes(recipes));
+// Khi ấn vào ảnh thì chuyển đến đúng trang
+document.querySelectorAll(".recipeDetail").forEach((item) =>{
+    item.addEventListener("click",()=>{
+        window.location.href = `/public/HTML/RecipeDetail.html?recipe_id=${item.dataset.id}`;
+    })
+})
+// Kết thúc phần code hiển thị công thức
