@@ -5,7 +5,7 @@ console.log(recipes);
 
 // Hàm hiển thị slide thịnh hành
 function renderSlides(recipes) {
-  recipes.slice(0, 6).forEach((recipe) => {
+  recipes.slice(6, 10).forEach((recipe) => {
     const shortDescription = recipe.description.length > 40
       ? `${recipe.description.substring(0, 37)}...`
       : recipe.description;
@@ -47,7 +47,7 @@ function renderSlides(recipes) {
 
 // Hàm hiển thị các sản phẩm recipe
 function renderRecipes(recipes) {
-  recipes.slice(4, 8).forEach(recipe => {
+  recipes.slice(10, 14).forEach(recipe => {
     const recipeCard = 
       `<a href="RecipeDetail.html?recipe_id=${recipe.id}" class="recipe-card">
           <div class="recipe-image">
