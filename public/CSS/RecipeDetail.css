@@ -10,11 +10,12 @@
   border: 1px solid #f49506
 }
 .button_form_recipe{
-  background-color:#1a8655;
+  background-color:#11a462;
+  color: white;
 }
 .button_form_recipe:hover {
-  background-color:#137448;
-  color: white;
+  background-color:#1a8655;
+  color: white !important;
 }
 /* Kết thúc phần CSS form_Recipe */
 
@@ -29,7 +30,7 @@
 }
 /* Recipe Header Section */
 .recipe-header {
-  display: flex;
+  display: flex !important;
   align-items: center;
   justify-content: center;
   gap: 20px;

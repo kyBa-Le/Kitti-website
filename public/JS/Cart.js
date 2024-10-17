@@ -1,8 +1,6 @@
-const id = getQueryParam("user_id");
-let orders = OrderService.getOrderByUserId(id);
-console.log(orders);
-
 // lấy tất cả các đơn hàng trong local của một user
+const user_id =await getFromLocalStorage("user_id");
+let orders = OrderService.getOrderByUserId(user_id);
 
 import { getQueryParam } from "../../src/Utils/Param.js";
 import { OrderService } from "../../src/Service/OrderService.js";

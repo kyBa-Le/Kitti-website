@@ -1,236 +1,54 @@
-// Biến form typing để xác định trạng thái có phải là đang điền form hay không
-var isFormOpened = false;
+import { getQueryParam } from "/src/Utils/Param.js";
+import { RecipeService } from "/src/Service/RecipeService.js";
 
-// Hàm đọc file JSON và lấy dữ liệu
-function fetchData() {
-    return fetch("http://127.0.0.1:5500/src/Data/recipe.json") // Đường dẫn đến file JSON
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json(); // Chuyển đổi dữ liệu JSON
-        })
-        .catch(error => {
-            console.error("Error loading data:", error);
-        });
-}
+// Bắt đầu hiển thị sản phẩm theo tham số lấy được từ đường dẫn
+const recipe_id = getQueryParam("recipe_id");
+console.log(recipe_id);
 
-// Hàm xử lý dữ liệu và hiển thị lên giao diện
-function listProduct(data) {
-    // Lấy ID món ăn từ URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const recipeId = urlParams.get('id'); // Lấy ID từ URL
-    const slideId = urlParams.get('id'); // Lấy ID từ URL
+// Hàm hiển thị chi tiết công thức
+function renderRecipeDetail(recipe_id) {
+    const recipe = RecipeService.getRecipeById(recipe_id);
+    console.log(recipe);
+    document.querySelector('#recipe-title').innerText = recipe.name; // Cập nhật tiêu đề
+    document.querySelector('#recipe-description').innerText = recipe.description; // Cập nhật mô tả
+    document.querySelector('#recipe-image').src = recipe.image_link; // Cập nhật hình ảnh
+    // Cập nhật nguyên liệu
+    recipe.ingredients.forEach(ingredient => {
+        const ingredientElement = `
+        <tr>
+            <td>${ingredient.name}</td>
+            <td>${ingredient.quantity}</td>
+            <td>${ingredient.unit}</td>
+        </tr>`;
+        document.querySelector('#ingredients-container tbody').innerHTML += ingredientElement;
+    });
 
-    // Tìm công thức theo ID
-    const recipeData = data.recipes.find(recipe => recipe.id == recipeId);
-    const slideData = data.slides.find(slide => slide.id == slideId);
-
-    if (recipeData) {
-        // Thêm tiêu đề và mô tả công thức vào HTML
-        $("#recipe-title").text(recipeData.name); // Gán tiêu đề từ JSON
-        $("#recipe-description").text(recipeData.description); // Gán mô tả từ JSON
-        $("#recipe-image").attr("src", recipeData.image_link); // Gán hình ảnh từ JSON
-
-        // Thêm nguyên liệu vào bảng
-        let ingredientsHTML = '';
-
-        // Duyệt qua danh sách nguyên liệu và thêm vào HTML
-        recipeData.ingredients.forEach(ingredient => {
-            ingredientsHTML += `
-                <tr>
-                    <td>${ingredient.name}</td>
-                    <td>${ingredient.quantity}</td>
-                    <td>${ingredient.unit}</td>
-                </tr>`;
-        });
-
-        $("#ingredients-container tbody").html(ingredientsHTML); // Gán HTML cho bảng nguyên liệu
-
-        // Thêm các bước hướng dẫn vào HTML
-        let stepsHTML = '';
-        recipeData.steps.forEach(step => {
-            stepsHTML += `
-            <div class="step">
-                <div class="step-title">
+    // Cập nhật hướng dẫn nấu ăn
+    recipe.steps.forEach(step => {
+        const stepElement = `
+        <div class="step">
+            <div class="step-title">
                 ${step.title}
+            </div>
+            <div class="step-title-detail">
+                <div class="img">
+                    <img 
+                    src="${step.image_link}" 
+                    alt="${step.title}" 
+                    class="recipedetail-image"/>
                 </div>
-                <div class="step-title-detail">
-                    <div class="img">
-                        <img 
-                        src="${step.image_link}" 
-                        alt="${step.title}" 
-                        class="recipedetail-image"/>
-                    </div>
-                    <div class="divider"></div>
-                    <div class="content">
+                <div class="divider"></div>
+                <div class="content">
                     <p>${step.description}</p>
                 </div>
-            </div>`;
-        });
-
-        $("#steps").html(stepsHTML); // Gán HTML cho phần hướng dẫn
-
-        // Hiển thị các phần đã thêm
-        $("#recipe-header").show(); // Hiển thị phần tiêu đề và hình ảnh
-        $("#ingredients-container").show(); // Hiển thị phần nguyên liệu
-        $("#steps-section").show(); // Hiển thị phần hướng dẫn
-    } else if (slideData) {
-        // Thêm tiêu đề và mô tả công thức vào HTML
-        $("#recipe-title").text(slideData.name); // Gán tiêu đề từ JSON
-        $("#recipe-description").text(slideData.description); // Gán mô tả từ JSON
-        $("#recipe-image").attr("src", slideData.image_link); // Gán hình ảnh từ JSON
-
-        // Thêm nguyên liệu vào bảng
-        let ingredientsHTML = '';
-
-        // Duyệt qua danh sách nguyên liệu và thêm vào HTML
-        slideData.ingredients.forEach(ingredient => {
-            ingredientsHTML += `
-                <tr>
-                    <td>${ingredient.name}</td>
-                    <td>${ingredient.quantity}</td>
-                    <td>${ingredient.unit}</td>
-                </tr>`;
-        });
-
-        $("#ingredients-container tbody").html(ingredientsHTML); // Gán HTML cho bảng nguyên liệu
-
-        // Thêm các bước hướng dẫn vào HTML
-        let stepsHTML = '';
-        slideData.steps.forEach(step => {
-            stepsHTML += `
-                <div class="step">
-                    <div class="step-title">
-                    ${step.title}
-                    </div>
-                    <div class="step-title-detail">
-                        <div class="img">
-                            <img 
-                            src="${step.image_link}" 
-                            alt="${step.title}" 
-                            class="recipedetail-image"/>
-                        </div>
-                        <div class="divider"></div>
-                        <div class="content">
-                        <p>${step.description}</p>
-                    </div>
-                </div>`;
-        });
-
-        $("#steps").html(stepsHTML); // Gán HTML cho phần hướng dẫn
-
-        // Hiển thị các phần đã thêm
-        $("#recipe-header").show(); // Hiển thị phần tiêu đề và hình ảnh
-        $("#ingredients-container").show(); // Hiển thị phần nguyên liệu
-        $("#steps-section").show(); // Hiển thị phần hướng dẫn
-    } else {
-        console.error("Recipe not found");
-    }
+            </div>
+        </div>`;
+        document.getElementById('steps').innerHTML += stepElement; // Cộng dồn nội dung cho container
+    });
 }
 
-// Hàm mới để xử lý gửi dữ liệu
-function newRecipe() {
-    // Kiểm tra xem form đã được hoàn thành chưa
-    if (isFormOpened) {
-        // Ẩn form
-        $("#form_recipe_container").css("display", "none");
-        $("#recipe-detail").css("filter", "none");
-        isFormOpened = false;
-
-        // Xóa nội dung hiện có của <tbody>
-        $("#ingredients-container tbody").empty();
-
-        // Gọi hàm fetchData để lấy dữ liệu từ JSON
-        fetchData().then(data => {
-            // Lấy ID từ URL
-            const id = new URLSearchParams(window.location.search).get('id');
-            
-            // Kiểm tra ID thuộc về recipes hay slides
-            let recipeData;
-            if (id >= 5 && id <= 9) {
-                // Lấy dữ liệu từ recipes
-                recipeData = data.recipes.find(recipe => recipe.id == id);
-            } else if (id >= 1 && id <= 4) {
-                // Lấy dữ liệu từ slides
-                recipeData = data.slides.find(slide => slide.id == id);
-            }
-
-            // Xử lý dữ liệu nếu tìm thấy công thức
-            if (recipeData) {
-                let ingredientsHTML = '';
-
-                recipeData.ingredients.forEach(ingredient => {
-                    let randomQuantity;
-
-                    // Nếu nguyên liệu là "Nước chấm", giữ nguyên số lượng mặc định
-                    if (ingredient.name === "Nước chấm" || ingredient.name === "Nước sốt" || ingredient.name === "Gia vị") {
-                        randomQuantity = ingredient.quantity;
-                    } else {
-                        // Tạo số lượng ngẫu nhiên dựa trên đơn vị
-                        switch (ingredient.unit) {
-                            case 'g': // gram
-                                randomQuantity = (Math.floor(Math.random() * 400) + 100); // Ngẫu nhiên từ 100g đến 500g
-                                break;
-                            case 'ml': // milliliter
-                                randomQuantity = (Math.floor(Math.random() * 400) + 100); // Ngẫu nhiên từ 100ml đến 500ml
-                                break;
-                            case 'kg': // kilogram
-                                randomQuantity = (Math.floor(Math.random() * 4) + 1); // Ngẫu nhiên từ 1kg đến 5kg
-                                break;
-                            case 'l': // liter
-                                randomQuantity = (Math.floor(Math.random() * 4) + 1); // Ngẫu nhiên từ 1l đến 5l
-                                break;
-                            case 'cái': // piece
-                                randomQuantity = (Math.floor(Math.random() * 5) + 1); // Ngẫu nhiên từ 1 đến 5 cái
-                                break;
-                            case 'muỗng': // spoon
-                                randomQuantity = (Math.floor(Math.random() * 5) + 1); // Ngẫu nhiên từ 1 đến 5 muỗng
-                                break;
-                            default:
-                                randomQuantity = (Math.floor(Math.random() * 5) + 1); // Ngẫu nhiên từ 1 đến 5 cho các đơn vị không xác định
-                        }
-                    }
-
-                    ingredientsHTML += `
-                        <tr>
-                            <td>${ingredient.name}</td>
-                            <td>${randomQuantity}</td>
-                            <td>${ingredient.unit}</td>
-                        </tr>`;
-                });
-
-                // Cập nhật nội dung mới vào bảng
-                $("#ingredients-container tbody").html(ingredientsHTML);
-            }
-        });
-    } else {
-        // Nếu form không được hoàn thành, lấy dữ liệu từ local storage
-        const localData = JSON.parse(localStorage.getItem('recipeData'));
-        if (localData) {
-            let ingredientsHTML = '';
-            localData.ingredients.forEach(ingredient => {
-                ingredientsHTML += `
-                    <tr>
-                        <td>${ingredient.name}</td>
-                        <td>${ingredient.quantity}</td>
-                    </tr>`;
-            });
-            $("#ingredients-container tbody").html(ingredientsHTML);
-        }
-    }
-}
-
-// Thêm sự kiện click để đóng form nếu click ra ngoài
-document.addEventListener("click", (event) => {
-    if (isFormOpened && !event.target.closest("#form_recipe_container") && !event.target.closest("#createRecipeButton")) {
-        let form = $("#form_recipe_container");
-        let recipe = $("#recipe-detail");
-        form.css("display", "none");
-        recipe.css("filter", "none");
-        isFormOpened = false;
-    }
-});
+//form
+let isFormOpened = false; // Khai báo biến toàn cục để theo dõi trạng thái của form
 
 // Hàm mở form khi ấn vào nút tạo công thức
 function openFormRecipe() {
@@ -246,5 +64,78 @@ function openFormRecipe() {
     });
 }
 
-// Gọi hàm fetch để lấy dữ liệu ban đầu
-fetchData().then(data => listProduct(data));
+// Hàm xử lý số lượng cho công thức mới
+function newRecipe() {
+    // Lấy dữ liệu từ localStorage
+    const recipe = RecipeService.getRecipeById(recipe_id);
+
+    // Xóa nội dung hiện có của <tbody>
+    $("#ingredients-container tbody").empty();
+
+    if (isFormOpened) {
+        // Ẩn form
+        $("#form_recipe_container").css("display", "none");
+        $("#recipe-detail").css("filter", "none");
+        isFormOpened = false;
+    }
+    // Cập nhật số lượng nguyên liệu mới
+    recipe.ingredients.forEach(ingredient => {
+        let randomQuantity;
+        if (["Nước chấm", "Nước sốt", "Gia vị"].includes(ingredient.name)) {
+            randomQuantity = ingredient.quantity;
+        } else {
+            // Tạo số lượng ngẫu nhiên dựa trên đơn vị
+            switch (ingredient.unit) {
+                case 'g':
+                    randomQuantity = (Math.floor(Math.random() * 400) + 100);
+                    break;
+                case 'ml':
+                    randomQuantity = (Math.floor(Math.random() * 400) + 100);
+                    break;
+                case 'kg':
+                    randomQuantity = (Math.floor(Math.random() * 4) + 1);
+                    break;
+                case 'l':
+                    randomQuantity = (Math.floor(Math.random() * 4) + 1);
+                    break;
+                case 'cái':
+                    randomQuantity = (Math.floor(Math.random() * 5) + 1);
+                    break;
+                case 'muỗng':
+                    randomQuantity = (Math.floor(Math.random() * 5) + 1);
+                    break;
+                default:
+                    randomQuantity = (Math.floor(Math.random() * 5) + 1);
+            }
+        }
+        const ingredientElement = `
+        <tr>
+            <td>${ingredient.name}</td>
+            <td>${randomQuantity}</td>
+            <td>${ingredient.unit}</td>
+        </tr>`;
+        document.querySelector('#ingredients-container tbody').innerHTML += ingredientElement;
+    });
+
+    // Cập nhật nội dung mới vào bảng
+    $("#ingredients-container tbody").html(ingredientsHTML);
+}
+
+// Thêm sự kiện click để đóng form nếu click ra ngoài
+document.addEventListener("click", (event) => {
+    if (isFormOpened && !event.target.closest("#form_recipe_container") && !event.target.closest("#createRecipeButton")) {
+        let form = $("#form_recipe_container");
+        let recipe = $("#recipe-detail");
+        form.css("display", "none");
+        recipe.css("filter", "none");
+        isFormOpened = false;
+    }
+});
+
+// Gán sự kiện cho nút tạo công thức
+document.getElementById('createRecipeButton').addEventListener('click', openFormRecipe);
+document.getElementById("btn-form-recipe").addEventListener('click', newRecipe);
+
+// Hiển thị sản phẩm khi load trang
+document.addEventListener("DOMContentLoaded", renderRecipeDetail(recipe_id));
+// Kết thúc phần hiển thị sản phẩm
