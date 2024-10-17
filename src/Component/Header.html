@@ -60,6 +60,18 @@
         box-shadow: none;
         border: 1px solid #3e6001;
       }
+      /* css cho icon user */
+      #user-logged{
+        font-size: 20px;
+        padding: 1rem;
+        color: #3e6001;
+        border-radius: 50%;
+        border: 2px solid #3e6001;
+        cursor: pointer;
+      }
+      .login-invisible{
+        display: none !important;
+      }
     </style>
   </head>
   <body>
@@ -135,14 +147,25 @@
             </div>
           </div>
         </nav>
-        <div id="btn-group" class="btn-group" role="group" aria-label="Basic outlined example">
+        <div id="btn-group" class="btn-group group-login" role="group" aria-label="Basic outlined example">
           <a class="btn btn-outline-success" href="/public/HTML/LoginAndSignUp.html?request=login" role="button">Đăng nhập</a>
           <a class="btn btn-outline-success" href="/public/HTML/LoginAndSignUp.html?request=signup" role="button">Đăng ký</a>
+        </div>
+        <!-- Nếu đã đăng nhập thì hiển thị ra icon user -->
+        <div id="logged_in-user-icon" class="noclass ">
+          
+          <i class="fa-solid fa-user" id="user-logged"></i>
         </div>
       </div>
     </nav>
     <!-- Kết thúc phần header -->
     <script>
+      if(localStorage.getItem("user_id")){
+        console.log(localStorage.getItem("user_id"));
+        document.getElementsByClassName("group-login")[0].className += " login-invisible";
+      }else{
+        document.getElementById("logged_in-user-icon").className += " login-invisible";
+      }
     </script>
   </body>
 </html>
