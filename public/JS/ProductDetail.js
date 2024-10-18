@@ -29,7 +29,7 @@ function renderProductDetail(product_id) {
                     <button onclick="changeQuantity(1)">+</button>
                 </div>
                 <button class="add-to-cart" id="add-to-cart-button">Thêm vào giỏ hàng</button>
-                <button class="buy-now" id="buy-now-btn" type=button>Mua ngay</button>
+                <button class="buy-now" id="buy-now-btn" type="button">Mua ngay</button>
             </div>
         </div>`
 }
@@ -42,15 +42,12 @@ function changeQuantity(product, number) {
 function addToCart(product_id) {
 
 }
-// Chuyển sang trang thanh toán
-function buyNow(product_id) {
+// Hiển thị thanh toán khi ấn vào nút mua ngay
+document.getElementById("buy-now-btn").addEventListener('click', ()=>{
+    
+})
 
-}
 // Hiển thị sản phẩm khi load trang
 document.addEventListener("DOMContentLoaded", renderProductDetail(product_id));
 
-// Thêm sự kiện thanh toán khi ấn nút mua ngay
-document.getElementById("buy-now-btn").addEventListener('click',()=>{
-    
-}) 
 // Kết thúc phần hiển thị sản phẩm
