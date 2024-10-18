@@ -73,8 +73,6 @@
       // Khi nhấn nút "Thanh toán"
       $(".btn-success").on("click", function () {
         // Ẩn phần giỏ hàng
-        $("section.container.my-5").hide();
-
         // Hiển thị form thanh toán
         $("#paymentForm-load").load("/src/Component/paymentForm.html");
       });

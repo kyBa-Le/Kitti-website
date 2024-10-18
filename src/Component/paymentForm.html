@@ -15,7 +15,12 @@
             margin-left: 0;
             margin-right: 0;
         }
-
+        #paymentForm{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+        }
         #creditcard-info input{
             width: 90%;
         }
@@ -30,9 +35,10 @@
         }
         #div-order-button{
             button{
-                margin-left: 70%;
                 border: #FC8A06 1px solid;
                 background-color: transparent;
+                width: 20%;
+                margin-left: 3%;
             }
             button:hover{
                 background-color: #FC8A06;
@@ -43,6 +49,14 @@
             outline: none !important;
             box-shadow: none !important;
             background-color: transparent !important;
+        }
+        #product-information{
+            position: relative;
+            height: 200px !important;
+            overflow-y: scroll;
+        }
+         #list-example{
+            position: absolute;
         }
         /* Kết thúc phần css của payment form */
 
@@ -97,13 +111,15 @@
         .close-btn:hover {
             opacity: 0.7; /* Hiệu ứng mờ khi hover */
         }
-
+        #ordered-product{
+            overflow:scroll;
+        }
      /* Kết thúc phần css của hiển thị thành công */
     </style>
 </head>
 <body>
     <!-- Bắt đầu code phần form nhập thông tin đơn hàng -->
-    <div class="container-fluid border border-warning rounded-1 shadow-lg" id="paymentForm">
+    <div class=" border border-warning rounded-1 shadow-lg" id="paymentForm">
         <!-- Phần logo -->
         <div class="text-center mt-5">
             <a class="navbar-brand " href="#" style="color: #3E6001; font-size: 32px; font-weight: bold;">
@@ -119,12 +135,12 @@
         <!-- Form nhập thông tin -->
         <form class="row g-3 m-5 mt-1" id="payment-form">
             <!-- Tên -->
-            <div class="col-md-6">
+            <div class="col-6">
                 <label for="inputName4" class="form-label" >Tên người nhận</label>
                 <input type="text" class="form-control payment-in" id="inputName4">
             </div>
             <!-- Số điện thoại -->
-            <div class="col-md-6">
+            <div class="col-6">
                 <label for="inputPhoneNumber4" class="form-label">Số điện thoại</label>
                 <input type="text" class="form-control payment-in" id="inputPhoneNumber4">
             </div>
@@ -133,64 +149,61 @@
                 <label for="inputAddress" class="form-label">Địa chỉ nhận hàng</label>
                 <input type="text" class="form-control payment-in" id="inputAddress" placeholder="1234 Main St">
             </div>
-            <!-- Ô phương thức thanh toán -->
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col border" id="payment-method">
-                        <div class="row m-1">
-                            <div class="col">Phương thức thanh toán</div>
-                            <div class="col">
-                                <select class="form-select payment-in">
-                                    <option class="payment-in bg-secondary" id="payment-option">Tiền mặt</option>
-                                    <option class="payment-in bg-secondary" id="payment-option">Chuyển khoản</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row d-flex justify-content-center m-2" id="creditcard-info">
-                            <input type="text" class="form-control payment-in" id="exampleFormControlInput1" placeholder="Thông tin tài khoản">
-                        </div>
-                    </div>
-                    <div class="col" id="user-comment">
-                        <textarea class="form-control payment-in" id="exampleFormControlTextarea1" rows="4" placeholder="Ghi chú cho người giao hàng"></textarea>
-                    </div>
+            <!-- Các món hàng được chọn -->
+            <div class="col-5 border" id="ordered-product">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Default checkbox
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Checked checkbox
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Default checkbox
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Checked checkbox
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Default checkbox
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Checked checkbox
+                    </label>
                 </div>
             </div>
-            <!-- Thông tin khác -->
-            <div class="row g-3">
-                <!-- Thông tin sản phẩm -->
-                <div class="col-sm-7 border">
-                    <div class="row mt-1 mb-1">
-                        <div class="col-sm-6">
-                            <div class="card">
-                                <img src="/public/image/footer-model2.webp" class="card-img-top" alt="...">
-                                <div class="card-body fw-bold">
-                                    Khoai tây chiên
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-5">
-                            <div class="row h-50 fw-bold">Mô tả:</div>
-                            <div class="row h-50 fw-bold">Đơn giá:</div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Tổng tiền và nơi gửi -->
-                <div class="col-auto">
-                    <div class="row h-50 fw-bold">Địa chỉ người gửi:</div>
-                    <div class="row h-25">
-                        <div class="fw-bold">Tổng tiền:</div>
-                    </div>
-                </div>
+            <!-- Ghi chú cho ngừơi giao hàng -->
+            <div class="col-7" id="user-comment">
+                <textarea class="form-control payment-in" id="exampleFormControlTextarea1" rows="4" placeholder="Ghi chú cho người giao hàng"></textarea>
             </div>
             <!-- Nút thanh toán -->
-            <div class="container-fluid" id="div-order-button">
+            <div class="container-fluid d-flex justify-content-end" id="div-order-button">
                 <!-- Nút sẽ kích hoạt modal -->
-                <button type="button" class="btn btn-warning w-25" data-bs-toggle="modal" data-bs-target="#successModal">
+                <button type="button" class="btn btn-warning d-flex" data-bs-toggle="modal" data-bs-target="#successModal" id="cancel-order">
+                    Hủy
+                </button>
+                <button type="button" class="btn btn-warning d-flex" data-bs-toggle="modal" data-bs-target="#successModal" id="pay-button">
                     Đặt hàng
                 </button>
             </div>
         </form>
-    </div>
+    </div> 
     <!-- Kết thúc phần form đơn hàng -->
 
     <!-- Dưới đây là phần thông báo thanh toán thành công -->
@@ -241,7 +254,11 @@
 
     <!-- Script kích hoạt modal -->
     <script>
-        const payButton = document.getElementById('payButton');
+        const ordered = document.getElementById('ordered-product');
+        const note = document.getElementById('exampleFormControlTextarea1');
+        console.log(note.offsetHeight);
+        ordered.style.height = note.offsetHeight + 'px';
+        const payButton = document.getElementById('pay-button');
 
         payButton.addEventListener('click', function () {
             const successModal = new bootstrap.Modal(document.getElementById('successModal'));
