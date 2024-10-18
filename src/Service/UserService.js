@@ -46,5 +46,15 @@ export const UserService = {
             }
         }
         return null;
+    },
+    // Tìm user theo id
+    getUserById: function(user_id){
+        for (let i = 0; i < this.arrayUser.length; i++) {
+            let user = this.arrayUser[i];
+            if (user.id == user_id) {
+                return user;
+            }
+        }
+        return null;
     }
 }
