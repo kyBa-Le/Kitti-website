@@ -6,6 +6,8 @@
     <title>Product Page</title>
     <!-- link font chữ -->
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+        crossorigin="anonymous"></script>
     <style>
 * {
     font-family: "Dosis", sans-serif;
@@ -136,12 +138,15 @@ body {
 .add-to-cart:hover {
     background-color: #dbdbdb;
 }
-
+.invisible{
+    display: none;
+}
 </style>
 </head>
 <body>
     <div class="product-container" id="product-detail-container">
     </div>
+    <div id="load-payment-form"></div>
     <!-- Phần bên dưới là của JS -->
     <script type="module" src="/public/JS/ProductDetail.js"></script>
     <script>
@@ -153,6 +158,7 @@ body {
                 quantityInput.value = newQuantity;
             }
         }
+        $("#load-payment-form").load("/src/Component/paymentForm.html");
     </script>
     <!-- Kết thúc JS -->
 </body>

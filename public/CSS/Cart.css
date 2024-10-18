@@ -2,6 +2,9 @@
   font-family: "Dosis", sans-serif;
   font-optical-sizing: auto;
 }
+body{
+  position: relative;
+}
 /* Dưới đây là phần css của giỏ hàng */
 .card-btn-color {
   background-color: #f29f05 !important;
@@ -25,3 +28,21 @@ tbody tr td img {
   margin-top: 30px;
 }
 /* Kết thúc phần css của giỏ hàng */
+/* CSS cho phần form thanh toán */
+#paymentForm-load{
+  width: 40%;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(255, 255, 255);
+  z-index: 1000;
+}
+@media only screen and (max-width: 768px){
+  #paymentForm-load{
+    width: 100%;
+  }
+}
+.invisible{
+  display: none;
+}
