@@ -33,7 +33,8 @@ document.getElementById("product-detail-container").innerHTML =
     </div>`
 
 // Khi ấn vào nút mua ngay
-document.getElementById("buy-now-btn").addEventListener("click", (product_id)=>{
-    window.location.href = `/public/HTML/Payment.html?product_id=${product_id}`;
+document.getElementById("buy-now-btn").addEventListener("click",  ()=>{
+    let quantity = document.getElementById("quantity").value;
+    window.location.href = `/public/HTML/Payment.html?product_id=${product_id}&quantity=${quantity}`;
 })
-// Kết thúc phần hiển thị sản phẩm
+// Kết thúc phần hiển thị sản phẩm.

@@ -1,4 +1,6 @@
-
+* {
+font-family: "Dosis", sans-serif;
+}
 /* Dưới đây là css của payment form */
 #payment-form * {
     margin-left: 0;
