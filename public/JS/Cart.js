@@ -89,11 +89,3 @@ deleteButton.forEach(button =>{
     location.reload();
   })
 })
-// Thóat mua hàng
-document.getElementById("cancel-order").addEventListener('click', ()=>{
-  document.getElementById('paymentForm-load').classList.add('invisible');
-})
-// Hàm đặt mua ngay
-function buyNow(){
-  
-}

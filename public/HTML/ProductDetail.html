@@ -146,7 +146,7 @@ body {
 <body>
     <div class="product-container" id="product-detail-container">
     </div>
-    <div id="load-payment-form"></div>
+    <div id="payment-form"></div>
     <!-- Phần bên dưới là của JS -->
     <script type="module" src="/public/JS/ProductDetail.js"></script>
     <script>
@@ -158,7 +158,6 @@ body {
                 quantityInput.value = newQuantity;
             }
         }
-        $("#load-payment-form").load("/src/Component/paymentForm.html");
     </script>
     <!-- Kết thúc JS -->
 </body>

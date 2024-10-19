@@ -28,9 +28,11 @@ function renderSlides(recipes) {
       </div>`;
       
     document.getElementById("swiper-wrapper").innerHTML += slideItem;
-  });
-   // Khởi động Swiper
-   new Swiper(".mySwiper", {
+});
+
+
+  // Khởi động Swiper
+  new Swiper(".mySwiper", {
     slidesPerView: 3, // Hiển thị 3 slide cùng lúc
     spaceBetween: 30, // Khoảng cách giữa các slide
     loop: true, // Vòng lặp các slide
@@ -45,6 +47,7 @@ function renderSlides(recipes) {
   });
 }
 
+
 // Hàm hiển thị các sản phẩm recipe
 function renderRecipes(recipes) {
   recipes.slice(10, 14).forEach(recipe => {
@@ -57,13 +60,15 @@ function renderRecipes(recipes) {
             <h3>${recipe.name}</h3>
             <div class="recipe-meta">
               <div><i class="fas fa-clock"></i> ${recipe.time}</div>
-              <div><i class="fas fa-bolt"></i> ${recipe.difficulty}</div>
+              <div><i class="fas fa-bolt"></i> ${recipes.difficulty}</div>
             </div>
           </div>
        </a>`;
+       
     document.querySelector("#recipe-grid").innerHTML += recipeCard;
-});
+  });
 }
+
 
 // Đợi DOM load hoàn tất rồi chạy listProduct
 document.addEventListener("DOMContentLoaded", renderSlides(recipes));

@@ -38,16 +38,6 @@ function renderProductDetail(product_id) {
 function changeQuantity(product, number) {
 
 }
-// Hàm thêm vào giỏ hàng
-function addToCart(product_id) {
-
-}
-// Hiển thị thanh toán khi ấn vào nút mua ngay
-document.getElementById("buy-now-btn").addEventListener('click', ()=>{
-    
-})
-
 // Hiển thị sản phẩm khi load trang
-document.addEventListener("DOMContentLoaded", renderProductDetail(product_id));
-
+document.addEventListener("DOMContentLoaded", renderProductDetail(product_id))
 // Kết thúc phần hiển thị sản phẩm
