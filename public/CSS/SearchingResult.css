@@ -66,3 +66,9 @@
     color: #F29F05;
 }
 /* Kết thúc phần RECIPE */
+
+.result-title{
+    background-color: #f2c48d;
+    padding: 10px;
+    border-radius: 10px;
+}

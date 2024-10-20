@@ -61,6 +61,9 @@ export const RecipeService = {
     // Hàm lấy ra công thức theo tên có chứa từ khóa - nhận vào 1 từ khóa - trả về 1 danh sách công thứdc
     getRecipeByNameInclude: function (recipeName) {
         const recipes = [];
+        if(recipeName == " "){
+            return recipes;
+        }
         for (let i = 0; i < this.arrayRecipe.length; i++) {
             if (this.arrayRecipe[i].name.toUpperCase().includes(recipeName.toUpperCase())) {
                 recipes.push(this.arrayRecipe[i]);
@@ -71,7 +74,7 @@ export const RecipeService = {
 
     // Lọc các công thứdc theo phân loại, nhận vào một array recipe và loại - trả về 1 array recipe
     filterRecipeByType: function (recipes, type) {
-        if (type == '' || type == null) {
+        if (type == '' || type == null || type == "Tất cả") {
             return recipes;
         }
         const filteredrecipe = [];

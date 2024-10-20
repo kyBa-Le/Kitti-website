@@ -52,6 +52,9 @@ export const ProductService = {
     // Hàm lấy ra sản phẩm theo tên có chứa từ khóa - nhận vào 1 từ khóa - trả về 1 danh sách sản phẩm
     getProductByNameInclude: function(productName){
         const products = [];
+        if (productName == " ") {
+            return products;
+        }
         for(let i = 0; i<this.arrayProduct.length; i++){
             if (this.arrayProduct[i].name.toUpperCase().includes(productName.toUpperCase())){
                 products.push(this.arrayProduct[i]);
@@ -62,7 +65,7 @@ export const ProductService = {
 
     // Lọc các sản phẩm theo phân loại, nhận vào một array product và loại - trả về 1 array product
     filterProductByType: function(products,type){
-        if(type == '' || type == null){
+        if(type == '' || type == null || type == "Tất cả"){
             return products;
         }
         const filteredProduct = [];
