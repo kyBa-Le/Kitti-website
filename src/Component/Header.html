@@ -161,13 +161,14 @@
                 aria-expanded="false"
               >
                 <i id="header-nav-icon" class="fa-solid fa-filter"></i>
-                Lọc
+                <span id="filter-content">Tất cả</span>
               </button>
               <ul class="dropdown-menu" aria-labelledby="defaultDropdown">
                 <li><a class="dropdown-item" href="#">Chay</a></li>
                 <li><a class="dropdown-item" href="#">Mặn</a></li>
                 <li><a class="dropdown-item" href="#">Tăng cân</a></li>
                 <li><a class="dropdown-item" href="#">Giảm cân</a></li>
+                <li><a class="dropdown-item" href="#">Tất cả</a></li>
               </ul>
             </div>
           </div>
@@ -186,6 +187,27 @@
     <!-- Kết thúc phần header -->
     <script type="module">
       import {UserService} from "/src/Service/UserService.js";
+
+      // Điều chỉnh nút lọc
+      let dropdownItems = document.getElementsByClassName("dropdown-item");
+      for(let i = 0; i<dropdownItems.length; i++){
+        dropdownItems[i].addEventListener("click", ()=>{
+          document.getElementById("filter-content").innerHTML = dropdownItems[i].innerHTML;
+        })
+      }
+
+      // Tìm kiếm khi ấn phím enter
+      document.getElementById("searchbar").addEventListener("keydown", (event) =>{
+        if (event.key === 'Enter') {
+          const key = document.getElementById("searchbar").value;
+          const filter = document.getElementById("filter-content").textContent;
+          // Gọi hàm tìm kiếm ở đây, ví dụ:
+          window.location.href = `/public/HTML/SearchingResult.html?key=${key}&type=${filter}`;
+        }
+      }
+
+      )
+
       let user_id = localStorage.getItem("user_id");
       if(user_id){
         console.log(localStorage.getItem("user_id"));
