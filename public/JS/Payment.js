@@ -94,6 +94,11 @@ function renderAllSucessfulPayment(productsInfo) {
     }
 }
 
+// Hủy đơn thanh toán không mua nữa
+document.getElementById("cancelOrder").addEventListener('click', ()=>{
+    history.back();
+})
+
 // Hiển thị thanh toán thành công
 document.getElementById("pay-button").addEventListener('click', async () => {
     let orderPerson = await document.getElementById("inputName4").value;
@@ -119,3 +124,4 @@ document.getElementById("pay-button").addEventListener('click', async () => {
 document.getElementById("close-button-to-home").addEventListener('click', () => {
     window.location.href = '/public/Home.html';
 })
+
