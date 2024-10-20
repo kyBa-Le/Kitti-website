@@ -2,7 +2,6 @@
   font-family: "Dosis", sans-serif;
 }
 .container{
-  font-family: "Dosis", sans-serif;
   font-optical-sizing: auto;
   margin: 0;
   padding: 0;
@@ -38,7 +37,7 @@
 
 .heading h3 {
   margin-top: 20px;
-  font-size: 4vw;
+  font-size: 50px;
   font-weight: bold;
   color: #400219;
 }
@@ -75,7 +74,7 @@
   color: #fff;
   padding: 5px 10px;
   border-radius: 5px;
-  font-size: 1rem;
+  font-size: 16px;
   opacity: 0;
   transition: bottom 0.5s ease, opacity 0.5s ease;
 }
@@ -100,23 +99,23 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
-  font-size: 0.9rem;
   color: #f29f05;
 }
 
 .swiper-slide .content .icon a {
   color:#f29f05;
   text-decoration: none;
+  font-size: 16px;
 }
 
 .swiper-slide .content h3 {
-  font-size: 1.2rem;
+  font-size: 20px;
   margin-bottom: 10px;
   color: #333;
 }
 
 .swiper-slide .content p {
-  font-size: 1rem;
+  font-size: 16px;
   color: #555;
   line-height: 1.5;
 }
@@ -128,7 +127,7 @@
   color: #fff;
   border-radius: 5px;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 16px;
 }
 
 .swiper-slide .content .btn:hover {
@@ -237,7 +236,7 @@
 }
 
 .new-recipes-section h1 {
-  font-size: 2.5rem;
+  font-size: 40px;
   color: #333;
   margin-bottom: 40px;
 }
@@ -272,7 +271,7 @@
 }
 
 .recipe-details h3 {
-  font-size: 0.9rem;
+  font-size: 16px;
   color: #3e6001;
   margin-bottom: 10px;
   letter-spacing: 1px;
@@ -283,7 +282,7 @@
 .recipe-meta {
   display: flex;
   justify-content: space-between;
-  font-size: 0.9rem;
+  font-size: 14px;
   color: #777;
 }
 
