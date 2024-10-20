@@ -60,7 +60,7 @@ function renderRecipes(recipes) {
             <h3>${recipe.name}</h3>
             <div class="recipe-meta">
               <div><i class="fas fa-clock"></i> ${recipe.time}</div>
-              <div><i class="fas fa-bolt"></i> ${recipes.difficulty}</div>
+              <div><i class="fas fa-bolt"></i> ${recipe.difficulty}</div>
             </div>
           </div>
        </a>`;
