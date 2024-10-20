@@ -15,7 +15,7 @@ function changeQuantity(id, num) {
     console.log(order);
     order.quantity += parseInt(num);
     OrderService.updateOrder(order);
-    location.reload();
+    document.getElementById("quantity-input-value").value = order.quantity;
   }else{
     window.alert("Click delete to delete the item!");
   }
@@ -43,7 +43,7 @@ function createOrderRow(order){
                   <input
                     type="text"
                     value=${order.quantity}
-                    class="form-control form-control-sm mx-2 text-center"
+                    class="form-control form-control-sm mx-2 text-center" id="quantity-input-value"
                     style="width: 50px"
                   />
                   <button class="btn btn-sm btn-outline-secondary changeQuantity" data-id=${order.id} data-number="${1}">+</button>
