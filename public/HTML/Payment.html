@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/public/CSS/Payment.css">
+</head>
+
+<body>
+    <!-- Bắt đầu code phần form nhập thông tin đơn hàng -->
+    <div class="border border-warning rounded-1 shadow-lg" id="paymentForm">
+        <!-- Phần logo -->
+        <div class="text-center mt-5">
+            <a class="navbar-brand " href="#" style="color: #3E6001; font-size: 32px; font-weight: bold;">
+                <img src="/public/image/Kitti-Logo.jpg" alt="" width="80" height="80"
+                    class="d-inline-block align-text-center" style="border-radius: 50%; border: 1px solid #FC8A06;">
+                Kitti
+            </a>
+        </div>
+        <!-- Tiêu đề form -->
+        <div class="container d-flex justify-content-center mt-3" id="payment-form-title">
+            <h2>Thông tin đơn hàng</h2>
+        </div>
+        <!-- Form nhập thông tin -->
+        <form class="row g-3 m-5 mt-1" id="payment-form">
+            <!-- Tên -->
+            <div class="col-6">
+                <label for="inputName4" class="form-label">Tên người nhận</label>
+                <input type="text" class="form-control payment-in" id="inputName4" required>
+            </div>
+            <!-- Số điện thoại -->
+            <div class="col-6">
+                <label for="inputPhoneNumber4" class="form-label">Số điện thoại</label>
+                <input type="text" class="form-control payment-in" id="inputPhoneNumber4" required>
+            </div>
+            <!-- Địa chỉ -->
+            <div class="col-12">
+                <label for="inputAddress" class="form-label">Địa chỉ nhận hàng</label>
+                <input type="text" class="form-control payment-in" id="inputAddress" placeholder="1234 Main St" required>
+            </div>
+            <!-- Các món hàng được chọn -->
+            <div class="col-5 border" id="ordered-product">
+            </div>
+            <!-- Ghi chú cho ngừơi giao hàng -->
+            <div class="col-7" id="user-comment">
+                <textarea class="form-control payment-in" id="exampleFormControlTextarea1" rows="6"
+                    placeholder="Ghi chú cho người giao hàng"></textarea>
+            </div>
+            <!-- Nút thanh toán -->
+            <div class="container-fluid d-flex justify-content-end" id="div-order-button">
+                <!-- Nút sẽ kích hoạt modal -->
+                <button type="button" class="btn btn-warning cancelOrder text-center" data-bs-toggle="modal"
+                    data-bs-target="#orderModal" id="cancelOrder">
+                    Hủy
+                </button>
+                <button type="button" class="btn btn-warning text-center" data-bs-toggle="modal"
+                    data-bs-target="#orderModal" id="pay-button">
+                    Đặt hàng
+                </button>
+            </div>  
+        </form>
+    </div>
+    <!-- Kết thúc phần form đơn hàng -->
+
+    <!-- Dưới đây là phần thông báo thanh toán thành công -->
+    <div class="modal invisible" id="orderModal" aria-labelledby="orderModalLabel"
+        data-bs-backdrop="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="orderModalLabel">Thanh toán thành công</h2>
+                    <button type="button" class="btn-close close-btn" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://cdn-icons-png.flaticon.com/512/845/845646.png" alt="Success"
+                        class="success-icon mb-3" width="100px">
+                    <h3>Chi tiết đơn hàng</h3>
+                    <div class="order-details" id="sucessful-payment-products">
+                    </div>
+                    <!-- Thêm địa chỉ và tên khách -->
+                    <div class="address mt-3">
+                        <p id="customer-name"><strong>Tên khách hàng:</strong></p>
+                        <p id="delivery-address"><strong>Địa chỉ giao hàng:</strong></p>
+                    </div>
+                    <div class="total">
+                        <p id="total-amount">Tổng cộng: <span class="total-amount"></span></p>
+                    </div>
+                </div>
+                <!-- Nút đóng -->
+                <div class="modal-footer">
+                    <button type="button" class="close-bottom" data-bs-dismiss="modal" id="close-button-to-home">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Kết thúc phần thông báo thanh toán thành công -->
+    <script type="module" src="/public/JS/Payment.js"></script>
+</body>
+
+</html>

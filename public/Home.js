@@ -104,20 +104,32 @@ console.log(Array.isArray(recipes));
 
 // Hàm hiển thị ra các card của sản phẩm
 function renderRecipes(recipes) {
-    recipes.slice(0, 6).forEach(recipe => {
-        const recipeCard = 
-            `<div class="col-md-4 mb-4">
-                <div class="recipe-item">
-                    <img src="${recipe.image_link}">
-                    <div class="overlay">
-                        <h5 class="card-title" id="recipe-description">${recipe.name}</h5>
-                        <a class="btn btn-primary recipeDetail" data-id="${recipe.id}">Xem công thức</a>
+    // Lấy tối đa 6 công thức, nhưng đảm bảo không vượt quá chiều dài của mảng
+    const recipesToRender = recipes.slice(0, Math.min(recipes.length, 6));
+
+    for (let i = 0; i < recipesToRender.length; i++) {
+        const recipe = recipesToRender[i];
+
+        // Kiểm tra xem recipe có tồn tại không trước khi truy cập thuộc tính
+        if (recipe) {
+            const recipeCard = 
+                `<div class="col-md-4 mb-4">
+                    <div class="recipe-item">
+                        <img src="${recipe.image_link}">
+                        <div class="overlay">
+                            <h5 class="card-title" id="recipe-description">${recipe.name}</h5>
+                            <a class="btn btn-primary recipeDetail" data-id="${recipe.id}">Xem công thức</a>
+                        </div>
                     </div>
-                </div>
-            </div>`;
-    document.querySelector("#row-recipe").innerHTML += recipeCard;
-  });
+                </div>`;
+                
+            document.querySelector("#row-recipe").innerHTML += recipeCard;
+        }
+    }
 }
+
+
+
 
 // Render all products when page is loading
 document.addEventListener("DOMContentLoaded", renderRecipes(recipes));
