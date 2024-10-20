@@ -28,7 +28,7 @@ function createProductItems(products){
                                     <img src="${product.image_link}">
                                     <div class="overlay">
                                         <h5 class="card-title" id="recipe-description">${product.name}</h5>
-                                        <a class="btn btn-primary recipeDetail" data-id="${product.id}">Xem chi tiết</a>
+                                        <a class="btn btn-primary productDetail" data-id="${product.id}">Xem chi tiết</a>
                                     </div>
                                 </div>
                                 <p class="text-center"><b>${product.name} - ${priceFormat(product.price)} đ</b></p>
@@ -72,3 +72,18 @@ createProductItems(products);
 
 // Hiển thị ra các công thức khi load trang
 createRecipeItems(recipes);
+
+// Load ra công thức khi ấn vào 
+document.querySelectorAll(".recipeDetail").forEach((item) => {
+    item.addEventListener("click", () => {
+        window.location.href = `/public/HTML/RecipeDetail.html?recipe_id=${item.dataset.id}`;
+    })
+})
+
+
+// Load ra sản phẩm khi ấn vào
+document.querySelectorAll(".productDetail").forEach((item) => {
+    item.addEventListener("click", () => {
+        window.location.href = `/public/HTML/ProductDetail.html?product_id=${item.dataset.id}`;
+    })
+})
