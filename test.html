@@ -11,17 +11,65 @@
     <!-- link font chữ -->
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
     <style>
-        .container{
-            height: 300px !important;
-            overflow-y: scroll;
-        }
-        #list-example{
-            position: absolute;
+        #orderModal{
+            display: block;
         }
     </style>
 </head>
 <body>
-    <b>Số lượng: </b>
+    <div class="modal" id="orderModal" aria-labelledby="orderModalLabel" data-bs-backdrop="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="orderModalLabel">Thanh toán thành công</h2>
+                    <button type="button" class="btn-close close-btn" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://cdn-icons-png.flaticon.com/512/845/845646.png" alt="Success" class="success-icon mb-3"
+                        width="100px">
+                    <h3>Chi tiết đơn hàng</h3>
+                    <div class="order-details">
+                        <div class="item">
+                            <img src="https://images.pexels.com/photos/11043968/pexels-photo-11043968.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                                alt="Phở Bò" class="item-img">
+                            <div class="item-info">
+                                <p>Phở Bò <span class="quantity">(Số lượng: 1)</span></p>
+                                <span>50.000₫</span>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="https://images.pexels.com/photos/1893572/pexels-photo-1893572.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                                alt="Bún Chả" class="item-img">
+                            <div class="item-info">
+                                <p>Bún Chả <span class="quantity">(Số lượng: 2)</span></p>
+                                <span>60.000₫</span>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="https://images.pexels.com/photos/6260921/pexels-photo-6260921.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                                alt="Cơm Tấm Sườn" class="item-img">
+                            <div class="item-info">
+                                <p>Cơm Tấm Sườn <span class="quantity">(Số lượng: 1)</span></p>
+                                <span>70.000₫</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Thêm địa chỉ và tên khách -->
+                    <div class="address mt-3">
+                        <p><strong>Tên khách hàng:</strong> Nguyễn Thị Hà Sang</p>
+                        <p><strong>Địa chỉ giao hàng:</strong> Mỹ Khê 3, Phước Mỹ, Sơn Trà, Đà Nẵng</p>
+                    </div>
+                    <div class="total">
+                        <p>Tổng cộng: <span class="total-amount">180.000₫</span></p>
+                    </div>
+                </div>
+                <!-- Nút đóng -->
+                <div class="modal-footer">
+                    <button type="button" class="close-bottom" data-bs-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
