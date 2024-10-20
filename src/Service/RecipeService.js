@@ -56,5 +56,30 @@ export const RecipeService = {
         });
         saveToLocalStorage("recipes", JSON.stringify(this.arrayRecipe));
         console.log("Recipe đã được xóa!");
-    }
+    },
+
+    // Hàm lấy ra công thức theo tên có chứa từ khóa - nhận vào 1 từ khóa - trả về 1 danh sách công thứdc
+    getRecipeByNameInclude: function (recipeName) {
+        const recipes = [];
+        for (let i = 0; i < this.arrayRecipe.length; i++) {
+            if (this.arrayRecipe[i].name.toUpperCase().includes(recipeName.toUpperCase())) {
+                recipes.push(this.arrayRecipe[i]);
+            }
+        }
+        return recipes;
+    },
+
+    // Lọc các công thứdc theo phân loại, nhận vào một array recipe và loại - trả về 1 array recipe
+    filterRecipeByType: function (recipes, type) {
+        if (type == '' || type == null) {
+            return recipes;
+        }
+        const filteredrecipe = [];
+        for (let i = 0; i < recipes.length; i++) {
+            if (recipes[i].type == type) {
+                filteredrecipe.push(recipes[i]);
+            }
+        }
+        return filteredrecipe;
+    },
 }

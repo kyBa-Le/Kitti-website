@@ -48,6 +48,32 @@ export const ProductService = {
             console.error("Product not found");
         }
     },
+
+    // Hàm lấy ra sản phẩm theo tên có chứa từ khóa - nhận vào 1 từ khóa - trả về 1 danh sách sản phẩm
+    getProductByNameInclude: function(productName){
+        const products = [];
+        for(let i = 0; i<this.arrayProduct.length; i++){
+            if (this.arrayProduct[i].name.toUpperCase().includes(productName.toUpperCase())){
+                products.push(this.arrayProduct[i]);
+            }
+        }
+        return products;
+    },
+
+    // Lọc các sản phẩm theo phân loại, nhận vào một array product và loại - trả về 1 array product
+    filterProductByType: function(products,type){
+        if(type == '' || type == null){
+            return products;
+        }
+        const filteredProduct = [];
+        for(let i = 0; i<products.length; i++){
+            console.log("Product type:", products[i].type);
+            if(products[i].type == type ){
+                filteredProduct.push(products[i]);
+            }
+        }
+        return filteredProduct;
+    },
     
     // Hàm xóa product theo id
     async deleteProductById(id) {
@@ -56,6 +82,7 @@ export const ProductService = {
         });
         saveToLocalStorage("products", JSON.stringify(this.arrayProduct));
         console.log("Sản phẩm đã được xóa!");
-    }
+    }, 
+    
     
 }

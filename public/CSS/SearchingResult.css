@@ -1,0 +1,68 @@
+* {
+  font-family: "Dosis", sans-serif;
+  font-optical-sizing: auto;
+}
+.recipe-item {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 30px;
+    height: 300px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.5s ease;
+}
+
+.recipe-item:hover .overlay {
+    opacity: 1;
+}
+
+.overlay-content {
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    z-index: 1; 
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0; 
+    transition: opacity 0.3s ease; 
+    flex-direction: column;
+}
+
+.overlay-content h1, .overlay-content p {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px; 
+}
+#recipe-description{
+    color: white;
+}
+.overlay .btn-primary{
+    border: 1px solid #F29F05;
+    color:whitesmoke;
+    background-color: transparent;
+    margin-top: 1rem;
+}
+.overlay .btn-primary:hover{
+    background-color: transparent;
+    border: 1px solid #F29F05;
+    color: #F29F05;
+}
+/* Kết thúc phần RECIPE */
