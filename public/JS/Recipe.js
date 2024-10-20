@@ -50,7 +50,7 @@ function renderSlides(recipes) {
 
 // Hàm hiển thị các sản phẩm recipe
 function renderRecipes(recipes) {
-  recipes.slice(10, 14).forEach(recipe => {
+  recipes.slice(10, recipes.length).forEach(recipe => {
     const recipeCard = 
       `<a href="RecipeDetail.html?recipe_id=${recipe.id}" class="recipe-card">
           <div class="recipe-image">
@@ -60,7 +60,7 @@ function renderRecipes(recipes) {
             <h3>${recipe.name}</h3>
             <div class="recipe-meta">
               <div><i class="fas fa-clock"></i> ${recipe.time}</div>
-              <div><i class="fas fa-bolt"></i> ${recipes.difficulty}</div>
+              <div><i class="fas fa-bolt"></i> ${recipe.difficulty}</div>
             </div>
           </div>
        </a>`;
