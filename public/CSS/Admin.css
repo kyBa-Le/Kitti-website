@@ -1,43 +1,186 @@
+/* Đảm bảo không có thanh cuộn ngang */
 body {
     overflow-x: hidden;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9; /* Màu nền sáng dịu mắt */
+    margin: 0;
+    padding: 0;
 }
+
+/* Sidebar cố định bên trái */
 .sidebar {
     height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
-    background-color:#ffbf0b;
-    padding-top: 20px;
+    background-color: #ffbf0b; /* Màu vàng nổi bật */
+    padding: 20px;
+    width: 250px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Thêm bóng để tạo chiều sâu */
+    transition: all 0.3s ease; /* Hiệu ứng mượt mà khi mở rộng */
 }
 
 .sidebar .nav-link {
-    color: black;
+    color: #333; /* Màu chữ đậm để dễ đọc */
+    padding: 15px;
+    margin-bottom: 5px;
+    display: block;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px; /* Tạo góc bo mềm */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .sidebar .nav-link:hover {
-    background-color: #f09f10;
+    background-color: #f09f10; /* Màu vàng tối hơn khi hover */
+    color: white; /* Đổi màu chữ thành trắng khi hover */
 }
 
+/* Nội dung phía bên phải, tránh bị che bởi sidebar */
 .content {
-    margin-left: 200px; /* Đảm bảo nội dung không bị che bởi sidebar */
+    margin-left: 250px; /* Khoảng cách nội dung với sidebar */
     padding: 20px;
+    background-color: #f5f5f5; /* Màu nền sáng cho nội dung */
+    min-height: 100vh; /* Đảm bảo nội dung kéo dài hết trang */
+    transition: margin-left 0.3s ease; /* Hiệu ứng mượt mà khi thay đổi khoảng cách */
 }
 
+/* Định dạng cho hình ảnh trong bảng */
 .table-img {
-    width: 50px; /* Kích thước hình ảnh trong bảng */
-    height: auto;
+    width: 150px; /* Kích thước hình ảnh trong bảng */
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px; /* Làm mềm các góc của hình ảnh */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Thêm bóng đổ cho hình ảnh */
 }
-#admin-navbar-db{
+
+/* Kiểm soát chiều rộng cột gần cuối */
+table td:nth-last-child(2),
+#productTableBody tr td:nth-child(5),
+#recipeTableBody tr td:nth-child(5) {
+    max-width: 500px; /* Điều chỉnh lại chiều rộng cho đẹp mắt */
+    white-space: normal; /* Cho phép xuống dòng */
+}
+
+/* Cột cuối cùng */
+table tr td:last-child {
+    min-width: 120px; /* Đảm bảo cột cuối cùng có chiều rộng tối thiểu */
+}
+
+/* Định dạng navbar admin */
+#admin-navbar-db {
     padding-left: 20px;
 }
-#admin-navbar-icon{
+
+#admin-navbar-icon {
     margin-right: 20px;
 }
-.admin-color-sua{
-    color:white;
-    background-color:#f09f10;
+
+/* Nút "Sửa" với màu sắc nổi bật */
+.admin-color-sua {
+    color: white;
+    background-color: #f09f10;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
-.admin-color-add{
-    color:white;
+
+.admin-color-sua:hover {
+    background-color: #e08e0a; /* Màu vàng tối hơn khi hover */
+}
+
+/* Nút "Thêm" với màu xanh */
+.admin-color-add {
+    color: white;
     background-color: #1a8655;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.admin-color-add:hover {
+    background-color: #166d48; /* Màu xanh tối hơn khi hover */
+}
+
+/* Nút toggle mô tả */
+.toggle-description {
+    background: none;
+    border: none; /* Loại bỏ đường viền */
+    color: #007bff; /* Màu xanh dễ nhận diện */
+    cursor: pointer;
+    padding: 0;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.toggle-description:hover {
+    color: #0056b3; /* Màu xanh đậm hơn khi hover */
+    text-decoration: underline; /* Giữ gạch chân khi hover */
+}
+
+/* Modal Styling: Đảm bảo nút luôn trong modal khi nội dung mở rộng */
+.modal {
+    display: none; /* Ẩn mặc định */
+    position: fixed;
+    z-index: 1050 !important;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Màu overlay tối */
+    z-index: 1040 !important;
+}
+
+.modal-header,
+.modal-footer {
+    background-color: white;
+    border-bottom: 1px solid #dee2e6;
+    padding: 15px;
+    font-weight: bold;
+    border-radius: 10px 10px 0 0;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #dee2e6;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 0 0 10px 10px;
+}
+
+/* Phần thân modal với cuộn dọc */
+.modal-body {
+    max-height: calc(100vh - 150px); /* Đảm bảo phần body không chiếm quá nhiều không gian */
+    overflow-y: auto;
+    padding: 15px;
+}
+
+/* Cải thiện trải nghiệm bấm nút trong modal */
+.modal-footer button {
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.modal-footer button:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
