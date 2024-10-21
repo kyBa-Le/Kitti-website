@@ -7,7 +7,7 @@ This is a repository to manage project of Basic Web Design lesson of Mr. Dinh.
     -- QUY ƯỚC ĐẶT TÊN --
         - Lưu trong local storage: 
             + user : "users"
-            + cart : "carts"
+            + oder : "oders"
             + recipe : "recipes"
             + product : "products"
         - Khi đăng nhập thành công thì sẽ lưu vào local: user_id (mục đích là để lấy ra giỏ hàng hoặc đặt hàng)
