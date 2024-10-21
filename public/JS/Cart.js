@@ -22,9 +22,6 @@ function changeQuantity(id, num) {
   
 }
 
-
-
-
 // Hàm tạo ra các hàng cho order
 function createOrderRow(order){
     var product = ProductService.getProductById(order.product_id);
@@ -89,3 +86,43 @@ deleteButton.forEach(button =>{
     location.reload();
   })
 })
+
+// Hàm tạo ra các hàng cho order status
+function createOrderStatusRow(order){
+  var product = ProductService.getProductById(order.product_id);
+  return `<tr>
+            <td>
+              <img
+                src= ${product.image_link}
+                alt="${product.name}"
+              />
+            </td>
+            <td>${product.name}</td>
+            <td>${priceFormat(product.price)}₫</td>
+            <td>
+              <div class="d-flex justify-content-center">
+                <button class="btn btn-sm btn-outline-secondary changeQuantity" data-id="${order.id}" data-number="${-1}">-</button>
+                <input
+                  type="text"
+                  value=${order.quantity}
+                  class="form-control form-control-sm mx-2 text-center" id="quantity-input-value"
+                  style="width: 50px"
+                />
+                <button class="btn btn-sm btn-outline-secondary changeQuantity" data-id=${order.id} data-number="${1}">+</button>
+              </div>
+            </td>
+            <td>${priceFormat(product.price * order.quantity)}₫</td>
+            <td>${order.status}</td>
+          </tr>`
+}
+
+// Hàm render trang giỏ hàng
+async function renderOrderStatus(orders){
+  orders.forEach(order => {
+      let row = createOrderStatusRow(order);
+      document.getElementById("order_status_table_body").innerHTML += row;
+  });
+}
+
+// Hàm để hiển thị các đơn hàng của user
+document.addEventListener('DOMContentLoaded', renderOrderStatus(orders));
