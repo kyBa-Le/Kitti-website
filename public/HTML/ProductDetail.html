@@ -8,6 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
         crossorigin="anonymous"></script>
+    <!-- link icon -->
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
     <style>
 * {
     font-family: "Dosis", sans-serif;
@@ -21,6 +23,45 @@ body {
     justify-content: center;
     align-items: center;
 }
+/* Bắt đầu phần Css icon home - back*/
+.home-icon, .back-icon {
+  position: fixed;               
+  bottom: 20px;                 
+  background: #ea550f; 
+  color: white;                
+  border: none;                
+  border-radius: 50%;          
+  padding: 10px;                  
+  font-size: 20px;               
+  width: 30px;                    
+  height: 30px;                 
+  display: flex;                  
+  justify-content: center;       
+  align-items: center;            
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  text-decoration: none;           
+  transition: all 0.3s ease;   
+}
+
+.home-icon {
+  right: 20px;  
+}
+
+.back-icon {
+  left: 20px;  
+}
+
+.home-icon:hover, .back-icon:hover {
+  transform: translateY(-3px);   
+  box-shadow: 0 6px 12px rgba(217, 125, 45, 0.2); 
+  color: white;
+}
+
+.home-icon:hover i, .back-icon:hover i {
+  transform: scale(1.1);         
+}
+
+/* Kết thúc phần css icon home - back */
 .product-container {
     position: absolute;
     top: 50%;
@@ -147,6 +188,12 @@ body {
     <div class="product-container" id="product-detail-container">
     </div>
     <div id="payment-form"></div>
+
+    <!-- Bắt đầu phần icon home - back icon -->
+    <a id="home-icon" class="home-icon" href="#"><i class="fas fa-home"></i></a>
+    <a id="back-icon" class="back-icon" href="#"><i class="fas fa-arrow-left"></i></a>
+    <!-- Kết thúc phần icon home - back icon -->
+
     <!-- Phần bên dưới là của JS -->
     <script type="module" src="/public/JS/ProductDetail.js"></script>
     <script>
@@ -158,6 +205,17 @@ body {
                 quantityInput.value = newQuantity;
             }
         }
+        //  Bắt đầu phần js cho nút home - back
+        document.getElementById("home-icon").addEventListener("click", function(home) {
+            home.preventDefault();
+            window.location.href = "/public/Home.html"; 
+        });
+
+        document.getElementById("back-icon").addEventListener("click", function(back) {
+            back.preventDefault();
+            window.history.back(); 
+        });
+        // Kết thúc phần js cho nút home - back
     </script>
     <!-- Kết thúc JS -->
 </body>

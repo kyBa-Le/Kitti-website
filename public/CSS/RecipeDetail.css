@@ -1,41 +1,3 @@
-/* Add this to your RecipeDetail.css or within a <style> tag in the <head> */
-/* Add this to your RecipeDetail.css or within a <style> tag in the <head> */
-.home-icon {
-  position: fixed;                /* Fix the button to the viewport */
-  bottom: 10px;                  /* Distance from the bottom */
-  right: 20px;                   /* Distance from the right */
-  background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Gradient background */
-  color: white;                   /* Icon color */
-  border: none;                   /* No border */
-  border-radius: 50%;            /* Make it circular */
-  padding: 15px;                  /* Padding for size */
-  font-size: 24px;                /* Icon size */
-  width: 60px;                    /* Set width for circular shape */
-  height: 60px;                   /* Set height for circular shape */
-  display: flex;                  /* Center the icon */
-  justify-content: center;        /* Center horizontally */
-  align-items: center;            /* Center vertically */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Deeper shadow */
-  text-decoration: none;           /* Remove underline */
-  transition: all 0.3s ease;     /* Smooth transition for all properties */
-}
-
-.home-icon i {
-  transition: transform 0.3s ease; /* Smooth icon transformation */
-}
-
-.home-icon:hover {
-  transform: translateY(-3px);   /* Lift effect on hover */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Shadow becomes larger on hover */
-}
-
-.home-icon:hover i {
-  transform: scale(1.1);          /* Slightly increase icon size on hover */
-}
-
-
-
-
 /* Dưới là phần CSS form_Recipe */
 #form_recipe_container {
   margin: 12px;
@@ -185,6 +147,45 @@
   background-color: #f2c48d; 
   margin: 0 20px; 
 }
-
 /* Kết thúc phần css phần recipe */
+
+/* Bắt đầu phần Css icon home - back*/
+.home-icon, .back-icon {
+  position: fixed;               
+  bottom: 20px;                 
+  background: #ea550f; 
+  color: white;                
+  border: none;                
+  border-radius: 50%;          
+  padding: 10px;                  
+  font-size: 20px;               
+  width: 50px;                    
+  height: 50px;                 
+  display: flex;                  
+  justify-content: center;       
+  align-items: center;            
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  text-decoration: none;           
+  transition: all 0.3s ease;   
+}
+
+.home-icon {
+  right: 20px;  
+}
+
+.back-icon {
+  left: 20px;  
+}
+
+.home-icon:hover, .back-icon:hover {
+  transform: translateY(-3px);   
+  box-shadow: 0 6px 12px rgba(217, 125, 45, 0.2); 
+  color: white;
+}
+
+.home-icon:hover i, .back-icon:hover i {
+  transform: scale(1.1);         
+}
+
+/* Kết thúc phần css icon home - back */
 

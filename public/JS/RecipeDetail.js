@@ -139,3 +139,16 @@ document.getElementById("btn-form-recipe").addEventListener('click', newRecipe);
 // Hiển thị sản phẩm khi load trang
 document.addEventListener("DOMContentLoaded", renderRecipeDetail(recipe_id));
 // Kết thúc phần hiển thị sản phẩm
+
+//  Bắt đầu phần js cho nút home - back
+document.getElementById("home-icon").addEventListener("click", function(home) {
+    home.preventDefault();
+    window.location.href = "/public/Home.html"; 
+});
+
+// Navigate to Previous page when Back button is clicked
+document.getElementById("back-icon").addEventListener("click", function(back) {
+    back.preventDefault();
+    window.history.back(); 
+});
+// Kết thúc phần js cho nút home - back
