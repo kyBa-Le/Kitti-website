@@ -147,6 +147,45 @@
   background-color: #f2c48d; 
   margin: 0 20px; 
 }
-
 /* Kết thúc phần css phần recipe */
+
+/* Bắt đầu phần Css icon home - back*/
+.home-icon, .back-icon {
+  position: fixed;               
+  bottom: 20px;                 
+  background: #ea550f; 
+  color: white;                
+  border: none;                
+  border-radius: 50%;          
+  padding: 10px;                  
+  font-size: 20px;               
+  width: 50px;                    
+  height: 50px;                 
+  display: flex;                  
+  justify-content: center;       
+  align-items: center;            
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  text-decoration: none;           
+  transition: all 0.3s ease;   
+}
+
+.home-icon {
+  right: 20px;  
+}
+
+.back-icon {
+  left: 20px;  
+}
+
+.home-icon:hover, .back-icon:hover {
+  transform: translateY(-3px);   
+  box-shadow: 0 6px 12px rgba(217, 125, 45, 0.2); 
+  color: white;
+}
+
+.home-icon:hover i, .back-icon:hover i {
+  transform: scale(1.1);         
+}
+
+/* Kết thúc phần css icon home - back */
 
