@@ -8,23 +8,6 @@ import { ProductService } from "../../src/Service/ProductService.js";
 import { getFromLocalStorage, saveToLocalStorage } from "../../src/Utils/Storage.js";
 import { priceFormat } from "/src/Utils/Param.js";
 
-// Hàm thay đổi số lượng
-function changeQuantity(id, num) {
-  let order = OrderService.getOrderById(id);
-  if(order.quantity >= 1){
-    console.log(order);
-    order.quantity += parseInt(num);
-    OrderService.updateOrder(order);
-    document.getElementById("quantity-input-value").value = order.quantity;
-  }else{
-    window.alert("Click delete to delete the item!");
-  }
-  
-}
-
-
-
-
 // Hàm tạo ra các hàng cho order
 function createOrderRow(order){
     var product = ProductService.getProductById(order.product_id);
@@ -61,31 +44,78 @@ function createOrderRow(order){
             </tr>`
 }
 
-// Hàm render trang giỏ hàng
-async function renderCart(orders){
+// Hàm để hiển thị các đơn hàng của user
+async function renderCart() { 
+    const user_id = localStorage.getItem("user_id");
+    // let cart = JSON.parse(localStorage.getItem('cart')) || []; // Lấy giỏ hàng từ localStorage
+
+    // Lọc đơn hàng theo user_id
+    let orders = OrderService.getOrderByUserId(user_id);
+    const cartTableBody = document.getElementById("cart_table_body");
+    cartTableBody.innerHTML = ''; // Xóa các hàng trước đó
+
+    if (orders.length === 0) {
+        cartTableBody.innerHTML = '<tr><td colspan="6">Giỏ hàng của bạn trống!</td></tr>';
+        document.getElementById("total-price").innerText = "0₫"; // Reset tổng giá
+        return;
+    }
+
+    // Duyệt qua các đơn hàng và tạo các hàng trong bảng
     orders.forEach(order => {
-        let row = createOrderRow(order);
-        document.getElementById("cart_table_body").innerHTML += row;
+        const row = createOrderRow(order);
+        cartTableBody.innerHTML += row;
     });
+
+    // Tính toán tổng giá trị giỏ hàng
+    let total = orders.reduce((acc, order) => {
+        const product = ProductService.getProductById(order.product_id);
+        return acc + (product.price * order.quantity);
+    }, 0);
+
+    document.getElementById("total-price").innerText = priceFormat(total) + "₫"; // Hiển thị tổng giá
 }
 
-// Hàm để hiển thị các đơn hàng của user
-document.addEventListener('DOMContentLoaded', renderCart(orders));
-const change = document.querySelectorAll(".changeQuantity");
-change.forEach(button => {
-  button.addEventListener('click', () => {
-    const productId = button.dataset.id;
-    const number = button.dataset.number;
-    changeQuantity(productId, number); // Call the function with retrieved values
-  });
-});
+// Hàm thay đổi số lượng trong giỏ hàng
+function updateOrderQuantity(orderId, changeAmount) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const orderIndex = cart.findIndex(order => order.id === orderId);
+    if (orderIndex > -1) {
+        cart[orderIndex].quantity += changeAmount;
+
+        // Xóa đơn hàng nếu số lượng nhỏ hơn 1
+        if (cart[orderIndex].quantity < 1) {
+            cart.splice(orderIndex, 1); // Xóa đơn hàng
+        }
+        localStorage.setItem('cart', JSON.stringify(cart)); // Cập nhật localStorage
+        renderCart(); // Cập nhật giỏ hàng hiển thị
+    } else {
+        alert("Không tìm thấy đơn hàng!");
+    }
+}
 
 // Hàm xóa đơn hàng
-const deleteButton = document.querySelectorAll(".deleteOrder");
-deleteButton.forEach(button =>{
-  button.addEventListener('click',()=>{
-    let orderId = button.dataset.id;
-    OrderService.deleteOrderById(orderId);
-    location.reload();
-  })
-})
+function deleteOrder(orderId) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart = cart.filter(order => order.id !== orderId);
+    localStorage.setItem('cart', JSON.stringify(cart)); // Cập nhật localStorage
+    renderCart(); // Cập nhật giỏ hàng hiển thị
+}
+
+// Xử lý sự kiện cho các nút thay đổi số lượng và xóa đơn hàng
+document.addEventListener('click', (event) => {
+    if (event.target.matches('.changeQuantity')) {
+        const orderId = parseInt(event.target.dataset.id);
+        const changeAmount = parseInt(event.target.dataset.number);
+        updateOrderQuantity(orderId, changeAmount);
+    }
+
+    if (event.target.matches('.deleteOrder')) {
+        const orderId = parseInt(event.target.dataset.id);
+        deleteOrder(orderId);
+    }
+});
+
+// Hiển thị giỏ hàng khi trang được tải
+document.addEventListener("DOMContentLoaded", async () => {
+    await renderCart(); // Gọi hàm để hiển thị giỏ hàng
+});
