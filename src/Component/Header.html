@@ -180,7 +180,6 @@
         <!-- Nếu đã đăng nhập thì hiển thị ra icon user -->
         <div id="logged_in-user-icon" class="noclass ">
           <i class="fa-solid fa-user" id="user-logged"></i>
-          
         </div>
       </div>
     </nav>
@@ -264,6 +263,28 @@
       // Đăng xuất khi ấn vào
       document.getElementById("logOut").addEventListener('click', logOut);
     </script>
-  </body>
+    <!-- Form chỉnh sửa thông tin người dùng -->
+      <!-- Form chỉnh sửa thông tin người dùng (ẩn mặc định) -->
+<!-- Form chỉnh sửa (ẩn mặc định) -->
+<div id="edit-user-info-form" style="display: none;">
+  <h3>Chỉnh sửa thông tin người dùng</h3>
+  <form id="edit-form">
+    <label for="edit-username">Tên người dùng:</label>
+    <input type="text" id="edit-username" name="username" placeholder="Nhập tên mới"><br>
+
+    <label for="edit-phone">Số điện thoại:</label>
+    <input type="tel" id="edit-phone" name="phone" placeholder="Nhập số điện thoại mới"><br>
+
+    <label for="edit-password">Password:</label>
+    <input type="tel" id="edit-phone" name="password" placeholder="Nhập mật khẩu mới"><br>
+
+    <button type="button" id="save-changes-btn">Lưu thay đổi</button>
+  </form>
+</div>
+<script>
+
+</script>
+<!-- Kết thúc form chỉnh sửa thông tin người dùng -->
+</body>
 </html>
  
