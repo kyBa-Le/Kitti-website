@@ -8,9 +8,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="../CSS/Admin.css">
-    
-    <!-- Include Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 </head>
 <body>
     <div class="sidebar">
@@ -31,27 +35,27 @@
     </div>
 
     <div class="content">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#" id="admin-navbar-db">Dashboard</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <!-- Menu điều hướng -->
+
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav" id="admin-navbar-icon">
-                    <!-- Icon thông báo -->
+                 
                     <li class="nav-item">
                         <a class="nav-link" href="#">
-                            <i class="bi bi-bell fs-4 me-3"></i> <!-- Bootstrap icon bell -->
+                            <i class="bi bi-bell fs-4 me-3"></i> 
                         </a>
                     </li>
-                    <!-- Icon mail -->
+            
                     <li class="nav-item">
                         <a class="nav-link" href="#">
-                            <i class="bi bi-envelope fs-4 me-3"></i> <!-- Icon mail -->
+                            <i class="bi bi-envelope fs-4 me-3"></i>
                         </a>
                     </li>
-                    <!-- Avatar người dùng -->
+
                     <li class="nav-item">
                         <a class="nav-link" href="#">
                             <img src="https://via.placeholder.com/40" alt="User Avatar" class="rounded-circle" width="40" height="40">
@@ -59,8 +63,11 @@
                     </li>
                 </ul>
             </div>
-        </nav>
-        
+        </nav> -->
+        <!-- Nếu đã đăng nhập thì hiển thị ra icon user -->
+        <div id="logged_in-user-icon" class="noclass ">
+            <i class="fa-solid fa-user" id="user-logged"></i>
+        </div>
         <section id="san-pham">
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h2>Quản Lý Sản Phẩm</h2>

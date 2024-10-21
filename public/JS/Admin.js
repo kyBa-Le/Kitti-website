@@ -518,3 +518,60 @@ document.addEventListener("DOMContentLoaded", async () => {
     renderUserRows(users); // Hiển thị danh sách người dùng
 });
 // Kết thúc phần users
+
+// js account
+let user_id = localStorage.getItem("user_id");
+if(user_id){
+  console.log(localStorage.getItem("user_id"));
+  document.getElementsByClassName("group-login")[0].className += " login-invisible";
+}else{
+  document.getElementById("logged_in-user-icon").className += " login-invisible";
+}
+function logOut(){
+  localStorage.removeItem("user_id");
+  location.href = "/public/Home.html";
+}
+// Tạo ra menu account
+function renderUserMenu(user_id){
+  let user = UserService.getUserById(user_id);
+  let userMenu = `<div class="container-fluid login-invisible flex-column" id="user-menu">
+      <div>
+        <div class="container-fluid d-flex justify-content-center"><img src="https://png.pngtree.com/png-clipart/20191121/original/pngtree-user-icon-png-image_5097430.jpg" alt=""
+          id="user-image">
+        </div>
+        <div class="container-fluid d-grid gap-3">
+          <div class="row">
+            <div class="col">User name:</div>
+            <div class="col">${user.name}</div>
+          </div>
+          <div class="row">
+            <div class="col">Phone number:</div>
+            <div class="col">${user.phone}</div>
+          </div>
+          <div class="row">
+            <div class="col">User id:</div>
+            <div class="col">${user.id}</div>
+          </div>
+        </div>
+      </div>
+      <div class="row text-center mt-5">
+        <div class="col"><button type="button" class="btn btn-outline-dark" onclick="">Chỉnh sửa</button></div>
+        <div class="col"><button type="button" class="btn btn-outline-dark" id="logOut">Đăng xuất</button></div>
+      </div>
+    </div>`;
+    document.getElementById("logged_in-user-icon").innerHTML += userMenu;
+}
+document.getElementById("logged_in-user-icon").addEventListener("load", renderUserMenu(user_id));
+// Hiển thị menu account khi ấn vào
+document.getElementById("user-logged").addEventListener('click', ()=>{
+  let userMenu = document.getElementById("user-menu");
+  if(userMenu.classList.contains("login-invisible")){
+    userMenu.classList.remove("login-invisible");
+    userMenu.classList.add("d-flex");
+  }else{
+    userMenu.classList.add("login-invisible");
+    userMenu.classList.remove("d-flex");
+  }
+})
+// Đăng xuất khi ấn vào
+document.getElementById("logOut").addEventListener('click', logOut);

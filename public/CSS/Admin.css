@@ -184,3 +184,18 @@ table tr td:last-child {
     outline: none;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
+
+/* css cho icon user */
+#logged_in-user-icon{
+    margin-left: 95%;
+    position: relative;
+    bottom: 15px;
+}
+#user-logged{
+    font-size: 20px;
+    padding: 1rem;
+    color: #3e6001;
+    border-radius: 50%;
+    border: 2px solid #3e6001;
+    cursor: pointer;
+}
