@@ -39,104 +39,7 @@
             </tr>
           </thead>
           <tbody id="cart_table_body">
-            <!-- Sản phẩm 1: Phở Bò -->
-            <tr>
-              <td>
-                <img
-                  src="https://images.pexels.com/photos/27420469/pexels-photo-27420469/free-photo-of-dia-kh-e-m-nh-b-a-t-i-b-a-tr-a.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                  alt="Phở Bò"
-                />
-              </td>
-              <td>Phở Bò</td>
-              <td>50.000₫</td>
-              <td>
-                <div class="d-flex justify-content-center">
-                  <button class="btn btn-sm btn-outline-secondary" onclick="changeQuantity(5961,-1)" value="">-</button>
-                  <input
-                    type="text"
-                    value="1"
-                    class="form-control form-control-sm mx-2 text-center"
-                    style="width: 50px"
-                  />
-                  <button class="btn btn-sm btn-outline-secondary">+</button>
-                </div>
-              </td>
-              <td>50.000₫</td>
-              <td>
-                <button
-                  type="button"
-                  class="btn btn-sm btn-warning card-btn-color"
-                >
-                  Xóa
-                </button>
-              </td>
-            </tr>
-
-            <!-- Sản phẩm 2: Bánh Mì Thịt Nướng -->
-            <tr>
-              <td>
-                <img
-                  src="https://images.pexels.com/photos/5122952/pexels-photo-5122952.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                  alt="Bánh Mì Thịt Nướng"
-                />
-              </td>
-              <td>Bánh Mì Thịt Nướng</td>
-              <td>25.000₫</td>
-              <td>
-                <div class="d-flex justify-content-center">
-                  <button class="btn btn-sm btn-outline-secondary" onclick="subtractQuantity()">-</button>
-                  <input
-                    type="text"
-                    value="1"
-                    class="form-control form-control-sm mx-2 text-center"
-                    style="width: 50px"
-                  />
-                  <button class="btn btn-sm btn-outline-secondary" onclick="addQuantity()">+</button>
-                </div>
-              </td>
-              <td>25.000₫</td>
-              <td>
-                <button
-                  type="button"
-                  class="btn btn-sm btn-warning card-btn-color"
-                >
-                  Xóa
-                </button>
-              </td>
-            </tr>
-
-            <!-- Sản phẩm 3: Cơm Tấm Sườn -->
-            <tr>
-              <td>
-                <img
-                  src="https://images.pexels.com/photos/6260921/pexels-photo-6260921.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                  alt="Cơm Tấm Sườn"
-                />
-              </td>
-              <td>Cơm Tấm Sườn</td>
-              <td>60.000₫</td>
-              <td>
-                <div class="d-flex justify-content-center">
-                  <button class="btn btn-sm btn-outline-secondary">-</button>
-                  <input
-                    type="text"
-                    value="1"
-                    class="form-control form-control-sm mx-2 text-center"
-                    style="width: 50px"
-                  />
-                  <button class="btn btn-sm btn-outline-secondary">+</button>
-                </div>
-              </td>
-              <td>60.000₫</td>
-              <td>
-                <button
-                  type="button"
-                  class="btn btn-sm btn-warning card-btn-color"
-                >
-                  Xóa
-                </button>
-              </td>
-            </tr>
+            
           </tbody>
         </table>
       </div>
@@ -146,10 +49,6 @@
       </div>
     </section>
     <!-- kết thúc phần giỏ hàng -->
-
-    <!-- Vị trí bên dưới là của phần form -->
-    <div id="paymentForm-load"></div>
-    <!-- Kết thúc phần form -->
 
     <!-- Vị trí bên dưới là của phần footer -->
     <div id="home-footer"></div>
@@ -169,11 +68,7 @@
 
       // Khi nhấn nút "Thanh toán"
       $(".btn-success").on("click", function () {
-        // Ẩn phần giỏ hàng
-        $("section.container.my-5").hide();
-
-        // Hiển thị form thanh toán
-        $("#paymentForm-load").load("/src/Component/paymentForm.html");
+        window.location.href = "/public/HTML/Payment.html";
       });
     </script>
     <!-- Kết thúc phần JavaScript -->

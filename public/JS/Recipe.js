@@ -65,7 +65,7 @@ function renderSlides(recipes) {
 
 // Hàm hiển thị các sản phẩm recipe
 function renderRecipes(recipes) {
-  recipes.slice(10, 14).forEach(recipe => {
+  recipes.slice(10, recipes.length).forEach(recipe => {
     const recipeCard = 
       `<a href="RecipeDetail.html?recipe_id=${recipe.id}" class="recipe-card">
           <div class="recipe-image">
@@ -79,9 +79,11 @@ function renderRecipes(recipes) {
             </div>
           </div>
        </a>`;
+       
     document.querySelector("#recipe-grid").innerHTML += recipeCard;
-});
+  });
 }
+
 
 // Đợi DOM load hoàn tất rồi chạy listProduct
 document.addEventListener("DOMContentLoaded", renderSlides(recipes));

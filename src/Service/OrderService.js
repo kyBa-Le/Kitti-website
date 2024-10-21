@@ -1,12 +1,15 @@
 import { getFromLocalStorage } from "../Utils/Storage.js";
 import { saveToLocalStorage } from "../Utils/Storage.js";
+
 export const OrderService = {
     arrayOrder: await getFromLocalStorage("orders"),
+    
     // Hàm lưu Order
     saveOrder: function (Order) {
         this.arrayOrder.push(Order);
         saveToLocalStorage("orders", JSON.stringify(this.arrayOrder));
     },
+    
     // Hàm lấy tất cả Order
     getAllOrders: function () {
         if (this.arrayOrder) {
@@ -15,42 +18,43 @@ export const OrderService = {
             return [];
         }
     },
+    
     // Hàm lấy order theo id của order
-    getOrderById(id){
+    getOrderById(id) {
         return this.arrayOrder.find(element => {
             return element.id == id;
         });
     },
+    
     // Hàm lấy các Order theo id của user
-    getOrderByUserId: function(user_id){
-        console.log(Array.isArray(this.arrayOrder));
-        return this.arrayOrder.filter(value =>{
+    getOrderByUserId: function(user_id) {
+        return this.arrayOrder.filter(value => {
             return value.user_id == user_id;
         });
     },
-    // Hàm chỉnh sửa thông tin order - tryền vào 1 Order mới
+    
+    // Hàm chỉnh sửa thông tin order - truyền vào 1 Order mới
     updateOrder: async function (Order) {
-        const index = await this.arrayOrder.findIndex(u => u.id === Order.id);
+        const index = await this.arrayOrder.findIndex(o => o.id === Order.id);
 
         if (index !== -1) {
-            // Sử dụng spread operator để cập nhật các thuộc tính của đối tượng
             this.arrayOrder[index] = {
                 ...this.arrayOrder[index],
                 ...Order
             };
-            saveToLocalStorage("orders",JSON.stringify(this.arrayOrder));
+            saveToLocalStorage("orders", JSON.stringify(this.arrayOrder));
             console.log("Order has been updated!");
         } else {
             console.error("Order not found");
         }
     },
+    
     // Hàm xóa order theo id
-    async deleteOrderById(id){
-        this.arrayOrder = await this.arrayOrder.filter(function(order){
+    async deleteOrderById(id) {
+        this.arrayOrder = await this.arrayOrder.filter(function(order) {
             return order.id != id;
-        })
-        saveToLocalStorage("orders",JSON.stringify(this.arrayOrder));
-        console.log(JSON.parse(getFromLocalStorage("orders")));
-        window.alert("wait");
+        });
+        saveToLocalStorage("orders", JSON.stringify(this.arrayOrder));
+        console.log("Order đã được xóa!");
     }
 }
