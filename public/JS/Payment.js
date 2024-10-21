@@ -2,7 +2,7 @@ import { priceFormat } from "/src/Utils/Param.js";
 import { getQueryParam } from "../../src/Utils/Param.js";
 import { OrderService } from "/src/Service/OrderService.js";
 import { ProductService } from "/src/Service/ProductService.js";
-
+console.log("This is payment.js");
 // Đặt chiều cao của các sản phẩm được chọn và chiều cao của ghi chú bằng nhau
 const ordered = document.getElementById('ordered-product');
 const note = document.getElementById('exampleFormControlTextarea1');
@@ -16,7 +16,7 @@ function renderSelectedProduct(product, quantity) {
                     <b> Tên món: </b>${product.name} - <b>Số lượng: </b> ${quantity} - <b>Tổng: </b> ${priceFormat(product.price * quantity)} đ
                     </label>
                 </div>`
-}
+};
 
 // Hàm hiển thị ra các sản phẩm đã được chọn vào trong ô các sản phẩm đã chọn
 function renderAllSelectedProducts(ordersInfor) {
@@ -24,7 +24,7 @@ function renderAllSelectedProducts(ordersInfor) {
         let selectedProduct = renderSelectedProduct(ordersInfor[i].product, ordersInfor[i].quantity);
         document.getElementById("ordered-product").innerHTML += selectedProduct;
     }
-}
+};
 
 // Hàm lấy các sản phẩm được chọn và số lượng của nó - trả về một danh sách các đối tượng chứa sản phẩm và số lượng.
 function getSelectedProducts() {
@@ -46,11 +46,10 @@ function getSelectedProducts() {
     }
     console.log(ordersInfo);
     return ordersInfo;
-}
+};
 
 // Khi trang được hiển thị ra thì sẽ hiển thị các sản phẩm đã được chọn
 document.addEventListener('DOMContentLoaded', renderAllSelectedProducts(getSelectedProducts()));
-console.log("this is order infor" ,orderInfor);
 // Lấy ra những sản phẩm được chọn ở form thanh toán - trả về danh sách đối tượng chứa sản phẩm và số lượng 
 function checkedProducts() { // Using a descriptive function name
     const productsInfo = [];
@@ -66,7 +65,7 @@ function checkedProducts() { // Using a descriptive function name
     }
 
     return productsInfo;
-}
+};
 
 // Hàm tạo ra chi tiết sản phẩm đã thanh toán sau khi thanh toán thành công
 function renderSucessfulPayment(product, quantity) {
@@ -78,7 +77,7 @@ function renderSucessfulPayment(product, quantity) {
                     <span>${priceFormat(product.price * quantity)} ₫</span>
                 </div>
             </div>`
-}
+};
 
 // Hàm hiển thị ra toàn bộ các sản phẩm đã được chọn để thanh toán thành công
 function renderAllSucessfulPayment(productsInfo) {
@@ -92,18 +91,19 @@ function renderAllSucessfulPayment(productsInfo) {
         console.log("total price is: ", parseFloat(product.price) * parseFloat(quantity));
 
     }
-}
+};
 
 // Hủy đơn thanh toán không mua nữa
 document.getElementById("cancelOrder").addEventListener('click', ()=>{
+    console.log("You have clicked cancel");
     history.back();
-})
+});
 
 // Hiển thị thanh toán thành công
-document.getElementById("pay-button").addEventListener('click', async () => {
-    let orderPerson = await document.getElementById("inputName4").value;
-    let phoneNumber = await document.getElementById('inputPhoneNumber4').value;
-    let address = await document.getElementById("inputAddress").value;
+document.getElementById("pay-button").addEventListener('click', () => {
+    let orderPerson = document.getElementById("inputName4").value;
+    let phoneNumber = document.getElementById('inputPhoneNumber4').value;
+    let address = document.getElementById("inputAddress").value;
     console.log(orderPerson, phoneNumber, address);
     if (orderPerson == "" || phoneNumber == "" || address == "") {
         window.alert("Vui lòng nhập đầy đủ thông tin giao hàng!");
@@ -118,10 +118,10 @@ document.getElementById("pay-button").addEventListener('click', async () => {
         document.getElementById("paymentForm").classList.add("invisible");
     }
 
-})
+});
 
 // Sau khi ấn vào nút đóng hiển thị thanh toán thành công
 document.getElementById("close-button-to-home").addEventListener('click', () => {
     window.location.href = '/public/Home.html';
-})
+});
 
