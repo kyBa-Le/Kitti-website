@@ -29,7 +29,7 @@ export const OrderService = {
     // Hàm lấy order theo user_id và product_id
     getOrderByUserIdAndProductId(user_id, product_id){
         return this.arrayOrder.find(element => {
-            return (element.user_id == user_id && element.product_id == product_id);
+            return (element.user_id == user_id && element.product_id == product_id && element.status == "Chờ thanh toán");
         })
     },
 

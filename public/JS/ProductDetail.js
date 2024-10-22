@@ -101,6 +101,7 @@ function addToCart(product_id) {
             id: Math.floor(Math.random() * 9999), // Tạo ID ngẫu nhiên cho đơn hàng
             product_id: product_id,
             user_id: user_id,
+            address: "",
             quantity: quantity,
             status: "Chờ thanh toán"
         };
