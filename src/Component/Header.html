@@ -97,6 +97,59 @@
         width: 300px;
       }
       }
+      /* css form thay đổi thông tin user */
+      #overlay {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.7); /* Màu đen mờ */
+          z-index: 999; /* Đảm bảo overlay nằm trên mọi nội dung khác */
+      }
+
+      /* Form chỉnh sửa sẽ nổi trên overlay */
+      #edit-user-info-form {
+        display: none; /* Ẩn form ban đầu */
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 1000; /* Đảm bảo form nằm trên overlay */
+        width: 400px;
+        border-radius: 10px;
+      }
+
+      #edit-user-info-form h3 {
+        margin-bottom: 15px;
+      }
+
+      #edit-user-info-form input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      #edit-user-info-form button {
+        width: 100%;
+        padding: 10px;
+        background-color:orange;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      #edit-user-info-form button:hover {
+        background-color: sandybrown ;
+      }
+      /* kết thúc css form thay đổi thông tin user */
     </style>
   </head>
   <body>
@@ -178,54 +231,105 @@
           <a class="btn btn-outline-success" href="/public/HTML/LoginAndSignUp.html?request=signup" role="button">Đăng ký</a>
         </div>
         <!-- Nếu đã đăng nhập thì hiển thị ra icon user -->
-        <div id="logged_in-user-icon" class="noclass ">
+        <div id="logged_in-user-icon" class="noclass">
           <i class="fa-solid fa-user" id="user-logged"></i>
-          
         </div>
-      </div>
     </nav>
     <!-- Kết thúc phần header -->
+    <!-- Form chỉnh sửa thông tin người dùng -->
+    <div id="edit-user-info-form" style="display: none;">
+      <h3>Chỉnh sửa thông tin người dùng</h3>
+      <form id="edit-form">
+        <label for="edit-username">Tên người dùng:</label>
+        <input type="text" id="edit-username" name="username" placeholder="Nhập tên mới"><br>
+    
+        <label for="edit-phone">Số điện thoại:</label>
+        <input type="tel" id="edit-phone" name="phone" placeholder="Nhập số điện thoại mới"><br>
+    
+        <label for="edit-password">Password:</label>
+        <input type="password" id="edit-password" name="password" placeholder="Nhập mật khẩu mới"><br>
+    
+        <button type="button" id="save-changes-btn">Lưu thay đổi</button>
+      </form>
+    </div>
     <script type="module">
       import {UserService} from "/src/Service/UserService.js";
-
+    
       // Điều chỉnh nút lọc
       let dropdownItems = document.getElementsByClassName("dropdown-item");
-      for(let i = 0; i<dropdownItems.length; i++){
-        dropdownItems[i].addEventListener("click", ()=>{
+      for(let i = 0; i < dropdownItems.length; i++){
+        dropdownItems[i].addEventListener("click", () => {
           document.getElementById("filter-content").innerHTML = dropdownItems[i].innerHTML;
-        })
+        });
       }
-
+    
       // Tìm kiếm khi ấn phím enter
-      document.getElementById("searchbar").addEventListener("keydown", (event) =>{
+      document.getElementById("searchbar").addEventListener("keydown", (event) => {
         if (event.key === 'Enter') {
           const key = document.getElementById("searchbar").value;
           const filter = document.getElementById("filter-content").textContent;
-          // Gọi hàm tìm kiếm ở đây, ví dụ:
           window.location.href = `/public/HTML/SearchingResult.html?key=${key}&type=${filter}`;
         }
-      }
-
-      )
-
+      });
+    
       let user_id = localStorage.getItem("user_id");
       if(user_id){
         console.log(localStorage.getItem("user_id"));
         document.getElementsByClassName("group-login")[0].className += " login-invisible";
-      }else{
+        renderUserMenu(user_id); // Hiển thị menu khi đã đăng nhập
+      } else {
         document.getElementById("logged_in-user-icon").className += " login-invisible";
       }
+    
       function logOut(){
         localStorage.removeItem("user_id");
         location.href = "/public/Home.html";
       }
+    
+      // Hàm chỉnh sửa khi người dùng bấm "Chỉnh sửa"
+      async function editUser(event){
+        const userId = event.target.dataset.id;
+        const user = await UserService.getUserById(userId);
+    
+        if (user) {
+          // Hiển thị form chỉnh sửa và điền thông tin người dùng hiện tại
+          document.getElementById("edit-user-info-form").style.display = "block";
+          document.getElementById("edit-username").value = user.name;
+          document.getElementById("edit-phone").value = user.phone;
+          document.getElementById("edit-password").value = ""; // Không điền mật khẩu cũ
+    
+          // Xử lý khi người dùng lưu thay đổi
+          document.getElementById("save-changes-btn").onclick = async function() {
+            const newName = document.getElementById("edit-username").value;
+            const newPhone = document.getElementById("edit-phone").value;
+            const newPassword = document.getElementById("edit-password").value;
+    
+            // Kiểm tra xem người dùng có nhập dữ liệu mới không
+            if (newName && newPhone) {
+              user.name = newName;
+              user.phone = newPhone;
+              if (newPassword) {
+                user.password = newPassword; // Cập nhật mật khẩu nếu có
+              }
+    
+              await UserService.updateUser(user); // Cập nhật người dùng qua UserService
+              document.getElementById("edit-user-info-form").style.display = "none"; // Ẩn form sau khi cập nhật
+    
+              // Sau khi cập nhật, bạn có thể tải lại danh sách người dùng nếu cần:
+              const users = await getUsersFromUserService();
+              renderUserRows(users); // Cập nhật danh sách người dùng
+            }
+          };
+        }
+      }
+    
       // Tạo ra menu account
       function renderUserMenu(user_id){
         let user = UserService.getUserById(user_id);
         let userMenu = `<div class="container-fluid login-invisible flex-column" id="user-menu">
             <div>
-              <div class="container-fluid d-flex justify-content-center"><img src="https://png.pngtree.com/png-clipart/20191121/original/pngtree-user-icon-png-image_5097430.jpg" alt=""
-                id="user-image">
+              <div class="container-fluid d-flex justify-content-center">
+                <img src="https://png.pngtree.com/png-clipart/20191121/original/pngtree-user-icon-png-image_5097430.jpg" alt="" id="user-image">
               </div>
               <div class="container-fluid d-grid gap-3">
                 <div class="row">
@@ -243,27 +347,60 @@
               </div>
             </div>
             <div class="row text-center mt-5">
-              <div class="col"><button type="button" class="btn btn-outline-dark" onclick="">Chỉnh sửa</button></div>
-              <div class="col"><button type="button" class="btn btn-outline-dark" id="logOut">Đăng xuất</button></div>
+              <div class="col">
+                <button type="button" class="btn btn-outline-dark" id="edit" data-id="${user.id}">Chỉnh sửa</button>
+              </div>
+              <div class="col">
+                <button type="button" class="btn btn-outline-dark" id="logOut">Đăng xuất</button>
+              </div>
             </div>
           </div>`;
-          document.getElementById("logged_in-user-icon").innerHTML += userMenu;
+        document.getElementById("logged_in-user-icon").innerHTML += userMenu;
+    
+        // Đăng ký sự kiện sau khi thêm menu vào DOM
+        document.getElementById("edit").addEventListener('click', editUser);
+        document.getElementById("logOut").addEventListener('click', logOut);
       }
-      document.getElementById("logged_in-user-icon").addEventListener("load", renderUserMenu(user_id));
+    
       // Hiển thị menu account khi ấn vào
-      document.getElementById("user-logged").addEventListener('click', ()=>{
+      document.getElementById("user-logged").addEventListener('click', () => {
         let userMenu = document.getElementById("user-menu");
-        if(userMenu.classList.contains("login-invisible")){
+        if (userMenu.classList.contains("login-invisible")) {
           userMenu.classList.remove("login-invisible");
           userMenu.classList.add("d-flex");
-        }else{
+        } else {
           userMenu.classList.add("login-invisible");
           userMenu.classList.remove("d-flex");
         }
-      })
-      // Đăng xuất khi ấn vào
-      document.getElementById("logOut").addEventListener('click', logOut);
+      });
+      // Kiểm tra và lưu thông tin khi nhấn nút Lưu thay đổi
+      document.getElementById("save-changes-btn").addEventListener('click', () => {
+        const username = document.getElementById("edit-username").value.trim();
+        const phone = document.getElementById("edit-phone").value.trim();
+        const password = document.getElementById("edit-password").value.trim();
+
+        // Kiểm tra nếu người dùng không nhập đủ thông tin
+        if (!username || !phone || !password) {
+          alert("Vui lòng nhập đầy đủ thông tin.");
+          return;
+        }
+
+        // Nếu thông tin hợp lệ, gọi UserService để lưu thay đổi
+        UserService.updateUserInfo({ username, phone, password })
+          .then(response => {
+            if (response.success) {
+              alert("Cập nhật thông tin thành công!");
+              // Cập nhật giao diện nếu cần thiết
+            } else {
+              alert("Cập nhật thông tin thất bại. Vui lòng thử lại.");
+            }
+          })
+          .catch(error => {
+            console.error("Error updating user info:", error);
+            alert("Có lỗi xảy ra. Vui lòng thử lại sau.");
+          });
+      });
     </script>
-  </body>
+<!-- Kết thúc form chỉnh sửa thông tin người dùng -->
+</body>
 </html>
- 
