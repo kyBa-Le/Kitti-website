@@ -2,6 +2,7 @@ import { priceFormat } from "/src/Utils/Param.js";
 import { getQueryParam } from "../../src/Utils/Param.js";
 import { OrderService } from "/src/Service/OrderService.js";
 import { ProductService } from "/src/Service/ProductService.js";
+import { getFromLocalStorage } from "../../src/Utils/Storage.js";
 console.log("This is payment.js");
 // Đặt chiều cao của các sản phẩm được chọn và chiều cao của ghi chú bằng nhau
 const ordered = document.getElementById('ordered-product');
@@ -101,23 +102,58 @@ document.getElementById("cancelOrder").addEventListener('click', ()=>{
 
 // Hiển thị thanh toán thành công
 document.getElementById("pay-button").addEventListener('click', () => {
-    let orderPerson = document.getElementById("inputName4").value;
-    let phoneNumber = document.getElementById('inputPhoneNumber4').value;
-    let address = document.getElementById("inputAddress").value;
-    console.log(orderPerson, phoneNumber, address);
-    if (orderPerson == "" || phoneNumber == "" || address == "") {
-        window.alert("Vui lòng nhập đầy đủ thông tin giao hàng!");
-    } else {
-        // Điều chỉnh lại hiển thị thanh toán thành công
-        document.getElementById("customer-name").innerHTML += orderPerson;
-        document.getElementById("delivery-address").innerHTML += address;
-        renderAllSucessfulPayment(checkedProducts());
-        document.getElementById("total-amount").innerHTML += priceFormat(totalPrice) + " đ";
-        document.getElementById("orderModal").classList.remove("invisible");
-        document.getElementById("orderModal").style.display = "block";
-        document.getElementById("paymentForm").classList.add("invisible");
-    }
+    if (checkedProducts().length<1 ){
+        window.alert("Hãy chọn sản phẩm để thanh toán!");
+    }else{
+        let orderPerson = document.getElementById("inputName4").value;
+        let phoneNumber = document.getElementById('inputPhoneNumber4').value;
+        let address = document.getElementById("inputAddress").value;
+        console.log(orderPerson, phoneNumber, address);
+        if (orderPerson == "" || phoneNumber == "" || address == "") {
+            window.alert("Vui lòng nhập đầy đủ thông tin giao hàng!");
+        } else {
+            // Điều chỉnh lại hiển thị thanh toán thành công
+            document.getElementById("customer-name").innerHTML += orderPerson;
+            document.getElementById("delivery-address").innerHTML += address;
+            renderAllSucessfulPayment(checkedProducts());
+            document.getElementById("total-amount").innerHTML += priceFormat(totalPrice) + " đ";
+            document.getElementById("orderModal").classList.remove("invisible");
+            document.getElementById("orderModal").style.display = "block";
+            document.getElementById("paymentForm").classList.add("invisible");
+        }
+        // Thay đổi trạng thái đơn hàng hoặc là 
+        let user_id = localStorage.getItem("user_id");
+        for (let i = 0; i < checkedProducts().length; i++) {
+            let checkedProduct = checkedProducts()[i];
+            if (user_id) {
+                let product_id = checkedProducts()[i].productId;
+                let order = OrderService.getOrderByUserIdAndProductId(user_id, checkedProducts()[i].productId);
+                // Nếu có đơn hàng thì cập nhật
+                if(order){
+                    order.status = "đang giao";
+                    OrderService.updateOrder(order);
+                    console.log("Updated!");
+                }else{ //nếu chưa có đơn thì thêm đơn mới
+                    order = {
+                        id: Math.floor(Math.random() * 9999), product_id: checkedProduct.productId,
+                        user_id: user_id, address: address, quantity: checkedProduct.quantity, status: "đang giao"
+                    };
+                    OrderService.saveOrder(order);
+                    console.log("Add new order");
+                }
+                
+            } else {
 
+                let order = {
+                    id: Math.floor(Math.random() * 9999), product_id: checkedProduct.productId,
+                    user_id: "no-user", address: address, quantity: checkedProduct.quantity, status: "đang giao"
+                };
+                OrderService.saveOrder(order);
+                console.log("Add new order");
+            }
+        }
+        
+    }
 });
 
 // Sau khi ấn vào nút đóng hiển thị thanh toán thành công
