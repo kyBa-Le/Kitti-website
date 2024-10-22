@@ -13,13 +13,7 @@ function changeQuantity(id, num) {
   let order = OrderService.getOrderById(id);
   if (order) {
     order.quantity += parseInt(num);
-    if (order.quantity < 1) {
-      window.alert("Click delete to delete the item!");
-    } else {
-      OrderService.updateOrder(order);
-      // Cập nhật lại giao diện
-      renderCart(orders);
-    }
+    OrderService.updateOrder(order);
   }
 }
 
@@ -37,6 +31,7 @@ function createOrderRow(order) {
                   <button class="btn btn-sm btn-outline-secondary changeQuantity" data-id="${order.id}" data-number="${-1}">-</button>
                   <input
                     type="text"
+                    id="quantity-${order.id}"
                     value=${order.quantity}
                     class="form-control form-control-sm mx-2 text-center" style="width: 50px"
                     readonly
@@ -95,8 +90,13 @@ document.addEventListener('DOMContentLoaded', () => {
   changeButtons.forEach(button => {
     button.addEventListener('click', () => {
       const orderId = button.dataset.id;
-      const number = button.dataset.number;
-      changeQuantity(orderId, number); // Gọi hàm với giá trị lấy được
+      const number = parseInt(button.dataset.number);
+      let orderInput = document.getElementById(`quantity-${orderId}`);
+      if (!(parseInt(orderInput.value) == 1 && number < 0)){
+        orderInput.value = parseInt(number) + parseInt(orderInput.value);
+        console.log("value after change:", orderInput.value);
+        changeQuantity(orderId, number); // Gọi hàm với giá trị lấy được
+      }
     });
   });
 
