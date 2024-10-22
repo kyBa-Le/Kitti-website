@@ -50,7 +50,7 @@ function getSelectedProducts() {
 
 // Khi trang được hiển thị ra thì sẽ hiển thị các sản phẩm đã được chọn
 document.addEventListener('DOMContentLoaded', renderAllSelectedProducts(getSelectedProducts()));
-
+console.log("this is order infor" ,orderInfor);
 // Lấy ra những sản phẩm được chọn ở form thanh toán - trả về danh sách đối tượng chứa sản phẩm và số lượng 
 function checkedProducts() { // Using a descriptive function name
     const productsInfo = [];

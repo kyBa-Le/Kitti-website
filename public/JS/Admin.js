@@ -17,8 +17,7 @@ if (["users", "orders", "products", "recipes"].every(item => !localStorage.getIt
     saveToLocalStorage("products", JSON.stringify(arrProducts));
     saveToLocalStorage("recipes", JSON.stringify(arrRecipes));
 }
-// Product
-// Hàm tạo ra các hàng cho sản phẩm
+
 function createProductRow(product) {
     const shortDescription = product.description.length > 300
         ? `${product.description.substring(0, 300)}...`
@@ -43,7 +42,6 @@ function createProductRow(product) {
                 </td>
             </tr>`;
 }
-// Hàm hiển thị hàng sản phẩm
 function renderProductRows(products) {
     const productTableBody = document.getElementById("productTableBody");
     productTableBody.innerHTML = ''; // Xóa nội dung cũ để tránh trùng lặp
@@ -146,10 +144,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
-// Kết thúc Product
 
-// Recipe
-// Hàm tạo ra các hàng cho công thức
 function createRecipeRow(recipe) {
     let ingredientsText = "";
     for (const ingredient of recipe.ingredients) {
@@ -176,7 +171,6 @@ function createRecipeRow(recipe) {
                 </td>
             </tr>`;
 }
-// Hàm cập nhật bảng hiển thị công thức
 function renderRecipeRows(recipes) {
     const tableBody = document.getElementById('recipeTableBody');
     tableBody.innerHTML = '';
@@ -379,10 +373,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         }
     });
 });
-// Kết thúc Recipe
 
-//Order
-// Hàm tạo hàng cho mỗi đơn hàng
 function createOrderRow(order) {
     return `<tr>
                 <td>${order.id}</td>
@@ -397,7 +388,6 @@ function createOrderRow(order) {
                 </td>
             </tr>`;
 }
-// Hàm hiển thị danh sách đơn hàng
 async function renderOrderRows() {
     const orders = await OrderService.getAllOrders();
     const orderTableBody = document.getElementById("orderTableBody");
@@ -417,7 +407,6 @@ async function renderOrderRows() {
         button.addEventListener('click', deleteOrder);
     });
 }
-// Hàm chỉnh sửa đơn hàng
 async function editOrder(event) {
     const orderId = event.target.dataset.id;
     const order = await OrderService.getOrderById(orderId);
@@ -432,7 +421,6 @@ async function editOrder(event) {
         }
     }
 }
-// Hàm xóa đơn hàng
 async function deleteOrder(event) {
     const orderId = event.target.dataset.id;
 
@@ -441,14 +429,10 @@ async function deleteOrder(event) {
         await renderOrderRows(); // Cập nhật lại danh sách sau khi xóa
     }
 }
-// Gọi hàm khi trang đã tải
 document.addEventListener("DOMContentLoaded", async () => {
     await renderOrderRows();
 });
-// Kết thúc phần Order
 
-// Bắt đầu users
-// Hàm tạo hàng cho mỗi người dùng
 function createUserRow(user) {
     return `<tr>
                 <td>${user.id}</td>
@@ -461,7 +445,6 @@ function createUserRow(user) {
                 </td>
             </tr>`;
 }
-// Hàm hiển thị danh sách người dùng
 function renderUserRows(users) {
     const userTableBody = document.getElementById("userTableBody");
     userTableBody.innerHTML = ''; // Xóa nội dung cũ để tránh trùng lặp
@@ -480,11 +463,9 @@ function renderUserRows(users) {
         button.addEventListener('click', deleteUser);
     });
 }
-// Hàm lấy danh sách người dùng từ UserService
 async function getUsersFromUserService() {
     return await UserService.getAllUsers(); // Lấy danh sách người dùng từ UserService
 }
-// Hàm chỉnh sửa người dùng
 async function editUser(event) {
     const userId = event.target.dataset.id;
     const user = await UserService.getUserById(userId);
@@ -502,7 +483,6 @@ async function editUser(event) {
         }
     }
 }
-// Hàm xóa người dùng
 async function deleteUser(event) {
     const userId = event.target.dataset.id;
 
@@ -512,66 +492,20 @@ async function deleteUser(event) {
         renderUserRows(users); // Cập nhật lại danh sách sau khi xóa
     }
 }
-// Gọi hàm khi trang đã tải
 document.addEventListener("DOMContentLoaded", async () => {
     const users = await getUsersFromUserService(); // Lấy danh sách người dùng khi trang tải
     renderUserRows(users); // Hiển thị danh sách người dùng
 });
-// Kết thúc phần users
 
 // js account
-let user_id = localStorage.getItem("user_id");
-if(user_id){
-  console.log(localStorage.getItem("user_id"));
-  document.getElementsByClassName("group-login")[0].className += " login-invisible";
-}else{
-  document.getElementById("logged_in-user-icon").className += " login-invisible";
-}
-function logOut(){
-  localStorage.removeItem("user_id");
-  location.href = "/public/Home.html";
-}
-// Tạo ra menu account
-function renderUserMenu(user_id){
-  let user = UserService.getUserById(user_id);
-  let userMenu = `<div class="container-fluid login-invisible flex-column" id="user-menu">
-      <div>
-        <div class="container-fluid d-flex justify-content-center"><img src="https://png.pngtree.com/png-clipart/20191121/original/pngtree-user-icon-png-image_5097430.jpg" alt=""
-          id="user-image">
-        </div>
-        <div class="container-fluid d-grid gap-3">
-          <div class="row">
-            <div class="col">User name:</div>
-            <div class="col">${user.name}</div>
-          </div>
-          <div class="row">
-            <div class="col">Phone number:</div>
-            <div class="col">${user.phone}</div>
-          </div>
-          <div class="row">
-            <div class="col">User id:</div>
-            <div class="col">${user.id}</div>
-          </div>
-        </div>
-      </div>
-      <div class="row text-center mt-5">
-        <div class="col"><button type="button" class="btn btn-outline-dark" onclick="">Chỉnh sửa</button></div>
-        <div class="col"><button type="button" class="btn btn-outline-dark" id="logOut">Đăng xuất</button></div>
-      </div>
-    </div>`;
-    document.getElementById("logged_in-user-icon").innerHTML += userMenu;
-}
-document.getElementById("logged_in-user-icon").addEventListener("load", renderUserMenu(user_id));
-// Hiển thị menu account khi ấn vào
-document.getElementById("user-logged").addEventListener('click', ()=>{
-  let userMenu = document.getElementById("user-menu");
-  if(userMenu.classList.contains("login-invisible")){
-    userMenu.classList.remove("login-invisible");
-    userMenu.classList.add("d-flex");
-  }else{
-    userMenu.classList.add("login-invisible");
-    userMenu.classList.remove("d-flex");
-  }
-})
-// Đăng xuất khi ấn vào
-document.getElementById("logOut").addEventListener('click', logOut);
+$(document).ready(function () {
+    $('#user-logged').click(function (event) {
+        $('#account-menu').toggle(); // Hiển thị/ẩn menu khi nhấn vào biểu tượng tài khoản
+        event.stopPropagation(); // Ngăn chặn sự kiện nhấp chuột lan rộng
+    });
+
+    // Ẩn menu nếu nhấp ra ngoài
+    $(document).click(function () {
+        $('#account-menu').hide();
+    });
+});

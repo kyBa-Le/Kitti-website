@@ -45,3 +45,9 @@ tbody tr td img {
 .invisible{
   display: none;
 }
+
+.product_image{
+  width: 200px;
+  height: 100px;
+  object-fit: cover;
+}

@@ -185,17 +185,73 @@ table tr td:last-child {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
-/* css cho icon user */
-#logged_in-user-icon{
+/* CSS cho icon user */
+#logged_in-user-icon {
     margin-left: 95%;
     position: relative;
     bottom: 15px;
 }
-#user-logged{
+
+#user-logged {
     font-size: 20px;
-    padding: 1rem;
-    color: #3e6001;
+    padding: 0.5rem;
+    color: #fff; /* Màu chữ trắng để nổi bật trên nền xanh */
     border-radius: 50%;
     border: 2px solid #3e6001;
     cursor: pointer;
+    background-color: #3e6001; /* Nền xanh để nổi bật */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Thêm hiệu ứng chuyển động */
 }
+
+#user-logged:hover {
+    background-color: #4cae4c; /* Màu xanh sáng hơn khi hover */
+    transform: scale(1.1); /* Tăng kích thước nhẹ khi hover */
+}
+
+/* Menu tài khoản */
+#account-menu {
+    position: absolute; /* Để nó hiển thị đúng vị trí */
+    top: 100%; /* Đặt nó ngay bên dưới biểu tượng tài khoản */
+    right: 0; /* Đặt nó ở bên phải */
+    background-color: #fff; /* Màu nền trắng */
+    border: 1px solid #ccc; /* Đường viền */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Bóng đổ */
+    z-index: 1000; /* Để nó hiển thị phía trên */
+    border-radius: 4px; /* Góc bo tròn */
+    overflow: hidden; /* Để không có viền bên ngoài */
+    transition: all 0.3s ease; /* Hiệu ứng chuyển động khi mở và đóng */
+}
+
+#account-menu ul {
+    list-style: none; /* Không có dấu đầu dòng */
+    padding: 0;
+    margin: 0;
+}
+
+#account-menu li {
+    padding: 10px 15px; /* Khoảng cách giữa các mục */
+    cursor: pointer; /* Thay đổi con trỏ khi hover */
+    transition: background-color 0.3s ease; /* Hiệu ứng chuyển động */
+}
+
+#account-menu li:hover {
+    background-color: #f0f0f0; /* Màu nền khi hover */
+}
+
+#account-menu li a {
+    text-decoration: none; /* Không có gạch chân */
+    color: #333; /* Màu chữ */
+    display: block; /* Để cả vùng nhấp được hoạt động */
+}
+
+/* Thêm một hiệu ứng nhẹ cho menu */
+#account-menu.show {
+    opacity: 1; /* Đưa opacity về bình thường khi hiển thị */
+    transform: translateY(0); /* Vị trí bình thường */
+}
+
+#account-menu.hide {
+    opacity: 0; /* Ẩn menu */
+    transform: translateY(-10px); /* Đẩy lên một chút khi ẩn */
+}
+
