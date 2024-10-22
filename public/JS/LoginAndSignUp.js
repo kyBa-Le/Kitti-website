@@ -17,49 +17,82 @@ $("document").ready(function(){
 })
 //Kết thúc xử lý của trang chính
 
-//Xử lý của form đăng nhập
-    // Hàm để đăng nhập
-function loginChangePage(){
-    var username = $("#login-username").val();
-    var password = $("#login-password").val();
-    // Đăng nhập với tài khoản của admin
-    if(username === "admin" && password === "admin@123"){
-        window.location.href = "/public/HTML/Admin.html";
-        console.log("change to admin");
-    }
-}
-//Kết thúc xử lý form đăng nhập
+// Bắt đầu hàm đăng kí
+function signUp() {
+    let username = document.getElementById("signup-username").value.trim();
+    let password = document.getElementById("signup-password").value.trim();
+    let phoneNumber = document.getElementById("phone").value.trim();
+    let confirmPassword = document.getElementById("confirmPassword").value.trim();
 
-// Hàm đăng kí
-function signUp(){
-    let username = document.getElementById("signup-username").value;
-    let password = document.getElementById("signup-password").value;
-    let phoneNumber = document.getElementById("phone").value;
-    let confirmPassword = document.getElementById("confirmPassword").value;
-    if(password == confirmPassword){
-        const user = {id:Math.floor(Math.random() * 9999), name:username, phone:phoneNumber, password:password};
-        UserService.saveUser(user);
-        alert("Đăng kí thành công");
-        localStorage.setItem("user_id", JSON.stringify(user.id));
-        window.location.href = "/public/Home.html";
-    }else{
-        window.alert("Vui lòng nhập đúng mật khẩu!")
+    // Kiểm tra không cho đăng kí với tên "admin"
+    if (username.toLowerCase() === "admin") {
+        alert("Không thể sử dụng tên 'admin' để đăng kí.");
+        return;
     }
-}
-// Thêm sự kiện khi ấn vào nút đăng kí
-document.getElementById("signup-button").addEventListener('click', signUp);
 
+    // Kiểm tra tên người dùng đã tồn tại hay chưa
+    let existingUser = UserService.findUserByNameAndPassword(username, password);
+    if (existingUser) {
+        alert("Tên người dùng đã tồn tại. Vui lòng đăng nhập.");
+        return;
+    }
+
+    // Kiểm tra tính hợp lệ của mật khẩu và xác nhận mật khẩu
+    if (password === "" || confirmPassword === "") {
+        alert("Mật khẩu và xác nhận mật khẩu không được để trống.");
+        return;
+    }
+
+    if (password !== confirmPassword) {
+        alert("Mật khẩu và xác nhận mật khẩu không khớp.");
+        return;
+    }
+
+    // Kiểm tra số điện thoại hợp lệ
+    if (phoneNumber === "" || !/^\d{10}$/.test(phoneNumber)) {
+        alert("Vui lòng nhập số điện thoại hợp lệ (10 chữ số).");
+        return;
+    }
+
+    // Tạo đối tượng người dùng và lưu
+    const user = {
+        id: Math.floor(Math.random() * 9999),
+        name: username,
+        phone: phoneNumber,
+        password: password
+    };
+    
+    UserService.saveUser(user); // Lưu người dùng mới
+    alert("Đăng kí thành công");
+    localStorage.setItem("user_id", JSON.stringify(user.id));
+    window.location.href = "/public/Home.html"; // Chuyển hướng sau khi đăng ký thành công
+}
+// Kết thúc hàm đăng kí
+
+// Bắt đầu Hàm đăng nhập
 function login(){
     let username = document.getElementById("login-username").value;
     let password = document.getElementById("login-password").value;
-    let user_id = UserService.findUserByNameAndPassword(username,password);
+
+    // Kiểm tra nếu là tài khoản admin
+    if(username === "admin" && password === "admin@123"){
+        alert("Đăng nhập thành công với tài khoản admin");
+        window.location.href = "/public/HTML/Admin.html";
+        console.log("change to admin");
+        return; // Dừng tại đây nếu là admin
+    }
+
+    // Nếu không phải admin, kiểm tra thông tin người dùng thông thường
+    let user_id = UserService.findUserByNameAndPassword(username, password);
     if(user_id){
         alert("Đăng nhập thành công");
         localStorage.setItem("user_id", JSON.stringify(user_id));
         window.location.href = "/public/Home.html";
     }else{
-        window.alert("Vui lòng nhập đúng mật khẩu!")
+        window.alert("Vui lòng nhập đúng mật khẩu!");
     }
 }
-//Thêm sự kiện khi ấn vào nút đăng nhập
+// Kết thúc hàm đăng nhập
+ // Thêm sự kiện khi ấn vào nút đăng kí/ nhập
+document.getElementById("signup-button").addEventListener('click', signUp);
 document.getElementById("login-loginButton").addEventListener('click', login);
