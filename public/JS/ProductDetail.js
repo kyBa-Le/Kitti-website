@@ -101,8 +101,9 @@ function addToCart(product_id) {
             id: Math.floor(Math.random() * 9999), // Tạo ID ngẫu nhiên cho đơn hàng
             product_id: product_id,
             user_id: user_id,
+            address: "",
             quantity: quantity,
-            status: "order"
+            status: "Chờ thanh toán"
         };
         // Kiểm tra xem sản phẩm đã có trong giỏ hàng chưa
         const existingOrderIndex = OrderService.getOrderByUserIdAndProductId(user_id, product_id);

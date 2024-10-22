@@ -5,7 +5,7 @@
         "user_id":5961,
         "address":"HCM- VN",
         "quantity":2,
-        "status":"order"
+        "status":"Chờ thanh toán"
     },
     {
         "id": 1235,
@@ -13,6 +13,6 @@
         "user_id": 5961,
         "address": "HCM- VN",
         "quantity": 2,
-        "status": "order"
+        "status": "Chờ thanh toán"
     }
 ]

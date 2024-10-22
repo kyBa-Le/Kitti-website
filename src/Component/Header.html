@@ -60,18 +60,22 @@
         box-shadow: none;
         border: 1px solid #3e6001;
       }
-      /* css cho icon user */
-      #logged_in-user-icon{
-        margin-right: 5%;
+      /* CSS cho icon user */
+      #logged_in-user-icon {
+        padding: 1%;
         position: relative;
+        display: inline-block;
       }
-      #user-logged{
-        font-size: 20px;
+      #user-logged {
+        font-size: 15px;
         padding: 1rem;
-        color: #3e6001;
+        color: #fff; /* Màu chữ trắng */
         border-radius: 50%;
         border: 2px solid #3e6001;
         cursor: pointer;
+        background-color: #3e6001; /* Màu nền xanh từ đầu */
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
       }
       .login-invisible{
         display: none !important;
@@ -382,6 +386,14 @@
       });
       // Kiểm tra và lưu thông tin khi nhấn nút Lưu thay đổi
       document.getElementById("save-changes-btn").addEventListener('click', () => {
+        let userMenu = document.getElementById("user-menu");
+        if (userMenu.classList.contains("login-invisible")) {
+          userMenu.classList.remove("login-invisible");
+          userMenu.classList.add("d-flex");
+        } else {
+          userMenu.classList.add("login-invisible");
+          userMenu.classList.remove("d-flex");
+        }
         const username = document.getElementById("edit-username").value.trim();
         const phone = document.getElementById("edit-phone").value.trim();
         const password = document.getElementById("edit-password").value.trim();
@@ -406,13 +418,22 @@
             console.error("Error updating user info:", error);
             alert("Có lỗi xảy ra. Vui lòng thử lại sau.");
           });
+          
       });
       // Đóng form khi nhấn nút "Đóng"
       document.getElementById("close-form-btn").addEventListener('click', () => {
+        // Hiển thị lại icon user profile khi đóng form
+        let userMenu = document.getElementById("user-menu");
+        if (userMenu.classList.contains("login-invisible")) {
+          userMenu.classList.remove("login-invisible");
+          userMenu.classList.add("d-flex");
+        } else {
+          userMenu.classList.add("login-invisible");
+          userMenu.classList.remove("d-flex");
+        }
+        document.getElementById("logged_in-user-icon").style.display = "block";
         document.getElementById("edit-user-info-form").style.display = "none"; // Ẩn form chỉnh sửa thông tin
       });
-       // Hiển thị lại icon user profile khi đóng form
-      document.getElementById("logged_in-user-icon").style.display = "block";
     </script>
 <!-- Kết thúc form chỉnh sửa thông tin người dùng -->
 </body>
