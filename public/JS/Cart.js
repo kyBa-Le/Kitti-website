@@ -23,7 +23,7 @@ function changeQuantity(id, num) {
   }
 }
 
-// Hàm tạo ra các hàng cho đơn hàng
+// Hàm tạo ra các hàng cho đơn hàng đang chờ thanh toán
 function createOrderRow(order) {
   var product = ProductService.getProductById(order.product_id);
   return `<tr>
@@ -100,13 +100,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Gán sự kiện cho các nút xóa đơn hàng
-  const deleteButtons = document.querySelectorAll(".deleteOrder");
-  deleteButtons.forEach(button => {
+// Gán sự kiện cho các nút xóa đơn hàng
+const deleteButtons = document.querySelectorAll(".deleteOrder");
+deleteButtons.forEach(button => {
     button.addEventListener('click', () => {
+      console.log("You have clicked delete button");
       let orderId = button.dataset.id;
       OrderService.deleteOrderById(orderId);
       orders = OrderService.getOrderByUserId(user_id); // Cập nhật danh sách đơn hàng sau khi xóa
+      window.location.reload();
       renderCart(orders); // Hiển thị lại giỏ hàng
     });
   });
