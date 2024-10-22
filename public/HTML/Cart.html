@@ -27,6 +27,7 @@
     <!-- Vị trí bên dưới là của phần giỏ hàng -->
     <section class="container my-5">
       <div class="table-responsive">
+        <h4>Đơn hàng chờ thanh toán</h4>
         <table class="table table-bordered text-center align-middle">
           <thead class="table-light">
             <tr>
@@ -54,7 +55,12 @@
     <section class="container my-5">
       <!-- Bảng đơn chưa thanh toán -->
       <h4>Đơn hàng của bạn</h4>
+      <button class="btn_filter" id="processing_btn">Đang xử lý</button>
+      <button class="btn_filter" id="shipping_btn">Đang giao</button>
+      <button class="btn_filter" id="delivered_btn">Đã giao</button>
+      
       <div class="table-responsive">
+        <h5>Đang xử lý</h5>
         <table class="table table-bordered text-center align-middle">
           <thead class="table-light">
             <tr>
@@ -63,14 +69,14 @@
               <th>Đơn giá</th>
               <th>Số lượng</th>
               <th>Thành tiền</th>
-              <th>Trạng thái</th>
             </tr>
           </thead>
           <tbody id="order_status_table_body">
-            <!-- Nội dung đơn hàng chưa thanh toán sẽ được thêm vào đây -->
+            <!-- Nội dung đơn hàng sẽ được thêm vào đây -->
           </tbody>
         </table>
       </div>
+      
     </section>
     
     <!-- kết thúc phần trạng thái đơn hàng -->
