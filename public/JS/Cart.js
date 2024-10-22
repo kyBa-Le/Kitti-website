@@ -1,5 +1,5 @@
 // lấy tất cả các đơn hàng trong local của một user
-const user_id =await getFromLocalStorage("user_id");
+const user_id = await getFromLocalStorage("user_id");
 let orders = OrderService.getOrderByUserId(user_id);
 
 import { getQueryParam } from "../../src/Utils/Param.js";
@@ -11,28 +11,29 @@ import { priceFormat } from "/src/Utils/Param.js";
 // Hàm thay đổi số lượng
 function changeQuantity(id, num) {
   let order = OrderService.getOrderById(id);
-  if(order.quantity >= 1){
+  if (order.quantity >= 1) {
     console.log(order);
     order.quantity += parseInt(num);
     OrderService.updateOrder(order);
     document.getElementById("quantity-input-value").value = order.quantity;
-  }else{
+  } else {
     window.alert("Click delete to delete the item!");
   }
-  
+
 }
 
 
 
 
 // Hàm tạo ra các hàng cho order
-function createOrderRow(order){
-    var product = ProductService.getProductById(order.product_id);
-    return `<tr>
+function createOrderRow(order) {
+  var product = ProductService.getProductById(order.product_id);
+  return `<tr>
               <td>
                 <img
                   src= ${product.image_link}
                   alt="${product.name}"
+                  class = "product_image"
                 />
               </td>
               <td>${product.name}</td>
@@ -62,11 +63,11 @@ function createOrderRow(order){
 }
 
 // Hàm render trang giỏ hàng
-async function renderCart(orders){
-    orders.forEach(order => {
-        let row = createOrderRow(order);
-        document.getElementById("cart_table_body").innerHTML += row;
-    });
+async function renderCart(orders) {
+  orders.forEach(order => {
+    let row = createOrderRow(order);
+    document.getElementById("cart_table_body").innerHTML += row;
+  });
 }
 
 // Hàm để hiển thị các đơn hàng của user
@@ -82,10 +83,43 @@ change.forEach(button => {
 
 // Hàm xóa đơn hàng
 const deleteButton = document.querySelectorAll(".deleteOrder");
-deleteButton.forEach(button =>{
-  button.addEventListener('click',()=>{
+deleteButton.forEach(button => {
+  button.addEventListener('click', () => {
     let orderId = button.dataset.id;
     OrderService.deleteOrderById(orderId);
     location.reload();
   })
 })
+
+// Hiển thị ra total price 
+
+
+// Hàm tạo ra các hàng cho order status
+function createOrderStatusRow(order){
+  var product = ProductService.getProductById(order.product_id);
+  return `<tr>
+            <td>
+              <img
+                src= ${product.image_link}
+                alt="${product.name}"
+                class = "product_image"
+              />
+            </td>
+            <td>${product.name}</td>
+            <td>${priceFormat(product.price)}₫</td>
+            <td>${order.quantity}</td>
+            <td>${priceFormat(product.price * order.quantity)}₫</td>
+            <td>${order.status}</td>
+          </tr>`
+}
+
+// Hàm render trang giỏ hàng
+async function renderOrderStatus(orders){
+  orders.forEach(order => {
+      let row = createOrderStatusRow(order);
+      document.getElementById("order_status_table_body").innerHTML += row;
+  });
+}
+
+// Hàm để hiển thị các đơn hàng của user
+document.addEventListener('DOMContentLoaded', renderOrderStatus(orders));

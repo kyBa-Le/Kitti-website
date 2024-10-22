@@ -5,7 +5,7 @@ export function saveToLocalStorage(key, value) {
 
 // lấy giá trị từ local: truyền vào key, trả về một array
 export async function getFromLocalStorage(key) {
-    return await JSON.parse(await (localStorage.getItem(key)));
+    return await JSON.parse((localStorage.getItem(key)));
 }
 
 export function readFileJson(path){

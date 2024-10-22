@@ -26,11 +26,13 @@ export const UserService = {
         });
     },
     
-    // Hàm lấy các User theo id của user
-    getUserByUserId: function(user_id) {
-        return this.arrayUser.filter(value => {
-            return value.user_id == user_id;
+    // Hàm xóa user theo id
+    async deleteUserById(id) {
+        this.arrayUser = await this.arrayUser.filter(function(user) {
+            return user.id != id;
         });
+        saveToLocalStorage("users", JSON.stringify(this.arrayUser));
+        console.log("User đã được xóa!");
     },
     
     // Hàm chỉnh sửa thông tin user - truyền vào 1 User mới
@@ -48,7 +50,15 @@ export const UserService = {
             console.error("User not found");
         }
     },
-    
+    findUserByNameAndPassword: function (username, password) { // trả về user_id hoặc null
+        for (let i = 0; i < this.arrayUser.length; i++) {
+            let user = this.arrayUser[i];
+            if (user.name === username && user.password == password) {
+                return user.id;
+            }
+        }
+        return null;
+    },
     // Hàm xóa user theo id
     async deleteUserById(id) {
         this.arrayUser = await this.arrayUser.filter(function(user) {
@@ -58,3 +68,5 @@ export const UserService = {
         console.log("User đã được xóa!");
     }
 }
+
+//
