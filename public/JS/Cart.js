@@ -33,6 +33,7 @@ function createOrderRow(order) {
                 <img
                   src= ${product.image_link}
                   alt="${product.name}"
+                  class = "product_image"
                 />
               </td>
               <td>${product.name}</td>
@@ -92,3 +93,33 @@ deleteButton.forEach(button => {
 
 // Hiển thị ra total price 
 
+
+// Hàm tạo ra các hàng cho order status
+function createOrderStatusRow(order){
+  var product = ProductService.getProductById(order.product_id);
+  return `<tr>
+            <td>
+              <img
+                src= ${product.image_link}
+                alt="${product.name}"
+                class = "product_image"
+              />
+            </td>
+            <td>${product.name}</td>
+            <td>${priceFormat(product.price)}₫</td>
+            <td>${order.quantity}</td>
+            <td>${priceFormat(product.price * order.quantity)}₫</td>
+            <td>${order.status}</td>
+          </tr>`
+}
+
+// Hàm render trang giỏ hàng
+async function renderOrderStatus(orders){
+  orders.forEach(order => {
+      let row = createOrderStatusRow(order);
+      document.getElementById("order_status_table_body").innerHTML += row;
+  });
+}
+
+// Hàm để hiển thị các đơn hàng của user
+document.addEventListener('DOMContentLoaded', renderOrderStatus(orders));
