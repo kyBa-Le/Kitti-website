@@ -17,17 +17,11 @@ body{
   border-color: #d88c04 !important;
 }
 
-tbody tr td img {
-  width: 100%;
-  height: auto; 
-  max-width: 150px; 
-  object-fit: cover; 
-}
-
 #card-margin{
   margin-top: 30px;
 }
 /* Kết thúc phần css của giỏ hàng */
+
 /* CSS cho phần form thanh toán */
 #paymentForm-load{
   width: 40%;
@@ -50,4 +44,91 @@ tbody tr td img {
   width: 200px;
   height: 100px;
   object-fit: cover;
+}
+
+/* CSS cho phần trạng thái đơn hàng*/
+.btn_filter {
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  background-color: #1a8655;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.btn_filter:hover {
+  background-color: #28a745;
+}
+
+/* CSS cho bảng */
+.table-responsive {
+  margin-top: 20px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.table-bordered {
+  border: 1px solid #ddd;
+}
+
+.table th, .table td {
+  padding: 15px;
+  vertical-align: middle;
+}
+
+.table th {
+  background-color: #f9f9f9;
+  font-weight: bold;
+}
+
+/* .table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+} */
+
+.table tbody tr:hover {
+  background-color:#fffdc3;
+}
+
+.table td img.product_image {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.table td {
+  text-align: center;
+}
+
+.table thead th {
+  border-bottom: 2px solid #ddd;
+}
+
+/* Tiêu đề trạng thái */
+.table-responsive h5 {
+  text-align: end;
+}
+
+/* Responsive cho mobile */
+@media (max-width: 768px) {
+  .table th, .table td {
+    padding: 10px;
+  }
+
+  .table td img.product_image {
+    width: 60px;
+    height: 60px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 8px 15px;
+  }
 }

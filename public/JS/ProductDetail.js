@@ -102,7 +102,7 @@ function addToCart(product_id) {
             product_id: product_id,
             user_id: user_id,
             quantity: quantity,
-            status: "order"
+            status: "Chờ thanh toán"
         };
         // Kiểm tra xem sản phẩm đã có trong giỏ hàng chưa
         const existingOrderIndex = OrderService.getOrderByUserIdAndProductId(user_id, product_id);
