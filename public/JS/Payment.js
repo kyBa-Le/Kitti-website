@@ -33,21 +33,30 @@ function getSelectedProducts() {
     let user_id = localStorage.getItem("user_id");
     let product_id = getQueryParam("product_id");
     let quantity = getQueryParam("quantity");
+    
+    // Nếu không có product_id và quantity, lấy danh sách đơn hàng của user
     if (product_id == null && quantity == null) {
         let orders = OrderService.getOrderByUserId(user_id);
+        
+        // Duyệt qua các đơn hàng
         for (let i = 0; i < orders.length; i++) {
-            let product = ProductService.getProductById(orders[i].product_id);
-            let orderInfor = { product: product, quantity: orders[i].quantity };
-            ordersInfo.push(orderInfor);
+            // Kiểm tra trạng thái đơn hàng
+            if (orders[i].status === "Chờ thanh toán") {
+                let product = ProductService.getProductById(orders[i].product_id);
+                let orderInfo = { product: product, quantity: orders[i].quantity };
+                ordersInfo.push(orderInfo);
+            }
         }
     } else {
+        // Nếu có product_id và quantity, tạo đối tượng cho sản phẩm đó
         let product = ProductService.getProductById(product_id);
-        let orderInfor = { product: product, quantity: quantity };
-        ordersInfo.push(orderInfor);
+        let orderInfo = { product: product, quantity: quantity };
+        ordersInfo.push(orderInfo);
     }
+    
     console.log(ordersInfo);
     return ordersInfo;
-};
+}
 
 // Khi trang được hiển thị ra thì sẽ hiển thị các sản phẩm đã được chọn
 document.addEventListener('DOMContentLoaded', renderAllSelectedProducts(getSelectedProducts()));
@@ -130,13 +139,13 @@ document.getElementById("pay-button").addEventListener('click', () => {
                 let order = OrderService.getOrderByUserIdAndProductId(user_id, checkedProducts()[i].productId);
                 // Nếu có đơn hàng thì cập nhật
                 if(order){
-                    order.status = "đang giao";
+                    order.status = "Đang xử lý";
                     OrderService.updateOrder(order);
                     console.log("Updated!");
                 }else{ //nếu chưa có đơn thì thêm đơn mới
                     order = {
                         id: Math.floor(Math.random() * 9999), product_id: checkedProduct.productId,
-                        user_id: user_id, address: address, quantity: checkedProduct.quantity, status: "đang giao"
+                        user_id: user_id, address: address, quantity: checkedProduct.quantity, status: "Đang xử lý"
                     };
                     OrderService.saveOrder(order);
                     console.log("Add new order");
@@ -146,7 +155,7 @@ document.getElementById("pay-button").addEventListener('click', () => {
 
                 let order = {
                     id: Math.floor(Math.random() * 9999), product_id: checkedProduct.productId,
-                    user_id: "no-user", address: address, quantity: checkedProduct.quantity, status: "đang giao"
+                    user_id: "no-user", address: address, quantity: checkedProduct.quantity, status: "Đang xử lý"
                 };
                 OrderService.saveOrder(order);
                 console.log("Add new order");

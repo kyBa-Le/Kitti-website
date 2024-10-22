@@ -1,40 +1,34 @@
-// lấy tất cả các đơn hàng trong local của một user
-const user_id = await getFromLocalStorage("user_id");
-let orders = OrderService.getOrderByUserId(user_id);
-
 import { getQueryParam } from "../../src/Utils/Param.js";
 import { OrderService } from "../../src/Service/OrderService.js";
 import { ProductService } from "../../src/Service/ProductService.js";
 import { getFromLocalStorage, saveToLocalStorage } from "../../src/Utils/Storage.js";
 import { priceFormat } from "/src/Utils/Param.js";
 
+// Lấy tất cả các đơn hàng trong local của một user
+const user_id = await getFromLocalStorage("user_id");
+let orders = OrderService.getOrderByUserId(user_id);
+
 // Hàm thay đổi số lượng
 function changeQuantity(id, num) {
   let order = OrderService.getOrderById(id);
-  if (order.quantity >= 1) {
-    console.log(order);
+  if (order) {
     order.quantity += parseInt(num);
-    OrderService.updateOrder(order);
-    document.getElementById("quantity-input-value").value = order.quantity;
-  } else {
-    window.alert("Click delete to delete the item!");
+    if (order.quantity < 1) {
+      window.alert("Click delete to delete the item!");
+    } else {
+      OrderService.updateOrder(order);
+      // Cập nhật lại giao diện
+      renderCart(orders);
+    }
   }
-
 }
 
-
-
-
-// Hàm tạo ra các hàng cho order
+// Hàm tạo ra các hàng cho đơn hàng
 function createOrderRow(order) {
   var product = ProductService.getProductById(order.product_id);
   return `<tr>
               <td>
-                <img
-                  src= ${product.image_link}
-                  alt="${product.name}"
-                  class = "product_image"
-                />
+                <img src="${product.image_link}" alt="${product.name}" class="product_image" />
               </td>
               <td>${product.name}</td>
               <td>${priceFormat(product.price)}₫</td>
@@ -44,82 +38,127 @@ function createOrderRow(order) {
                   <input
                     type="text"
                     value=${order.quantity}
-                    class="form-control form-control-sm mx-2 text-center" id="quantity-input-value"
-                    style="width: 50px"
+                    class="form-control form-control-sm mx-2 text-center" style="width: 50px"
+                    readonly
                   />
-                  <button class="btn btn-sm btn-outline-secondary changeQuantity" data-id=${order.id} data-number="${1}">+</button>
+                  <button class="btn btn-sm btn-outline-secondary changeQuantity" data-id="${order.id}" data-number="${1}">+</button>
                 </div>
               </td>
               <td>${priceFormat(product.price * order.quantity)}₫</td>
               <td>
-                <button
-                  type="button"
-                  class="btn btn-sm btn-warning card-btn-color deleteOrder" data-id=${order.id}
-                >
+                <button type="button" class="btn btn-sm btn-warning card-btn-color deleteOrder" data-id="${order.id}">
                   Xóa
                 </button>
               </td>
-            </tr>`
+            </tr>`;
 }
 
 // Hàm render trang giỏ hàng
-async function renderCart(orders) {
-  orders.forEach(order => {
-    let row = createOrderRow(order);
-    document.getElementById("cart_table_body").innerHTML += row;
-  });
+function renderCart(orders) {
+  // Xóa nội dung cũ trước khi thêm mới
+  document.getElementById("cart_table_body").innerHTML = '';
+
+  // Lọc đơn hàng đang chờ thanh toán
+  const filteredOrders = orders.filter(order => order.status === 'Chờ thanh toán');
+  
+  // Kiểm tra nếu có đơn hàng
+  if (filteredOrders.length > 0) {
+    filteredOrders.forEach(order => {
+      let row = createOrderRow(order);
+      document.getElementById("cart_table_body").innerHTML += row;
+    });
+  } else {
+    // Nếu không có đơn hàng nào, hiển thị thông báo
+    const emptyRow = `<tr><td colspan="6">Không có đơn hàng nào đang chờ thanh toán</td></tr>`;
+    document.getElementById("cart_table_body").innerHTML = emptyRow;
+  }
+
+  // Cập nhật tổng tiền
+  updateTotalPrice(filteredOrders);
+}
+
+// Hàm cập nhật tổng tiền
+function updateTotalPrice(orders) {
+  let totalPrice = orders.reduce((total, order) => {
+    const product = ProductService.getProductById(order.product_id);
+    return total + (product.price * order.quantity);
+  }, 0);
+  document.getElementById("total-price").textContent = priceFormat(totalPrice) + '₫';
 }
 
 // Hàm để hiển thị các đơn hàng của user
-document.addEventListener('DOMContentLoaded', renderCart(orders));
-const change = document.querySelectorAll(".changeQuantity");
-change.forEach(button => {
-  button.addEventListener('click', () => {
-    const productId = button.dataset.id;
-    const number = button.dataset.number;
-    changeQuantity(productId, number); // Call the function with retrieved values
+document.addEventListener('DOMContentLoaded', () => {
+  renderCart(orders);
+
+  // Gán sự kiện cho các nút thay đổi số lượng
+  const changeButtons = document.querySelectorAll(".changeQuantity");
+  changeButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const orderId = button.dataset.id;
+      const number = button.dataset.number;
+      changeQuantity(orderId, number); // Gọi hàm với giá trị lấy được
+    });
+  });
+
+  // Gán sự kiện cho các nút xóa đơn hàng
+  const deleteButtons = document.querySelectorAll(".deleteOrder");
+  deleteButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      let orderId = button.dataset.id;
+      OrderService.deleteOrderById(orderId);
+      orders = OrderService.getOrderByUserId(user_id); // Cập nhật danh sách đơn hàng sau khi xóa
+      renderCart(orders); // Hiển thị lại giỏ hàng
+    });
   });
 });
 
-// Hàm xóa đơn hàng
-const deleteButton = document.querySelectorAll(".deleteOrder");
-deleteButton.forEach(button => {
-  button.addEventListener('click', () => {
-    let orderId = button.dataset.id;
-    OrderService.deleteOrderById(orderId);
-    location.reload();
-  })
-})
 
 // Hiển thị ra total price 
 
-
 // Hàm tạo ra các hàng cho order status
-function createOrderStatusRow(order){
+function createOrderStatusRow(order) {
   var product = ProductService.getProductById(order.product_id);
   return `<tr>
             <td>
-              <img
-                src= ${product.image_link}
-                alt="${product.name}"
-                class = "product_image"
-              />
+              <img src="${product.image_link}" alt="${product.name}" class="product_image" />
             </td>
             <td>${product.name}</td>
             <td>${priceFormat(product.price)}₫</td>
             <td>${order.quantity}</td>
             <td>${priceFormat(product.price * order.quantity)}₫</td>
-            <td>${order.status}</td>
-          </tr>`
+          </tr>`;
 }
 
-// Hàm render trang giỏ hàng
-async function renderOrderStatus(orders){
-  orders.forEach(order => {
+// Hàm render các đơn hàng theo trạng thái
+function renderOrderStatus(orders, status) {
+  document.getElementById("order_status_table_body").innerHTML = ''; // Xóa nội dung cũ
+
+  const filteredOrders = orders.filter(order => order.status === status);
+  // Cập nhật tiêu đề h5 theo trạng thái
+  const statusHeading = document.querySelector('.table-responsive h5');
+  statusHeading.textContent = `Trạng thái: ${status.toLowerCase()}`; // Hiển thị trạng thái hiện tại
+  if (filteredOrders.length > 0) {
+    filteredOrders.forEach(order => {
       let row = createOrderStatusRow(order);
       document.getElementById("order_status_table_body").innerHTML += row;
-  });
+    });
+  } else {
+    const emptyRow = `<tr><td colspan="6">Không có đơn hàng ở trạng thái này</td></tr>`;
+    document.getElementById("order_status_table_body").innerHTML = emptyRow;
+  }
 }
 
-// Hàm để hiển thị các đơn hàng của user
-document.addEventListener('DOMContentLoaded', renderOrderStatus(orders));
+// Thiết lập sự kiện cho các nút lọc trạng thái
+function setupOrderStatusButtons(orders) {
+  document.getElementById('processing_btn').addEventListener('click', () => renderOrderStatus(orders, 'Đang xử lý'));
+  document.getElementById('shipping_btn').addEventListener('click', () => renderOrderStatus(orders, 'Đang giao'));
+  document.getElementById('delivered_btn').addEventListener('click', () => renderOrderStatus(orders, 'Đã giao'));
+}
+
+// Hàm khởi tạo trang
+document.addEventListener('DOMContentLoaded', function() {
+  const orders = OrderService.getOrderByUserId(user_id);
+  setupOrderStatusButtons(orders);
+  renderOrderStatus(orders, 'Đang xử lý'); 
+});
+
