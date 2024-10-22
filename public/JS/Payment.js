@@ -101,23 +101,26 @@ document.getElementById("cancelOrder").addEventListener('click', ()=>{
 
 // Hiển thị thanh toán thành công
 document.getElementById("pay-button").addEventListener('click', () => {
-    let orderPerson = document.getElementById("inputName4").value;
-    let phoneNumber = document.getElementById('inputPhoneNumber4').value;
-    let address = document.getElementById("inputAddress").value;
-    console.log(orderPerson, phoneNumber, address);
-    if (orderPerson == "" || phoneNumber == "" || address == "") {
-        window.alert("Vui lòng nhập đầy đủ thông tin giao hàng!");
-    } else {
-        // Điều chỉnh lại hiển thị thanh toán thành công
-        document.getElementById("customer-name").innerHTML += orderPerson;
-        document.getElementById("delivery-address").innerHTML += address;
-        renderAllSucessfulPayment(checkedProducts());
-        document.getElementById("total-amount").innerHTML += priceFormat(totalPrice) + " đ";
-        document.getElementById("orderModal").classList.remove("invisible");
-        document.getElementById("orderModal").style.display = "block";
-        document.getElementById("paymentForm").classList.add("invisible");
+    if (checkedProducts().length<1 ){
+        window.alert("Hãy chọn sản phẩm để thanh toán!");
+    }else{
+        let orderPerson = document.getElementById("inputName4").value;
+        let phoneNumber = document.getElementById('inputPhoneNumber4').value;
+        let address = document.getElementById("inputAddress").value;
+        console.log(orderPerson, phoneNumber, address);
+        if (orderPerson == "" || phoneNumber == "" || address == "") {
+            window.alert("Vui lòng nhập đầy đủ thông tin giao hàng!");
+        } else {
+            // Điều chỉnh lại hiển thị thanh toán thành công
+            document.getElementById("customer-name").innerHTML += orderPerson;
+            document.getElementById("delivery-address").innerHTML += address;
+            renderAllSucessfulPayment(checkedProducts());
+            document.getElementById("total-amount").innerHTML += priceFormat(totalPrice) + " đ";
+            document.getElementById("orderModal").classList.remove("invisible");
+            document.getElementById("orderModal").style.display = "block";
+            document.getElementById("paymentForm").classList.add("invisible");
+        }
     }
-
 });
 
 // Sau khi ấn vào nút đóng hiển thị thanh toán thành công
