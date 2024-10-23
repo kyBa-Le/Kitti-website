@@ -37,36 +37,6 @@
     </div>
 
     <div class="content">
-        <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#" id="admin-navbar-db">Dashboard</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav" id="admin-navbar-icon">
-                 
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-bell fs-4 me-3"></i> 
-                        </a>
-                    </li>
-            
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-envelope fs-4 me-3"></i>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <img src="https://via.placeholder.com/40" alt="User Avatar" class="rounded-circle" width="40" height="40">
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav> -->
-       
         <div id="logged_in-user-icon" class="noclass ">
             <i class="fa-solid fa-user" id="user-logged"></i>
             <div id="account-menu" style="display: none;">
@@ -190,9 +160,10 @@
                 </div>
                 <div class="modal-body">
                     <form id="productForm">
-                        <div class="mb-3">
+                        <!-- Ẩn trường ID và đặt readonly -->
+                        <div class="mb-3" style="display: none;">
                             <label for="productID" class="form-label">ID</label>
-                            <input type="text" class="form-control" id="productID" required>
+                            <input type="text" class="form-control" id="productID" readonly>
                         </div>
                         <div class="mb-3">
                             <label for="productName" class="form-label">Tên Sản Phẩm</label>
@@ -230,9 +201,10 @@
                 </div>
                 <div class="modal-body">
                     <form id="recipeForm">
-                        <div class="mb-3">
+                        <!-- Ẩn trường ID và đặt readonly -->
+                        <div class="mb-3" style="display: none;">
                             <label for="recipeID" class="form-label">ID</label>
-                            <input type="text" class="form-control" id="recipeID" required>
+                            <input type="text" class="form-control" id="recipeID" readonly>
                         </div>
                         <div class="mb-3">
                             <label for="recipeName" class="form-label">Tên Sản Phẩm</label>
