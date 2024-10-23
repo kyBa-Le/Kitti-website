@@ -195,9 +195,8 @@ function renderRecipeRows(recipes) {
 }
 // Hàm mở modal để chỉnh sửa công thức
 document.addEventListener('DOMContentLoaded', async function () {
-    // Tải sản phẩm từ ProductService và hiển thị
-    const allRecipes = await RecipeService.getAllRecipes();
-    renderProductRows(allRecipes);
+    // Tải công thức từ localStorage và hiển thị
+    renderRecipeRows(RecipeService.getAllRecipes());
 
     // Thêm nguyên liệu
     document.getElementById('addIngredient').addEventListener('click', function () {
