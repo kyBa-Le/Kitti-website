@@ -82,11 +82,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #F29F05;
-    border-radius: 5px;
+
 }
 #login-form, #signup{
     background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid #F29F05;
+    border-radius: 5px;
 }
 #login-loginButton{
     margin-left: 75%;

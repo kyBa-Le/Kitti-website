@@ -140,6 +140,7 @@ document.getElementById("pay-button").addEventListener('click', () => {
                 // Nếu có đơn hàng thì cập nhật
                 if(order){
                     order.status = "Đang xử lý";
+                    order.address = address;
                     OrderService.updateOrder(order);
                     console.log("Updated!");
                 }else{ //nếu chưa có đơn thì thêm đơn mới
