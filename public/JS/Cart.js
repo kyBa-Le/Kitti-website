@@ -13,17 +13,11 @@ function changeQuantity(id, num) {
   let order = OrderService.getOrderById(id);
   if (order) {
     order.quantity += parseInt(num);
-    if (order.quantity < 1) {
-      window.alert("Click delete to delete the item!");
-    } else {
-      OrderService.updateOrder(order);
-      // Cập nhật lại giao diện
-      renderCart(orders);
-    }
+    OrderService.updateOrder(order);
   }
 }
 
-// Hàm tạo ra các hàng cho đơn hàng
+// Hàm tạo ra các hàng cho đơn hàng đang chờ thanh toán
 function createOrderRow(order) {
   var product = ProductService.getProductById(order.product_id);
   return `<tr>
@@ -37,6 +31,7 @@ function createOrderRow(order) {
                   <button class="btn btn-sm btn-outline-secondary changeQuantity" data-id="${order.id}" data-number="${-1}">-</button>
                   <input
                     type="text"
+                    id="quantity-${order.id}"
                     value=${order.quantity}
                     class="form-control form-control-sm mx-2 text-center" style="width: 50px"
                     readonly
@@ -95,25 +90,30 @@ document.addEventListener('DOMContentLoaded', () => {
   changeButtons.forEach(button => {
     button.addEventListener('click', () => {
       const orderId = button.dataset.id;
-      const number = button.dataset.number;
-      changeQuantity(orderId, number); // Gọi hàm với giá trị lấy được
+      const number = parseInt(button.dataset.number);
+      let orderInput = document.getElementById(`quantity-${orderId}`);
+      if (!(parseInt(orderInput.value) == 1 && number < 0)){
+        orderInput.value = parseInt(number) + parseInt(orderInput.value);
+        console.log("value after change:", orderInput.value);
+        changeQuantity(orderId, number); // Gọi hàm với giá trị lấy được
+      }
     });
   });
 
-  // Gán sự kiện cho các nút xóa đơn hàng
-  const deleteButtons = document.querySelectorAll(".deleteOrder");
-  deleteButtons.forEach(button => {
+// Gán sự kiện cho các nút xóa đơn hàng
+const deleteButtons = document.querySelectorAll(".deleteOrder");
+deleteButtons.forEach(button => {
     button.addEventListener('click', () => {
+      console.log("You have clicked delete button");
       let orderId = button.dataset.id;
       OrderService.deleteOrderById(orderId);
       orders = OrderService.getOrderByUserId(user_id); // Cập nhật danh sách đơn hàng sau khi xóa
+      window.location.reload();
       renderCart(orders); // Hiển thị lại giỏ hàng
     });
   });
 });
 
-
-// Hiển thị ra total price 
 
 // Hàm tạo ra các hàng cho order status
 function createOrderStatusRow(order) {
