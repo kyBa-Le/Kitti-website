@@ -69,17 +69,21 @@ function renderCart(orders) {
   }
 
   // Cập nhật tổng tiền
-  updateTotalPrice(filteredOrders);
+  updateTotalPrice();
 }
 
 // Hàm cập nhật tổng tiền
-function updateTotalPrice(orders) {
+function updateTotalPrice() {
+  let orders = OrderService.getOrderByUserId(user_id);
+  orders = orders.filter(order => order.status == "Chờ thanh toán");
   let totalPrice = orders.reduce((total, order) => {
     const product = ProductService.getProductById(order.product_id);
     return total + (product.price * order.quantity);
   }, 0);
   document.getElementById("total-price").textContent = priceFormat(totalPrice) + '₫';
 }
+
+document.addEventListener("click", updateTotalPrice);
 
 // Hàm để hiển thị các đơn hàng của user
 document.addEventListener('DOMContentLoaded', () => {

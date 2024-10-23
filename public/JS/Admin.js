@@ -17,7 +17,6 @@ if (["users", "orders", "products", "recipes"].every(item => !localStorage.getIt
     saveToLocalStorage("products", JSON.stringify(arrProducts));
     saveToLocalStorage("recipes", JSON.stringify(arrRecipes));
 }
-
 function createProductRow(product) {
     const shortDescription = product.description.length > 300
         ? `${product.description.substring(0, 300)}...`
@@ -42,7 +41,7 @@ function createProductRow(product) {
                 </td>
             </tr>`;
 }
-function renderProductRows(products) {
+async function renderProductRows(products) {
     const productTableBody = document.getElementById("productTableBody");
     productTableBody.innerHTML = ''; // Xóa nội dung cũ để tránh trùng lặp
 
@@ -51,69 +50,83 @@ function renderProductRows(products) {
         productTableBody.insertAdjacentHTML('beforeend', row); // Thêm hàng mới vào bảng
     });
 }
-// Hàm mở modal để chỉnh sửa sản phẩm
-document.addEventListener('DOMContentLoaded', function() {
-    // Tải sản phẩm từ ProductService và hiển thị
-    renderProductRows(ProductService.getAllProducts());
 
-    // Hàm thêm sản phẩm vào ProductService và cập nhật bảng
-    document.getElementById('submitProduct').addEventListener('click', function() {
+// Hàm mở modal để chỉnh sửa sản phẩm
+document.addEventListener('DOMContentLoaded', async function() {
+    // Tải sản phẩm từ ProductService và hiển thị
+    const allProducts = await ProductService.getAllProducts();
+    renderProductRows(allProducts);
+
+    // Thêm hoặc chỉnh sửa sản phẩm vào ProductService và cập nhật bảng
+    document.getElementById('submitProduct').addEventListener('click', async function() {
         const productID = document.getElementById("productID").value;
         const productName = document.getElementById("productName").value;
         const productPrice = document.getElementById("productPrice").value;
         const productImageLink = document.getElementById("productImageLink").value;
         const productDescription = document.getElementById("productDescription").value;
 
-        const newProduct = {
-            id: productID,
-            name: productName,
-            image_link: productImageLink,
-            price: productPrice,
-            description: productDescription
-        };
+        let newProduct = {};
 
-        const existingIndex = ProductService.arrayProduct.findIndex(p => p.id === productID);
+        if (productID) {
+            // Chuyển đổi productID thành số
+            const productIDNum = parseInt(productID);
 
-        if (existingIndex !== -1) {
-            // Nếu sản phẩm đã tồn tại, cập nhật
-            ProductService.updateProduct(newProduct);
+            // Nếu productID tồn tại, nghĩa là đang chỉnh sửa sản phẩm
+            newProduct = {
+                id: productIDNum, // ID không thay đổi
+                name: productName,
+                image_link: productImageLink,
+                price: productPrice,
+                description: productDescription
+            };
+            await ProductService.updateProduct(newProduct); // Cập nhật sản phẩm
         } else {
-            // Nếu sản phẩm mới, thêm vào
-            ProductService.saveProduct(newProduct);
+            // Nếu productID không tồn tại, tạo sản phẩm mới với ID tự động
+            const allProducts = await ProductService.getAllProducts();
+            const newID = allProducts.length > 0 
+                          ? Math.max(...allProducts.map(p => parseInt(p.id))) + 1 
+                          : 1; // Lấy ID cao nhất hiện tại và tăng thêm 1
+
+            newProduct = {
+                id: newID,
+                name: productName,
+                image_link: productImageLink,
+                price: productPrice,
+                description: productDescription
+            };
+            await ProductService.saveProduct(newProduct); // Lưu sản phẩm mới
         }
 
-        renderProductRows(ProductService.getAllProducts());
+        // Cập nhật bảng sản phẩm với dữ liệu mới
+        const updatedProducts = await ProductService.getAllProducts();
+        renderProductRows(updatedProducts);
 
         // Đóng modal
         $('#addProductModal').modal('hide');
     });
 
     // Xóa sản phẩm
-    document.getElementById('productTableBody').addEventListener('click', function(e) {
+    document.getElementById('productTableBody').addEventListener('click', async function(e) {
         if (e.target.classList.contains('product-remove')) {
             const productID = e.target.getAttribute('data-id');
             const confirmDelete = confirm(`Bạn có chắc chắn muốn xóa sản phẩm này?`);
-    
+
             if (confirmDelete) {
-                ProductService.deleteProductById(productID)
-                    .then(() => {
-                        // Cập nhật bảng sản phẩm
-                        renderProductRows(ProductService.getAllProducts());
-                    })
-                    .catch(err => {
-                        console.error("Có lỗi xảy ra khi xóa sản phẩm:", err);
-                    });
+                await ProductService.deleteProductById(productID);
+                // Cập nhật bảng sản phẩm với danh sách sản phẩm mới
+                const updatedProducts = await ProductService.getAllProducts();
+                renderProductRows(updatedProducts);
             }
         }
     });
-    
+
     // Sửa sản phẩm
-    document.getElementById('productTableBody').addEventListener('click', function(e) {
+    document.getElementById('productTableBody').addEventListener('click', async function(e) {
         if (e.target.classList.contains('product-edit')) {
             const productID = e.target.getAttribute('data-id');
-            const productToEdit = ProductService.getProductById(productID);
+            const productToEdit = await ProductService.getProductById(productID);
 
-            // Điền dữ liệu vào form
+            // Điền dữ liệu vào form và hiển thị ID (không cho phép chỉnh sửa ID)
             document.getElementById("productID").value = productToEdit.id;
             document.getElementById("productName").value = productToEdit.name;
             document.getElementById("productPrice").value = productToEdit.price;
@@ -130,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (event.target.classList.contains('toggle-description')) {
             const fullDescription = event.target.closest('.description-cell').querySelector('.full-description');
             const shortDescription = event.target.closest('.description-cell').querySelector('.short-description');
-    
+
             // Kiểm tra trạng thái hiển thị của mô tả đầy đủ
             if (fullDescription.style.display === 'none' || fullDescription.style.display === '') {
                 // Hiển thị mô tả đầy đủ và ẩn mô tả ngắn
@@ -144,6 +157,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
 
 function createRecipeRow(recipe) {
     let ingredientsText = "";
@@ -181,8 +195,9 @@ function renderRecipeRows(recipes) {
 }
 // Hàm mở modal để chỉnh sửa công thức
 document.addEventListener('DOMContentLoaded', async function () {
-    // Tải công thức từ localStorage và hiển thị
-    renderRecipeRows(RecipeService.getAllRecipes());
+    // Tải sản phẩm từ ProductService và hiển thị
+    const allRecipes = await RecipeService.getAllRecipes();
+    renderProductRows(allRecipes);
 
     // Thêm nguyên liệu
     document.getElementById('addIngredient').addEventListener('click', function () {
