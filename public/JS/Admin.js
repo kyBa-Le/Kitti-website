@@ -398,10 +398,16 @@ document.addEventListener('DOMContentLoaded', async function () {
     document.getElementById('recipeTableBody').addEventListener('click', function (e) {
         if (e.target.classList.contains('toggle-description')) {
             const fullDescription = e.target.previousElementSibling;
-            const shortDescription = e.target.parentElement.querySelector('.short-description');
-            fullDescription.classList.toggle('d-none');
-            shortDescription.classList.toggle('d-none');
-            e.target.textContent = fullDescription.classList.contains('d-none') ? 'Xem thêm' : 'Ẩn bớt';
+            const shortDescription = fullDescription.previousElementSibling;
+            if (fullDescription.style.display === 'none') {
+                fullDescription.style.display = 'inline';
+                shortDescription.style.display = 'none';
+                e.target.textContent = 'Thu lại';
+            } else {
+                fullDescription.style.display = 'none';
+                shortDescription.style.display = 'inline';
+                e.target.textContent = 'Xem thêm';
+            }
         }
     });
 });
