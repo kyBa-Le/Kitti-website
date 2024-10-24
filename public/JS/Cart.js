@@ -119,8 +119,6 @@ deleteButtons.forEach(button => {
 });
 
 
-// Hiển thị ra total price 
-
 // Hàm tạo ra các hàng cho order status
 function createOrderStatusRow(order) {
   var product = ProductService.getProductById(order.product_id);
