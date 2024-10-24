@@ -33,7 +33,7 @@ export const RecipeService = {
         });
     },
     
-    // Hàm chỉnh sửa thông tin recipe - truyền vào 1 Recipe mới
+    // Hàm chỉnh sửa thông tin recipe - truyền vào 1 recipe mới
     updateRecipe: async function (Recipe) {
         const index = await this.arrayRecipe.findIndex(r => r.id === Recipe.id);
 

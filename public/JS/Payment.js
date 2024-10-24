@@ -116,14 +116,14 @@ document.getElementById("pay-button").addEventListener('click', () => {
     }else{
         let orderPerson = document.getElementById("inputName4").value;
         let phoneNumber = document.getElementById('inputPhoneNumber4').value;
-        let address = document.getElementById("inputAddress").value;
-        console.log(orderPerson, phoneNumber, address);
-        if (orderPerson == "" || phoneNumber == "" || address == "") {
+        let addressOrder = document.getElementById("inputAddress").value;
+        console.log(orderPerson, phoneNumber, addressOrder);
+        if (orderPerson == "" || phoneNumber == "" || addressOrder == "") {
             window.alert("Vui lòng nhập đầy đủ thông tin giao hàng!");
         } else {
             // Điều chỉnh lại hiển thị thanh toán thành công
             document.getElementById("customer-name").innerHTML += orderPerson;
-            document.getElementById("delivery-address").innerHTML += address;
+            document.getElementById("delivery-address").innerHTML += addressOrder;
             renderAllSucessfulPayment(checkedProducts());
             document.getElementById("total-amount").innerHTML += priceFormat(totalPrice) + " đ";
             document.getElementById("orderModal").classList.remove("invisible");
@@ -140,13 +140,13 @@ document.getElementById("pay-button").addEventListener('click', () => {
                 // Nếu có đơn hàng thì cập nhật
                 if(order){
                     order.status = "Đang xử lý";
-                    order.address = address;
+                    order.address = addressOrder;
                     OrderService.updateOrder(order);
                     console.log("Updated!");
                 }else{ //nếu chưa có đơn thì thêm đơn mới
                     order = {
                         id: Math.floor(Math.random() * 9999), product_id: checkedProduct.productId,
-                        user_id: user_id, address: address, quantity: checkedProduct.quantity, status: "Đang xử lý"
+                        user_id: user_id, address: addressOrder, quantity: checkedProduct.quantity, status: "Đang xử lý"
                     };
                     OrderService.saveOrder(order);
                     console.log("Add new order");
@@ -156,7 +156,7 @@ document.getElementById("pay-button").addEventListener('click', () => {
 
                 let order = {
                     id: Math.floor(Math.random() * 9999), product_id: checkedProduct.productId,
-                    user_id: "no-user", address: address, quantity: checkedProduct.quantity, status: "Đang xử lý"
+                    user_id: "no-user", address: addressOrder, quantity: checkedProduct.quantity, status: "Đang xử lý"
                 };
                 OrderService.saveOrder(order);
                 console.log("Add new order");
