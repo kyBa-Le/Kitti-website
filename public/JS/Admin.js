@@ -57,6 +57,15 @@ document.addEventListener('DOMContentLoaded', async function() {
     const allProducts = await ProductService.getAllProducts();
     renderProductRows(allProducts);
 
+    // Hàm reset form sau khi thêm hoặc chỉnh sửa
+    function resetForm() {
+        document.getElementById("productID").value = "";
+        document.getElementById("productName").value = "";
+        document.getElementById("productPrice").value = "";
+        document.getElementById("productImageLink").value = "";
+        document.getElementById("productDescription").value = "";
+    }
+
     // Thêm hoặc chỉnh sửa sản phẩm vào ProductService và cập nhật bảng
     document.getElementById('submitProduct').addEventListener('click', async function() {
         const productID = document.getElementById("productID").value;
@@ -82,13 +91,8 @@ document.addEventListener('DOMContentLoaded', async function() {
             await ProductService.updateProduct(newProduct); // Cập nhật sản phẩm
         } else {
             // Nếu productID không tồn tại, tạo sản phẩm mới với ID tự động
-            const allProducts = await ProductService.getAllProducts();
-            const newID = allProducts.length > 0 
-                          ? Math.max(...allProducts.map(p => parseInt(p.id))) + 1 
-                          : 1; // Lấy ID cao nhất hiện tại và tăng thêm 1
-
             newProduct = {
-                id: newID,
+                id: Math.floor(Math.random() * 9999),
                 name: productName,
                 image_link: productImageLink,
                 price: productPrice,
@@ -100,6 +104,9 @@ document.addEventListener('DOMContentLoaded', async function() {
         // Cập nhật bảng sản phẩm với dữ liệu mới
         const updatedProducts = await ProductService.getAllProducts();
         renderProductRows(updatedProducts);
+
+        // Reset form sau khi thêm hoặc chỉnh sửa thành công
+        resetForm();
 
         // Đóng modal
         $('#addProductModal').modal('hide');
@@ -185,7 +192,7 @@ function createRecipeRow(recipe) {
                 </td>
             </tr>`;
 }
-function renderRecipeRows(recipes) {
+async function renderRecipeRows(recipes) {
     const tableBody = document.getElementById('recipeTableBody');
     tableBody.innerHTML = '';
     recipes.forEach(recipe => {
@@ -195,8 +202,25 @@ function renderRecipeRows(recipes) {
 }
 // Hàm mở modal để chỉnh sửa công thức
 document.addEventListener('DOMContentLoaded', async function () {
-    // Tải công thức từ localStorage và hiển thị
-    renderRecipeRows(RecipeService.getAllRecipes());
+    // Tải sản phẩm từ RecipeService và hiển thị
+    const allRecipes = await RecipeService.getAllRecipes();
+    renderRecipeRows(allRecipes);
+
+    // Hàm đặt lại form sau khi thêm/sửa công thức
+    function resetForm() {
+        // Xóa dữ liệu trong form
+        document.getElementById("recipeID").value = '';
+        document.getElementById("recipeName").value = '';
+        document.getElementById("recipeImageLink").value = '';
+        document.getElementById("recipeDescription").value = '';
+        document.getElementById("recipeTime").value = '';
+        document.getElementById("recipeDifficulty").value = '';
+        document.getElementById("recipeType").value = '';
+
+        // Xóa tất cả nguyên liệu và bước trong form
+        document.getElementById('ingredientList').innerHTML = '';
+        document.getElementById('stepList').innerHTML = '';
+    }
 
     // Thêm nguyên liệu
     document.getElementById('addIngredient').addEventListener('click', function () {
@@ -245,6 +269,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         const recipeDescription = document.getElementById("recipeDescription").value;
         const recipeTime = document.getElementById("recipeTime").value;
         const recipeDifficulty = document.getElementById("recipeDifficulty").value;
+        const recipeType = document.getElementById("recipeType").value;
 
         const ingredients = Array.from(document.querySelectorAll('#ingredientList .input-group')).map(element => ({
             name: element.querySelector('input[name="ingredientName"]').value,
@@ -258,41 +283,44 @@ document.addEventListener('DOMContentLoaded', async function () {
             image_link: element.querySelector('input[name="stepImage"]').value
         }));
 
-        const newRecipe = {
-            id: recipeID,
-            name: recipeName,
-            image_link: recipeImageLink,
-            description: recipeDescription,
-            time: recipeTime,
-            difficulty: recipeDifficulty,
-            ingredients: ingredients,
-            steps: steps
-        };
+        let newRecipe = {};
 
-        // Kiểm tra và cập nhật công thức
-        const existingRecipeIndex = RecipeService.getRecipeById(recipeID);
-        if (existingRecipeIndex) {
-            // Nếu công thức đã tồn tại, cập nhật công thức cũ
-            await RecipeService.updateRecipe(newRecipe);
+        if (recipeID) {
+            // Nếu recipeID tồn tại, nghĩa là đang chỉnh sửa sản phẩm
+            newRecipe = {
+                id: parseInt(recipeID),
+                name: recipeName,
+                image_link: recipeImageLink,
+                description: recipeDescription,
+                time: recipeTime,
+                difficulty: recipeDifficulty,
+                type: recipeType,
+                ingredients: ingredients,
+                steps: steps
+            };
+            await RecipeService.updateRecipe(newRecipe); // Cập nhật công thức
         } else {
-            // Nếu không, lưu công thức mới
-            RecipeService.saveRecipe(newRecipe);
+            // Nếu recipeID không tồn tại, tạo công thức mới với ID tự động
+            newRecipe = {
+                id: Math.floor(Math.random() * 9999),
+                name: recipeName,
+                image_link: recipeImageLink,
+                description: recipeDescription,
+                time: recipeTime,
+                difficulty: recipeDifficulty,
+                type: recipeType,
+                ingredients: ingredients,
+                steps: steps
+            };
+            await RecipeService.saveRecipe(newRecipe); // Lưu công thức mới
         }
 
-        // Cập nhật bảng hiển thị công thức
-        renderRecipeRows(RecipeService.getAllRecipes());
+        // Cập nhật bảng công thức với dữ liệu mới
+        const updatedRecipes = await RecipeService.getAllRecipes();
+        renderRecipeRows(updatedRecipes);
 
-        // Xóa dữ liệu trong form sau khi thêm thành công
-        document.getElementById("recipeID").value = '';
-        document.getElementById("recipeName").value = '';
-        document.getElementById("recipeImageLink").value = '';
-        document.getElementById("recipeDescription").value = '';
-        document.getElementById("recipeTime").value = '';
-        document.getElementById("recipeDifficulty").value = '';
-
-        // Xóa tất cả nguyên liệu và bước trong form
-        document.getElementById('ingredientList').innerHTML = '';
-        document.getElementById('stepList').innerHTML = '';
+        // Đặt lại form sau khi thêm thành công
+        resetForm();
 
         // Đóng modal
         $('#addRecipeModal').modal('hide');
@@ -312,22 +340,18 @@ document.addEventListener('DOMContentLoaded', async function () {
             const confirmDelete = confirm(`Bạn có chắc chắn muốn xóa công thức "${recipeToDelete.name}"?`);
 
             if (confirmDelete) {
-                // Xóa công thức từ localStorage
-                await RecipeService.deleteRecipeById(recipeID);
-                
-                // Cập nhật bảng hiển thị công thức mà không cần tải lại trang
-                const updatedRecipes = RecipeService.getAllRecipes();
+                await RecipeService.deleteRecipeById(recipeID); // Xóa công thức từ localStorage
+                const updatedRecipes = await RecipeService.getAllRecipes(); // Cập nhật danh sách công thức
                 renderRecipeRows(updatedRecipes);
             }
         }
     });
 
-
     // Sửa công thức
-    document.getElementById('recipeTableBody').addEventListener('click', function (e) {
+    document.getElementById('recipeTableBody').addEventListener('click', async function (e) {
         if (e.target.classList.contains('recipe-edit')) {
             const recipeID = e.target.getAttribute('data-id');
-            const recipeToEdit = RecipeService.getRecipeById(recipeID);
+            const recipeToEdit = await RecipeService.getRecipeById(recipeID);
 
             // Điền dữ liệu vào form
             document.getElementById("recipeID").value = recipeToEdit.id;
@@ -336,6 +360,7 @@ document.addEventListener('DOMContentLoaded', async function () {
             document.getElementById("recipeDescription").value = recipeToEdit.description;
             document.getElementById("recipeTime").value = recipeToEdit.time;
             document.getElementById("recipeDifficulty").value = recipeToEdit.difficulty;
+            document.getElementById("recipeType").value = recipeToEdit.type;
 
             // Xóa nguyên liệu và bước cũ trong form
             document.getElementById('ingredientList').innerHTML = '';
@@ -351,7 +376,6 @@ document.addEventListener('DOMContentLoaded', async function () {
                 document.getElementById('ingredientList').insertAdjacentHTML('beforeend', ingredientHtml);
             });
 
-            // Xóa bước cũ trong form
             document.getElementById('stepList').innerHTML = '';
             recipeToEdit.steps.forEach(step => {
                 const stepHtml = `
@@ -387,6 +411,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         }
     });
 });
+
 
 function createOrderRow(order) {
     return `<tr>
