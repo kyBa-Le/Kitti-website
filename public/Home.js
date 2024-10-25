@@ -52,7 +52,7 @@ function createProductItem(product){
                     <div class="card-body text-center">
                         <h5 class="card-title">${product.name}</h5>
                         <p class="card-text">
-                            <a href="/public/HTML/ProductDetail?product_id=${product.id}" class="link">Xuất xứ từ Singapore, click xem công thức</a>
+                            <a href="/public/HTML/ProductDetail.html?product_id=${product.id}" class="link">Xuất xứ từ Singapore, click xem công thức</a>
                         </p>
                     </div>
                 </div>
