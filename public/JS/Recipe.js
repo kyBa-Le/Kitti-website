@@ -40,10 +40,6 @@ function renderSlides(recipes) {
    },
    grabCursor: true, // Hiển thị con trỏ dạng bàn tay khi kéo
    centeredSlides: true, // Trung tâm slide hiện tại
-   pagination: {
-     el: ".swiper-pagination ", // Kích hoạt phân trang
-    clickable: true, // Cho phép nhấp vào phân trang
-   },
    navigation: {
         nextEl: ".swiper-button-next", // Nút next
         prevEl: ".swiper-button-prev", // Nút prev
