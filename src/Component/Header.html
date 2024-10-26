@@ -99,7 +99,10 @@
         #user-menu{
         right: -500%;
         width: 300px;
-      }
+        }
+        .fa-angle-up{
+          display: block !important;
+        }
       }
       /* CSS form thay đổi thông tin user */
       #overlay {
@@ -157,6 +160,38 @@
       }
       #edit-user-info-form button:hover {
           background-color: sandybrown;
+      }
+      /* CSS cho một cái navigation bar phụ để responsive */
+      .hidden_header{
+        display: none !important;
+      }
+      #open_header{
+        font-size: 30px;
+        font-weight: bold;
+        color: #3e6001;
+      }
+      #temporary-header{
+        background-color: #f29f05;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        *{
+          cursor: pointer;
+          margin: 0.3rem 0.4rem;
+        }
+      }
+      #fa-angle-up{
+        color:#3e6001;
+        display: none;
+        font-size: 30px;
+        box-sizing: border-box;
+        padding: 2px;
+        border: 1px solid #3e6001;
+      }
+      @media only screen and (max-width: 600px) {
+        #fa-angle-up{
+          display: block;
+        }
       }
       
 /* Kết thúc CSS form thay đổi thông tin user */
@@ -245,8 +280,20 @@
           <i class="fa-solid fa-user" id="user-logged"></i>
           <div class="text-center"><b>Thông tin tài khoản</b></div>
         </div>
+        <i class="fa-solid fa-angle-up" id="fa-angle-up"></i>
+      </div>
     </nav>
     <!-- Kết thúc phần header -->
+    <!-- Code cho phần header phụ để hiển thị cho kích thước điện thoại -->
+    <nav id="temporary-header" class="hidden_header">
+      <a class="navbar-brand" href="/public/Home.html" style="color: #3e6001; font-size: 28px; font-weight: bold">
+        <img src="/public/image/Kitti-Logo.jpg" alt="" width="50" height="50" class="d-inline-block align-text-center"
+          style="border-radius: 50%" />
+        Kitti
+      </a>
+      <i class="fa-solid fa-bars" id="open_header"></i>
+    </nav>
+    <!-- Kết thúc code cho header phụ -->
     <!-- Form chỉnh sửa thông tin người dùng -->
     <div id="edit-user-info-form" style="display: none;">
       <h3>Chỉnh sửa thông tin người dùng</h3>
@@ -441,6 +488,29 @@
       });
        // Hiển thị lại icon user profile khi đóng form
       document.getElementById("logged_in-user-icon").style.display = "block";
+
+      // Chuyển đổi hiển thị cho header
+      let tempoHeader = document.getElementById("temporary-header");
+      let header = document.getElementById("header");
+      // Hàm mở header ra khi kích thước điện thoại
+      function openHeader(tempoHeader, header){
+        if (header.classList.contains("hidden_header")) {
+          console.log("You have clicked to the hidden menu");
+          header.classList.remove("hidden_header");
+          tempoHeader.classList.add("hidden_header");
+        } else {
+          header.classList.add("hidden_header");
+          tempoHeader.classList.remove("hidden_header");
+        }
+      }
+      console.log("This is to check  window matchmedia:",window.matchMedia("(max-width:700px)"));
+      if(window.matchMedia("(max-width:700px)").matches){
+        tempoHeader.classList.remove("hidden_header");
+        console.log(tempoHeader.classList);
+        header.classList.add("hidden_header");
+      }
+      document.getElementById("open_header").addEventListener("click",() => openHeader(tempoHeader, header));
+      document.getElementById("fa-angle-up").addEventListener("click",() => openHeader(tempoHeader, header));
     </script>
 <!-- Kết thúc form chỉnh sửa thông tin người dùng -->
 </body>
