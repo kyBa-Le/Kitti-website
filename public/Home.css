@@ -175,9 +175,3 @@
 }
 
 /* Kết thúc phần RECIPE */
-
-@media screen and (max-width:900px) {
-    .sticky-top{
-        position: relative !important;
-    }
-}
