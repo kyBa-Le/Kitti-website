@@ -2,6 +2,7 @@ import { priceFormat } from "/src/Utils/Param.js";
 import { getQueryParam } from "../../src/Utils/Param.js";
 import { OrderService } from "/src/Service/OrderService.js";
 import { ProductService } from "/src/Service/ProductService.js";
+import { UserService } from "/src/Service/UserService.js";
 import { getFromLocalStorage } from "../../src/Utils/Storage.js";
 console.log("This is payment.js");
 // Đặt chiều cao của các sản phẩm được chọn và chiều cao của ghi chú bằng nhau
@@ -9,6 +10,20 @@ const ordered = document.getElementById('ordered-product');
 const note = document.getElementById('exampleFormControlTextarea1');
 ordered.style.height = note.offsetHeight + 'px';
 var totalPrice = 0;
+
+// Hàm tự động hiển thị tên và số điện thoại từ user_id
+function populateUserInfo() {
+    const currentUserId = localStorage.getItem("user_id");
+    const currentUser = UserService.getUserById(currentUserId);
+
+    if (currentUser) {
+        const nameInput = document.getElementById("inputName4");
+        const phoneInput = document.getElementById("inputPhoneNumber4");
+        nameInput.value = currentUser.name;
+        phoneInput.value = currentUser.phone;
+    }
+}
+
 // Hàm render 1 sản phẩm được chọn
 function renderSelectedProduct(product, quantity) {
     return `<div class="form-check">
@@ -58,8 +73,6 @@ function getSelectedProducts() {
     return ordersInfo;
 }
 
-// Khi trang được hiển thị ra thì sẽ hiển thị các sản phẩm đã được chọn
-document.addEventListener('DOMContentLoaded', renderAllSelectedProducts(getSelectedProducts()));
 // Lấy ra những sản phẩm được chọn ở form thanh toán - trả về danh sách đối tượng chứa sản phẩm và số lượng 
 function checkedProducts() { // Using a descriptive function name
     const productsInfo = [];
@@ -169,5 +182,11 @@ document.getElementById("pay-button").addEventListener('click', () => {
 // Sau khi ấn vào nút đóng hiển thị thanh toán thành công
 document.getElementById("close-button-to-home").addEventListener('click', () => {
     window.location.href = '/public/Home.html';
+});
+
+// Khi trang được hiển thị, tự động điền thông tin người dùng và hiển thị các sản phẩm đã chọn
+document.addEventListener('DOMContentLoaded', () => {
+    populateUserInfo();
+    renderAllSelectedProducts(getSelectedProducts());
 });
 
