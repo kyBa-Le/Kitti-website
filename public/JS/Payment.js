@@ -2,6 +2,7 @@ import { priceFormat } from "/src/Utils/Param.js";
 import { getQueryParam } from "../../src/Utils/Param.js";
 import { OrderService } from "/src/Service/OrderService.js";
 import { ProductService } from "/src/Service/ProductService.js";
+import { UserService } from "/src/Service/UserService.js";
 import { getFromLocalStorage } from "../../src/Utils/Storage.js";
 console.log("This is payment.js");
 // Đặt chiều cao của các sản phẩm được chọn và chiều cao của ghi chú bằng nhau
@@ -9,6 +10,20 @@ const ordered = document.getElementById('ordered-product');
 const note = document.getElementById('exampleFormControlTextarea1');
 ordered.style.height = note.offsetHeight + 'px';
 var totalPrice = 0;
+
+// Hàm tự động hiển thị tên và số điện thoại từ user_id
+function populateUserInfo() {
+    const currentUserId = localStorage.getItem("user_id");
+    const currentUser = UserService.getUserById(currentUserId);
+
+    if (currentUser) {
+        const nameInput = document.getElementById("inputName4");
+        const phoneInput = document.getElementById("inputPhoneNumber4");
+        nameInput.value = currentUser.name;
+        phoneInput.value = currentUser.phone;
+    }
+}
+
 // Hàm render 1 sản phẩm được chọn
 function renderSelectedProduct(product, quantity) {
     return `<div class="form-check">
@@ -58,8 +73,6 @@ function getSelectedProducts() {
     return ordersInfo;
 }
 
-// Khi trang được hiển thị ra thì sẽ hiển thị các sản phẩm đã được chọn
-document.addEventListener('DOMContentLoaded', renderAllSelectedProducts(getSelectedProducts()));
 // Lấy ra những sản phẩm được chọn ở form thanh toán - trả về danh sách đối tượng chứa sản phẩm và số lượng 
 function checkedProducts() { // Using a descriptive function name
     const productsInfo = [];
@@ -116,14 +129,14 @@ document.getElementById("pay-button").addEventListener('click', () => {
     }else{
         let orderPerson = document.getElementById("inputName4").value;
         let phoneNumber = document.getElementById('inputPhoneNumber4').value;
-        let address = document.getElementById("inputAddress").value;
-        console.log(orderPerson, phoneNumber, address);
-        if (orderPerson == "" || phoneNumber == "" || address == "") {
+        let addressOrder = document.getElementById("inputAddress").value;
+        console.log(orderPerson, phoneNumber, addressOrder);
+        if (orderPerson == "" || phoneNumber == "" || addressOrder == "") {
             window.alert("Vui lòng nhập đầy đủ thông tin giao hàng!");
         } else {
             // Điều chỉnh lại hiển thị thanh toán thành công
             document.getElementById("customer-name").innerHTML += orderPerson;
-            document.getElementById("delivery-address").innerHTML += address;
+            document.getElementById("delivery-address").innerHTML += addressOrder;
             renderAllSucessfulPayment(checkedProducts());
             document.getElementById("total-amount").innerHTML += priceFormat(totalPrice) + " đ";
             document.getElementById("orderModal").classList.remove("invisible");
@@ -140,12 +153,13 @@ document.getElementById("pay-button").addEventListener('click', () => {
                 // Nếu có đơn hàng thì cập nhật
                 if(order){
                     order.status = "Đang xử lý";
+                    order.address = addressOrder;
                     OrderService.updateOrder(order);
                     console.log("Updated!");
                 }else{ //nếu chưa có đơn thì thêm đơn mới
                     order = {
                         id: Math.floor(Math.random() * 9999), product_id: checkedProduct.productId,
-                        user_id: user_id, address: address, quantity: checkedProduct.quantity, status: "Đang xử lý"
+                        user_id: user_id, address: addressOrder, quantity: checkedProduct.quantity, status: "Đang xử lý"
                     };
                     OrderService.saveOrder(order);
                     console.log("Add new order");
@@ -155,7 +169,7 @@ document.getElementById("pay-button").addEventListener('click', () => {
 
                 let order = {
                     id: Math.floor(Math.random() * 9999), product_id: checkedProduct.productId,
-                    user_id: "no-user", address: address, quantity: checkedProduct.quantity, status: "Đang xử lý"
+                    user_id: "no-user", address: addressOrder, quantity: checkedProduct.quantity, status: "Đang xử lý"
                 };
                 OrderService.saveOrder(order);
                 console.log("Add new order");
@@ -168,5 +182,11 @@ document.getElementById("pay-button").addEventListener('click', () => {
 // Sau khi ấn vào nút đóng hiển thị thanh toán thành công
 document.getElementById("close-button-to-home").addEventListener('click', () => {
     window.location.href = '/public/Home.html';
+});
+
+// Khi trang được hiển thị, tự động điền thông tin người dùng và hiển thị các sản phẩm đã chọn
+document.addEventListener('DOMContentLoaded', () => {
+    populateUserInfo();
+    renderAllSelectedProducts(getSelectedProducts());
 });
 

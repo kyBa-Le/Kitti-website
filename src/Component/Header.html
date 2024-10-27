@@ -60,18 +60,22 @@
         box-shadow: none;
         border: 1px solid #3e6001;
       }
-      /* css cho icon user */
-      #logged_in-user-icon{
-        margin-right: 5%;
+      /* CSS cho icon user */
+      #logged_in-user-icon {
+        padding: 1%;
         position: relative;
+        display: inline-block;
       }
-      #user-logged{
-        font-size: 20px;
+      #user-logged {
+        font-size: 15px;
         padding: 1rem;
-        color: #3e6001;
+        color: #fff; /* Màu chữ trắng */
         border-radius: 50%;
         border: 2px solid #3e6001;
         cursor: pointer;
+        background-color: #3e6001; /* Màu nền xanh từ đầu */
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
       }
       .login-invisible{
         display: none !important;
@@ -95,9 +99,12 @@
         #user-menu{
         right: -500%;
         width: 300px;
+        }
+        .fa-angle-up{
+          display: block !important;
+        }
       }
-      }
-      /* css form thay đổi thông tin user */
+      /* CSS form thay đổi thông tin user */
       #overlay {
           display: none;
           position: fixed;
@@ -111,48 +118,86 @@
 
       /* Form chỉnh sửa sẽ nổi trên overlay */
       #edit-user-info-form {
-        display: none; /* Ẩn form ban đầu */
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: white;
-        padding: 20px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        z-index: 1000; /* Đảm bảo form nằm trên overlay */
-        width: 400px;
-        border-radius: 10px;
+          display: none; /* Ẩn form ban đầu */
+          position: fixed;
+          top: 50%;
+          left: 45%; /* Đưa form sang bên trái một chút */
+          transform: translate(-50%, -50%); /* Cân chỉnh lại form */
+          background-color: white;
+          padding: 20px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+          z-index: 1000; /* Đảm bảo form nằm trên overlay */
+          width: 400px;
+          border-radius: 10px;
       }
 
       #edit-user-info-form h3 {
-        margin-bottom: 15px;
+          margin-bottom: 15px;
       }
 
       #edit-user-info-form input {
-        width: 100%;
-        padding: 8px;
-        margin-bottom: 15px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
+          width: 100%;
+          padding: 8px;
+          margin-bottom: 15px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
       }
 
       #edit-user-info-form button {
-        width: 100%;
-        padding: 10px;
-        background-color:orange;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
+          width: 100px;
+          padding: 10px;
+          background-color: orange;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          margin-right: 10px;
       }
+      
+      #close-form-btn{
+        margin-left: 135px;
 
-      #edit-user-info-form button:hover {
-        background-color: sandybrown ;
       }
-      /* kết thúc css form thay đổi thông tin user */
+      #edit-user-info-form button:hover {
+          background-color: sandybrown;
+      }
+      /* CSS cho một cái navigation bar phụ để responsive */
+      .hidden_header{
+        display: none !important;
+      }
+      #open_header{
+        font-size: 30px;
+        font-weight: bold;
+        color: #3e6001;
+      }
+      #temporary-header{
+        background-color: #f29f05;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        *{
+          cursor: pointer;
+          margin: 0.3rem 0.4rem;
+        }
+      }
+      #fa-angle-up{
+        color:#3e6001;
+        display: none;
+        font-size: 30px;
+        box-sizing: border-box;
+        padding: 2px;
+        border: 1px solid #3e6001;
+      }
+      @media only screen and (max-width: 600px) {
+        #fa-angle-up{
+          display: block;
+        }
+      }
+      
+/* Kết thúc CSS form thay đổi thông tin user */
     </style>
   </head>
-  <body>
+<body>
     <!-- Bắt đầu code phần header -->
     <nav
       class="navbar sticky-top navbar-light bg-light"
@@ -231,11 +276,24 @@
           <a class="btn btn-outline-success" href="/public/HTML/LoginAndSignUp.html?request=signup" role="button">Đăng ký</a>
         </div>
         <!-- Nếu đã đăng nhập thì hiển thị ra icon user -->
-        <div id="logged_in-user-icon" class="noclass">
+        <div id="logged_in-user-icon" class="noclass text-center">
           <i class="fa-solid fa-user" id="user-logged"></i>
+          <div class="text-center"><b>Thông tin tài khoản</b></div>
         </div>
+        <i class="fa-solid fa-angle-up" id="fa-angle-up"></i>
+      </div>
     </nav>
     <!-- Kết thúc phần header -->
+    <!-- Code cho phần header phụ để hiển thị cho kích thước điện thoại -->
+    <nav id="temporary-header" class="hidden_header">
+      <a class="navbar-brand" href="/public/Home.html" style="color: #3e6001; font-size: 28px; font-weight: bold">
+        <img src="/public/image/Kitti-Logo.jpg" alt="" width="50" height="50" class="d-inline-block align-text-center"
+          style="border-radius: 50%" />
+        Kitti
+      </a>
+      <i class="fa-solid fa-bars" id="open_header"></i>
+    </nav>
+    <!-- Kết thúc code cho header phụ -->
     <!-- Form chỉnh sửa thông tin người dùng -->
     <div id="edit-user-info-form" style="display: none;">
       <h3>Chỉnh sửa thông tin người dùng</h3>
@@ -250,6 +308,7 @@
         <input type="password" id="edit-password" name="password" placeholder="Nhập mật khẩu mới"><br>
     
         <button type="button" id="save-changes-btn">Lưu thay đổi</button>
+        <button type="button" id="close-form-btn">Đóng</button>
       </form>
     </div>
     <script type="module">
@@ -287,49 +346,49 @@
       }
     
       // Hàm chỉnh sửa khi người dùng bấm "Chỉnh sửa"
-      async function editUser(event){
-        const userId = event.target.dataset.id;
-        const user = await UserService.getUserById(userId);
-    
-        if (user) {
-          // Hiển thị form chỉnh sửa và điền thông tin người dùng hiện tại
-          document.getElementById("edit-user-info-form").style.display = "block";
-          document.getElementById("edit-username").value = user.name;
-          document.getElementById("edit-phone").value = user.phone;
-          document.getElementById("edit-password").value = ""; // Không điền mật khẩu cũ
-    
-          // Xử lý khi người dùng lưu thay đổi
-          document.getElementById("save-changes-btn").onclick = async function() {
-            const newName = document.getElementById("edit-username").value;
-            const newPhone = document.getElementById("edit-phone").value;
-            const newPassword = document.getElementById("edit-password").value;
-    
-            // Kiểm tra xem người dùng có nhập dữ liệu mới không
-            if (newName && newPhone) {
-              user.name = newName;
-              user.phone = newPhone;
-              if (newPassword) {
-                user.password = newPassword; // Cập nhật mật khẩu nếu có
-              }
-    
-              await UserService.updateUser(user); // Cập nhật người dùng qua UserService
-              document.getElementById("edit-user-info-form").style.display = "none"; // Ẩn form sau khi cập nhật
-    
-              // Sau khi cập nhật, bạn có thể tải lại danh sách người dùng nếu cần:
-              const users = await getUsersFromUserService();
-              renderUserRows(users); // Cập nhật danh sách người dùng
-            }
-          };
+        async function editUser(event) {
+          const userId = event.target.dataset.id;
+          const user = await UserService.getUserById(userId);
+
+      if (user) {
+      // Hiển thị form chỉnh sửa và điền thông tin người dùng hiện tại
+      document.getElementById("edit-user-info-form").style.display = "block";
+      
+      // Ẩn icon user profile khi form chỉnh sửa hiện ra
+      document.getElementById("logged_in-user-icon").style.display = "none";
+
+      document.getElementById("edit-username").value = user.name;
+      document.getElementById("edit-phone").value = user.phone;
+      document.getElementById("edit-password").value = ""; // Không điền mật khẩu cũ
+
+      // Xử lý khi người dùng lưu thay đổi
+      document.getElementById("save-changes-btn").onclick = async function () {
+        const newName = document.getElementById("edit-username").value;
+        const newPhone = document.getElementById("edit-phone").value;
+        const newPassword = document.getElementById("edit-password").value;
+
+      // Kiểm tra xem người dùng có nhập dữ liệu mới không
+      if (newName && newPhone) {
+        user.name = newName;
+        user.phone = newPhone;
+        if (newPassword) {
+          user.password = newPassword; // Cập nhật mật khẩu nếu có
         }
+
+        await UserService.updateUser(user); // Cập nhật người dùng qua UserService
+        document.getElementById("edit-user-info-form").style.display = "none"; // Ẩn form sau khi cập nhật
+        
+      // Hiển thị lại icon user profile khi đóng form
+      document.getElementById("logged_in-user-icon").style.display = "block";
       }
-    
+      };}}
       // Tạo ra menu account
       function renderUserMenu(user_id){
         let user = UserService.getUserById(user_id);
         let userMenu = `<div class="container-fluid login-invisible flex-column" id="user-menu">
             <div>
               <div class="container-fluid d-flex justify-content-center">
-                <img src="https://png.pngtree.com/png-clipart/20191121/original/pngtree-user-icon-png-image_5097430.jpg" alt="" id="user-image">
+                <img src="https://i.pinimg.com/enabled_hi/564x/1e/f8/15/1ef8156889dba99417ff2b3a6d99988d.jpg" alt="" id="user-image">
               </div>
               <div class="container-fluid d-grid gap-3">
                 <div class="row">
@@ -375,6 +434,14 @@
       });
       // Kiểm tra và lưu thông tin khi nhấn nút Lưu thay đổi
       document.getElementById("save-changes-btn").addEventListener('click', () => {
+        let userMenu = document.getElementById("user-menu");
+        if (userMenu.classList.contains("login-invisible")) {
+          userMenu.classList.remove("login-invisible");
+          userMenu.classList.add("d-flex");
+        } else {
+          userMenu.classList.add("login-invisible");
+          userMenu.classList.remove("d-flex");
+        }
         const username = document.getElementById("edit-username").value.trim();
         const phone = document.getElementById("edit-phone").value.trim();
         const password = document.getElementById("edit-password").value.trim();
@@ -399,7 +466,51 @@
             console.error("Error updating user info:", error);
             alert("Có lỗi xảy ra. Vui lòng thử lại sau.");
           });
+          
       });
+      // Đóng form khi nhấn nút "Đóng"
+      document.getElementById("close-form-btn").addEventListener('click', () => {
+        // Hiển thị lại icon user profile khi đóng form
+        let userMenu = document.getElementById("user-menu");
+        if (userMenu.classList.contains("login-invisible")) {
+          userMenu.classList.remove("login-invisible");
+          userMenu.classList.add("d-flex");
+        } else {
+          userMenu.classList.add("login-invisible");
+          userMenu.classList.remove("d-flex");
+        }
+        document.getElementById("logged_in-user-icon").style.display = "block";
+        document.getElementById("edit-user-info-form").style.display = "none"; // Ẩn form chỉnh sửa thông tin
+      });
+      // Đóng form khi nhấn nút "Đóng"
+      document.getElementById("close-form-btn").addEventListener('click', () => {
+        document.getElementById("edit-user-info-form").style.display = "none"; // Ẩn form chỉnh sửa thông tin
+      });
+       // Hiển thị lại icon user profile khi đóng form
+      document.getElementById("logged_in-user-icon").style.display = "block";
+
+      // Chuyển đổi hiển thị cho header
+      let tempoHeader = document.getElementById("temporary-header");
+      let header = document.getElementById("header");
+      // Hàm mở header ra khi kích thước điện thoại
+      function openHeader(tempoHeader, header){
+        if (header.classList.contains("hidden_header")) {
+          console.log("You have clicked to the hidden menu");
+          header.classList.remove("hidden_header");
+          tempoHeader.classList.add("hidden_header");
+        } else {
+          header.classList.add("hidden_header");
+          tempoHeader.classList.remove("hidden_header");
+        }
+      }
+      console.log("This is to check  window matchmedia:",window.matchMedia("(max-width:700px)"));
+      if(window.matchMedia("(max-width:700px)").matches){
+        tempoHeader.classList.remove("hidden_header");
+        console.log(tempoHeader.classList);
+        header.classList.add("hidden_header");
+      }
+      document.getElementById("open_header").addEventListener("click",() => openHeader(tempoHeader, header));
+      document.getElementById("fa-angle-up").addEventListener("click",() => openHeader(tempoHeader, header));
     </script>
 <!-- Kết thúc form chỉnh sửa thông tin người dùng -->
 </body>

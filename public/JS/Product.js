@@ -54,6 +54,25 @@ function renderSlideProducts() {
             delay: 2500,
             disableOnInteraction: false,
         },
+        
+        // Cấu hình responsive cho Swiper
+        breakpoints: {
+            // Màn hình nhỏ (dưới 768px)
+            0: {
+                slidesPerView: 1, // Hiển thị 1 slide
+                spaceBetween: 10,
+            },
+            // Màn hình trung bình (từ 768px đến dưới 992px)
+            768: {
+                slidesPerView: 2, // Hiển thị 2 slide
+                spaceBetween: 20,
+            },
+            // Màn hình lớn (trên 992px)
+            992: {
+                slidesPerView: 3, // Hiển thị 3 slide
+                spaceBetween: 30,
+            }
+        }
     });
 }
 

@@ -11,6 +11,8 @@
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/public/CSS/Payment.css">
+     <!-- link biểu tượng trên tab trình duyệt -->
+     <link rel="icon" href="/public/image/Kitti-Logo.jpg" type="image/png">
 </head>
 
 <body>
@@ -75,14 +77,14 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h2 class="modal-title" id="orderModalLabel">Thanh toán thành công</h2>
+                    <h2 class="modal-title" id="orderModalLabel">Đặt hàng thành công</h2>
                     <button type="button" class="btn-close close-btn" data-bs-dismiss="modal"
                         aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <img src="https://cdn-icons-png.flaticon.com/512/845/845646.png" alt="Success"
                         class="success-icon mb-3" width="100px">
-                    <h3>Chi tiết đơn hàng</h3>
+                    <h3 id="detailorder">Chi tiết đơn hàng</h3>
                     <div class="order-details" id="sucessful-payment-products">
                     </div>
                     <!-- Thêm địa chỉ và tên khách -->
