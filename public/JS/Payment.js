@@ -142,40 +142,40 @@ document.getElementById("pay-button").addEventListener('click', () => {
             document.getElementById("orderModal").classList.remove("invisible");
             document.getElementById("orderModal").style.display = "block";
             document.getElementById("paymentForm").classList.add("invisible");
-        }
-        // Thay đổi trạng thái đơn hàng hoặc là 
-        let user_id = localStorage.getItem("user_id");
-        for (let i = 0; i < checkedProducts().length; i++) {
-            let checkedProduct = checkedProducts()[i];
-            if (user_id) {
-                let product_id = checkedProducts()[i].productId;
-                let order = OrderService.getOrderByUserIdAndProductId(user_id, checkedProducts()[i].productId);
-                // Nếu có đơn hàng thì cập nhật
-                if(order){
-                    order.status = "Đang xử lý";
-                    order.address = addressOrder;
-                    OrderService.updateOrder(order);
-                    console.log("Updated!");
-                }else{ //nếu chưa có đơn thì thêm đơn mới
-                    order = {
+
+            // Thay đổi trạng thái đơn hàng hoặc là 
+            let user_id = localStorage.getItem("user_id");
+            for (let i = 0; i < checkedProducts().length; i++) {
+                let checkedProduct = checkedProducts()[i];
+                if (user_id) {
+                    let product_id = checkedProducts()[i].productId;
+                    let order = OrderService.getOrderByUserIdAndProductId(user_id, checkedProducts()[i].productId);
+                    // Nếu có đơn hàng thì cập nhật
+                    if(order){
+                        order.status = "Đang xử lý";
+                        order.address = addressOrder;
+                        OrderService.updateOrder(order);
+                        console.log("Updated!");
+                    }else{ //nếu chưa có đơn thì thêm đơn mới
+                        order = {
+                            id: Math.floor(Math.random() * 9999), product_id: checkedProduct.productId,
+                            user_id: user_id, address: addressOrder, quantity: checkedProduct.quantity, status: "Đang xử lý"
+                        };
+                        OrderService.saveOrder(order);
+                        console.log("Add new order");
+                    }
+                    
+                } else {
+
+                    let order = {
                         id: Math.floor(Math.random() * 9999), product_id: checkedProduct.productId,
-                        user_id: user_id, address: addressOrder, quantity: checkedProduct.quantity, status: "Đang xử lý"
+                        user_id: "no-user", address: addressOrder, quantity: checkedProduct.quantity, status: "Đang xử lý"
                     };
                     OrderService.saveOrder(order);
                     console.log("Add new order");
                 }
-                
-            } else {
-
-                let order = {
-                    id: Math.floor(Math.random() * 9999), product_id: checkedProduct.productId,
-                    user_id: "no-user", address: addressOrder, quantity: checkedProduct.quantity, status: "Đang xử lý"
-                };
-                OrderService.saveOrder(order);
-                console.log("Add new order");
             }
-        }
-        
+        } 
     }
 });
 

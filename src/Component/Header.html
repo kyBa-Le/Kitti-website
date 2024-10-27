@@ -304,8 +304,8 @@
         <label for="edit-phone">Số điện thoại:</label>
         <input type="tel" id="edit-phone" name="phone" placeholder="Nhập số điện thoại mới"><br>
     
-        <label for="edit-password">Password:</label>
-        <input type="password" id="edit-password" name="password" placeholder="Nhập mật khẩu mới"><br>
+        <label for="confirm-password">Mật khẩu:</label>
+        <input type="password" id="confirm-password" name="confirm-password" placeholder="Nhập mật khẩu xác nhận thay đổi"><br>
     
         <button type="button" id="save-changes-btn">Lưu thay đổi</button>
         <button type="button" id="close-form-btn">Đóng</button>
@@ -360,42 +360,60 @@
       }
     
       // Hàm chỉnh sửa khi người dùng bấm "Chỉnh sửa"
-        async function editUser(event) {
+      async function editUser(event) {
           const userId = event.target.dataset.id;
           const user = await UserService.getUserById(userId);
 
-      if (user) {
-      // Hiển thị form chỉnh sửa và điền thông tin người dùng hiện tại
-      document.getElementById("edit-user-info-form").style.display = "block";
-      
-      // Ẩn icon user profile khi form chỉnh sửa hiện ra
-      document.getElementById("logged_in-user-icon").style.display = "none";
-
-      document.getElementById("edit-username").value = user.name;
-      document.getElementById("edit-phone").value = user.phone;
-      document.getElementById("edit-password").value = ""; // Không điền mật khẩu cũ
-
-      // Xử lý khi người dùng lưu thay đổi
-      document.getElementById("save-changes-btn").onclick = async function () {
-        const newName = document.getElementById("edit-username").value;
-        const newPhone = document.getElementById("edit-phone").value;
-        const newPassword = document.getElementById("edit-password").value;
-
-      // Kiểm tra xem người dùng có nhập dữ liệu mới không
-      if (newName && newPhone) {
-        user.name = newName;
-        user.phone = newPhone;
-        if (newPassword) {
-          user.password = newPassword; // Cập nhật mật khẩu nếu có
-        }
-
-        await UserService.updateUser(user); // Cập nhật người dùng qua UserService
-        document.getElementById("edit-user-info-form").style.display = "none"; // Ẩn form sau khi cập nhật
+          if (user) {
+        // Hiển thị form chỉnh sửa và điền thông tin người dùng hiện tại
+        document.getElementById("edit-user-info-form").style.display = "block";
         
-      // Hiển thị lại icon user profile khi đóng form
-      document.getElementById("logged_in-user-icon").style.display = "block";
+        // Ẩn icon user profile khi form chỉnh sửa hiện ra
+        document.getElementById("logged_in-user-icon").style.display = "none";
+
+        document.getElementById("edit-username").value = user.name;
+        document.getElementById("edit-phone").value = user.phone;
+
+        // Xử lý khi người dùng lưu thay đổi
+        document.getElementById("save-changes-btn").onclick = async function () {
+          const newName = document.getElementById("edit-username").value;
+          const newPhone = document.getElementById("edit-phone").value;
+          const confirmPassword = document.getElementById("confirm-password").value;
+
+          // Kiểm tra nếu người dùng không nhập đủ thông tin
+          if (!newName || !newPhone || !confirmPassword) {
+            alert("Vui lòng nhập đầy đủ thông tin.");
+            return;
+          } else if (confirmPassword != user.password) {
+            alert("Mật khẩu chưa chính xác. Vui lòng thử lại.");
+            return;
+          } else {
+            // Cập nhật người dùng nếu mật khẩu khớp
+            const user = await UserService.getUserById(user_id);
+            user.name = newName;
+            user.phone = newPhone;
+            user.password = confirmPassword;
+            
+            await UserService.updateUser(user); 
+            alert("Cập nhật thông tin thành công!");
+            
+            // Ẩn form sau khi cập nhật
+            document.getElementById("edit-user-info-form").style.display = "none";
+            // Hiển thị lại icon user profile khi đóng form
+            document.getElementById("logged_in-user-icon").style.display = "block";
+            let userMenu = document.getElementById("user-menu");
+            if (userMenu.classList.contains("login-invisible")) {
+              userMenu.classList.remove("login-invisible");
+              userMenu.classList.add("d-flex");
+            } else {
+              userMenu.classList.add("login-invisible");
+              userMenu.classList.remove("d-flex");
+            }
+          }
+        }
       }
-      };}}
+        }
+      
       // Tạo ra menu account
       function renderUserMenu(user_id){
         let user = UserService.getUserById(user_id);
@@ -434,7 +452,7 @@
         document.getElementById("edit").addEventListener('click', editUser);
         document.getElementById("logOut").addEventListener('click', logOut);
       }
-    
+      
       // Hiển thị menu account khi ấn vào
       document.getElementById("user-logged").addEventListener('click', () => {
         let userMenu = document.getElementById("user-menu");
@@ -446,42 +464,7 @@
           userMenu.classList.remove("d-flex");
         }
       });
-      // Kiểm tra và lưu thông tin khi nhấn nút Lưu thay đổi
-      document.getElementById("save-changes-btn").addEventListener('click', () => {
-        let userMenu = document.getElementById("user-menu");
-        if (userMenu.classList.contains("login-invisible")) {
-          userMenu.classList.remove("login-invisible");
-          userMenu.classList.add("d-flex");
-        } else {
-          userMenu.classList.add("login-invisible");
-          userMenu.classList.remove("d-flex");
-        }
-        const username = document.getElementById("edit-username").value.trim();
-        const phone = document.getElementById("edit-phone").value.trim();
-        const password = document.getElementById("edit-password").value.trim();
-
-        // Kiểm tra nếu người dùng không nhập đủ thông tin
-        if (!username || !phone || !password) {
-          alert("Vui lòng nhập đầy đủ thông tin.");
-          return;
-        }
-
-        // Nếu thông tin hợp lệ, gọi UserService để lưu thay đổi
-        UserService.updateUserInfo({ username, phone, password })
-          .then(response => {
-            if (response.success) {
-              alert("Cập nhật thông tin thành công!");
-              // Cập nhật giao diện nếu cần thiết
-            } else {
-              alert("Cập nhật thông tin thất bại. Vui lòng thử lại.");
-            }
-          })
-          .catch(error => {
-            console.error("Error updating user info:", error);
-            alert("Có lỗi xảy ra. Vui lòng thử lại sau.");
-          });
-          
-      });
+      
       // Đóng form khi nhấn nút "Đóng"
       document.getElementById("close-form-btn").addEventListener('click', () => {
         // Hiển thị lại icon user profile khi đóng form
@@ -496,11 +479,12 @@
         document.getElementById("logged_in-user-icon").style.display = "block";
         document.getElementById("edit-user-info-form").style.display = "none"; // Ẩn form chỉnh sửa thông tin
       });
+      
       // Đóng form khi nhấn nút "Đóng"
       document.getElementById("close-form-btn").addEventListener('click', () => {
         document.getElementById("edit-user-info-form").style.display = "none"; // Ẩn form chỉnh sửa thông tin
       });
-       // Hiển thị lại icon user profile khi đóng form
+      // Hiển thị lại icon user profile khi đóng form
       document.getElementById("logged_in-user-icon").style.display = "block";
 
       // Chuyển đổi hiển thị cho header

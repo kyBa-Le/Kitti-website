@@ -27,41 +27,46 @@ body {
 }
 /* Bắt đầu phần Css icon home - back*/
 .home-icon, .back-icon {
-  position: fixed;               
-  bottom: 20px;                 
-  background: #ea550f; 
+  position: fixed;              
+  bottom: 20px;                
+  background: #ea550f;
   color: white;                
   border: none;                
   border-radius: 50%;          
   padding: 10px;                  
-  font-size: 20px;               
+  font-size: 20px;              
   width: 30px;                    
-  height: 30px;                 
+  height: 30px;                
   display: flex;                  
-  justify-content: center;       
+  justify-content: center;      
   align-items: center;            
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-  text-decoration: none;           
-  transition: all 0.3s ease;   
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-decoration: none;          
+  transition: all 0.3s ease;  
 }
+
 
 .home-icon {
   right: 20px;  
 }
 
+
 .back-icon {
   left: 20px;  
 }
 
+
 .home-icon:hover, .back-icon:hover {
-  transform: translateY(-3px);   
-  box-shadow: 0 6px 12px rgba(217, 125, 45, 0.2); 
+  transform: translateY(-3px);  
+  box-shadow: 0 6px 12px rgba(217, 125, 45, 0.2);
   color: white;
 }
 
+
 .home-icon:hover i, .back-icon:hover i {
-  transform: scale(1.1);         
+  transform: scale(1.1);        
 }
+
 
 /* Kết thúc phần css icon home - back */
 .product-container {
@@ -78,10 +83,12 @@ body {
     width: 100%;
 }
 
+
 .product-image {
     flex: 1;
     padding-right: 1px;
 }
+
 
 .product-image img {
     /* max-width: 500px;  */
@@ -91,11 +98,12 @@ body {
     object-fit: cover;
 }
 
+
 .product-details {
-    padding-left: 30px;
+    padding: 0 30px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     justify-content: center;
 }
 #detail {
@@ -103,6 +111,7 @@ body {
     font-size: 25px;
     margin-bottom: 5px;
 }
+
 
 #product {
     font-size: 20px;
@@ -116,11 +125,14 @@ body {
 }
 
 
+
+
 .price {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
 }
+
 
 .original-price {
     text-decoration: line-through;
@@ -128,21 +140,25 @@ body {
     margin-right: 10px;
 }
 
+
 .discounted-price {
     font-size: 24px;
     color: #ff7043;
 }
+
 
 .options {
     display: flex;
     align-items: center;
 }
 
+
 .quantity {
     display: flex;
     align-items: center;
     margin-right: 10px;
 }
+
 
 .quantity button {
     background-color: #ff7043;
@@ -154,12 +170,14 @@ body {
     margin: 0 5px;
 }
 
+
 .quantity input {
     width: 50px;
     text-align: center;
     border: 1px solid #ddd;
     padding: 5px;
 }
+
 
 .add-to-cart,
 .buy-now {
@@ -170,20 +188,31 @@ body {
     margin-right: 10px;
 }
 
+
 .buy-now {
     background-color: #ff7043;
     color: #fff;
 }
 
+
 .buy-now:hover {
     background-color: #e64a19;
 }
+
 
 .add-to-cart:hover {
     background-color: #dbdbdb;
 }
 .invisible{
     display: none;
+}
+
+/* Responsive cho mobile */
+@media (max-width: 768px) {
+    .product-container{
+        flex-direction: column;
+        padding-bottom: 100px;
+    }
 }
 </style>
 </head>
@@ -192,10 +221,12 @@ body {
     </div>
     <div id="payment-form"></div>
 
+
     <!-- Bắt đầu phần icon home - back icon -->
     <a id="home-icon" class="home-icon" href="#"><i class="fas fa-home"></i></a>
     <a id="back-icon" class="back-icon" href="#"><i class="fas fa-arrow-left"></i></a>
     <!-- Kết thúc phần icon home - back icon -->
+
 
     <!-- Phần bên dưới là của JS -->
     <script type="module" src="/public/JS/ProductDetail.js"></script>
@@ -211,12 +242,13 @@ body {
         //  Bắt đầu phần js cho nút home - back
         document.getElementById("home-icon").addEventListener("click", function(home) {
             home.preventDefault();
-            window.location.href = "/public/Home.html"; 
+            window.location.href = "/public/Home.html";
         });
+
 
         document.getElementById("back-icon").addEventListener("click", function(back) {
             back.preventDefault();
-            window.history.back(); 
+            window.history.back();
         });
         // Kết thúc phần js cho nút home - back
     </script>
