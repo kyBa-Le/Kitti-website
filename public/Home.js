@@ -24,7 +24,7 @@ if(!Object.keys(localStorage).includes("user_id")){
 
 // Tạo hiệu ứng chuyển động: phần chữ của quảng cáo
 const animateSection = document.querySelector('.animate-section');
-const triggerPoint = window.innerHeight * 0.5;
+const triggerPoint = window.innerHeight * 0.3;
 let isShown = false; // Biến cờ để theo dõi trạng thái
 
 window.addEventListener('scroll', () => {

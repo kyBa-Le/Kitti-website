@@ -65,7 +65,7 @@ function createRecipeItems(recipes){
     }
 }
 
-document.getElementById("result-for-keyword").innerHTML += '"' + key + '"';
+document.getElementById("result-for-keyword").innerHTML += '"' + key + '"' + `<h3 style="color:#fdc968; display: inline;""> - ${filter}</h3>`;
 
 // Hiển thị ra các sản phẩm khi load trang
 createProductItems(products);
