@@ -92,7 +92,7 @@ body {
 }
 
 .product-details {
-    padding-left: 30px;
+    padding: 0 30px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
     flex-direction: column; 
@@ -184,6 +184,14 @@ body {
 }
 .invisible{
     display: none;
+}
+
+/* Responsive cho mobile */
+@media (max-width: 768px) {
+    .product-container{
+        flex-direction: column;
+        padding-bottom: 100px;
+    }
 }
 </style>
 </head>

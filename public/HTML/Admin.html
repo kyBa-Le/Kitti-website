@@ -222,13 +222,26 @@
                             <label for="recipeTime" class="form-label">Thời gian nấu</label>
                             <input type="text" class="form-control" id="recipeTime" required>
                         </div>
+                        <!-- Thay đổi input Mức độ thành select -->
                         <div class="mb-3">
                             <label for="recipeDifficulty" class="form-label">Mức độ</label>
-                            <input type="text" class="form-control" id="recipeDifficulty" required>
+                            <select class="form-select" id="recipeDifficulty" required>
+                                <option value="" disabled selected>Chọn mức độ</option>
+                                <option value="Dễ">Dễ</option>
+                                <option value="Trung bình">Trung bình</option>
+                                <option value="Khó">Khó</option>
+                            </select>
                         </div>
+                        <!-- Thay đổi input Thể loại thành select -->
                         <div class="mb-3">
                             <label for="recipeType" class="form-label">Thể loại</label>
-                            <input type="text" class="form-control" id="recipeType" required>
+                            <select class="form-select" id="recipeType" required>
+                                <option value="" disabled selected>Chọn thể loại</option>
+                                <option value="Chay">Chay</option>
+                                <option value="Mặn">Mặn</option>
+                                <option value="Tăng cân">Tăng cân</option>
+                                <option value="Giảm cân">Giảm cân</option>
+                            </select>
                         </div>
                         <div class="mb-3">
                             <label for="recipeIngredients" class="form-label">Nguyên Liệu</label>
@@ -259,6 +272,40 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
                     <button type="button" class="btn admin-color-add" id="submitRecipe">Thêm Công Thức</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Chỉnh Sửa Trạng Thái Đơn Hàng -->
+    <div class="modal fade" id="editOrderStatusModal" tabindex="-1" aria-labelledby="editOrderStatusModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editOrderStatusModalLabel">Chỉnh Sửa Trạng Thái Đơn Hàng</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="orderStatusForm">
+                        <!-- Trường ẩn ID đơn hàng, đặt readonly -->
+                        <div class="mb-3" style="display: none;">
+                            <label for="orderId" class="form-label">ID Đơn Hàng</label>
+                            <input type="number" class="form-control" id="orderId" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="orderStatus" class="form-label">Trạng Thái Đơn Hàng</label>
+                            <select class="form-select" id="orderStatus" required>
+                                <option value="">Chọn trạng thái</option>
+                                <option value="Đang xử lý">Đang xử lý</option>
+                                <option value="Đang giao">Đang giao</option>
+                                <option value="Đã giao">Đã giao</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-success" id="submitOrderStatus">Lưu Thay Đổi</button>
                 </div>
             </div>
         </div>
