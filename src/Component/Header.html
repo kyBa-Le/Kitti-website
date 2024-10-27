@@ -262,11 +262,11 @@
                 <span id="filter-content">Tất cả</span>
               </button>
               <ul class="dropdown-menu" aria-labelledby="defaultDropdown">
-                <li><a class="dropdown-item" href="#">Chay</a></li>
-                <li><a class="dropdown-item" href="#">Mặn</a></li>
-                <li><a class="dropdown-item" href="#">Tăng cân</a></li>
-                <li><a class="dropdown-item" href="#">Giảm cân</a></li>
-                <li><a class="dropdown-item" href="#">Tất cả</a></li>
+                <li><a class="dropdown-item filter-value" href="#">Chay</a></li>
+                <li><a class="dropdown-item filter-value" href="#">Mặn</a></li>
+                <li><a class="dropdown-item filter-value" href="#">Tăng cân</a></li>
+                <li><a class="dropdown-item filter-value" href="#">Giảm cân</a></li>
+                <li><a class="dropdown-item filter-value" href="#">Tất cả</a></li>
               </ul>
             </div>
           </div>
@@ -322,15 +322,29 @@
         });
       }
     
+      // Hàm tìm kiếm
+      function searchingEvent(){
+        const key = document.getElementById("searchbar").value;
+        const filter = document.getElementById("filter-content").textContent;
+        window.location.href = `/public/HTML/SearchingResult.html?key=${key}&type=${filter}`;
+      }
+
       // Tìm kiếm khi ấn phím enter
       document.getElementById("searchbar").addEventListener("keydown", (event) => {
         if (event.key === 'Enter') {
-          const key = document.getElementById("searchbar").value;
-          const filter = document.getElementById("filter-content").textContent;
-          window.location.href = `/public/HTML/SearchingResult.html?key=${key}&type=${filter}`;
+          searchingEvent();
         }
       });
-    
+      // Tìm kiếm khi ở trang tìm kiếm mà ấn nút lọc
+      const filters = document.getElementsByClassName("filter-value"); 
+      for(let i = 0; i<filters.length; i++){
+        filters[i].addEventListener("click", () => {
+          if (window.location.href.includes("/public/HTML/SearchingResult.html")) {
+            searchingEvent();
+            console.log("You have clicked filter!");
+          }
+        })
+      }
       let user_id = localStorage.getItem("user_id");
       if(user_id){
         console.log(localStorage.getItem("user_id"));
