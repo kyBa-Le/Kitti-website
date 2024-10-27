@@ -97,7 +97,8 @@
       }
       @media only screen and (max-width: 600px) {
         #user-menu{
-        right: -500%;
+        right: -200px;
+        left: auto;
         width: 300px;
         }
         .fa-angle-up{
@@ -121,12 +122,12 @@
           display: none; /* Ẩn form ban đầu */
           position: fixed;
           top: 50%;
-          left: 45%; /* Đưa form sang bên trái một chút */
+          left: 50%; /* Đưa form sang bên trái một chút */
           transform: translate(-50%, -50%); /* Cân chỉnh lại form */
           background-color: white;
           padding: 20px;
           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-          z-index: 1000; /* Đảm bảo form nằm trên overlay */
+          z-index: inherit; /* Đảm bảo form nằm trên overlay */
           width: 400px;
           border-radius: 10px;
       }
