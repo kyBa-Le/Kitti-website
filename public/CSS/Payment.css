@@ -65,16 +65,19 @@ font-family: "Dosis", sans-serif;
 
 /* Phần css của hiển thị thành công */
 .success-icon {
-    width: 60px;
     margin-bottom: 10px;
+    width: 70px; /* Tăng kích thước icon để nổi bật */
+    margin: 0 auto 10px auto; /* Căn giữa icon */
+    display: block; /* Đảm bảo icon là một phần tử block để dễ căn giữa */
 }
 
 .modal-title {
-    font-size: 1.5em;
+    font-size: 1.8em;
     font-weight: bold;
     margin-bottom: 10px;
     text-align: center;
     width: 100%;
+    color: coral;
 }
 
 
@@ -113,7 +116,6 @@ font-family: "Dosis", sans-serif;
     position: absolute;
     top: 10px;
     right: 10px;
-    font-size: 1.5em;
     font-weight: bold;
     color: #de700f;
     cursor: pointer;
@@ -135,6 +137,10 @@ font-family: "Dosis", sans-serif;
     overflow-y: auto;
     border: 1px solid #FC8A06;
     height: auto;
+    margin: auto; /* Giúp modal hiển thị ở giữa màn hình */
+    top: 50%; /* Canh giữa dọc */
+    transform: translateY(-50%); /* Căn giữa dọc modal */
+    position: relative;
 }
 
 .modal-content {
@@ -145,11 +151,6 @@ font-family: "Dosis", sans-serif;
     max-height: none;
     overflow-y: visible;
     border: 1px solid #FC8A06;
-}
-
-.order-details p {
-    font-size: 1 em;
-    margin: 0;
 }
 
 .close-bottom {
@@ -167,11 +168,14 @@ font-family: "Dosis", sans-serif;
     font-size: 1em;
     margin-bottom: 10px;
 }
-
-.total-amount {
-    font-size: 1em;
+.total{
+    font-weight: bold;
+    color:coral;
 }
-
 .invisible {
     display: none;
+}
+#detailorder{
+    font-weight: bold;
+    font-size: 20px;
 }
