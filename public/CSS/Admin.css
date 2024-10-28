@@ -1,7 +1,7 @@
 /* Đảm bảo không có thanh cuộn ngang */
 body {
     overflow-x: hidden;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Dosis';
     background-color: #f4f4f9; /* Màu nền sáng dịu mắt */
     margin: 0;
     padding: 0;
