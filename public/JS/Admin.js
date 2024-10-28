@@ -48,18 +48,19 @@ async function addOrEditProduct() {
     const productDescription = document.getElementById("productDescription").value;
 
     let newProduct = {};
+    let updateProduct = {};
 
     if (productID) {
         const productIDNum = parseInt(productID);
 
-        newProduct = {
+        updateProduct = {
             id: productIDNum,
             name: productName,
             image_link: productImageLink,
             price: productPrice,
             description: productDescription
         };
-        await ProductService.updateProduct(newProduct); // Cập nhật sản phẩm
+        await ProductService.updateProduct(updateProduct); // Cập nhật sản phẩm
     } else {
         newProduct = {
             id: Math.floor(Math.random() * 9999),
@@ -120,14 +121,14 @@ function resetProductForm() {
     document.getElementById("productDescription").value = "";
 }
 document.getElementById('submitProduct').addEventListener('click', addOrEditProduct);
-document.getElementById('productTableBody').addEventListener('click', async function(e) {
-    const productID = e.target.getAttribute('data-id');
+document.getElementById('productTableBody').addEventListener('click', async function(event) {
+    const productID = event.target.getAttribute('data-id');
 
-    if (e.target.classList.contains('product-remove')) {
+    if (event.target.classList.contains('product-remove')) {
         await deleteProduct(productID);
     }
 
-    if (e.target.classList.contains('product-edit')) {
+    if (event.target.classList.contains('product-edit')) {
         await editProduct(productID);
     }
 });
