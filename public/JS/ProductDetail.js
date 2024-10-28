@@ -17,6 +17,7 @@ document.getElementById("product-detail-container").innerHTML =
     <div class="product-details">
         <h2 id="detail">Chi tiết sản phẩm</h2>
         <h1 id="product">${product.name}</h1>
+        <p id ="type">Danh Mục: ${product.type}</p>
         <p id="inforproduct">${product.description}</p>
         <div class="price">
             <span class="original-price">${priceFormat(product.price + 20 * product.price / 100)} đ</span>

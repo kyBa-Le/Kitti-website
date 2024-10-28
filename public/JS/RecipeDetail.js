@@ -12,6 +12,8 @@ function renderRecipeDetail(recipe_id) {
     document.querySelector('#recipe-title').innerText = recipe.name; // Cập nhật tiêu đề
     document.querySelector('#recipe-description').innerText = recipe.description; // Cập nhật mô tả
     document.querySelector('#recipe-image').src = recipe.image_link; // Cập nhật hình ảnh
+    document.querySelector('#type-food').innerHTML = '<p></p>Danh Mục: ' + recipe.type;
+
     // Cập nhật nguyên liệu
     recipe.ingredients.forEach(ingredient => {
         const ingredientElement = `

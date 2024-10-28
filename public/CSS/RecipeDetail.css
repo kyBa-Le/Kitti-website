@@ -1,21 +1,57 @@
 /* Dưới là phần CSS form_Recipe */
+/* #btn-form-recipe{
+} */
+#container-btn-recipeform{
+  text-align: center;
+}
+#form_recipe_container h2{
+  font-weight: bold;
+  
+}
+.button_form_recipe{
+  background-color :#d96e11;
+  color: white;
+
+}
 #form_recipe_container {
-  margin: 12px;
-  padding: 12px;
+  margin: 20px;
+  padding: 24px;
   display: none;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border: 1px solid #f49506
+  background-color: #fdfcfa;
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  border: none;
 }
-.button_form_recipe{
-  background-color:#11a462;
-  color: white;
+
+h2.form_recipe {
+  font-size: 30px;
+  color:  #d96e11; /* Màu xanh lá cho tiêu đề */
+  text-align: center;
+  border-bottom: 1px solid #d96e11; /* Đường gạch dưới màu cam */
+  padding-bottom: 10px;
 }
-.button_form_recipe:hover {
-  background-color:#1a8655;
-  color: white !important;
+
+.sub_form_recipe {
+  font-size: 16px;
+}
+
+.form-select {
+  background-color: #fff;
+}
+.color {
+  color: #d96e11; 
+  font-size: 18px;
+}
+.form-select:focus {
+  border-color: #d96e11; /* Màu xanh lá khi chọn */
+  outline: none;
+  box-shadow: 0px 0px 5px rgba(196, 150, 44, 0.5);
 }
 /* Kết thúc phần CSS form_Recipe */
 
@@ -24,7 +60,7 @@
   font-family: "Dosis"; 
 }
 .container {
-  margin-top: 30px;
+  margin-top: 10px;
   border-radius: 10px;
   padding: 20px;
 }
@@ -50,15 +86,12 @@
   border-radius: 10px;
   transition: transform 0.3s ease;
 }
-.recipe-header .recipe-image img:hover {
-  transform: scale(1.05);
-}
 .recipe-header .recipe-text h2 {
   color: #ea550f;
   font-size: 30px; /* 1.9rem to px */
 }
 .recipe-header .recipe-text p {
-  margin-top: 15px;
+  margin-top: -9px;
   font-size: 18px; /* 1.1rem to px */
   color: #333;
 }
@@ -68,7 +101,7 @@
   justify-content: space-between; 
   align-items: center; 
   margin-top: 40px;
-  color: #d97b4f;
+  color: #ca4101;
   font-size: 28px; /* 1.8rem to px */
 }
 .ingredients-table h2 .left {
@@ -78,7 +111,8 @@
   color: #ea550f;
 }
 .ingredients-table h2 span {
-  font-size: 18px; /* 1.1rem to px */
+  font-size: 22px; /* 1.1rem to px */
+  color: #ea550f;
 }
 .ingredients-table h2 .left i {
   margin-right: 4px;
@@ -98,14 +132,14 @@
 /* Steps Section */
 .steps-section h2 {
   margin-top: 40px;
-  color: #f8773b;
+  color: #ea550f;
   font-size: 28.8px; /* 1.8rem to px */
 }
 .step-title {
   font-weight: bold;
   margin-top: 15px;
   font-size: 22px; /* 1.4rem to px */
-  color: #ea550f;
+  color:  #ea550f;
   margin-bottom: 10px;
 }
 .steps-section img {
