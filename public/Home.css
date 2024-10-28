@@ -3,25 +3,35 @@
   font-optical-sizing: auto;
 }
 /* CSS cho phần BANNER*/
-.home-div-image{
+/* Phần BANNER */
+.home-div-image {
     background-position: center;
     background-size: cover; 
     height: 500px;
     width: 100%;
-}    
-/* Kết thúc CSS phần BANNER */
+}
 
-/* CSS cho phần QUẢNG CÁO DƯỚI BANNER */
+/* Phần QUẢNG CÁO DƯỚI BANNER */
 .animate-section {
   opacity: 0;
   transform: translateY(50px); /* Di chuyển xuống 50px */
-  transition: all 0.8s ease-in-out; /* Thời gian chuyển tiếp và hiệu ứng chuyển động */
+  transition: transform 0.8s ease, opacity 0.8s ease; /* Giảm thời gian chuyển động và giữ mượt mà */
 }
 
 .animate-section.show {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0); /* Trở về vị trí ban đầu */
 }
+.carousel-caption h5 {
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Thêm bóng đổ cho văn bản */
+  }
+  
+  .carousel-caption p {
+    font-size: 16px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+  }
 
 /* Kết thúc phần QUẢNG CÁO DƯỚI BANNER */
         
@@ -32,9 +42,9 @@
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     margin: 30px;
     transition: transform 0.2s;
-    position: relative;
-    overflow: hidden;
-    height: 400px;
+    /* position: relative; */
+    /* overflow: hidden; */
+    /* height: 400px; */
 }
 
 .card:hover {
@@ -83,15 +93,13 @@
 .arrow-icon {
     font-size: 24px;
 }
-
-
 .card:hover .overlay {
     opacity: 1;
 }
 
 .card-img-top {
-    width: 100%;
-    max-height: 250px;
+    height: 250px;
+    width: 250px;
     object-fit: cover;
     transition: opacity 0.5s ease;
     border-top-left-radius: 15px;

@@ -96,7 +96,7 @@
     background-color: #F29F05;
 }
 #login-form *{
-    margin-bottom: 2rem;
+    margin-bottom: 16px;
 }
 /* css cho chữ dễ nhìn (class text-white) */
 .text-white{
@@ -107,4 +107,19 @@
     color:#4b8500;
     text-shadow: 2px 2px 4px #4b8500;
 }
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(10%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: black;
+}
 /*Kết thúc css của form đăng nhập*/
+
+
+
+

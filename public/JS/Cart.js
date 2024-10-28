@@ -25,7 +25,7 @@ function createOrderRow(order) {
                 <img src="${product.image_link}" alt="${product.name}" class="product_image" />
               </td>
               <td>${product.name}</td>
-              <td>${priceFormat(product.price)}₫</td>
+              <td id="price-${order.id}" data-price="${product.price}">${priceFormat(product.price)}₫</td>
               <td>
                 <div class="d-flex justify-content-center">
                   <button class="btn btn-sm btn-outline-secondary changeQuantity" data-id="${order.id}" data-number="${-1}">-</button>
@@ -39,7 +39,7 @@ function createOrderRow(order) {
                   <button class="btn btn-sm btn-outline-secondary changeQuantity" data-id="${order.id}" data-number="${1}">+</button>
                 </div>
               </td>
-              <td>${priceFormat(product.price * order.quantity)}₫</td>
+              <td id="total-${order.id}">${priceFormat(product.price * order.quantity)}₫</td>
               <td>
                 <button type="button" class="btn btn-sm btn-warning card-btn-color deleteOrder" data-id="${order.id}">
                   Xóa
@@ -98,9 +98,11 @@ document.addEventListener('DOMContentLoaded', () => {
       let orderInput = document.getElementById(`quantity-${orderId}`);
       if (!(parseInt(orderInput.value) == 1 && number < 0)){
         orderInput.value = parseInt(number) + parseInt(orderInput.value);
-        console.log("value after change:", orderInput.value);
         changeQuantity(orderId, number); // Gọi hàm với giá trị lấy được
       }
+      let getPrice = document.getElementById(`price-${orderId}`).dataset.price;
+      let getQuantity = document.getElementById(`quantity-${orderId}`).value;
+      document.getElementById(`total-${orderId}`).innerHTML = priceFormat(parseInt(getPrice) * parseInt(getQuantity)) + " ₫";
     });
   });
 
