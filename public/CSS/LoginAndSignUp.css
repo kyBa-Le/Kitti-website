@@ -1,4 +1,7 @@
 /*Phần bên dưới là của nền đăng nhập và đăgn kí*/
+body {
+    font-family: 'Dosis';
+}
 #login-background {
     background-image: url(/public/image/home-slide-1.png);
     background-repeat: no-repeat;
