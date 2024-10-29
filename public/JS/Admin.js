@@ -458,7 +458,7 @@ function createUserRow(user) {
                 <td>${user.id}</td>
                 <td>${user.name}</td>
                 <td>${user.phone}</td>
-                <td>${user.password}</td>
+                <td>****</td>
                 <td>
                     <button class="btn btn-sm btn-danger user-remove" data-id="${user.id}">Xóa</button>
                 </td>
