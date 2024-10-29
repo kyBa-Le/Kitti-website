@@ -96,3 +96,28 @@ function login(){
  // Thêm sự kiện khi ấn vào nút đăng kí/ nhập
 document.getElementById("signup-button").addEventListener('click', signUp);
 document.getElementById("login-loginButton").addEventListener('click', login);
+
+// Hàm để thay đổi trạng thái hiển thị mật khẩu
+function togglePasswordVisibility(passwordInputId, toggleButtonId) {
+    const passwordInput = document.getElementById(passwordInputId);
+    const toggleButton = document.getElementById(toggleButtonId);
+  
+    toggleButton.addEventListener("click", function () {
+        const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
+        passwordInput.setAttribute("type", type);
+  
+        const icon = toggleButton.querySelector("i");
+        if (type === "password") {
+            icon.classList.remove("fa-eye"); // Khi mật khẩu ẩn
+            icon.classList.add("fa-eye-slash");
+        } else {
+            icon.classList.remove("fa-eye-slash"); // Khi mật khẩu hiển thị
+            icon.classList.add("fa-eye");
+        }
+    });
+}
+
+// Áp dụng cho cả form đăng nhập và đăng ký
+togglePasswordVisibility("login-password", "toggle-login-password");
+togglePasswordVisibility("signup-password", "toggle-signup-password");
+togglePasswordVisibility("confirmPassword", "toggle-confirm-password");
